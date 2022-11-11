@@ -123,7 +123,7 @@
         url:"https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-6-4z5192239/portrait/1920x770a78be5fdc4ef469fa04a1dbeaa702c2e.jpg"
     },
     {
-        url:"https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-6-2176/portrait/1920x770b9b395ce22814c99b8217672c0e7deb7.jpghttps://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-6-2176/portrait/1920x770b9b395ce22814c99b8217672c0e7deb7.jpg"
+        url:"https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-6-2176/portrait/1920x770b9b395ce22814c99b8217672c0e7deb7.jpg"
     },
     {
         url:"https://akamaividz2.zee5.com/image/upload/w_231,h_347,c_scale,f_webp,q_auto:eco/resources/0-6-4z5145215/portrait/1920x770abf42130d9cf41dab2bf9e648cf3193b4100d873cc6547a8a4a4c92739160b3f.jpg"

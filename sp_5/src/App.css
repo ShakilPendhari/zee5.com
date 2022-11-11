@@ -42,4 +42,81 @@
   margin:auto;
   height:100vh;
   width:99.5%;
+  overflow: hidden;
+  height: auto;
+}
+
+
+
+.divMain{
+  overflow-y: scroll;
+}
+
+img{
+  width:100%;
+}
+::-webkit-scrollbar { 
+  width: 1px;
+  
+} 
+::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: border-box;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 30px;
+ 
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  height:1rem;
+  box-shadow: border-box;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  color:green;
+  background:linear-gradient(to bottom, rgb(249, 9, 9),white, rgb(0, 255, 140), rgb(252, 6, 252) )
+  
+}
+
+#buttons{
+  display: inline;
+  position:fixed;
+  bottom: 1rem;
+  left:90vw;
+  /* border: 1px solid green; */
+  z-index: 1000;
+  /* background-color: rgba(226, 226, 81, 0.1); */
+  background-color: none;
+  width:auto;
+  margin-right:1rem;
+  /* Posit"fixed",
+  down:"1rem", right:"1rem", border:"2px solid green", zIndex:"5000", backgroundColor:"green" */
+}
+#buttons>div{
+  display: inline;
+  margin-right:10px;
+}
+#buttons>div>button{
+  background-color: red;
+  color:white;
+  font-weight: 700;
+}
+body{
+  height:1200px;
+}
+#scroller {
+  overflow-y: scroll;
+  height: 150px;
+  width: 150px;
+  border: 5px dashed orange;
+}
+
+#output {
+  padding: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  background-color: green;
 }

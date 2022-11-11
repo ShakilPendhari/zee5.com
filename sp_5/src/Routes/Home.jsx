@@ -3,6 +3,7 @@ import axios from 'axios'
 import {Box, Heading, HStack, Stack, VStack, Container, Image} from '@chakra-ui/react'
 import '../Css/Home.css'
 import { SlArrowRight, SlArrowLeft } from 'react-icons/sl';
+import { RiVipCrownFill } from 'react-icons/ri';
 
 // Raw material
 import data,{Trending, Top10_movies, Latest_Hindi_ep, Top10_webseries, Blockbuster_films, premiun_Tv_ep, PopularMovies, World_hits} from "../RawMaterial/Home.js"
@@ -74,13 +75,15 @@ const Home = () => {
 
        <div>
         <Heading as='h2'>Trending Near You</Heading>
-        <HStack overflow={"hidden"}>
+        <HStack >
 
         {
+          
           Trending.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <div className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
+            <RiVipCrownFill className='KingCrown'/>
               <Image src={item.url} alt={item.url} />
-            </Box>
+            </div>
            ))
         }
 

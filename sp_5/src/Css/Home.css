@@ -14,3 +14,26 @@ h2{
     text-align: left;
     margin-left: 20px;
 }
+.KingCrown{
+    position:absolute;
+    left:2px;
+    top:2px;
+    z-index: 100000;
+    background-color: rgb(253, 251, 251);
+    color:rgb(220, 54, 198);
+    padding:6px;
+    border-radius: 20px;
+}
+.BoxHover{
+    transform: scale(1);
+}
+.BoxHover:hover{
+    transform: scale(1.3);
+    transition:transform .5s cubic-bezier(.4,0,.2,1);
+
+    /*  cubic-bezier(0.075, 0.82, 0.165, 1); */
+    border:5px solid rgba(255, 255, 255);
+    z-index: 2000;
+    border-radius: 10px;
+    overflow: hidden;
+}
