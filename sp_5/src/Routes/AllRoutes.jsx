@@ -7,6 +7,7 @@ import Movies from './Movies';
 import WebSeries from './WebSeries';
 import News from './News';
 import RightSideLogo from './RightSideLogo';
+import Error from './Error';
 
 const AllRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AllRoutes = () => {
        <Route path="/WebSeries" element={<WebSeries/>}/>
        <Route path="/News" element={<News/>}/>
        <Route path="/RightSideLogo" element={<RightSideLogo/>}/>
+       <Route path="*" element={<Error/>}/>
     </Routes>
   )
 }

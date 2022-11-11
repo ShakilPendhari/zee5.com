@@ -1,18 +1,18 @@
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import AllRoutes from "./Routes/AllRoutes";
-import {Container} from "@chakra-ui/react"
+import {Container,Flex} from "@chakra-ui/react"
 
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Container>
-
+      <Container className="cont">
+        <Navbar />      
+       <AllRoutes/>
       </Container>
-      <AllRoutes/>
+     
     </div>
   );
 }

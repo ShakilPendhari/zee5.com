@@ -1,6 +1,11 @@
-import React from 'react'
+import React,{useEffect, useState, } from 'react'
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo/Logo.svg"
+import { Box, Flex, Input, HStack} from "@chakra-ui/react"
+import Logo from "./logoo.png"
+import "./Navbar.css"
+import {SearchIcon} from "@chakra-ui/icons";
+import { BiMicrophone } from 'react-icons/bi'
+// import { MdSettings } from 'react-icons/md'
 
 const links = [
  
@@ -42,11 +47,22 @@ let normal = {
 
 
 const Navbar = () => {
+  const [state, setState] = useState(false);
+
+  useEffect(()=>{
+     setTimeout(()=>{
+         setState(false)
+     },4000)
+  },[])
+
   return (
-    <div className='Navbar' style={{ display: "flex", gap: "1rem", justifyContent: "center" }}>
-      <NavLink>
-        <img alt="logo" src={Logo}/>
-      </NavLink>
+    <div ClassName='Navbar' style={{ display: "flex", gap: "1rem", justifyContent: "center" }}>
+    <Flex>
+    <Box>
+       <NavLink to="/">
+        <img className='Logo' alt="logo" src={Logo}/>
+       </NavLink>
+      
          {
           links.map((el)=>(
             <NavLink 
@@ -59,6 +75,19 @@ const Navbar = () => {
              </NavLink>
             ))
          }
+    </Box>
+    <Box>
+      <HStack className='inputBox'>
+         <SearchIcon/>
+         <Input type="text" onClick={()=>{setState(true)}}/>
+         {state && <BiMicrophone/>}
+      </HStack>
+     
+    </Box>
+
+    </Flex>
+   
+   
     </div>
   )
 }
