@@ -1,0 +1,29 @@
+body{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.Logo{
+    width:60px;
+    height:40px;
+    border-radius: 80px;
+    box-sizing: border-box;
+}
+.inputBox{
+    border:2px solid rgb(106, 36, 160);
+    padding:5px;
+    border-radius: 6px;
+    background-color: rgb(15,6,23);
+}
+.inputBox>input[type=text]{
+    background-color:rgb(15,6,23);
+    border:none;
+    outline: none;
+    width:200px;
+    color:white;
+    transition: width 1.2s ease-in-out;
+}
+
+.inputBox>input[type=text]:focus{
+    width:250px;
+}
