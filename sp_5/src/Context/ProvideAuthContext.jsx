@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { AuthContext } from "./CreateAuthContext";
-console.log(AuthContext);
+// console.log(AuthContext);
 
 const initState = {
     isAuth : false,
