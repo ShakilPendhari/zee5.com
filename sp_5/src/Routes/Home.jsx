@@ -15,7 +15,7 @@ function getData(){
 const Home = () => {
   const [ closu, setClosu] = useState(data[0].url);
   const [info, setInfo] = useState("hgf");
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
 
   useEffect(()=>{
     //  getData().then((res)=>{setInfo(res.data); console.log(res)}).catch((error)=>console.log(error))
@@ -44,7 +44,7 @@ const Home = () => {
      return (()=>clearInterval(clousers))
   },[])
 
-  if(count===3)
+  if(count===data.length-1)
   {
     setCount((value)=>value=1);
   }
@@ -64,7 +64,7 @@ const Home = () => {
              <img style={{width:"100%", height:"65vh", flex:"3"}} src={data[count].url} alt="movie"/>
              {/* <img style={{flex:"1"}} src={data[count+1].url} alt="prev"/> */}
           </Box>
-          <Box  disabled={count<=3} onClick={()=>{setCount((value)=> value+1)}}>
+          <Box  disabled={count<=data.length-1} onClick={()=>{setCount((value)=> value+1)}}>
               <SlArrowRight className='logoClouser' />
           </Box>
        </div>
@@ -98,8 +98,9 @@ const Home = () => {
 
         {
           Top10_movies.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -116,8 +117,9 @@ const Home = () => {
 
         {
           Latest_Hindi_ep.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -134,8 +136,9 @@ const Home = () => {
 
         {
           Top10_webseries.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -152,8 +155,9 @@ const Home = () => {
 
         {
           Blockbuster_films.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -170,8 +174,9 @@ const Home = () => {
 
         {
           premiun_Tv_ep.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -188,8 +193,9 @@ const Home = () => {
 
         {
           PopularMovies.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -204,8 +210,9 @@ const Home = () => {
 
         {
           World_hits.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
