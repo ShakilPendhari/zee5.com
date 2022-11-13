@@ -13,6 +13,9 @@ function AuthContextProvider({children}){
 
     const [authState, setAuthState] = useState(initState);
 
+    const [url, setUrl] = useState("")
+    const [search, setSearch] = useState(true)
+
     function handleLogin(){
         setAuthState({
             ...authState,
@@ -26,7 +29,7 @@ function AuthContextProvider({children}){
         setAuthState(initState);
     }
 
-    const value = {authState, handleLogin, handleLogOut}
+    const value = {authState, handleLogin, handleLogOut, url, setUrl, search, setSearch}
 
   return (
     <AuthContext.Provider value = {value}>

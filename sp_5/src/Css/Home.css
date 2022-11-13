@@ -26,6 +26,7 @@ h2{
 }
 .BoxHover{
     transform: scale(1);
+    margin:1rem 0rem;
 }
 .BoxHover:hover{
     transform: scale(1.3);

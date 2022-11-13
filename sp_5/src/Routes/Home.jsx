@@ -1,12 +1,15 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
 import axios from 'axios' 
 import {Box, Heading, HStack, Stack, VStack, Container, Image} from '@chakra-ui/react'
 import '../Css/Home.css'
 import { SlArrowRight, SlArrowLeft } from 'react-icons/sl';
 import { RiVipCrownFill } from 'react-icons/ri';
+import Video from "./Video";
+import { useNavigate } from 'react-router-dom';
 
 // Raw material
 import data,{Trending, Top10_movies, Latest_Hindi_ep, Top10_webseries, Blockbuster_films, premiun_Tv_ep, PopularMovies, World_hits} from "../RawMaterial/Home.js"
+import { AuthContext } from '../Context/CreateAuthContext';
 
 function getData(){
   return axios.get(`https://www.omdbapi.com/?apikey=a75473cf&s=love`).then((res)=>res).catch((error)=>console.log(error))
@@ -15,7 +18,16 @@ function getData(){
 const Home = () => {
   const [ closu, setClosu] = useState(data[0].url);
   const [info, setInfo] = useState("hgf");
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
+
+  const {url, setUrl} = useContext(AuthContext)
+
+  const redirectToVideo = (e)=>{
+    console.log(e.target.currentSrc);
+      setUrl(e.target.currentSrc)
+      navigate("/video")
+  }
 
   useEffect(()=>{
     //  getData().then((res)=>{setInfo(res.data); console.log(res)}).catch((error)=>console.log(error))
@@ -44,7 +56,7 @@ const Home = () => {
      return (()=>clearInterval(clousers))
   },[])
 
-  if(count===3)
+  if(count===data.length-1)
   {
     setCount((value)=>value=1);
   }
@@ -64,7 +76,7 @@ const Home = () => {
              <img style={{width:"100%", height:"65vh", flex:"3"}} src={data[count].url} alt="movie"/>
              {/* <img style={{flex:"1"}} src={data[count+1].url} alt="prev"/> */}
           </Box>
-          <Box  disabled={count<=3} onClick={()=>{setCount((value)=> value+1)}}>
+          <Box  disabled={count<=data.length-1} onClick={()=>{setCount((value)=> value+1)}}>
               <SlArrowRight className='logoClouser' />
           </Box>
        </div>
@@ -80,9 +92,9 @@ const Home = () => {
         {
           
           Trending.map((item)=>(
-            <div className='BoxHover'  position="relative" key={item.url+1}     boxSize='sm'>
+            <div className='BoxHover' onClick={redirectToVideo}  position="relative" key={item.url+1} >
             <RiVipCrownFill className='KingCrown'/>
-              <Image src={item.url} alt={item.url} />
+              <Image  src={item.url} alt={item.url} />
             </div>
            ))
         }
@@ -98,8 +110,9 @@ const Home = () => {
 
         {
           Top10_movies.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1} >
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -116,8 +129,9 @@ const Home = () => {
 
         {
           Latest_Hindi_ep.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1} >
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -134,8 +148,9 @@ const Home = () => {
 
         {
           Top10_webseries.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1} >
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -152,8 +167,9 @@ const Home = () => {
 
         {
           Blockbuster_films.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1} >
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -170,8 +186,9 @@ const Home = () => {
 
         {
           premiun_Tv_ep.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1} >
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -188,8 +205,9 @@ const Home = () => {
 
         {
           PopularMovies.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1} >
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
@@ -204,8 +222,9 @@ const Home = () => {
 
         {
           World_hits.map((item)=>(
-            <Box key={item.url+1}     boxSize='sm'>
+            <Box className='BoxHover'  position="relative" key={item.url+1} >
               <Image src={item.url} alt={item.url} />
+               <RiVipCrownFill className='KingCrown'/>
             </Box>
            ))
         }
