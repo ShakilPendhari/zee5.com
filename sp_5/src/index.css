@@ -1,3 +1,7 @@
+/* html{
+  /* font-size: calc(10%-3rem); */
+  /* font-size: calc(16px + 10%) */
+/* }  */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,6 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(15,6,23);
   color:white;
+  
 }
 
 code {

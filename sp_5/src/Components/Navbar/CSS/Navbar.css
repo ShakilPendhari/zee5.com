@@ -36,3 +36,28 @@ body{
 .inputBox>input[type=text]:focus{
     width:250px;
 }
+button{
+    text-decoration: none;
+    padding:7px 12px;
+    border-radius: 10px;
+    color: #fff;
+    background-color:rgb(10, 9, 10); ;
+    font-weight: 500;
+    font-size: 1rem;
+    border:1px solid #fff;;
+}
+button:hover{
+    transition: background-color .5s ease-in;
+    color:green;
+    cursor: pointer;
+    background-color: #fff;
+}
+a{
+    text-decoration: none;
+}
+
+@media screen and (min-width:400px) and (max-width:900px){
+    .link2{
+        display: none;
+    }
+}
