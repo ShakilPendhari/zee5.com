@@ -1,22 +1,21 @@
 {
   "auth": [
     {
-      "data": {
-        "userName": "shakil",
-        "email": "sp@gmail.com",
-        "mobileNo": "987656879421",
-        "password": "lsdkflflskdjf"
-      },
+      "userName": "shakil",
+      "email": "sp@gmail.com",
+      "mobileNo": "987654321",
+      "password": "hgytdfx9854",
       "id": 1
     },
     {
-      "data": {
-        "userName": "shakil",
-        "email": "shakilpp123456@gmail.com",
-        "mobileNo": "64874156669",
-        "password": "sdfwefwer"
-      },
+      "userName": "shakil",
+      "email": "sp@gmail.com",
+      "mobileNo": "9876546265987",
+      "password": "jhuyuyf94654",
       "id": 2
     }
-  ]
+  ],
+  "token":[{
+    "res":"sp123"
+  }]
 }

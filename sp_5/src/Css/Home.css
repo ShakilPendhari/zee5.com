@@ -21,12 +21,18 @@ h2{
     z-index: 100000;
     background-color: rgb(253, 251, 251);
     color:rgb(220, 54, 198);
-    padding:6px;
     border-radius: 20px;
+    height: 25px;
+    width: 25px;
+    padding:4px;
 }
 .BoxHover{
     transform: scale(1);
     margin:1rem 0rem;
+    border-radius: 15px;
+}
+.BoxHover>img{
+    border-radius: 5px;
 }
 .BoxHover:hover{
     transform: scale(1.3);

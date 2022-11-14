@@ -1,5 +1,5 @@
 import React,{useEffect, useState,useContext } from 'react'
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Navigate, useNavigate } from "react-router-dom";
 import { Box, Flex, Input, HStack, Stack, Avatar} from "@chakra-ui/react"
 import Logo from "./logoo.png"
 import {SearchIcon} from "@chakra-ui/icons";
@@ -9,6 +9,11 @@ import { RiVipCrownFill } from 'react-icons/ri';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import './CSS/Navbar.css'
 import { AuthContext } from '../../Context/CreateAuthContext';
+import Loading from '../Loading';
+import {Button} from "@chakra-ui/react"
+import RightSideLogo from "../../Routes/RightSideLogo";
+
+
 
 // import { MdSettings } from 'react-icons/md'
 // RiVipCrownFill
@@ -17,28 +22,29 @@ const links = [
  
   {
     to:"/Home",
-    title:"Home"
+    title:"Home",
+    cn:"link2",
   },
   {
     to:"/TvShows",
-    title:"TvShows"
+    title:"TvShows",
+    cn:"link2",
   },
   {
     to:"/Movies",
-    title:"Movies"
+    title:"Movies",
+    cn:"link2",
   },
   {
     to:"/WebSeries",
-    title:"WebSeries"
+    title:"WebSeries",
+    cn:"link2",
   },
   {
     to:"/News",
-    title:"News"
+    title:"News",
+    cn:"link2",
   },
-  {
-    to:"/RightSideLogo",
-    title:"icon"
-  }
 ];
 
 let activeStyle = {
@@ -54,13 +60,24 @@ let normal = {
 
 const Navbar = () => {
   const [state, setState] = useState(false);
-  const { search , setSearch}= useContext(AuthContext);
+  const { search , setSearch, loading, authState, change, setChange}= useContext(AuthContext);
+  const navigate = useNavigate();
+
+ 
 
   useEffect(()=>{
      setTimeout(()=>{
          setState(false)
      },10000)
-  },[])
+  },[authState])
+
+
+
+
+  // if(loading){
+  //   return <Loading/>
+  // }
+
 
   if(search){
     return (
@@ -74,6 +91,7 @@ const Navbar = () => {
            {
             links.map((el)=>(
               <NavLink 
+                className={el.cn}
                 key={el.to}
                 style={({ isActive }) => (isActive ? activeStyle : normal)}
                 to={el.to}
@@ -83,6 +101,9 @@ const Navbar = () => {
                </NavLink>
               ))
            }
+           <NavLink className="link2" to="/RightSideLogo">
+            <RightSideLogo/>
+           </NavLink>
       </Box>
       </Flex>
       <Flex alignItems="center" gap="30px">
@@ -90,25 +111,38 @@ const Navbar = () => {
         <Box>
         <HStack className='inputBox'>
            <SearchIcon/>
-           <Input type="text" onClick={()=>{setState(true)}}/>
+           <Input 
+           type="text" 
+           onClick={()=>{setState(true); navigate("/Searching")}}
+            placeholder="Serach for Movies, and TvShows"
+            onChange={(e)=>{setChange(e.target.value)}}
+           />
            {state && <BiMicrophone/>}
         </HStack>
       </Box>
       }
       
-      <Box>
-         <MdLanguage  />
+      <Box className="link2">
+         <MdLanguage style={{width:"27px", height:"27px"}} />
       </Box>
       <Stack direction='row' >
       <Link to="/Login">
-      <Avatar  bg='teal.500'   w={"35px"} src='https://bit.ly/broken-link' />
+      { authState.isAuth && <Avatar  bg='teal.500'   w={"35px"} src='https://bit.ly/broken-link' /> }
+      {
+        !authState.isAuth &&  <Button colorScheme='teal' variant='outline'>
+    Login
+  </Button>
+      }
+     
       </Link>
   
     
   </Stack>
       <Box>
-        <NavLink style={{color:"white", backgroundColor:"green" ,padding:"7px", borderRadius:"10px"}}>
-          <RiVipCrownFill style={{color:"blue"}} c="white"/>
+        <NavLink style={{color:"white", backgroundColor:"green" ,padding:"7px", borderRadius:"10px", fontWeight:"500",
+        display:"flex"}}>
+          <RiVipCrownFill style={{color:"white", margin:"0px 3px 0px 3px", width:"35px",
+           height:"20px"}} />
           BUY PLAN
         </NavLink>
       </Box>
