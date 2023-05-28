@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 // Raw material
 import data, {
-  Trending,
   Top10_movies,
   Latest_Hindi_ep,
   Top10_webseries,
@@ -75,7 +74,7 @@ const Home = () => {
         >
           <SlArrowLeft className="logoClouser" />
         </Box>
-        <Box display="flex">
+        <Box display="flex" className="sliding">
           <img
             style={{ width: "100%", height: "65vh", flex: "3" }}
             src={`/Sliding/zee5_${count}.png`}
@@ -95,23 +94,15 @@ const Home = () => {
 
       {/* Trending Near You */}
 
-      <div>
-        <Heading as="h2">Trending Near You</Heading>
-        <HStack>
-          {Array(15).fill(1).map((item,i) => (
-            <div
-              className="BoxHover"
-              onClick={redirectToVideo}
-              position="relative"
-              key={item.url + 1}
-            >
-              <RiVipCrownFill className="KingCrown" />
-              <Image src={`/TrendingNearYou/zee5Trending${i+1}.png`} />
-            </div>
+      <div className="trendBoxDiv">
+        <Heading as="h2" m="1rem 0rem 3rem 0rem">Trending Near You</Heading>
+        <div className="trendDiv">
+        {Array(15).fill(1).map((item,i) => (
+        <div> <RiVipCrownFill className="KingCrown" />
+              <img className="trend" src={`/TrendingNearYou/zee5Trending${i+1}.png`} alt={`/TrendingNearYou/zee5Trending${i+1}.png`} /></div>
           ))}
-        </HStack>
+        </div>
       </div>
-
       <div>
         <Heading as="h2">Top 10 Movies in India</Heading>
         <HStack>

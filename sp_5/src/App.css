@@ -47,14 +47,10 @@
 }
 
 
-
 .divMain{
   overflow-y: scroll;
 }
 
-img{
-  width:100%;
-}
 ::-webkit-scrollbar { 
   width: 1px;
   
