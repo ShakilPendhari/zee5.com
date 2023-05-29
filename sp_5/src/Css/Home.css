@@ -16,14 +16,14 @@ h2{
 }
 .KingCrown{
     position:absolute;
-    left:2px;
-    top:2px;
+    left:6px;
+    top:6px;
     z-index: 100000;
     background-color: rgb(253, 251, 251);
     color:rgb(220, 54, 198);
     border-radius: 20px;
-    height: 25px;
-    width: 25px;
+    height: 28px;
+    width: 28px;
     padding:4px;
 }
 .BoxHover{
@@ -51,7 +51,8 @@ h2{
 .trendBoxDiv{
     width: 98.5vw;
     border: 1px solid red;
-    height: auto
+    height: auto;
+    overflow: hidden;
 }
 .trendBoxDivs{
     display: flex;
@@ -60,14 +61,25 @@ h2{
     width: 25vw;
     height: auto;
     border: 1px solid red;
+    box-sizing: border-box;
 }
 .trendDiv{
-    display: flex;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(15,1fr);
     border: 2px solid green;
-    overflow-x: hidden
+    width: auto;
+    gap:1rem;
+    border: 1px solid blue;
+    height: 25rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+.trendDiv>div{
+    position: relative;
 }
 
-.trend{
+.trendImg{
     width: 100%;
     height: 100%;
 }

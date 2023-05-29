@@ -98,8 +98,8 @@ const Home = () => {
         <Heading as="h2" m="1rem 0rem 3rem 0rem">Trending Near You</Heading>
         <div className="trendDiv">
         {Array(15).fill(1).map((item,i) => (
-        <div> <RiVipCrownFill className="KingCrown" />
-              <img className="trend" src={`/TrendingNearYou/zee5Trending${i+1}.png`} alt={`/TrendingNearYou/zee5Trending${i+1}.png`} /></div>
+        <Box width="17rem"> <RiVipCrownFill className="KingCrown" />
+              <img className="trendImg" src={`/TrendingNearYou/zee5Trending${i+1}.png`} alt={`/TrendingNearYou/zee5Trending${i+1}.png`} /></Box>
           ))}
         </div>
       </div>
