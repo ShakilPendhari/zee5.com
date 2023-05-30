@@ -53,6 +53,7 @@ h2{
     border: 1px solid red;
     height: auto;
     overflow: hidden;
+    position: relative;
 }
 .trendBoxDivs{
     display: flex;
@@ -65,6 +66,7 @@ h2{
 }
 .trendDiv{
     display: grid;
+    position: relative;
     grid-template-rows: 100%;
     grid-template-columns: repeat(15,1fr);
     border: 2px solid green;
@@ -73,13 +75,30 @@ h2{
     border: 1px solid blue;
     height: 25rem;
     overflow-y: hidden;
-    overflow-x: scroll;
+    overflow-x: hidden
+}
+.trendDiv::-webkit-scrollbar{
+    display: none;
 }
 .trendDiv>div{
     position: relative;
 }
-
 .trendImg{
     width: 100%;
     height: 100%;
+}
+#mainTopDiv{
+    position: relative;
+}
+.back{
+    position: absolute;
+    left: 1rem;
+    top:44%;
+    z-index: 100;
+}
+.forward{
+    position: absolute;
+    right:1rem;
+    top:44%;
+    z-index: 100;
 }

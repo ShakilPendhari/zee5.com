@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { Box, Heading, HStack, Image } from "@chakra-ui/react";
 import "../Css/Home.css";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import { RiVipCrownFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 // Raw material
 import data, {
@@ -22,6 +23,8 @@ import Footer from "../Components/Footer";
 const Home = () => {
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
+  const divScroll = useRef(null);
+
 
   const { setUrl, loading, setLoading } = useContext(AuthContext);
 
@@ -39,6 +42,14 @@ const Home = () => {
 
     return () => clearInterval(clousers);
   }, [count]);
+
+
+  const handleScroll= (scrollAmount)=>{
+    if(divScroll.current)
+    {
+      divScroll.current.scrollLeft += scrollAmount;
+    }
+  }
 
   if (count === 8) {
     setCount((value) => (value = 1));
@@ -94,13 +105,21 @@ const Home = () => {
 
       {/* Trending Near You */}
 
-      <div className="trendBoxDiv">
+      <div  className="trendBoxDiv">
         <Heading as="h2" m="1rem 0rem 3rem 0rem">Trending Near You</Heading>
-        <div className="trendDiv">
+       
+        <div id="mainTopDiv">
+         <IoIosArrowBack onClick={()=>handleScroll()} size="3rem" className="arrowIcons back"/>
+        <div className="trendDiv" ref={divScroll}>
+       
         {Array(15).fill(1).map((item,i) => (
-        <Box width="17rem"> <RiVipCrownFill className="KingCrown" />
+        <Box  width="17rem"> <RiVipCrownFill className="KingCrown" />
               <img className="trendImg" src={`/TrendingNearYou/zee5Trending${i+1}.png`} alt={`/TrendingNearYou/zee5Trending${i+1}.png`} /></Box>
           ))}
+          
+        </div>
+       
+        <IoIosArrowForward onClick={()=>handleScroll()} size="3rem" className="arrowIcons forward"/>
         </div>
       </div>
       <div>
