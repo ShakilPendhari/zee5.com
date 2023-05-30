@@ -75,7 +75,9 @@ h2{
     border: 1px solid blue;
     height: 25rem;
     overflow-y: hidden;
-    overflow-x: hidden
+    overflow-x: hidden;
+    /* transition: all 0.2s; */
+    scroll-behavior: smooth;
 }
 .trendDiv::-webkit-scrollbar{
     display: none;

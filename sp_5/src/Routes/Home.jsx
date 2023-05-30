@@ -43,8 +43,13 @@ const Home = () => {
     return () => clearInterval(clousers);
   }, [count]);
 
+  useEffect(()=>{
+     
+  },[divScroll])
+
 
   const handleScroll= (scrollAmount)=>{
+    console.log("scrollAmount:", scrollAmount,divScroll.current.scrollLeft)
     if(divScroll.current)
     {
       divScroll.current.scrollLeft += scrollAmount;
@@ -109,7 +114,9 @@ const Home = () => {
         <Heading as="h2" m="1rem 0rem 3rem 0rem">Trending Near You</Heading>
        
         <div id="mainTopDiv">
-         <IoIosArrowBack onClick={()=>handleScroll()} size="3rem" className="arrowIcons back"/>
+         {
+            divScroll.current && divScroll.current.scrollLeft>0 && <IoIosArrowBack onClick={()=>handleScroll(-400)} size="3rem" className="arrowIcons back"/>
+         }
         <div className="trendDiv" ref={divScroll}>
        
         {Array(15).fill(1).map((item,i) => (
@@ -119,7 +126,7 @@ const Home = () => {
           
         </div>
        
-        <IoIosArrowForward onClick={()=>handleScroll()} size="3rem" className="arrowIcons forward"/>
+        <IoIosArrowForward onClick={()=>handleScroll(400)} size="3rem" className="arrowIcons forward"/>
         </div>
       </div>
       <div>
