@@ -4,7 +4,7 @@ import "../Css/Home.css";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import { RiVipCrownFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
+
 
 // Raw material
 import data, {
@@ -19,11 +19,12 @@ import data, {
 import { AuthContext } from "../Context/CreateAuthContext";
 import Loading from "../Components/Loading";
 import Footer from "../Components/Footer";
+import Scrolldiv from "../Components/Scrolldiv";
 
 const Home = () => {
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
-  const divScroll = useRef(null);
+  
 
 
   const { setUrl, loading, setLoading } = useContext(AuthContext);
@@ -42,19 +43,6 @@ const Home = () => {
 
     return () => clearInterval(clousers);
   }, [count]);
-
-  useEffect(()=>{
-     
-  },[divScroll])
-
-
-  const handleScroll= (scrollAmount)=>{
-    console.log("scrollAmount:", scrollAmount,divScroll.current.scrollLeft)
-    if(divScroll.current)
-    {
-      divScroll.current.scrollLeft += scrollAmount;
-    }
-  }
 
   if (count === 8) {
     setCount((value) => (value = 1));
@@ -109,37 +97,13 @@ const Home = () => {
 
 
       {/* Trending Near You */}
+      <Scrolldiv head="Trending Near You" url="/TrendingNearYou/zee5Trending"/>
 
-      <div  className="trendBoxDiv">
-        <Heading as="h2" m="1rem 0rem 3rem 0rem">Trending Near You</Heading>
-       
-        <div id="mainTopDiv">
-         {
-            divScroll.current && divScroll.current.scrollLeft>0 && <IoIosArrowBack onClick={()=>handleScroll(-400)} size="3rem" className="arrowIcons back"/>
-         }
-        <div className="trendDiv" ref={divScroll}>
-       
-        {Array(15).fill(1).map((item,i) => (
-        <Box  width="17rem"> <RiVipCrownFill className="KingCrown" />
-              <img className="trendImg" src={`/TrendingNearYou/zee5Trending${i+1}.png`} alt={`/TrendingNearYou/zee5Trending${i+1}.png`} /></Box>
-          ))}
-          
-        </div>
-       
-        <IoIosArrowForward onClick={()=>handleScroll(400)} size="3rem" className="arrowIcons forward"/>
-        </div>
-      </div>
-      <div>
-        <Heading as="h2">Top 10 Movies in India</Heading>
-        <HStack>
-          {Top10_movies.map((item) => (
-            <Box className="BoxHover" position="relative" key={item.url + 1}>
-              <Image src={item.url} alt={item.url} />
-              <RiVipCrownFill className="KingCrown" />
-            </Box>
-          ))}
-        </HStack>
-      </div>
+     {/* top 10 web series */}
+     <Scrolldiv head="Top 10 Web Series in India" url="/top10webSeries/zee5_top10_web_searies"/>
+
+     {/* top 10 movies */}
+     <Scrolldiv head="Top 10 Movies in India" url="/top10movies/zee5top10Movies"/>
 
       <div>
         <Heading as="h2">Latest Hindi Episodes Free</Heading>

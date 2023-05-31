@@ -45,15 +45,13 @@ h2{
     border-radius: 10px;
     overflow: hidden;
 }
-.sliding{
-    background-color: red;
-}
 .trendBoxDiv{
     width: 98.5vw;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: auto;
     overflow: hidden;
     position: relative;
+    margin-top: 1rem;
 }
 .trendBoxDivs{
     display: flex;
@@ -61,7 +59,7 @@ h2{
 .trendBox{
     width: 25vw;
     height: auto;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     box-sizing: border-box;
 }
 .trendDiv{
@@ -69,10 +67,10 @@ h2{
     position: relative;
     grid-template-rows: 100%;
     grid-template-columns: repeat(15,1fr);
-    border: 2px solid green;
+    /* border: 2px solid green; */
     width: auto;
     gap:1rem;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 25rem;
     overflow-y: hidden;
     overflow-x: hidden;
