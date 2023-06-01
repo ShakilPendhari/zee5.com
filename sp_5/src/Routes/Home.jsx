@@ -38,7 +38,7 @@ const Home = () => {
   useEffect(() => {
     let clousers = setInterval(() => {
       setCount((value) => value + 1);
-      console.log(count);
+      // console.log(count);
     }, 3000);
 
     return () => clearInterval(clousers);
@@ -97,30 +97,21 @@ const Home = () => {
 
 
       {/* Trending Near You */}
-      <Scrolldiv head="Trending Near You" url="/TrendingNearYou/zee5Trending"/>
+      <Scrolldiv imgCount="14" head="Trending Near You" url="/TrendingNearYou/zee5Trending"/>
 
      {/* top 10 web series */}
-     <Scrolldiv head="Top 10 Web Series in India" url="/top10webSeries/zee5_top10_web_searies"/>
+     <Scrolldiv imgCount="10" head="Top 10 Web Series in India" url="/top10webSeries/zee5_top10_web_searies"/>
 
      {/* top 10 movies */}
-     <Scrolldiv head="Top 10 Movies in India" url="/top10movies/zee5top10Movies"/>
+     <Scrolldiv imgCount="10" head="Top 10 Movies in India" url="/top10movies/zee5top10Movies"/>
+
+     {/* Unmissable Movies & Shows */}
+     <Scrolldiv imgCount="10" head="Unmissable Movies & Shows" url="/unmissedMovies/zee5unmissedmovies"/>
 
       <div>
         <Heading as="h2">Latest Hindi Episodes Free</Heading>
         <HStack>
           {Latest_Hindi_ep.map((item) => (
-            <Box className="BoxHover" position="relative" key={item.url + 1}>
-              <Image src={item.url} alt={item.url} />
-              <RiVipCrownFill className="KingCrown" />
-            </Box>
-          ))}
-        </HStack>
-      </div>
-
-      <div>
-        <Heading as="h2">Top 10 Web Series in India</Heading>
-        <HStack>
-          {Top10_webseries.map((item) => (
             <Box className="BoxHover" position="relative" key={item.url + 1}>
               <Image src={item.url} alt={item.url} />
               <RiVipCrownFill className="KingCrown" />
