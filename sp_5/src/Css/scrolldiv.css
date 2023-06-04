@@ -11,18 +11,19 @@
     padding:4px;
 }
 .BoxHover{
-    transform: scale(1);
-    /* margin:1rem 0rem; */
+    /* transform: scale(1); */
     border-radius: 15px;
     position:relative;
     z-index: 100;
+    transition: transform 0.3s;
 }
 .BoxHover>img{
     border-radius: 5px;
 }
 .BoxHover:hover{
-    transform: scale(1.2);
-    transition:transform .5s cubic-bezier(.4,0,.2,1);
+    transform: scale(1.2,1.1);
+    /* transition:transform 0.5s cubic-bezier(.4,0,.2,1); */
+    transition: all 1s;
     border:5px solid rgba(255, 255, 255);
     position: relative;
     z-index: 2000;
@@ -32,9 +33,8 @@
     width: 97.5vw;
     height: auto;
     position: relative;
-    margin: auto;
+    margin:3rem auto;
     margin-top: 1rem;
-    border: 1px solid red;
 }
 .trendBoxDivs{
     display: flex;
@@ -52,11 +52,11 @@
     grid-template-columns: repeat(15,1fr);
     width: auto;
     gap:1rem;
-    /* border: 1px solid blue; */
-    /* height: 25rem; */
-    overflow: clip;
-    margin-left: 1rem;
+    overflow:visible;
     scroll-behavior: smooth;
+    overflow: hidden;
+    padding: 1rem 1.5rem;
+    transition: all 0.5s ease-in-out 0.5s;
 }
 
 .trendImg{
@@ -67,7 +67,6 @@
     margin: 0px;
     position: relative;
     z-index: 10;
-    border: 1px solid green;
 }
 
 .back{
@@ -81,5 +80,36 @@
     right:1rem;
     top:44%;
     z-index: 100;
-    display: none;
 }
+.but{
+    position: absolute;
+    bottom: 0px;
+    left:0rem;
+    background-color: rgba(255, 255, 255);
+    width: 100%;
+    padding: 1.2rem;
+    visibility: hidden;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-around;
+    transition: all 0.3s ease-out 0.3s;
+}
+.box:hover .but{
+    visibility: visible;
+}
+/* .but>button{
+    text-decoration: none;
+    padding:7px 12px;
+    border-radius: 10px;
+    color: #fff;
+    background-color:rgb(10, 9, 10); ;
+    font-weight: 500;
+    font-size: 1rem;
+    border:1px solid #fff;;
+} */
+/* .but>button:hover{
+    transition: background-color .5s ease-in;
+    color:green;
+    cursor: pointer;
+    background-color: #fff;
+} */

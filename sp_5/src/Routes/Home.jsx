@@ -64,7 +64,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className="MainBox">
       <div className="clousor">
         <Box
           disabled={count <= 1}

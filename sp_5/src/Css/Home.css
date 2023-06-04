@@ -44,3 +44,7 @@ h2{
     z-index: 2000;
     border-radius: 10px;
 }
+.MainBox{
+    border: 1px solid red;
+    overflow: hidden;
+}

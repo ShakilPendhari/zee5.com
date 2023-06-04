@@ -36,7 +36,7 @@ body{
 .inputBox>input[type=text]:focus{
     width:250px;
 }
-button{
+.butt{
     text-decoration: none;
     padding:7px 12px;
     border-radius: 10px;
@@ -46,7 +46,7 @@ button{
     font-size: 1rem;
     border:1px solid #fff;;
 }
-button:hover{
+.butt:hover{
     transition: background-color .5s ease-in;
     color:green;
     cursor: pointer;

@@ -129,7 +129,7 @@ const Navbar = () => {
       <Link to="/Login">
       { authState.isAuth && <Avatar  bg='teal.500'   w={"35px"} src='https://bit.ly/broken-link' /> }
       {
-        !authState.isAuth &&  <Button colorScheme='teal' variant='outline'>
+        !authState.isAuth &&  <Button className='butt' colorScheme='teal' variant='outline'>
     Login
   </Button>
       }
