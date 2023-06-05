@@ -45,6 +45,6 @@ h2{
     border-radius: 10px;
 }
 .MainBox{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     overflow: hidden;
 }

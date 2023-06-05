@@ -97,6 +97,7 @@
 .box:hover .but{
     visibility: visible;
 }
+
 /* .but>button{
     text-decoration: none;
     padding:7px 12px;
