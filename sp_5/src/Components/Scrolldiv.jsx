@@ -36,7 +36,7 @@ const Scrolldiv = ({ url, head, imgCount }) => {
 
   return (
     <div className="trendBoxDiv">
-      <Heading as="h2" m="1rem 0rem 3rem 0rem">
+      <Heading id="head" as="h2" m="2.7rem 0rem 0.2rem 0rem">
         {head}
       </Heading>
 

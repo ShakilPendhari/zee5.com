@@ -135,17 +135,9 @@ const Home = () => {
         </HStack>
       </div>
 
-      <div>
-        <Heading as="h2">Popular Movies</Heading>
-        <HStack>
-          {PopularMovies.map((item) => (
-            <Box className="BoxHover" position="relative" key={item.url + 1}>
-              <Image src={item.url} alt={item.url} />
-              <RiVipCrownFill className="KingCrown" />
-            </Box>
-          ))}
-        </HStack>
-      </div>
+
+       {/* Popular Movies */}
+     <Scrolldiv imgCount="10" head="Popular Movies" url="/popularMovies/zee5_popularMovies"/>
 
       <div>
         <Heading as="h2">World Hits | Free Dubbed Movies</Heading>
