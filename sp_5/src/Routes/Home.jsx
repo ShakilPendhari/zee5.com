@@ -120,17 +120,8 @@ const Home = () => {
         </HStack>
       </div>
 
-      <div>
-        <Heading as="h2">Blockbuster Films</Heading>
-        <HStack>
-          {Blockbuster_films.map((item) => (
-            <Box className="BoxHover" position="relative" key={item.url + 1}>
-              <Image src={item.url} alt={item.url} />
-              <RiVipCrownFill className="KingCrown" />
-            </Box>
-          ))}
-        </HStack>
-      </div>
+       {/* Blockbuster Films */}
+     <Scrolldiv imgCount="10" head="Blockbuster Films" url="/blockbusterMovie/zee5_blockbuster_movie"/>
 
       <div>
         <Heading as="h2">Premium Before TV Ep | ZEE TV</Heading>
