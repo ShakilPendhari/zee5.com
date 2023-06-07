@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Box, Heading, HStack, Image } from "@chakra-ui/react";
 import "../Css/Home.css";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
@@ -19,7 +19,8 @@ import data, {
 import { AuthContext } from "../Context/CreateAuthContext";
 import Loading from "../Components/Loading";
 import Footer from "../Components/Footer";
-import Scrolldiv from "../Components/Scrolldiv";
+import Scrolldiv from "../Components/ScrollDivMovies";
+import ScrollDivShow from "../Components/ScrollDivShow";
 
 const Home = () => {
   const [count, setCount] = useState(0);
@@ -108,33 +109,16 @@ const Home = () => {
      {/* Unmissable Movies & Shows */}
      <Scrolldiv imgCount="10" head="Unmissable Movies & Shows" url="/unmissedMovies/zee5unmissedmovies"/>
 
-      <div>
-        <Heading as="h2">Latest Hindi Episodes Free</Heading>
-        <HStack>
-          {Latest_Hindi_ep.map((item) => (
-            <Box className="BoxHover" position="relative" key={item.url + 1}>
-              <Image src={item.url} alt={item.url} />
-              <RiVipCrownFill className="KingCrown" />
-            </Box>
-          ))}
-        </HStack>
-      </div>
+  
+      {/* Latest Hindi Episodes Free */}
+      <ScrollDivShow imgCount="12" head="Latest Hindi Episodes Free" url="/HindiEpisode/zee5_hindiEpisode" />
+
 
        {/* Blockbuster Films */}
      <Scrolldiv imgCount="10" head="Blockbuster Films" url="/blockbusterMovie/zee5_blockbuster_movie"/>
 
-      <div>
-        <Heading as="h2">Premium Before TV Ep | ZEE TV</Heading>
-        <HStack>
-          {premiun_Tv_ep.map((item) => (
-            <Box className="BoxHover" position="relative" key={item.url + 1}>
-              <Image src={item.url} alt={item.url} />
-              <RiVipCrownFill className="KingCrown" />
-            </Box>
-          ))}
-        </HStack>
-      </div>
-
+     {/* Premium Before TV Ep | ZEE TV */}
+     <ScrollDivShow imgCount="12" head="Latest Hindi Episodes Free" url="/PremiumShow/zee5PremiumShow" />
 
        {/* Popular Movies */}
      <Scrolldiv imgCount="10" head="Popular Movies" url="/popularMovies/zee5_popularMovies"/>
