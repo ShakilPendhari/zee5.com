@@ -23,7 +23,7 @@ import Scrolldiv from "../Components/ScrollDivMovies";
 import ScrollDivShow from "../Components/ScrollDivShow";
 
 const Home = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const navigate = useNavigate();
   
 
