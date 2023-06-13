@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import "../Css/scrolldiv.css";
+import "../Css/scrolldivmovies.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { Box, Button, Heading } from "@chakra-ui/react";
@@ -82,8 +82,10 @@ const Scrolldiv = ({ url, head, imgCount }) => {
                   <Button
                     leftIcon={<FaShare />}
                     cursor="no-drop"
+                    border="0px solid"
+                    backgroundColor="white"
                     variant="ghost"
-                    colorScheme="green"
+                    color="grey"
                   >
                     {" "}
                     Share

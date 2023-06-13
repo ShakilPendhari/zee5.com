@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { Box, Button, Heading } from "@chakra-ui/react";
 import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
+import { MdPlayArrow } from "react-icons/md";
 
 const ScrollDivShow = ({ url, head, imgCount }) => {
   const divScroll = useRef(null);
@@ -63,11 +64,10 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
                   alt={`${url}${i + 1}.png`}
                 />
                 <Box ref={but} className="but">
-                  <Button
+                <Button
+                   leftIcon={<MdPlayArrow size="1.2rem"/>}
                     variant="outline"
                     colorScheme="green"
-                    p="7px 15px"
-                    borderRadius=".5rem"
                     _hover={{
                       backgroundColor: "rgb(211, 14, 211)",
                       transition: "background-color .5s ease-in",
@@ -79,10 +79,11 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
                   </Button>
                   <Button
                     leftIcon={<FaShare />}
+                    cursor="no-drop"
+                    border="0px solid"
+                    backgroundColor="white"
                     variant="ghost"
                     colorScheme="green"
-                    p="10px 15px"
-                    borderRadius=".5rem"
                   >
                     {" "}
                     Share

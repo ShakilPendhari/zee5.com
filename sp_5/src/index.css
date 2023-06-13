@@ -2,6 +2,11 @@
   /* font-size: calc(10%-3rem); */
   /* font-size: calc(16px + 10%) */
 /* }  */
+*,body,html{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
 html{
   user-select: none;
   -webkit-user-select: none;
