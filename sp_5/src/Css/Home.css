@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .logoClouser{
     width:30px;
     height:30px;
@@ -52,4 +53,11 @@ h2{
 .MainBox{
     /* border: 1px solid red; */
     overflow: hidden;
+}
+.sliding{
+    transition: all 0.5s ease-in-out 0.1s;
+}
+
+.tvShows{
+
 }

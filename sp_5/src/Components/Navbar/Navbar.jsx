@@ -21,7 +21,7 @@ import RightSideLogo from "../../Routes/RightSideLogo";
 const links = [
  
   {
-    to:"/Home",
+    to:"/",
     title:"Home",
     cn:"link2",
   },
