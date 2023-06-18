@@ -9,7 +9,7 @@ import { RiVipCrownFill } from 'react-icons/ri';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import './CSS/Navbar.css'
 import { AuthContext } from '../../Context/CreateAuthContext';
-import Loading from '../Loading';
+// import Loading from '../Loading';
 import {Button} from "@chakra-ui/react"
 import RightSideLogo from "../../Routes/RightSideLogo";
 

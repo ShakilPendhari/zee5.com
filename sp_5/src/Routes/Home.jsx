@@ -17,7 +17,7 @@ import data, {
   World_hits,
 } from "../RawMaterial/Home.js";
 import { AuthContext } from "../Context/CreateAuthContext";
-import Loading from "../Components/Loading";
+// import Loading from "../Components/Loading";
 import Footer from "../Components/Footer";
 import Scrolldiv from "../Components/ScrollDivMovies";
 import ScrollDivShow from "../Components/ScrollDivShow";
@@ -59,7 +59,7 @@ const Home = () => {
         >
           change
         </button>
-        <Loading />
+        {/* <Loading /> */}
       </>
     );
   }

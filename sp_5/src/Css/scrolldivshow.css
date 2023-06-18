@@ -2,3 +2,30 @@
     height: 10rem;
     width: 17rem;
 }
+
+
+.but1{
+    position: absolute;
+    bottom: 0rem;
+    left:0rem;
+    background-color: rgba(255, 255, 255);
+    width: 100%;
+    padding: 0.7rem;
+    visibility: hidden;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-around;
+    transition: all 0.3s ease-out 0.3s;
+}
+.but1>button>span{
+    margin: 4px;
+}
+.BoxHover:hover .but1{
+    visibility: visible;
+}
+.but1>button{
+    /* padding: 4px 7px 4px 2px; */
+    padding-right: 3px;
+    font-size: 12px;
+    border-radius: 4px;
+}

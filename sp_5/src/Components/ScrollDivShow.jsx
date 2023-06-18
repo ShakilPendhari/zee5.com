@@ -63,7 +63,7 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}
                 />
-                <Box ref={but} className="but">
+                <Box ref={but} className="but1">
                 <Button
                    leftIcon={<MdPlayArrow size="1.2rem"/>}
                     variant="outline"

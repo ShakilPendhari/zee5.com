@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import "../App.css";
 import { RiVipCrownFill } from 'react-icons/ri';
 
-
+const API_KEY = "AIzaSyBpaFJVt-PmajeyJOJVlHfEn2_IRRhcbtM";
 
 const Searching = () => {
     const {url, setUrl,dataurl, setDataurl, change, setChange,obj} = useContext(AuthContext);
@@ -33,12 +33,17 @@ const Searching = () => {
   useEffect(()=>{
 
     let setTi = setTimeout(()=>{
-        axios.get(`https://www.omdbapi.com/?apikey=73a7c3b5&s=${change}`).then((res)=>{
-            setData(res.data.Search); 
-            console.log(res.data.Search
-            ); setResp(res.data.Response) }).catch((error)=>
+        // axios.get(`https://www.omdbapi.com/?apikey=73a7c3b5&s=${change}`).then((res)=>{
+        //     setData(res.data.Search); 
+        //     console.log("search:",res.data.Search); setResp(res.data.Response) }).catch((error)=>
+        //     console.log(error)
+        //     );
+         axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${'taj'}&$key=${API_KEY}`).then((res)=>{
+            setData(res); 
+            console.log("search:",res); setResp(res.data.Response) }).catch((error)=>
             console.log(error)
-            )
+            );
+            
     },500)
 
     return ()=> clearTimeout(setTi)
