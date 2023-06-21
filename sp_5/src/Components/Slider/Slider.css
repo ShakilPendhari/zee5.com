@@ -1,0 +1,44 @@
+.clousor{
+    border:5px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logoClouser{
+    width:30px;
+    height:30px;
+    margin:0px 1rem;
+    gap:0px;
+}
+.slidingImg{
+    transition: all 1s ease-in;
+}
+
+.filckClouser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.4rem;
+    margin-top: 1rem;
+    & .dot{
+        width: 0.2rem;
+        height: 0.2rem;
+        border: 0.5px solid rgb(255, 255, 255);
+        border-radius: 0.2rem;
+        box-sizing: border-box;
+        transition: all 1s ease-in;
+        &:hover{
+            cursor: pointer;
+            transition: all 0.1s ease-in;
+        }
+    }
+    & .show{
+        background-color: white;
+    }
+    & .change{
+        background-color: rgb(220, 7, 220);
+        width: 0.8rem;
+        height: 0.225rem;
+    }
+
+}

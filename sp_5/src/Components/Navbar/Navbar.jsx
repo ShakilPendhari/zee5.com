@@ -7,7 +7,7 @@ import { BiMicrophone } from 'react-icons/bi'
 import { MdLanguage } from 'react-icons/md'
 import { RiVipCrownFill } from 'react-icons/ri';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import './CSS/Navbar.css'
+import './Navbar.css'
 import { AuthContext } from '../../Context/CreateAuthContext';
 // import Loading from '../Loading';
 import {Button} from "@chakra-ui/react"
@@ -58,9 +58,13 @@ let normal = {
 };
 
 
+const search = true;
+const authState = true;
+const setChange = true;
+
 const Navbar = () => {
   const [state, setState] = useState(false);
-  const { search , setSearch, loading, authState, change, setChange}= useContext(AuthContext);
+  // const { search , setSearch, loading, authState, change, setChange}= useContext(AuthContext);
   const navigate = useNavigate();
 
  
@@ -79,7 +83,7 @@ const Navbar = () => {
   // }
 
 
-  if(search){
+  if(true){
     return (
       <div className='Navbar'>
       <Flex  minWidth='max-content' alignItems='center' gap='2' justifyContent="space-between" >

@@ -1,8 +1,9 @@
 import React from 'react'
+import ScrollDivMovies from '../Components/ScrollDivMovies/ScrollDivMovies'
 
 const Movies = () => {
   return (
-    <div>Movies</div>
+    <ScrollDivMovies/>
   )
 }
 

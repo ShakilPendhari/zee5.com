@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import "../Css/scrolldivmovies.css";
+import "./scrolldivshow.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { Box, Button, Heading } from "@chakra-ui/react";
@@ -8,7 +8,7 @@ import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
 
-const Scrolldiv = ({ url, head, imgCount }) => {
+const ScrollDivShow = ({ url, head, imgCount }) => {
   const divScroll = useRef(null);
   const [val, setVal] = useState(true);
   // const arrow = useRef(null);
@@ -55,18 +55,16 @@ const Scrolldiv = ({ url, head, imgCount }) => {
             .map((item, i,arr) => (
               <Box
                 key={i + 1}
-                className="box BoxHover"
-                width="16rem"
+                className="BoxHover showBox"
               >
-                {" "}
                 <RiVipCrownFill className="KingCrown" />
                 <img
                   className="trendImg"
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}
                 />
-                <Box ref={but} className="but">
-                  <Button
+                <Box ref={but} className="but1">
+                <Button
                    leftIcon={<MdPlayArrow size="1.2rem"/>}
                     variant="outline"
                     colorScheme="green"
@@ -85,7 +83,7 @@ const Scrolldiv = ({ url, head, imgCount }) => {
                     border="0px solid"
                     backgroundColor="white"
                     variant="ghost"
-                    color="grey"
+                    colorScheme="green"
                   >
                     {" "}
                     Share
@@ -107,4 +105,4 @@ const Scrolldiv = ({ url, head, imgCount }) => {
   );
 };
 
-export default Scrolldiv;
+export default ScrollDivShow;

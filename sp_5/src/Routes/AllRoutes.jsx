@@ -1,15 +1,15 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import Video from "./Video.jsx"
-import Home from "./Home";
 import TvShows from "./TvShows";
 import Movies from './Movies';
 import WebSeries from './WebSeries';
 import News from './News';
 import RightSideLogo from './RightSideLogo';
 import Error from './Error';
-import Login from "../Components/Login";
 import Searching from "./Searching"
+import Home from './Home/Home.jsx';
+import Login from '../Components/Login/Login.jsx';
 
 const AllRoutes = () => {
   return (

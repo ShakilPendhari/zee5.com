@@ -1,7 +1,7 @@
 import React,{useState, useContext, useEffect} from 'react'
 import {Input, Button} from "@chakra-ui/react"
-import { AuthContext } from '../Context/CreateAuthContext';
-import "./Navbar/CSS/Login.css"
+import { AuthContext } from '../../Context/CreateAuthContext';
+import "./Login.css"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 

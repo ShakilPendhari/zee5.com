@@ -1,5 +1,5 @@
 import React from 'react'
-import ScrollDivShow from '../Components/ScrollDivShow'
+import ScrollDivShow from '../Components/ScrollDivShows/ScrollDivShow'
 
 const TvShows = () => {
   return (
