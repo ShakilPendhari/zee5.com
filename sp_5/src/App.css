@@ -117,7 +117,7 @@ body{
   background-color: green;
 }
 
-.BoxHover{
+/*.BoxHover{
   transform: scale(1);
   margin:1rem 0rem;
   border-radius: 20px;
@@ -126,12 +126,12 @@ body{
   transform: scale(1.3);
   transition:transform .5s cubic-bezier(.4,0,.2,1);
 
-  /*  cubic-bezier(0.075, 0.82, 0.165, 1); */
+   // cubic-bezier(0.075, 0.82, 0.165, 1);
   border:5px solid rgba(255, 255, 255);
   z-index: 2000;
   border-radius: 10px;
   overflow: hidden;
-}
+}*/
 .mainCont{
  display:grid;grid-template-columns:repeat(5, 1fr);gap:1rem;
  margin:"20px";

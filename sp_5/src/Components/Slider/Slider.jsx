@@ -6,19 +6,24 @@ import data from "../../RawMaterial/Home";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import "./Slider.css";
 
+
 const Slider = () => {
   const [count, setCount] = useState(1);
+  let clouser
   useEffect(() => {
-    let clousers = setInterval(() => {
+    Interfun()
+    return () => clearInterval(clouser);
+  }, [count]);
+
+  const Interfun = ()=>{
+    clouser = setInterval(() => {
       setCount((value) => value + 1);
       // console.log(count);
     }, 3000);
     if (count === 9) {
       setCount((value) => (value = 1));
     }
-
-    return () => clearInterval(clousers);
-  }, [count]);
+  }
 
   const handleClick = (val) => {
     setCount(val);
@@ -32,6 +37,16 @@ const Slider = () => {
     }
   };
 
+  const handleHover = (e)=>{
+    e.target.style.cursor = "pointer"
+    setCount(count);
+    clearInterval(clouser)
+  }
+
+  const handleDehover = ()=>{
+    Interfun()
+  }
+
   return (
     <Box className="topSection">
       <div className="clousor">
@@ -40,6 +55,8 @@ const Slider = () => {
         </Box>
         <Box display="flex" className="sliding">
           <img
+            onMouseOver={handleHover}
+            onMouseLeave={handleDehover}
             style={{ width: "100%", flex: "3" }}
             height={{ base: "50vh", sm: "55vh", md: "65vh" }}
             src={`/Sliding/zee5_${count}.png`}

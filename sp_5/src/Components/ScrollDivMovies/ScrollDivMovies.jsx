@@ -8,13 +8,16 @@ import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
 
+
+let scrollAmountSum = 0;
 const ScrollDivMovies = ({ url, head, imgCount }) => {
   const divScroll = useRef(null);
-  const [val, setVal] = useState(true);
+  const [leftArrow, setLeftArrow] = useState(false);
+  const [rightArrow, setRightArrow] = useState(true);
   // const arrow = useRef(null);
   const but = useRef();
 
-  useEffect(() => {}, [divScroll, val, but]);
+  useEffect(() => {}, [divScroll, leftArrow, but]);
 
   if (!imgCount) {
     imgCount = 10;
@@ -22,29 +25,42 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
     imgCount = Number(imgCount);
   }
 
-  const handleScroll = (scrollAmount,imgCount) => {
-    if (divScroll.current) {
-      divScroll.current.scrollLeft += scrollAmount;
+  const handleScroll = (scrollAmount=0,imgCount) => {
+    console.log(scrollAmountSum)
+    scrollAmountSum += scrollAmount;
+    // if (divScroll.current) {
+      divScroll.current.scrollLeft = scrollAmountSum;
+    // }
+    if( scrollAmountSum>=800)
+    {
+      setLeftArrow(true);
     }
-    console.log("sc:", scrollAmount === 1400);
-    if (scrollAmount === 1400) {
-      setVal(false);
-    } else {
-      setVal(true);
+    else{
+      setLeftArrow(false);
+    }
+    if( scrollAmountSum>=2358)
+    {
+      setRightArrow(false);
+    }
+    else{
+      setRightArrow(true);
     }
   };
 
-
   return (
     <div className="trendBoxDiv">
+    {
+      console.log(leftArrow,rightArrow)
+    }
       <Heading id="head" as="h2" m="2.7rem 0rem 0.2rem 0rem">
         {head}
       </Heading>
 
-      <div id="mainTopDiv">
-        {!val && (
+      <div id="mainTopDiv" >
+        {leftArrow && (
           <IoIosArrowBack
-            onClick={() => handleScroll(-1400,imgCount)}
+            
+            onClick={() => handleScroll(-800,imgCount)}
             size="2rem"
             className="arrowIcons back"
           />
@@ -95,9 +111,9 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
             ))}
         </div>
 
-        {val && (
+        {rightArrow && (
           <IoIosArrowForward
-            onClick={() => handleScroll(1400,imgCount)}
+            onClick={() => handleScroll(800,imgCount)}
             size="2rem"
             className="arrowIcons forward"
           />

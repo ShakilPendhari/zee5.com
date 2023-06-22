@@ -4,43 +4,7 @@
     box-sizing: border-box;
 }
 
-
 h2{
     text-align: left;
     margin-left: 20px;
 }
-.KingCrown{
-    position:absolute;
-    left:6px;
-    top:6px;
-    z-index: 100000;
-    background-color: rgb(253, 251, 251);
-    color:rgb(220, 54, 198);
-    border-radius: 20px;
-    height: 28px;
-    width: 28px;
-    padding:4px;
-}
-.BoxHover{
-    transform: scale(1);
-    /* margin:1rem 0rem; */
-    border-radius: 15px;
-    position:relative;
-    z-index: 100;
-}
-.BoxHover>img{
-    border-radius: 5px;
-}
-.BoxHover:hover{
-    transform: scale(1.3);
-    transition:transform .5s cubic-bezier(.4,0,.2,1);
-    border:5px solid rgba(255, 255, 255);
-    position: relative;
-    z-index: 2000;
-    border-radius: 10px;
-}
-.MainBox{
-    /* border: 1px solid red; */
-    overflow: hidden;
-}
-

@@ -6,8 +6,12 @@ import {Container,Flex} from "@chakra-ui/react"
 
 
 function App() {
+  const handleResize = ()=>{
+     console.log("Height:",window.outerHeight);
+     console.log("Width:",window.outerWidth)
+  }
   return (
-    <div className="App">
+    <div className="App" onResize={handleResize}>
       <Container className="cont">
         <Navbar />      
        <AllRoutes/>
