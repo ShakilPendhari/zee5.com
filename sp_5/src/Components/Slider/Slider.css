@@ -63,10 +63,6 @@
     }
 
 }
-#but{
-    transform: translate3d(42px, 62px, -135px);
-}
-
 
 /* tab view */
 @media all and (min-width:481px) and (max-width:768px){

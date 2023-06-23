@@ -86,9 +86,6 @@ const Slider = () => {
             ></Box>
           ))}
       </Box>
-      <Box>
-        <Button id="but">but1</Button>
-      </Box>
     </Box>
   );
 };
