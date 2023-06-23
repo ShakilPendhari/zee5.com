@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Button, Image } from "@chakra-ui/react";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -16,12 +16,13 @@ const Slider = () => {
   }, [count]);
 
   const Interfun = ()=>{
+    // console.log(count)
     clouser = setInterval(() => {
       setCount((value) => value + 1);
       // console.log(count);
     }, 3000);
-    if (count === 9) {
-      setCount((value) => (value = 1));
+    if (count >= 9) {
+      setCount((value) => value = 1);
     }
   }
 
@@ -49,22 +50,24 @@ const Slider = () => {
 
   return (
     <Box className="topSection">
-      <div className="clousor">
-        <Box disabled={count <= 1} onClick={handleSlider}>
+      <Box className="clousor" height={{ base: "50vh", sm: "55vh", md: "50vh" }}>
+        <Box className="clouserDiv" disabled={count <= 1} onClick={handleSlider}>
           <SlArrowLeft className="logoClouser" />
         </Box>
-        <Box display="flex" className="sliding">
-          <img
+        <Box className="sliding">
+          <Image
+          
             onMouseOver={handleHover}
             onMouseLeave={handleDehover}
-            style={{ width: "100%", flex: "3" }}
-            height={{ base: "50vh", sm: "55vh", md: "65vh" }}
+            style={{ width: "100%",transition:"all 2s ease-in",height:"100%"}}
+           
             src={`/Sliding/zee5_${count}.png`}
             className="slidingImg"
             alt="movie"
           />
         </Box>
         <Box
+          className="clouserDiv"
           disabled={count <= data.length - 1}
           onClick={() => {
             setCount((value) => value + 1);
@@ -72,8 +75,8 @@ const Slider = () => {
         >
           <SlArrowRight className="logoClouser" />
         </Box>
-      </div>
-      <Box className="filckClouser">
+      </Box>
+      <Box className="flickClouser">
         {data &&
           data.map((el, i) => (
             <Box
@@ -82,6 +85,9 @@ const Slider = () => {
               className={count === i + 1 ? "dot change" : "dot show"}
             ></Box>
           ))}
+      </Box>
+      <Box>
+        <Button id="but">but1</Button>
       </Box>
     </Box>
   );

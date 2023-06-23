@@ -1,20 +1,41 @@
 .clousor{
     border:5px solid green;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: relative;
+    & .clouserDiv{
+        position:absolute;
+        /* visibility: hidden; */
+    }
+    & .clouserDiv:nth-child(1){
+        left:1rem;
+        top:45%
+    }
+    & .clouserDiv:nth-child(3){
+        right:1rem;
+        top:45%
+    }
+}
+.clousor:hover .clouserDiv{
+    visibility: visible;
 }
 .logoClouser{
     width:30px;
     height:30px;
-    margin:0px 1rem;
-    gap:0px;
+    fill:black;
+    padding: 0.25rem;
+    background-color: rgb(199, 211, 160);
+    cursor: pointer;
+    box-shadow: 0px 3px 8px rgb(255, 47, 0);
+    border-radius: 1rem;
 }
+
 .slidingImg{
     transition: all 1s ease-in;
 }
+.sliding{
+    height: 65vh;
+}
 
-.filckClouser{
+.flickClouser{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,4 +62,105 @@
         height: 0.325rem;
     }
 
+}
+#but{
+    transform: translate3d(42px, 62px, -135px);
+}
+
+
+/* tab view */
+@media all and (min-width:481px) and (max-width:768px){
+    .clousor{
+        border:4px solid green;
+        & .clouserDiv:nth-child(1){
+            left:0.5rem;
+        }
+        & .clouserDiv:nth-child(3){
+            right:0.5rem;
+        }
+    }
+    .logoClouser{
+        width:20px;
+        height:20px;
+        /* margin:0.7rem; */
+        gap:0px;
+    } 
+    .sliding{
+        height: 45vh;
+    }
+    
+.flickClouser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.3rem;
+    margin-top: 0.9rem;
+    & .dot{
+        width: 0.22rem;
+        height: 0.22rem;
+        border: 0.5px solid rgb(255, 255, 255);
+        border-radius: 0.3rem;
+        box-sizing: border-box;
+        transition: all 1s ease-in;
+        &:hover{
+            cursor: pointer;
+            transition: all 0.1s ease-in;
+        }
+    }
+    & .show{
+        background-color: white;
+    }
+    & .change{
+        background-color: rgb(220, 7, 220);
+        width: 0.9rem;
+        height: 0.255rem;
+    }
+
+}
+}
+
+/* Mobile view */
+@media all and (min-width:280px) and (max-width:480px){
+    .clousor{
+        border:3px solid green;
+        & .clouserDiv:nth-child(1){
+            left:0.3rem;
+        }
+        & .clouserDiv:nth-child(3){
+            right:0.3rem;
+        }
+    }
+    .logoClouser{
+        width:15px;
+        height:15px;
+    } 
+    .sliding{
+        height: 30vh;
+    }
+    
+.flickClouser{
+    gap:0.2rem;
+    margin-top: 0.7rem;
+    & .dot{
+        width: 0.2rem;
+        height: 0.2rem;
+        border: 0.5px solid rgb(255, 255, 255);
+        border-radius: 0.3rem;
+        box-sizing: border-box;
+        transition: all 1s ease-in;
+        &:hover{
+            cursor: pointer;
+            transition: all 0.1s ease-in;
+        }
+    }
+    & .show{
+        background-color: white;
+    }
+    & .change{
+        background-color: rgb(220, 7, 220);
+        width: 0.8rem;
+        height: 0.225rem;
+    }
+
+}
 }

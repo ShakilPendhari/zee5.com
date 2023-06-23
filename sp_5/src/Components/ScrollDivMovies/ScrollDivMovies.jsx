@@ -49,9 +49,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
 
   return (
     <div className="trendBoxDiv">
-    {
-      console.log(leftArrow,rightArrow)
-    }
+   
       <Heading id="head" as="h2" m="2.7rem 0rem 0.2rem 0rem">
         {head}
       </Heading>
