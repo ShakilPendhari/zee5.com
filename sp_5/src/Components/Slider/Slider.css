@@ -3,28 +3,35 @@
     position: relative;
     & .clouserDiv{
         position:absolute;
-        /* visibility: hidden; */
+        visibility: hidden;
     }
     & .clouserDiv:nth-child(1){
         left:1rem;
-        top:45%
+        top:45%;
+        &:hover{
+            box-shadow: 0px 0px 30px rgb(217, 30, 30);
+        }
     }
     & .clouserDiv:nth-child(3){
         right:1rem;
-        top:45%
+        top:45%;
+        &:hover{
+            box-shadow: 0px 0px 50px rgb(226, 3, 3);
+        }
     }
 }
 .clousor:hover .clouserDiv{
     visibility: visible;
+    border-radius: 1rem;
 }
 .logoClouser{
     width:30px;
     height:30px;
-    fill:black;
+    fill:rgb(255, 255, 255);
     padding: 0.25rem;
-    background-color: rgb(199, 211, 160);
+    background-color: rgb(4, 174, 183);
     cursor: pointer;
-    box-shadow: 0px 3px 8px rgb(255, 47, 0);
+    box-shadow: 0px 3px 8px rgb(231, 71, 71);
     border-radius: 1rem;
 }
 
@@ -41,6 +48,8 @@
     align-items: center;
     gap:0.4rem;
     margin-top: 1rem;
+    margin-bottom: 5rem;
+    box-sizing: border-box;
     & .dot{
         width: 0.3rem;
         height: 0.3rem;
@@ -59,7 +68,7 @@
     & .change{
         background-color: rgb(220, 7, 220);
         width: 1.1rem;
-        height: 0.325rem;
+        /* height: 0.325rem; */
     }
 
 }
@@ -109,7 +118,7 @@
     & .change{
         background-color: rgb(220, 7, 220);
         width: 0.9rem;
-        height: 0.255rem;
+        /* height: 0.255rem; */
     }
 
 }
@@ -155,7 +164,7 @@
     & .change{
         background-color: rgb(220, 7, 220);
         width: 0.8rem;
-        height: 0.225rem;
+        /* height: 0.225rem; */
     }
 
 }

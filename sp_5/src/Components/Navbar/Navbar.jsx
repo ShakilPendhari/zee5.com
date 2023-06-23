@@ -8,15 +8,8 @@ import { MdLanguage } from 'react-icons/md'
 import { RiVipCrownFill } from 'react-icons/ri';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import './Navbar.css'
-import { AuthContext } from '../../Context/CreateAuthContext';
-// import Loading from '../Loading';
 import {Button} from "@chakra-ui/react"
 import RightSideLogo from "../../Routes/RightSideLogo";
-
-
-
-// import { MdSettings } from 'react-icons/md'
-// RiVipCrownFill
 
 const links = [
  
@@ -64,10 +57,7 @@ const setChange = true;
 
 const Navbar = () => {
   const [state, setState] = useState(false);
-  // const { search , setSearch, loading, authState, change, setChange}= useContext(AuthContext);
   const navigate = useNavigate();
-
- 
 
   useEffect(()=>{
      setTimeout(()=>{
@@ -76,12 +66,9 @@ const Navbar = () => {
   },[authState])
 
 
-
-
   // if(loading){
   //   return <Loading/>
   // }
-
 
   if(true){
     return (
@@ -137,10 +124,7 @@ const Navbar = () => {
     Login
   </Button>
       }
-     
       </Link>
-  
-    
   </Stack>
       <Box>
         <NavLink style={{color:"white", backgroundColor:"green" ,padding:"7px", borderRadius:"10px", fontWeight:"500",
@@ -153,15 +137,10 @@ const Navbar = () => {
       <Box>
          <GiHamburgerMenu/>
       </Box>
-  
       </Flex>
-     
-     
       </div>
     )
   }
-
-  
 }
 
 export default Navbar

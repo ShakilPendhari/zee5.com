@@ -20,7 +20,7 @@ const Slider = () => {
     clouser = setInterval(() => {
       setCount((value) => value + 1);
       // console.log(count);
-    }, 3000);
+    }, 2500);
     if (count >= 9) {
       setCount((value) => value = 1);
     }
