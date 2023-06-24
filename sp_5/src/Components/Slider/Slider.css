@@ -1,6 +1,8 @@
 .clousor{
     border:5px solid green;
     position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
     & .clouserDiv{
         position:absolute;
         visibility: hidden;
@@ -33,6 +35,7 @@
     cursor: pointer;
     box-shadow: 0px 3px 8px rgb(231, 71, 71);
     border-radius: 1rem;
+    transition: all 1s ease-in-out;
 }
 
 .slidingImg{

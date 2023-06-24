@@ -1,4 +1,4 @@
-import React,{useEffect, useState,useContext } from 'react'
+import React,{useEffect, useState } from 'react'
 import { NavLink, Link, Navigate, useNavigate } from "react-router-dom";
 import { Box, Flex, Input, HStack, Stack, Avatar} from "@chakra-ui/react"
 import Logo from "./logoo.png"
@@ -10,6 +10,8 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import './Navbar.css'
 import {Button} from "@chakra-ui/react"
 import RightSideLogo from "../../Routes/RightSideLogo";
+import { useDispatch, useSelector } from 'react-redux';
+import { GetData } from '../../Redux/action';
 
 const links = [
  
@@ -54,16 +56,28 @@ let normal = {
 const search = true;
 const authState = true;
 const setChange = true;
+let id;
 
 const Navbar = () => {
   const [state, setState] = useState(false);
+  const [ query, setQuery] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const data = useSelector((store)=>store.data)
 
   useEffect(()=>{
-     setTimeout(()=>{
-         setState(false)
-     },10000)
-  },[authState])
+    // debouncing
+    id = setTimeout(()=>{
+        console.log(query);
+        dispatch(GetData(query))
+     },1000)
+     return ()=>clearTimeout(id)
+  },[authState,query]);
+
+  const handlequery = (e)=>{
+    setQuery(e.target.value);
+    console.log("InputVal:",query)
+  }
 
 
   // if(loading){
@@ -73,6 +87,9 @@ const Navbar = () => {
   if(true){
     return (
       <div className='Navbar'>
+      {
+        data && console.log(data)
+      }
       <Flex  minWidth='max-content' alignItems='center' gap='2' justifyContent="space-between" >
       <Box display="flex" gap="30px" alignItems="center">
          <NavLink className="LogoBox" to="/">
@@ -104,9 +121,10 @@ const Navbar = () => {
            <SearchIcon/>
            <Input 
            type="text" 
-           onClick={()=>{setState(true); navigate("/Searching")}}
+          //  onClick={()=>{setState(true); 
+          //  /*navigate("/Searching")*/}}
             placeholder="Serach for Movies, and TvShows"
-            onChange={(e)=>{setChange(e.target.value)}}
+            onChange={handlequery}
            />
            {state && <BiMicrophone/>}
         </HStack>

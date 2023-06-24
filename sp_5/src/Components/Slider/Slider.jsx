@@ -6,61 +6,79 @@ import data from "../../RawMaterial/Home";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import "./Slider.css";
 
-
+let clouser;
 const Slider = () => {
   const [count, setCount] = useState(1);
-  let clouser
+
   useEffect(() => {
-    Interfun()
+    Interfun();
     return () => clearInterval(clouser);
   }, [count]);
 
-  const Interfun = ()=>{
+  const Interfun = () => {
     // console.log(count)
     clouser = setInterval(() => {
       setCount((value) => value + 1);
       // console.log(count);
     }, 2500);
     if (count >= 9) {
-      setCount((value) => value = 1);
+      setCount((value) => (value = 1));
     }
-  }
+  };
 
   const handleClick = (val) => {
     setCount(val);
   };
 
-  const handleSlider = () => {
-    if (count >= 1) {
-      setCount((value) => value - 1);
+  const handleSliderLeft = () => {
+    if (count === 1) {
+      setCount((value) => (value = data.length));
     } else {
-      setCount((value) => (value = data.length - 2));
+      setCount((value) => value - 1);
     }
+    handleHover();
+  };
+  const handleSliderRight = () => {
+    if (count === data.length) {
+      setCount((value) => (value = 1));
+    } else {
+      setCount((value) => value + 1);
+    }
+    handleHover();
   };
 
-  const handleHover = (e)=>{
-    e.target.style.cursor = "pointer"
+  const handleHover = (e) => {
+    e.target.style.cursor = "pointer";
     setCount(count);
-    clearInterval(clouser)
-  }
+    clearInterval(clouser);
+  };
 
-  const handleDehover = ()=>{
-    Interfun()
-  }
+  const handleDehover = () => {
+    Interfun();
+  };
 
   return (
     <Box className="topSection">
-      <Box className="clousor" height={{ base: "50vh", sm: "55vh", md: "50vh" }}>
-        <Box className="clouserDiv" disabled={count <= 1} onClick={handleSlider}>
+      <Box
+        onMouseOver={handleHover}
+        onMouseLeave={handleDehover}
+        className="clousor"
+        height={{ base: "50vh", sm: "55vh", md: "50vh" }}
+      >
+        <Box
+          className="clouserDiv"
+          disabled={count <= 1}
+          onClick={handleSliderLeft}
+        >
           <SlArrowLeft className="logoClouser" />
         </Box>
         <Box className="sliding">
           <Image
-          
-            onMouseOver={handleHover}
-            onMouseLeave={handleDehover}
-            style={{ width: "100%",transition:"all 2s ease-in",height:"100%"}}
-           
+            style={{
+              width: "100%",
+              transition: "all 2s ease-in",
+              height: "100%",
+            }}
             src={`/Sliding/zee5_${count}.png`}
             className="slidingImg"
             alt="movie"
@@ -69,9 +87,7 @@ const Slider = () => {
         <Box
           className="clouserDiv"
           disabled={count <= data.length - 1}
-          onClick={() => {
-            setCount((value) => value + 1);
-          }}
+          onClick={handleSliderRight}
         >
           <SlArrowRight className="logoClouser" />
         </Box>

@@ -1,6 +1,5 @@
 import React,{useState, useContext, useEffect} from 'react'
 import {Input, Button} from "@chakra-ui/react"
-import { AuthContext } from '../../Context/CreateAuthContext';
 import "./Login.css"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -37,12 +36,12 @@ const handleLLogin = (data1)=>{
 
 const Login = () => {
     const [formstate, setFormstate] = useState(initState);
-    const { search , setSearch, setAuthState, authState}= useContext(AuthContext);
+    // const { search , setSearch, setAuthState, authState}= useContext(AuthContext);
     const navigate = useNavigate();
 
 
     const hideSeachbar = ()=>{
-      setSearch(false);
+      // setSearch(false);
     }
 
     useEffect(()=>{
@@ -62,11 +61,11 @@ const Login = () => {
             alert("All fields are required")
             return;
           }
-          setAuthState({...authState, isAuth:true});
-           handleLLogin(formstate);
-          setFormstate(initState);
-          navigate("/");
-          setSearch(true)
+          // setAuthState({...authState, isAuth:true});
+          //  handleLLogin(formstate);
+          // setFormstate(initState);
+          // navigate("/");
+          // setSearch(true)
     }
     const handleonChange = (e)=>{
         const {name, value} = e.target;
@@ -120,9 +119,9 @@ const Login = () => {
             value="Login"
            />
            {
-            authState.isAuth && <Button onClick={()=>{setAuthState({...authState, isAuth:false});
+            {/* authState.isAuth && <Button onClick={()=>{setAuthState({...authState, isAuth:false});
             alert("Are you sure you want to logout?");
-            setSearch(true); navigate("/")}}> Logout</Button>
+            setSearch(true); navigate("/")}}> Logout</Button> */}
            }
            
     </form>

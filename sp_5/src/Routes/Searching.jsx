@@ -1,6 +1,6 @@
 import React from 'react'
-import { useContext, useEffect,useState } from 'react';
-import { AuthContext } from '../Context/CreateAuthContext';
+import {  useEffect,useState } from 'react';
+// import { AuthContext } from '../Context/CreateAuthContext';
 import axios from 'axios' 
 import { useNavigate } from 'react-router-dom';
 import "../App.css";
@@ -9,7 +9,7 @@ import { RiVipCrownFill } from 'react-icons/ri';
 const API_KEY = "AIzaSyBpaFJVt-PmajeyJOJVlHfEn2_IRRhcbtM";
 
 const Searching = () => {
-    const {url, setUrl,dataurl, setDataurl, change, setChange,obj} = useContext(AuthContext);
+   //  const {url, setUrl,dataurl, setDataurl, change, setChange,obj} = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -18,7 +18,7 @@ const Searching = () => {
 
     const redirectToVideo = (e)=>{
         console.log(e);
-          setUrl(e.target.currentSrc)
+         //  setUrl(e.target.currentSrc)
           navigate("/video")
       }
     
@@ -47,7 +47,7 @@ const Searching = () => {
     },500)
 
     return ()=> clearTimeout(setTi)
- },[change])
+ },[])
 
 
  console.log("res:", resp)

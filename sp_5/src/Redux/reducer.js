@@ -3,7 +3,7 @@ import { ERROR, GETDATA, LOADING } from "./action.type"
 const initState = {
     loading:false,
     error:false,
-    data:[]
+    data:[],
 }
 
 export const reducer = (state=initState,{type,payload})=>{
@@ -12,17 +12,19 @@ export const reducer = (state=initState,{type,payload})=>{
             ...state,
             loading:true,
             error:false,
+            data:[]
         }
         case ERROR :return {
             ...state,
             loading:false,
             error:true,
+            data:[]
         }
         case GETDATA : return {
             ...state,
             loading:false,
             error:false,
-            data:[...state.data,...payload]
+            data:payload
         }
         default : 
             return state
