@@ -1,0 +1,29 @@
+.box{
+    padding-top: 2rem;
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+    justify-content: space-around;
+    /* align-items: flex-start; */
+    overflow: scroll;
+    position: relative;
+}
+.mainVideoBox{
+    margin-top: 3rem;
+    position: sticky;
+    top:0rem;
+    transition: all 1.5s ease-in;
+    scroll-behavior: smooth;
+}
+.mainVideo{
+  width:70vw;
+  height: 65vh;
+}
+.recommendationBox{
+    margin-top: 3rem;
+}
+.recommenedideo{
+    width:25vw;
+    height: 35vh;
+  }
+ 

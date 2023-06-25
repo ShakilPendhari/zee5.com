@@ -55,7 +55,6 @@ let normal = {
 
 const search = true;
 const authState = true;
-const setChange = true;
 let id;
 
 const Navbar = () => {
@@ -68,15 +67,14 @@ const Navbar = () => {
   useEffect(()=>{
     // debouncing
     id = setTimeout(()=>{
-        console.log(query);
-        dispatch(GetData(query))
+        dispatch(GetData(query));
+        navigate("/Video")
      },1000)
      return ()=>clearTimeout(id)
   },[authState,query]);
 
   const handlequery = (e)=>{
     setQuery(e.target.value);
-    console.log("InputVal:",query)
   }
 
 
@@ -87,9 +85,9 @@ const Navbar = () => {
   if(true){
     return (
       <div className='Navbar'>
-      {
+      {/* {
         data && console.log(data)
-      }
+      } */}
       <Flex  minWidth='max-content' alignItems='center' gap='2' justifyContent="space-between" >
       <Box display="flex" gap="30px" alignItems="center">
          <NavLink className="LogoBox" to="/">

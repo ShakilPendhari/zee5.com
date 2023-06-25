@@ -72,42 +72,42 @@ const Home = () => {
 
       {/* Unmissable Movies & Shows */}
       <ScrollDivMovies
-        imgCount="10"
+        imgCount="14"
         head="Unmissable Movies & Shows"
         url="/unmissedMovies/zee5unmissedmovies"
       />
 
       {/* Latest Hindi Episodes Free */}
       <ScrollDivShow
-        imgCount="12"
+        imgCount="13"
         head="Latest Hindi Episodes Free"
         url="/HindiEpisode/zee5_hindiEpisode"
       />
 
       {/* Blockbuster Films */}
       <Scrolldiv
-        imgCount="10"
+        imgCount="14"
         head="Blockbuster Films"
         url="/blockbusterMovie/zee5_blockbuster_movie"
       />
 
       {/* Premium Before TV Ep | ZEE TV */}
       <ScrollDivShow
-        imgCount="12"
+        imgCount="13"
         head="Latest Hindi Episodes Free"
         url="/PremiumShow/zee5PremiumShow"
       />
 
       {/* Popular Movies */}
       <Scrolldiv
-        imgCount="10"
+        imgCount="14"
         head="Popular Movies"
         url="/popularMovies/zee5_popularMovies"
       />
 
       {/* Free Dubbed Movies */}
       <Scrolldiv
-        imgCount="10"
+        imgCount="14"
         head="Free Dubbed Movies"
         url="/dubbedMovies/zee5_dubbedMovies"
       />

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
-import Video from "./Video.jsx"
+import Video from "./Video/Video.jsx"
 import TvShows from "./TvShows";
 import Movies from './Movies';
 import WebSeries from './WebSeries';

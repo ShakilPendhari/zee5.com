@@ -12,13 +12,13 @@ export const reducer = (state=initState,{type,payload})=>{
             ...state,
             loading:true,
             error:false,
-            data:[]
+            // data:[]
         }
         case ERROR :return {
             ...state,
             loading:false,
             error:true,
-            data:[]
+            // data:[]
         }
         case GETDATA : return {
             ...state,
