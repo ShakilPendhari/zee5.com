@@ -66,16 +66,29 @@ const Navbar = () => {
 
   useEffect(()=>{
     // debouncing
-    id = setTimeout(()=>{
-        dispatch(GetData(query));
-        navigate("/Video")
-     },1000)
-     return ()=>clearTimeout(id)
+    // id = setTimeout(()=>{
+    //     dispatch(GetData(query));
+    //     // navigate("/Video")
+    //  },1000)
+    //  return ()=>clearTimeout(id)
   },[authState,query]);
+
+
 
   const handlequery = (e)=>{
     setQuery(e.target.value);
+    if(id){
+      clearTimeout(id);
+    }
+  
+  id = setTimeout(function(){
+    clearTimeout(id);
+    dispatch(GetData(query));
+      navigate("/Video")
+  },1000)
+    
   }
+
 
 
   // if(loading){

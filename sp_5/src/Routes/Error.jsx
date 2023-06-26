@@ -7,7 +7,7 @@ const Error = () => {
     <>
       <div>Error 404</div>
       <Button>
-      <NavLink to="/">Go Back</NavLink>
+      <NavLink to="/"> Go Back </NavLink>
       </Button>
     </>
     
