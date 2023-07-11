@@ -9,15 +9,17 @@ import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
 
 
-let scrollAmountSum = 0;
+
 const ScrollDivMovies = ({ url, head, imgCount }) => {
+  const [ scrollAmountSum, setScrollAmountSum ] = useState(0)
   const divScroll = useRef(null);
   const [leftArrow, setLeftArrow] = useState(false);
   const [rightArrow, setRightArrow] = useState(true);
   // const arrow = useRef(null);
   const but = useRef();
+  const containerRef = useRef(null);
 
-  useEffect(() => {}, [divScroll, leftArrow, but]);
+  useEffect(() => {}, [divScroll, leftArrow, but,rightArrow]);
 
   if (!imgCount) {
     imgCount = 10;
@@ -25,28 +27,41 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
     imgCount = Number(imgCount);
   }
 
-  const handleScroll = (scrollAmount=0,imgCount) => {
-    console.log(scrollAmountSum)
-    scrollAmountSum += scrollAmount;
-    // if (divScroll.current) {
-      divScroll.current.scrollLeft = scrollAmountSum;
-    // }
-    if( scrollAmountSum>=800)
-    {
-      setLeftArrow(true);
-    }
-    else{
-      setLeftArrow(false);
-    }
-    if( scrollAmountSum>=2358)
-    {
-      setRightArrow(false);
-    }
-    else{
-      setRightArrow(true);
-    }
+
+  const handleScroll = (scrollAmount=0) => {
+   
+    setScrollAmountSum((scrollAmountValue)=>{
+      const occupiedElements = divScroll.current.childNodes;
+      let occupiedWidth = 0;
+  
+      for (let i = 0; i < occupiedElements.length; i++) {
+        occupiedWidth += occupiedElements[i].offsetWidth;
+      }
+      if(scrollAmountValue+scrollAmount>=800)
+      {
+        setLeftArrow(true);
+      }
+      else{
+        setLeftArrow(false);
+      }
+
+
+      if(scrollAmountValue+scrollAmount+1600>=occupiedWidth)
+      {  
+        setRightArrow(false);
+      }
+      else{
+        setRightArrow(true);
+      }
+
+      divScroll.current.scrollLeft = scrollAmountValue + scrollAmount;
+     
+      return scrollAmountValue + scrollAmount;
+    })
+   
   };
 
+  
   return (
     <div className="trendBoxDiv">
    
@@ -75,6 +90,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
                 {" "}
                 <RiVipCrownFill className="KingCrown" />
                 <img
+                  loading="lazy"
                   className="trendImg"
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}

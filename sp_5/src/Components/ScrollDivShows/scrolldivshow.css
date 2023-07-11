@@ -3,7 +3,6 @@
     width: 17rem;
 }
 
-
 .but1{
     position: absolute;
     bottom: 0rem;
@@ -15,7 +14,7 @@
     z-index: 10000;
     display: flex;
     justify-content: space-around;
-    transition: all 0.3s ease-out 0.3s;
+    /* transition: all 0.3s ease-out 0.3s; */
 }
 .but1>button>span{
     margin: 4px;

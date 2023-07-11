@@ -1,48 +1,23 @@
 import "./Home.css";
-import { useNavigate } from "react-router-dom";
-
-// Raw material
-// import data, {
-//   Top10_movies,
-//   Latest_Hindi_ep,
-//   Top10_webseries,
-//   Blockbuster_films,
-//   premiun_Tv_ep,
-//   PopularMovies,
-//   World_hits,
-// } from "../../RawMaterial/Home.js";
 import Footer from "../../Components/Footer/Footer";
 import Scrolldiv from "../../Components/ScrollDivMovies/ScrollDivMovies";
 import ScrollDivShow from "../../Components/ScrollDivShows/ScrollDivShow";
 import Slider from "../../Components/Slider/Slider";
 import ScrollDivMovies from "../../Components/ScrollDivMovies/ScrollDivMovies";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useRef } from "react";
+import SkeletonMovies from "../../Components/Skeleton/Skeleton_movies";
+import SkeletonShow from "../../Components/Skeleton/Skeleton_shows";
 
 const Home = () => {
-  const navigate = useNavigate();
-  // const ref = useRef(null);
+  const [flag, setFlag] = useState(false);
+  let id = useRef(null);
 
-  // const { setUrl, loading, setLoading } = useContext(AuthContext);
-
-  const redirectToVideo = (e) => {
-    console.log(e.target.currentSrc);
-    // setUrl(e.target.currentSrc);
-    navigate("/video");
-  };
-
-  // if (loading) {
-  //   return (
-  //     <>
-  //       <button
-  //         onClick={() => {
-  //           loading ? setLoading(false) : setLoading(true);
-  //         }}
-  //       >
-  //         change
-  //       </button>
-  //       {/* <Loading /> */}
-  //     </>
-  //   );
-  // }
+  useEffect(() => {
+    id.current = setTimeout(() => setFlag(() => true), 3000);
+    return () => clearTimeout(id.current);
+  }, []);
 
   return (
     <div className="MainBox">
@@ -50,71 +25,108 @@ const Home = () => {
       <Slider />
 
       {/* Trending Near You */}
-      <ScrollDivMovies
-        imgCount="14"
-        head="Trending Near You"
-        url="/TrendingNearYou/zee5Trending"
-      />
+      {flag ? (
+        <ScrollDivMovies
+          imgCount="14"
+          head="Trending Near You"
+          url="/TrendingNearYou/zee5Trending"
+        />
+      ) : (
+        <SkeletonMovies />
+      )}
 
       {/* top 10 web series */}
-      <ScrollDivMovies
-        imgCount="10"
-        head="Top 10 Web Series in India"
-        url="/top10webSeries/zee5_top10_web_searies"
-      />
+      {flag ? (
+        <ScrollDivMovies
+          imgCount="10"
+          head="Top 10 Web Series in India"
+          url="/top10webSeries/zee5_top10_web_searies"
+        />
+      ) : (
+        <SkeletonMovies />
+      )}
 
       {/* top 10 movies */}
-      <ScrollDivMovies
-        imgCount="10"
-        head="Top 10 Movies in India"
-        url="/top10movies/zee5top10Movies"
-      />
+      {flag ? (
+        <ScrollDivMovies
+          imgCount="10"
+          head="Top 10 Movies in India"
+          url="/top10movies/zee5top10Movies"
+        />
+      ) : (
+        <SkeletonMovies />
+      )}
 
       {/* Unmissable Movies & Shows */}
-      <ScrollDivMovies
-        imgCount="14"
-        head="Unmissable Movies & Shows"
-        url="/unmissedMovies/zee5unmissedmovies"
-      />
+      {flag ? (
+        <ScrollDivMovies
+          imgCount="14"
+          head="Unmissable Movies & Shows"
+          url="/unmissedMovies/zee5unmissedmovies"
+        />
+      ) : (
+        <SkeletonMovies />
+      )}
 
       {/* Latest Hindi Episodes Free */}
-      <ScrollDivShow
-        imgCount="13"
-        head="Latest Hindi Episodes Free"
-        url="/HindiEpisode/zee5_hindiEpisode"
-      />
+      {flag ? (
+        <ScrollDivShow
+          imgCount="13"
+          head="Latest Hindi Episodes Free"
+          url="/HindiEpisode/zee5_hindiEpisode"
+        />
+      ) : (
+        <SkeletonShow />
+      )}
 
       {/* Blockbuster Films */}
-      <Scrolldiv
-        imgCount="14"
-        head="Blockbuster Films"
-        url="/blockbusterMovie/zee5_blockbuster_movie"
-      />
+      {flag ? (
+        <Scrolldiv
+          imgCount="14"
+          head="Blockbuster Films"
+          url="/blockbusterMovie/zee5_blockbuster_movie"
+        />
+      ) : (
+        <SkeletonMovies />
+      )}
 
       {/* Premium Before TV Ep | ZEE TV */}
-      <ScrollDivShow
-        imgCount="13"
-        head="Latest Hindi Episodes Free"
-        url="/PremiumShow/zee5PremiumShow"
-      />
+      {flag ? (
+        <ScrollDivShow
+          imgCount="13"
+          head="Latest Hindi Episodes Free"
+          url="/PremiumShow/zee5PremiumShow"
+        />
+      ) : (
+        <SkeletonShow />
+      )}
 
       {/* Popular Movies */}
-      <Scrolldiv
-        imgCount="14"
-        head="Popular Movies"
-        url="/popularMovies/zee5_popularMovies"
-      />
+
+      {flag ? (
+        <Scrolldiv
+          imgCount="14"
+          head="Popular Movies"
+          url="/popularMovies/zee5_popularMovies"
+        />
+      ) : (
+        <SkeletonMovies />
+      )}
 
       {/* Free Dubbed Movies */}
-      <Scrolldiv
-        imgCount="14"
-        head="Free Dubbed Movies"
-        url="/dubbedMovies/zee5_dubbedMovies"
-      />
+
+      {flag ? (
+        <Scrolldiv
+          imgCount="14"
+          head="Free Dubbed Movies"
+          url="/dubbedMovies/zee5_dubbedMovies"
+        />
+      ) : (
+        <SkeletonMovies />
+      )}
 
       {/* Footer */}
       <Footer />
-      
     </div>
   );
 };

@@ -11,7 +11,7 @@ function App() {
      console.log("Width:",window.outerWidth)
   }
   return (
-    <div className="App" onResize={handleResize}>
+    <div onScroll={()=>console.log(window.scrollX)} className="App" onResize={handleResize}>
       <Container className="cont">
         <Navbar />      
        <AllRoutes/>

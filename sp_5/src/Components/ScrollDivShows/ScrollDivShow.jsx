@@ -9,12 +9,12 @@ import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
 
 
-let scrollAmountSum = 0;
+
 const ScrollDivShow = ({ url, head, imgCount }) => {
+  const [ scrollAmountSum, setScrollAmountSum ] = useState(0)
   const divScroll = useRef(null);
   const [leftArrow, setLeftArrow] = useState(false);
   const [rightArrow, setRightArrow] = useState(true);
-  // const arrow = useRef(null);
   const but = useRef();
 
   useEffect(() => {}, [divScroll, leftArrow, but]);
@@ -25,50 +25,37 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
     imgCount = Number(imgCount);
   }
 
-  // const divScroll = useRef(null);
-  // const [val, setVal] = useState(true);
-  // // const arrow = useRef(null);
-  // const but = useRef();
+  const handleScroll = (value=0) => {
+    setScrollAmountSum((scrollAmountValue)=>{
+      const occupiedElements = divScroll.current.childNodes;
+      let occupiedWidth = 0;
+  
+      for (let i = 0; i < occupiedElements.length; i++) {
+        occupiedWidth += occupiedElements[i].offsetWidth;
+      }
 
-  // useEffect(() => {}, [divScroll, val, but]);
+      let standard = Math.abs(value);
+      if(scrollAmountValue+value>=standard)
+      {
+        setLeftArrow(true);
+      }
+      else{
+        setLeftArrow(false);
+      }
 
-  // if (!imgCount) {
-  //   imgCount = 10;
-  // } else {
-  //   imgCount = Number(imgCount);
-  // }
 
-  // const handleScroll = (scrollAmount,imgCount) => {
-  //   if (divScroll.current) {
-  //     divScroll.current.scrollLeft += scrollAmount;
-  //   }
-  //   console.log("sc:", scrollAmount === 1400);
-  //   if (scrollAmount === 1400) {
-  //     setVal(false);
-  //   } else {
-  //     setVal(true);
-  //   }
-  // };
-  const handleScroll = (scrollAmount=0,imgCount) => {
-    console.log(scrollAmountSum)
-    scrollAmountSum += scrollAmount;
-    // if (divScroll.current) {
-      divScroll.current.scrollLeft = scrollAmountSum;
-    // }
-    if( scrollAmountSum>=800)
-    {
-      setLeftArrow(true);
-    }
-    else{
-      setLeftArrow(false);
-    }
-    if( scrollAmountSum>=2358)
-    {
-      setRightArrow(false);
-    }
-    else{
-      setRightArrow(true);
-    }
+      if(scrollAmountValue+value+(standard*2)>=occupiedWidth)
+      {  
+        setRightArrow(false);
+      }
+      else{
+        setRightArrow(true);
+      }
+
+      divScroll.current.scrollLeft = scrollAmountValue + value;
+     
+      return scrollAmountValue + value;
+    })
   };
 
 
@@ -79,17 +66,10 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
       </Heading>
 
       <div id="mainTopDiv">
-        {/* {!val && (
-          <IoIosArrowBack
-            onClick={() => handleScroll(-1400,imgCount)}
-            size="2rem"
-            className="arrowIcons back"
-          />
-        )} */}
         {leftArrow && (
           <IoIosArrowBack
             
-            onClick={() => handleScroll(-800,imgCount)}
+            onClick={() => handleScroll(-800,)}
             size="2rem"
             className="arrowIcons back"
           />
@@ -104,6 +84,7 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
               >
                 <RiVipCrownFill className="KingCrown" />
                 <img
+                  loading="lazy"
                   className="trendImg"
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}
@@ -137,17 +118,9 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
               </Box>
             ))}
         </div>
-{/* 
-        {val && (
-          <IoIosArrowForward
-            onClick={() => handleScroll(1400,imgCount)}
-            size="2rem"
-            className="arrowIcons forward"
-          />
-        )} */}
         {rightArrow && (
           <IoIosArrowForward
-            onClick={() => handleScroll(800,imgCount)}
+            onClick={() => handleScroll(800)}
             size="2rem"
             className="arrowIcons forward"
           />

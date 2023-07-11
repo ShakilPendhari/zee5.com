@@ -10,6 +10,7 @@ import Error from './Error';
 import Searching from "./Searching"
 import Home from './Home/Home.jsx';
 import Login from '../Components/Login/Login.jsx';
+import Signup from '../Components/Signup/Signup.jsx';
 
 const AllRoutes = () => {
   return (
@@ -21,7 +22,8 @@ const AllRoutes = () => {
        <Route path="/News" element={<News/>}/>
        <Route path="/RightSideLogo" element={<RightSideLogo/>}/>
        <Route path="/Video" element={<Video/>}/>
-       <Route path="/Login" element={<Login/>}/>
+       <Route path="/signup" element={<Signup/>}/>
+       <Route path="/login" element={<Login/>}/>
        <Route path="/Searching" element={<Searching/>}/>
        <Route path="*" element={<Error/>}/>
     </Routes>

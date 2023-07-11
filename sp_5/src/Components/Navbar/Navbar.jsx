@@ -1,7 +1,6 @@
 import React,{useEffect, useState } from 'react'
 import { NavLink, Link, Navigate, useNavigate } from "react-router-dom";
 import { Box, Flex, Input, HStack, Stack, Avatar} from "@chakra-ui/react"
-import Logo from "./logoo.png"
 import {SearchIcon} from "@chakra-ui/icons";
 import { BiMicrophone } from 'react-icons/bi'
 import { MdLanguage } from 'react-icons/md'
@@ -104,7 +103,7 @@ const Navbar = () => {
       <Flex  minWidth='max-content' alignItems='center' gap='2' justifyContent="space-between" >
       <Box display="flex" gap="30px" alignItems="center">
          <NavLink className="LogoBox" to="/">
-          <img className='Logo' alt="logo" src={Logo}/>
+          <img className='Logo' alt="logo" src="logoo.png"/>
          </NavLink>
         
            {
@@ -146,7 +145,7 @@ const Navbar = () => {
          <MdLanguage style={{width:"27px", height:"27px"}} />
       </Box>
       <Stack direction='row' >
-      <Link to="/Login">
+      <Link to="/login">
       { authState.isAuth && <Avatar  bg='teal.500'   w={"35px"} src='https://bit.ly/broken-link' /> }
       {
         !authState.isAuth &&  <Button className='butt' colorScheme='teal' variant='outline'>

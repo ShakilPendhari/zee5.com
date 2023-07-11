@@ -1,0 +1,76 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+  }
+  .h2{
+    text-align: center;
+    margin:30px;
+  }
+  
+  .main{
+    margin: 5rem auto;
+    height: auto;
+    padding: 15px 10px;
+    /* height: 250px; */
+    width: 400px;
+    border: 4px solid;
+    border-image: -moz-linear-gradient(left, #fed330 0%, #fed330 20%, #e63841 20%, #e63841 20%, #e63841 40%, #5ed6fd 40%, #5ed6fd 40%, #e63841 40%, #5ed6fd 40%, #5ed6fd 40%, #5ed6fd 60%, #45c33b 60%, #45c33b 80%, #1172c0 80%, #1172c0 80%, #1172c0 100%); /* FF3.6+ */
+    border-image: -webkit-gradient(linear, left top, right top, color-stop(0%,#fed330), color-stop(20%,#fed330), color-stop(20%,#e63841), color-stop(20%,#e63841), color-stop(40%,#e63841), color-stop(40%,#5ed6fd), color-stop(40%,#5ed6fd), color-stop(40%,#e63841), color-stop(40%,#5ed6fd), color-stop(40%,#5ed6fd), color-stop(60%,#5ed6fd), color-stop(60%,#45c33b), color-stop(80%,#45c33b), color-stop(80%,#1172c0), color-stop(80%,#1172c0), color-stop(100%,#1172c0)) 1 stretch repeat; /* Chrome,Safari4+ */
+    border-image: -webkit-linear-gradient(left, #fed330 0%,#fed330 20%,#e63841 20%,#e63841 20%,#e63841 40%,#5ed6fd 40%,#5ed6fd 40%,#e63841 40%,#5ed6fd 40%,#5ed6fd 40%,#5ed6fd 60%,#45c33b 60%,#45c33b 80%,#1172c0 80%,#1172c0 80%,#1172c0 100%) 1 stretch repeat; /* Chrome10+,Safari5.1+ */
+    border-image: -o-linear-gradient(left, #fed330 0%,#fed330 20%,#e63841 20%,#e63841 20%,#e63841 40%,#5ed6fd 40%,#5ed6fd 40%,#e63841 40%,#5ed6fd 40%,#5ed6fd 40%,#5ed6fd 60%,#45c33b 60%,#45c33b 80%,#1172c0 80%,#1172c0 80%,#1172c0 100%) 1 stretch repeat; /* Opera 11.10+ */
+    border-image: -ms-linear-gradient(left, #fed330 0%,#fed330 20%,#e63841 20%,#e63841 20%,#e63841 40%,#5ed6fd 40%,#5ed6fd 40%,#e63841 40%,#5ed6fd 40%,#5ed6fd 40%,#5ed6fd 60%,#45c33b 60%,#45c33b 80%,#1172c0 80%,#1172c0 80%,#1172c0 100%) 1 stretch repeat; /* IE10+ */
+    border-image: linear-gradient(to right, #fed330 0%,#fed330 20%,#e63841 20%,#e63841 20%,#e63841 40%,#5ed6fd 40%,#5ed6fd 40%,#e63841 40%,#5ed6fd 40%,#5ed6fd 40%,#5ed6fd 60%,#45c33b 60%,#45c33b 80%,#1172c0 80%,#1172c0 80%,#1172c0 100%) 1 stretch repeat; 
+  
+  
+  }
+  
+  .form{
+      display: flex;
+      flex-direction: column;
+      gap:20px;
+      width:100%;
+      border-radius: 20px;
+  
+      
+  }
+  .form>input{
+      font-size: 1.1rem;
+      background-color: rgb(116, 107, 122);
+      border:1px solid rgb(15,6,23);
+      border-bottom:3px solid rgb(244, 113, 6);
+      outline:none;
+      color:rgb(117, 249, 168);
+      border-radius: 5px;
+      padding-left: 20px;
+      box-sizing: border-box;
+      font-weight: 700;
+      caret-color: rgb(0, 255, 98);
+  }
+  .form>input::placeholder{
+      color:#090909;
+      font-weight: 700;
+  }
+  
+  .form>input[type=submit]{
+     background-color: rgb(20, 174, 205);
+     border:1px dashed black;
+     border-radius: 20px;
+     outline-style: dotted;
+     color:rgb(190, 15, 172);
+     box-sizing: border-box;
+     padding-left: 10px;
+    
+  }
+  .form>input[type=submit]:hover{
+      transform: scale(1.2);
+      cursor: pointer;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  

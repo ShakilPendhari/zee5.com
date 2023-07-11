@@ -1,30 +1,31 @@
 import { Box, Image } from "@chakra-ui/react";
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import data from "../../RawMaterial/Home";
 import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
-import "./Slider.css";
+import "./Slider.css"
 
-let clouser;
 const Slider = () => {
   const [count, setCount] = useState(1);
+  let clouser = useRef();
 
   useEffect(() => {
-    Interfun();
-    return () => clearInterval(clouser);
+    clouser.current = setInterval(() => {
+      setCount((value) => {
+        console.log("Value:::",value)
+        if(value>=8)
+        {
+          return value = 1;
+        }
+        else{
+          return value + 1
+        }
+      });
+    }, 2500);
+    return () => clearInterval(clouser.current);
   }, [count]);
 
-  const Interfun = () => {
-    // console.log(count)
-    clouser = setInterval(() => {
-      setCount((value) => value + 1);
-      // console.log(count);
-    }, 2500);
-    if (count >= 9) {
-      setCount((value) => (value = 1));
-    }
-  };
 
   const handleClick = (val) => {
     setCount(val);
@@ -32,7 +33,7 @@ const Slider = () => {
 
   const handleSliderLeft = () => {
     if (count === 1) {
-      setCount((value) => (value = data.length));
+      setCount((value) => value = data.length);
     } else {
       setCount((value) => value - 1);
     }
@@ -40,7 +41,7 @@ const Slider = () => {
   };
   const handleSliderRight = () => {
     if (count === data.length) {
-      setCount((value) => (value = 1));
+      setCount((value) => value = 1);
     } else {
       setCount((value) => value + 1);
     }
@@ -49,21 +50,32 @@ const Slider = () => {
 
   const handleHover = (e) => {
     e.target.style.cursor = "pointer";
-    setCount(count);
-    clearInterval(clouser);
+    clearInterval(clouser.current);
   };
 
   const handleDehover = () => {
-    Interfun();
+    setTimeout(()=>
+      setCount((count)=>{
+        if(count>=8)
+        {
+          return count = 1;
+        }
+        else{
+          return count = count + 1;
+        }
+      }),500)
   };
 
   return (
     <Box className="topSection">
+    {/* {
+      console.log(count)
+    } */}
       <Box
         onMouseOver={handleHover}
         onMouseLeave={handleDehover}
         className="clousor"
-        height={{ base: "50vh", sm: "55vh", md: "50vh" }}
+        height={{ base: "25rem", sm: "32rem", md: "32rem" }}
       >
         <Box
           className="clouserDiv"
@@ -79,7 +91,7 @@ const Slider = () => {
               transition: "all 2s ease-in",
               height: "100%",
             }}
-            src={`/Sliding/zee5_${count}.png`}
+            src={`Sliding/zee5_${count}.png`}
             className="slidingImg"
             alt="movie"
           />
