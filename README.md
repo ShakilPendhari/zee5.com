@@ -1,6 +1,6 @@
 # ZEE5 Clone
 This is a clone of the popular streaming platform, ZEE5. The clone includes the landing page with beautiful scrolling, a video page, searching page, signup page, and login page.
- <h2>Netlify Link</h2>-:https://soft-dogs-2567.netlify.app//<br/>
+ <h2>Netlify Link</h2>-:https://zee-5-clone-masaischool.netlify.app/<br/>
 
 # Features -:
 
