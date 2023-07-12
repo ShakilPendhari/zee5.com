@@ -15,7 +15,7 @@ A dedicated page to watch and enjoy a vast collection of movies, TV shows, and o
 
 
 # Searching Page: 
-A search functionality allowing users to easily find their favorite content.
+A search functionality allowing users to easily find their favorite content with infinite scrolling.
 
 
 # Signup Page: 
