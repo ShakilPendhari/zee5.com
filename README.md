@@ -38,13 +38,13 @@ Redux
 Axios
 
 # How to Run
-Clone the repository: ``` git clone https://github.com/your-username/zee5-clone.git ```
-Navigate to the project directory: ``` cd zee5-clone ```
-Install the dependencies: ``` npm install ```
-Start the development server: ``` npm start ```
-Open your browser and visit: ``` http://localhost:3000 ```
+Clone the repository:   ``` git clone https://github.com/your-username/zee5-clone.git ``` <br/>
+Navigate to the project directory:   ``` cd zee5-clone ``` <br/>
+Install the dependencies:   ``` npm install ``` <br/>
+Start the development server:   ``` npm start ``` <br/>
+Open your browser and visit:   ``` http://localhost:3000 ``` <br/>
 
 # Credits
-This project was developed by Shakil Pendhari as a part of Masai School training program.
+This project was developed by ```Shakil Pendhari``` as a part of ```Masai School``` training program.
 
 Feel free to explore the clone and enjoy the ZEE5 experience!
