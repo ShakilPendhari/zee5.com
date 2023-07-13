@@ -7,6 +7,7 @@ import { Box, Button, Heading } from "@chakra-ui/react";
 import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
+import SkeletonImage from "../Skeleton/Skeleton_image";
 
 
 
@@ -15,9 +16,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
   const divScroll = useRef(null);
   const [leftArrow, setLeftArrow] = useState(false);
   const [rightArrow, setRightArrow] = useState(true);
-  // const arrow = useRef(null);
   const but = useRef();
-  const containerRef = useRef(null);
 
   useEffect(() => {}, [divScroll, leftArrow, but,rightArrow]);
 
@@ -30,30 +29,40 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
 
   const handleScroll = (scrollAmount=0) => {
    
+    // scrolling using arrows hide/visible
     setScrollAmountSum((scrollAmountValue)=>{
+
+      // get column-gap and margin-left to add into occupiedWidth
+      let styles = window.getComputedStyle(divScroll.current); 
+      let columnGap = parseInt(styles.columnGap,10);
+      let marginLeft =  parseInt(styles.marginLeft,10);
+
+      // total width of childrens
       const occupiedElements = divScroll.current.childNodes;
       let occupiedWidth = 0;
   
       for (let i = 0; i < occupiedElements.length; i++) {
         occupiedWidth += occupiedElements[i].offsetWidth;
       }
-      if(scrollAmountValue+scrollAmount>=800)
+
+      // now check if occupeidWidth + columnGap + marginLeft is less than or equal to scrolling width;
+      let visbile = (scrollAmountValue+divScroll.current.offsetWidth+scrollAmount) >= occupiedWidth+((columnGap*(imgCount-1))+(marginLeft*(imgCount-1)))
+        if(visbile)
+        {  
+          setRightArrow(false);
+        }
+        else{
+          setRightArrow(true);
+        }
+  
+      if(scrollAmountValue+scrollAmount>=Math.abs(scrollAmount))
       {
         setLeftArrow(true);
       }
       else{
         setLeftArrow(false);
       }
-
-
-      if(scrollAmountValue+scrollAmount+1600>=occupiedWidth)
-      {  
-        setRightArrow(false);
-      }
-      else{
-        setRightArrow(true);
-      }
-
+     
       divScroll.current.scrollLeft = scrollAmountValue + scrollAmount;
      
       return scrollAmountValue + scrollAmount;
@@ -73,7 +82,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
         {leftArrow && (
           <IoIosArrowBack
             
-            onClick={() => handleScroll(-800,imgCount)}
+            onClick={() => handleScroll(-1200,imgCount)}
             size="2rem"
             className="arrowIcons back"
           />
@@ -89,7 +98,11 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
               >
                 {" "}
                 <RiVipCrownFill className="KingCrown" />
+                {/* <SkeletonImage src={`${url}${i + 1}.png`}/> */}
                 <img
+                  // onLoad={()=>{
+                  //   console.log("Image is loading")
+                  // }}
                   loading="lazy"
                   className="trendImg"
                   src={`${url}${i + 1}.png`}
@@ -127,7 +140,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
 
         {rightArrow && (
           <IoIosArrowForward
-            onClick={() => handleScroll(800,imgCount)}
+            onClick={() => handleScroll(1200,imgCount)}
             size="2rem"
             className="arrowIcons forward"
           />
