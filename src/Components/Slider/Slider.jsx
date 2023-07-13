@@ -13,7 +13,7 @@ const Slider = () => {
   useEffect(() => {
     clouser.current = setInterval(() => {
       setCount((value) => {
-        console.log("Value:::",value)
+        // console.log("Value:::",value)
         if(value>=8)
         {
           return value = 1;
