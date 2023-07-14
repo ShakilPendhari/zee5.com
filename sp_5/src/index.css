@@ -7,6 +7,12 @@
   margin: 0px;
   box-sizing: border-box;
 }
+h2{
+  font-size: 1.5rem!Important;
+}
+/* button{
+  color: rgb(0, 0, 0)!Important;
+} */
 html{
   user-select: none;
   -webkit-user-select: none;
@@ -23,8 +29,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(15,6,23);
-  color:white;
+  /* background-color: rgb(15,6,23); */
+  color:white!Important;
+  background-color: #0f0617!Important;
   
 }
 

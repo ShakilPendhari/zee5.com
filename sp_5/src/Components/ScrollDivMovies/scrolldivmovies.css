@@ -1,4 +1,4 @@
-.KingCrown{
+.KingCrownMovies{
     position:absolute;
     left:6px;
     top:6px;
@@ -10,7 +10,7 @@
     width: 28px;
     padding:4px;
 }
-.BoxHover{
+.BoxHoverMovies{
     /* transform: scale(1); */
     border-radius: 10px;
     position:relative;
@@ -18,11 +18,12 @@
     /* transition: transform 0.5s ease-in-out 0.5s; */
     box-sizing: border-box;
     overflow: hidden;
+    /* transition: transform .5s ease-in-out .1s; */
 }
-.BoxHover>img{
+.BoxHoverMovies>img{
     border-radius: 5px;
 }
-.BoxHover:hover{
+.BoxHoverMovies:hover{
     transform: scale(1.2,1.1);
     transition:transform 0.5s cubic-bezier(.4,0,.2,1);
     border:5px solid rgba(255, 255, 255);
@@ -33,7 +34,7 @@
     /* transition: all 0.5s ease-out 0.5s; */
     cursor: pointer;
 }
-.trendBoxDiv{
+.trendBoxDivMovies{
     width: 97.5vw;
     height: auto;
     position: relative;
@@ -41,15 +42,15 @@
     /* margin:3rem auto; */
     /* margin-top: 4rem; */
 }
-.trendBoxDivs{
+.trendBoxDivsMovies{
     display: flex;
 }
-.trendBox{
+.trendBoxMovies{
     width: 25vw;
     height: auto;
     box-sizing: border-box;
 }
-.trendDiv{
+.trendDivMovies{
     display: grid;
     position: relative;
     z-index: 10;
@@ -59,6 +60,7 @@
     gap:1rem;
     /* overflow:visible; */
     scroll-behavior: smooth;
+    /* overflow: hidden; */
     overflow: hidden;
     padding: 1.2rem 0rem 1.2rem 1.5rem;
     /* padding: 5rem 0rem 5rem 2.2rem; */
@@ -68,46 +70,44 @@
     /* border:2px solid red; */
     border-radius:10px;
 }
-.back{
+.backMovies{
     position: absolute;
     left: 1rem;
     top:44%;
     z-index: 100;
     box-shadow: 0 0 5px #fff;
 }
-.forward{
+.forwardMovies{
     position: absolute;
     right:1rem;
     top:44%;
     z-index: 100;
     box-shadow: 0px 0px 10px #fff;
 }
-.arrowIcons{
+.arrowIconsMovies{
     visibility: hidden;
     cursor: pointer;
     /* transition: all 1s ease-in; */
 }
-#mainTopDiv:hover .arrowIcons{
+#mainTopDivMovies:hover .arrowIconsMovies{
     visibility: visible;
     z-index: 20;
 }
 
-.trendImg{
+.trendImgMovies{
     width: 100%;
     height: 100%;
 }
-.BoxHover:last-child{
+.BoxHoverMovies:last-child{
     margin-right: 2rem;
 }
-#mainTopDiv{
+#mainTopDivMovies{
     margin: 0px;
     position: relative;
     z-index: 10;
     /* border:1px solid red; */
 }
-
-
-.but{
+.butMovies{
     position: absolute;
     bottom: 0rem;
     left:0rem;
@@ -120,19 +120,21 @@
     justify-content: space-around;
     /* transition: all 0.3s ease-out 0.3s; */
 }
-.but>button>span{
-    margin: 4px;
+.butMovies>button>span{
+    margin: 0px 2px;
 }
-.box:hover .but{
+.butMovies>button:nth-child(2){
+    background-color: white;
+}
+.boxMovies:hover .butMovies{
     visibility: visible;
 }
-.but>button{
+.butMovies>button{
     /* padding: 4px 7px 4px 2px; */
-    padding-right: 5px;
+    /* padding-right: 5px; */
     font-size: 15px;
-    border-radius: 5px;
-    
+    border-radius: 8px;
 }
-#head{
+#headMovies{
     margin-left: 1rem;
 }

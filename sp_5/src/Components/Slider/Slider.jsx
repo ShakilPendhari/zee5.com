@@ -75,7 +75,7 @@ const Slider = () => {
         onMouseOver={handleHover}
         onMouseLeave={handleDehover}
         className="clousor"
-        height={{ base: "25rem", sm: "32rem", md: "32rem" }}
+        // height={{ base: "25rem", sm: "32rem", md: "32rem" }}
       >
         <Box
           className="clouserDiv"
@@ -104,7 +104,7 @@ const Slider = () => {
           <SlArrowRight className="logoClouser" />
         </Box>
       </Box>
-      <Box className="flickClouser">
+      <Box className="flickClouser" >
         {data &&
           data.map((el, i) => (
             <Box

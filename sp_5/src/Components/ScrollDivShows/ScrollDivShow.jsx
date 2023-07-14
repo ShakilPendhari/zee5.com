@@ -60,43 +60,46 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
 
 
   return (
-    <div className="trendBoxDiv">
-      <Heading id="head" as="h2" m="2.7rem 0rem 0.2rem 0rem">
+    <div className="trendBoxDivShows">
+      <Heading id="headShows" as="h2" m="2.7rem 0rem 0.2rem 0rem">
         {head}
       </Heading>
 
-      <div id="mainTopDiv">
+      <div id="mainTopDivShows">
         {leftArrow && (
           <IoIosArrowBack
             
-            onClick={() => handleScroll(-800,)}
+            onClick={() => handleScroll(-750,)}
             size="2rem"
-            className="arrowIcons back"
+            className="arrowIconsShows backShows"
           />
         )}
-        <div className="trendDiv" ref={divScroll}>
+        <div className="trendDivShows" ref={divScroll}>
           {Array(imgCount)
             .fill(1)
             .map((item, i,arr) => (
               <Box
                 key={i + 1}
-                className="BoxHover showBox"
+                className="BoxHoverShows showBoxShows"
               >
-                <RiVipCrownFill className="KingCrown" />
+                <RiVipCrownFill className="KingCrownShows" />
                 <img
                   loading="lazy"
-                  className="trendImg"
+                  className="trendImgShows"
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}
                 />
-                <Box ref={but} className="but1">
-                <Button
-                   leftIcon={<MdPlayArrow size="1.2rem"/>}
+                 <Box ref={but} className="but1Shows">
+                  <Button
+                    leftIcon={<MdPlayArrow size="1.2rem" />}
+                    border="2px solid"
+                    padding="0px 7px 0px 0px"
+                    color="black"
                     variant="outline"
                     colorScheme="green"
                     _hover={{
                       backgroundColor: "rgb(211, 14, 211)",
-                      transition: "background-color .5s ease-in",
+                      transition: "background-color .5s ease",
                       color: "white",
                       cursor: "pointer",
                     }}
@@ -109,7 +112,7 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
                     border="0px solid"
                     backgroundColor="white"
                     variant="ghost"
-                    colorScheme="green"
+                    color="grey"
                   >
                     {" "}
                     Share
@@ -120,9 +123,9 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
         </div>
         {rightArrow && (
           <IoIosArrowForward
-            onClick={() => handleScroll(800)}
+            onClick={() => handleScroll(750)}
             size="2rem"
-            className="arrowIcons forward"
+            className="arrowIconsShows forwardShows"
           />
         )}
       </div>
