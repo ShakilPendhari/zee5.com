@@ -10,7 +10,7 @@ import "./Navbar.css";
 import { Button } from "@chakra-ui/react";
 import RightSideLogo from "../../Routes/RightSideLogo";
 import { useDispatch, useSelector } from "react-redux";
-import { GetData } from "../../Redux/action";
+import { GetData, UpdateData } from "../../Redux/action";
 
 const links = [
   {
@@ -59,27 +59,47 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const data = useSelector((store) => store.data);
+  const {page} = useSelector((store)=>store.data);
 
   useEffect(() => {
-    // debouncing
+    //// debouncing
     // id = setTimeout(()=>{
-    //     dispatch(GetData(query));
-    //     // navigate("/Video")
-    //  },1000)
-    //  return ()=>clearTimeout(id)
+    //   if(query)
+    //   {
+    //     dispatch(UpdateData({query,page}));
+    //   }
+    //     navigate("/Searching")
+    //  },600)
+     return ()=>clearTimeout(id)
   }, [authState, query]);
 
   const handlequery = (e) => {
-    setQuery(e.target.value);
+    // if(e.target.value)
+    //     {
+    //       dispatch(UpdateData({query:e.target.value,page}));
+    //     }
+    //       navigate("/Searching")
+
+
+    // setQuery((q)=>{
+    //   console.log("hello")
+    //   id = setTimeout(()=>{
+    //     if(e.target.value)
+    //     {
+    //       dispatch(UpdateData({query:e.target.value,page}));
+    //     }
+    //       navigate("/Searching")
+    //    },600)
+    //    return e.target.value
+    // });
     if (id) {
       clearTimeout(id);
     }
 
     id = setTimeout(function () {
       clearTimeout(id);
-      dispatch(GetData(query));
-      navigate("/Video");
+      dispatch(UpdateData({query:e.target.value,page}));
+      navigate("/Searching");
     }, 1000);
   };
 
