@@ -1,0 +1,77 @@
+.slick-dots{
+    /* background-color: white; */
+    /* width: 30%; */
+    margin: auto;
+    position: static;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 0.75;
+    color: rgb(220, 7, 220)!important;
+    padding: 0px;
+    transform: translateX(1px);
+    transition: transform 0.3s linear;
+}
+.slick-dots li button:before{
+    color:white !important;
+    opacity: 0.25;
+    padding: 0px;
+    transform: translateX(-1px);
+    transition: transform 0.5s linear;
+}
+.slick-dots li{
+    margin: 0px;
+}
+
+.center:hover .slick-arrow{
+    visibility: visible!important;
+ }
+
+.slick-arrow{
+    visibility: hidden!important;
+}
+.slick-prev{
+    visibility: hidden!important;
+}
+.slick-next{
+    visibility: hidden!important;
+}
+.slick-next{
+    right: 12%!important;
+}
+.slick-prev{
+    left: 12%!important;
+    z-index: 1;
+}
+.KingCrownSlider{
+    /* background-color: rgb(253, 251, 251); */
+    color:rgb(253, 251, 251);
+    border-radius: 20px;
+    height: 20px;
+    width: 20px;
+    padding:1px;
+}
+.MainSlider:hover,.slick-arrow {
+   visibility: visible;
+}
+@media all and (min-width:481px) and (max-width:768px)
+{
+    .slick-next{
+        right: 2%!important;
+    }
+    .slick-prev{
+        left: 2%!important;
+        z-index: 1;
+    }
+}
+
+@media all and (min-width:100px) and (max-width:480px)
+{
+    .slick-next{
+        right: 2%!important;
+    }
+    .slick-prev{
+        left: 2%!important;
+        z-index: 1;
+    }
+}

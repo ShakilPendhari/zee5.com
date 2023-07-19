@@ -1,5 +1,5 @@
 .clousor{
-    border:5px solid green;
+    /* border:5px solid green; */
     position: relative;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -70,7 +70,7 @@
     }
     & .change{
         background-color: rgb(220, 7, 220);
-        width: 1.1rem;
+        width: 0.8rem;
         /* height: 0.325rem; */
     }
 
@@ -79,7 +79,7 @@
 /* tab view */
 @media all and (min-width:481px) and (max-width:768px){
     .clousor{
-        border:4px solid green;
+        /* border:4px solid green; */
         & .clouserDiv:nth-child(1){
             left:0.5rem;
         }
@@ -120,7 +120,7 @@
     }
     & .change{
         background-color: rgb(220, 7, 220);
-        width: 0.9rem;
+        width: 0.7rem;
         /* height: 0.255rem; */
     }
 
@@ -130,7 +130,7 @@
 /* Mobile view */
 @media all and (min-width:280px) and (max-width:480px){
     .clousor{
-        border:3px solid green;
+        /* border:3px solid green; */
         & .clouserDiv:nth-child(1){
             left:0.3rem;
         }
@@ -166,9 +166,18 @@
     }
     & .change{
         background-color: rgb(220, 7, 220);
-        width: 0.8rem;
+        width: 0.6rem;
         /* height: 0.225rem; */
     }
 
 }
 }
+
+/* @keyframes sliding{
+    from{
+        transform: translate(200px);
+    }
+    to{
+        transform: translate(-200px);
+    }
+} */

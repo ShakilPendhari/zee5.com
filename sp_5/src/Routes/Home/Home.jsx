@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import SkeletonMovies from "../../Components/Skeleton/Skeleton_movies";
 import SkeletonShow from "../../Components/Skeleton/Skeleton_shows";
+import MainSlider from "../../Components/MainSlider/MainSlider";
 
 const Home = () => {
   const [flag, setFlag] = useState(false);
@@ -22,7 +23,8 @@ const Home = () => {
   return (
     <div className="MainBox">
       {/* Slider */}
-      <Slider />
+      {/* <Slider /> */}
+      <MainSlider/>
 
       {/* Trending Near You */}
       {flag ? (

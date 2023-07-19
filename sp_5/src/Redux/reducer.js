@@ -3,32 +3,34 @@ import { ERROR, GETDATA, GETDATAINFINITESCROLLING, GETQUERY, LOADING } from "./a
 const initState = {
     loading:false,
     error:false,
+    prevData:[],
     data:[],
     page:"",
     query:""
 }
 
 export const reducer = (state=initState,{type,payload})=>{
-    const {data,page} = state;
-    console.log("type:",type,"payload:",payload,"state::",state)
+    const {data,prevData} = state;
+    // console.log("type:",type,"payload:",payload,"state::",state)
     switch(type){
         case LOADING :return {
             ...state,
             loading:true,
             error:false,
-            // data:[]
+            data:[]
         }
         case ERROR :return {
             ...state,
             loading:false,
-            error:true,
-            // data:[]
+            error:payload,
+            data:[]
         }
         case GETDATA : return {
             ...state,
             loading:false,
             error:false,
-            data:[...data,...payload]
+            prevData:[...data],
+            data:[...prevData,...payload]
         }
         case GETDATAINFINITESCROLLING : return {
             ...state,

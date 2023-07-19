@@ -1,0 +1,10 @@
+.pulse{
+    animation: animation-pulse 1.5s ease-in infinite alternate;
+    background-color: rgb(38, 4, 38);
+}
+
+@keyframes animation-pulse{
+    50%{
+        opacity: 0.5;
+    }
+}
