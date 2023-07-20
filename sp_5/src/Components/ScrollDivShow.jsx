@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import "./scrolldivshow.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { Box, Button, Heading } from "@chakra-ui/react";
 import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
+import style from "./../style/ComponentElement/scrolldivshow.module.css"
 
 
 
@@ -60,36 +60,36 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
 
 
   return (
-    <div className="trendBoxDivShows">
+    <div className={style.trendBoxDivShows}>
       <Heading id="headShows" as="h2" m="2.7rem 0rem 0.2rem 0rem">
         {head}
       </Heading>
 
-      <div id="mainTopDivShows">
+      <div id={style.mainTopDivShows}>
         {leftArrow && (
           <IoIosArrowBack
             
             onClick={() => handleScroll(-750,)}
             size="2rem"
-            className="arrowIconsShows backShows"
+            className={`${style.arrowIconsShows} ${style.backShows}`}
           />
         )}
-        <div className="trendDivShows" ref={divScroll}>
+        <div className={style.trendDivShows} ref={divScroll}>
           {Array(imgCount)
             .fill(1)
             .map((item, i,arr) => (
               <Box
                 key={i + 1}
-                className="BoxHoverShows showBoxShows"
+                className={`${style.BoxHoverShows} ${style.showBoxShows}`}
               >
-                <RiVipCrownFill className="KingCrownShows" />
+                <RiVipCrownFill className={style.KingCrownShows} />
                 <img
                   loading="lazy"
-                  className="trendImgShows"
+                  className={style.trendImgShows}
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}
                 />
-                 <Box ref={but} className="but1Shows">
+                 <Box ref={but} className={style.but1Shows}>
                   <Button
                     leftIcon={<MdPlayArrow size="1.2rem" />}
                     border="2px solid"
@@ -125,7 +125,7 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
           <IoIosArrowForward
             onClick={() => handleScroll(750)}
             size="2rem"
-            className="arrowIconsShows forwardShows"
+            className={`${style.arrowIconsShows} ${style.forwardShows}`}
           />
         )}
       </div>

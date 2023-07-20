@@ -1,15 +1,14 @@
-import "./Home.css";
-import Footer from "../../Components/Footer/Footer";
-import Scrolldiv from "../../Components/ScrollDivMovies/ScrollDivMovies";
-import ScrollDivShow from "../../Components/ScrollDivShows/ScrollDivShow";
-import Slider from "../../Components/Slider/Slider";
-import ScrollDivMovies from "../../Components/ScrollDivMovies/ScrollDivMovies";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import SkeletonMovies from "../../Components/Skeleton/Skeleton_movies";
-import SkeletonShow from "../../Components/Skeleton/Skeleton_shows";
-import MainSlider from "../../Components/MainSlider/MainSlider";
+import Footer from "../Components/Footer/Footer";
+import ScrollDivShow from "../Components/ScrollDivShow";
+import ScrollDivMovies from "../Components/ScrollDivMovies";
+import SkeletonShow from "../Components/Skeleton/Skeleton_shows";
+import SkeletonMovies from "../Components/Skeleton/Skeleton_movies";
+// import Slider from "../../Components/Slider/Slider";
+import MainSlider from "../Components/MainSlider/MainSlider";
+import style from "./../style/MainPages/Home.module.css"
 
 const Home = () => {
   const [flag, setFlag] = useState(false);
@@ -21,10 +20,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="MainBox">
+    <div className={style.MainBox}>
       {/* Slider */}
       {/* <Slider /> */}
-      <MainSlider/>
+      <MainSlider />
 
       {/* Trending Near You */}
       {flag ? (
@@ -83,7 +82,7 @@ const Home = () => {
 
       {/* Blockbuster Films */}
       {flag ? (
-        <Scrolldiv
+        <ScrollDivMovies
           imgCount="14"
           head="Blockbuster Films"
           url="/blockbusterMovie/zee5_blockbuster_movie"
@@ -106,7 +105,7 @@ const Home = () => {
       {/* Popular Movies */}
 
       {flag ? (
-        <Scrolldiv
+        <ScrollDivMovies
           imgCount="14"
           head="Popular Movies"
           url="/popularMovies/zee5_popularMovies"
@@ -118,7 +117,7 @@ const Home = () => {
       {/* Free Dubbed Movies */}
 
       {flag ? (
-        <Scrolldiv
+        <ScrollDivMovies
           imgCount="14"
           head="Free Dubbed Movies"
           url="/dubbedMovies/zee5_dubbedMovies"

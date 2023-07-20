@@ -19,6 +19,7 @@ import "./Main.css";
 import Slider from "react-slick";
 import { MdPlayArrow } from "react-icons/md";
 import { RiVipCrownFill } from "react-icons/ri";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const MainSlider = () => {
   const [count, setCount] = useState(1);
@@ -139,6 +140,7 @@ const MainSlider = () => {
                 position="relative"
               >
                 <Box
+                  position="relative"
                   key={i}
                   height="100%"
                   width="99%"
@@ -155,18 +157,35 @@ const MainSlider = () => {
                     className="slidingImg"
                     alt="movie"
                   />
-                </Box>
-                {
+                  {/* <LazyLoadImage
+                    display="block"
+                    effect="blur"
+                    background="red"
+                    alt={`Sliding/zee5_${i + 1}.png`}
+                    className="slidingImg"
+                    src={`Sliding/zee5_${i + 1}.png`}
+                    style={{
+                      width: "100%",
+                      // transition: "all 2s ease-in",
+                      height: "100%",
+                    }}
+                  /> */}
                   <Flex
                     gap="1rem"
                     flexDirection="column"
                     justifyContent="flex-start"
                     alignItems="flex-start"
                     position="absolute"
-                    bottom="1rem"
-                    left="3rem"
+                    bottom={{ base: "1rem", sm: "2rem", md: "1rem" }}
+                    left={{ base: "1rem", sm: "2rem", md: "rem" }}
                   >
-                    <Heading m="0px" p="0px" textAlign="left" fontSize="1.8rem" as="h2">
+                    <Heading
+                      m="0px"
+                      p="0px"
+                      textAlign="left"
+                      fontSize="1.8rem"
+                      as="h2"
+                    >
                       Title
                     </Heading>
                     <Flex gap="1rem" direction="row">
@@ -196,13 +215,12 @@ const MainSlider = () => {
                       >
                         <RiVipCrownFill className="KingCrownSlider" />
                         <Text fontSize="0.9rem" fontWeight="600">
-                          
                           BUY PLAN
                         </Text>
                       </Flex>
                     </Flex>
                   </Flex>
-                }
+                </Box>
               </Box>
             );
           })}

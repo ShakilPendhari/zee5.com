@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import { AuthContext } from '../Context/CreateAuthContext'
 import { useSelector } from 'react-redux';
-import style from "./Video.module.css"
+import style from "./../style/MainPages/Video.module.css"
 import { Box } from '@chakra-ui/react';
 
 

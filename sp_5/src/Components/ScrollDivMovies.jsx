@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import "./scrolldivmovies.css";
+import style from './../style/ComponentElement/scrolldivmovies.module.css'
 import { useRef } from "react";
 import { useEffect } from "react";
 import { Box, Button, Heading } from "@chakra-ui/react";
 import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
-import SkeletonImage from "../Skeleton/Skeleton_image";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const ScrollDivMovies = ({ url, head, imgCount }) => {
   const [scrollAmountSum, setScrollAmountSum] = useState(0);
@@ -73,39 +73,54 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
       return scrollAmountValue + scrollAmount;
     });
   };
+  function responsiveness(b,s,m){
+    return {base:b+"rem",sm:s+"rem",md:m+"rem"}
+  }
 
   return (
-    <div className="trendBoxDivMovies">
-      <Heading id="headMovies" as="h2" m="2.7rem 0rem 0.2rem 0rem">
+    <div className={style.trendBoxDivMovies}>
+      <Heading id={style.headMovies} as="h2" m="2.7rem 0rem 0.2rem 0rem">
         {head}
       </Heading>
 
-      <div id="mainTopDivMovies">
+      <div id={style.mainTopDivMovies}>
         {leftArrow && (
           <IoIosArrowBack
             onClick={() => handleScroll(-750, imgCount)}
             size="2rem"
-            className="arrowIconsMovies backMovies"
+            className={`${style.arrowIconsMovies} ${style.backMovies}`}
           />
         )}
-        <div className="trendDivMovies" ref={divScroll}>
+        <div className={style.trendDivMovies} ref={divScroll}>
           {Array(imgCount)
             .fill(1)
             .map((item, i, arr) => (
-              <Box key={i + 1} className="boxMovies BoxHoverMovies" width="16rem">
+              <Box key={i + 1} className={`${style.boxMovies} ${style.BoxHoverMovies}`} width={{base:"8rem",sm:"13rem",md:"16rem"}}>
                 {" "}
-                <RiVipCrownFill className="KingCrownMovies" />
+                <RiVipCrownFill className={style.KingCrownMovies} />
                 {/* <SkeletonImage src={`${url}${i + 1}.png`}/> */}
                 <img
                   // onLoad={()=>{
                   //   console.log("Image is loading")
                   // }}
                   loading="lazy"
-                  className="trendImgMovies"
+                  className={style.trendImgMovies}
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}
                 />
-                <Box ref={but} className="butMovies">
+                {/* <LazyLoadImage
+                    effect="blur"
+                    // background="red"
+                    alt={`${url}${i + 1}.png`}
+                    className={style.}"trendImgMovies"
+                    src={`${url}${i + 1}.png`}
+                    // style={{
+                    //   width: "100%",
+                    //   // transition: "all 2s ease-in",
+                    //   height: "100%",
+                    // }}
+                  /> */}
+                <Box ref={but} className={style.butMovies}>
                   <Button
                     leftIcon={<MdPlayArrow size="1.2rem" />}
                     border="2px solid"
@@ -142,7 +157,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
           <IoIosArrowForward
             onClick={() => handleScroll(750, imgCount)}
             size="2rem"
-            className="arrowIconsMovies forwardMovies"
+            className={`${style.arrowIconsMovies} ${style.forwardMovies}`}
           />
         )}
       </div>

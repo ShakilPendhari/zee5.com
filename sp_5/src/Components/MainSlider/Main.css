@@ -1,18 +1,37 @@
 .slick-dots{
     /* background-color: white; */
     /* width: 30%; */
-    margin: auto;
+    margin: 1rem auto;
     position: static;
 }
 
 .slick-dots li.slick-active button:before {
-    opacity: 0.75;
-    color: rgb(220, 7, 220)!important;
+    opacity: 1;
+    color: rgb(253, 0, 253)!important;
     padding: 0px;
     transform: translateX(1px);
     transition: transform 0.3s linear;
+    transform: translateY(-15%);
 }
 .slick-dots li button:before{
+    color:white !important;
+    opacity: 0.25;
+    padding: 0px;
+    transform: translateX(-1px);
+    transition: transform 0.5s linear;
+}
+
+
+.slick-dots li button{
+    color:white !important;
+    opacity: 0.25;
+    padding: 0px;
+    transform: translateX(-1px);
+    transition: transform 0.5s linear;
+}
+
+.slick-dots li button:hover:before
+{
     color:white !important;
     opacity: 0.25;
     padding: 0px;
@@ -28,12 +47,6 @@
  }
 
 .slick-arrow{
-    visibility: hidden!important;
-}
-.slick-prev{
-    visibility: hidden!important;
-}
-.slick-next{
     visibility: hidden!important;
 }
 .slick-next{

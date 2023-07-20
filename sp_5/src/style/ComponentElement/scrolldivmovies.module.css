@@ -9,6 +9,21 @@
     height: 28px;
     width: 28px;
     padding:4px;
+   
+}
+@media all and (min-width:481px) and (max-width:768px)
+{
+    .KingCrownMovies{
+        height: 18px;
+        width:18px;
+    }
+};
+@media all and (min-width:150px) and (max-width:480px)
+{
+    .KingCrownMovies{
+        height: 18px;
+        width:18px;
+    }
 }
 .BoxHoverMovies{
     /* transform: scale(1); */

@@ -1,5 +1,5 @@
 import React from 'react'
-import ScrollDivMovies from '../Components/ScrollDivMovies/ScrollDivMovies'
+import ScrollDivMovies from '../Components/ScrollDivMovies'
 
 const Movies = () => {
   return (
