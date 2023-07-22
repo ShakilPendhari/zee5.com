@@ -114,7 +114,6 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
                     variant="ghost"
                     color="grey"
                   >
-                    {" "}
                     Share
                   </Button>
                 </Box>
