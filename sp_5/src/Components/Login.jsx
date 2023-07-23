@@ -1,43 +1,88 @@
 import React, { useState } from "react";
 import style from "./../style/ComponentElement/login.module.css";
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Image,
-  Input,
-  Text,
-} from "@chakra-ui/react";
+import codes from "country-calling-code";
 
-let obj ={data:""}
+import { Box, Flex, Heading, Image, Input, Text } from "@chakra-ui/react";
+
+let obj = { data: "" };
 
 const Login = () => {
   const [Intvalue, setIntvalue] = useState(obj);
   const [flag, setFlag] = useState(false);
+  const [phoneCode, setPhoneCode] = useState(91);
+  const [isNumber, setIsNumber] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
+  const [isShowMobileError, setIsShowMobileError] = useState(false);
 
   const handleonChange = (e) => {
     const { name, value } = e.target;
-    // setFormstate({ ...formstate, [name]: value });
-    setIntvalue((val)=>{
-      let newVal = val.data+value;
-      console.log("valData::::",val.data)
-      if(newVal.length===1&&Intvalue.data.length===1)
+   
+    setIntvalue((val) => {
+
+      let newVal = val.data + value;
+
+      if ((newVal * 1) / 1 === newVal * 1) {
+        setIsNumber(() => true);;
+        setDropDown(()=>true);
+      } else {
+        setIsNumber(() => false);
+        setDropDown(()=>false);
+      }
+     console.log("value:",value,+value>=0)
+
+      if(value&&+value>=0)
       {
-        setFlag(()=>true)
+        setDropDown(()=>true)
+        if(value.length<10 || value.length>10)
+        {
+           setIsShowMobileError(()=>true);
+           setFlag(() => false);
+        }
+        else{
+           setIsShowMobileError(()=>false);
+           setIsNumber(()=>true);
+           setFlag(() => false);
+        }
       }
       else{
-        setFlag(()=>false)
+        setDropDown(()=>false);
+        setIsNumber(() => false);
+        if (newVal.length === 1 && Intvalue.data.length === 1 ) {
+          setFlag(() => true);
+          setIsShowMobileError(()=>false);
+         
+        } else {
+          setFlag(() => false);
+          setIsShowMobileError(()=>false);
+        }
       }
-      return {...val,[name]:value}
+     
+      return { ...val, [name]: value };
     });
-  
   };
 
   return (
-    <Box color="black" className={style.login}>
-      <Heading fontSize={"1.8rem"} p="0rem 0rem 0.5rem" lineHeight={"1.35rem"} className={style.mainHead} as="h4">Login to ZEE5</Heading>
-      <Text w="90%" fontWeight="500" textAlign="center" className={style.subhead}>
+    <Box className={style.login}>
+      {/* {
+     
+      codes.forEach((el)=>{console.log(el.countryCodes[0])})
+    } */}
+
+      <Heading
+        fontSize={"1.8rem"}
+        p="0rem 0rem 0.5rem"
+        lineHeight={"1.35rem"}
+        className={style.mainHead}
+        as="h4"
+      >
+        Login to ZEE5
+      </Heading>
+      <Text
+        w="90%"
+        fontWeight="500"
+        textAlign="center"
+        className={style.subhead}
+      >
         Login to continue enjoying uninterrupted video and personalised
         experience.
       </Text>
@@ -56,23 +101,73 @@ const Login = () => {
       <Flex className={style.optionOr}>
         <Box>or</Box>
       </Flex>
-      <Box className={style.input}>
+      <Flex
+        pos="relative"
+        outline="none"
+        border={flag ? "1px solid red" : "1px solid black"}
+        borderRadius="5px"
+        className={style.input}
+      >
+        <Text display={isNumber?"block":"none"} p="0.5rem">{ phoneCode }</Text>
         <Input
           value={Intvalue.data}
           onChange={handleonChange}
           name="data"
-          onClick={(e)=>{console.log("Input::",e)}}
-          border={flag?"1px solid red":"1px solid black"}
           outline="none"
           transition="none"
-          focusBorderColor={flag?"red":"black"}
           placeholder="Enter email or mobile number"
+          border="none"
+          focusBorderColor="tranparent"
         />
-        <Text visibility={flag?"visible":"hidden"} textAlign={'left'} color="red" fontSize={'0.75rem'}>Enter Email ID OR Mobile Number</Text>
-      </Box>
+        {dropDown && (
+        <Box
+          height="11.487rem"
+          overflowY="scroll"
+          border="1px solid black"
+          zIndex="100"
+          className="phoneNumber"
+          bgColor="white"
+          borderRadius={"5px"}
+          pos="absolute"
+          top="3.8rem"
+          left="-0.1rem"
+        >
+          {codes.map((el, i) => (
+            <Text onClick={(e)=>setPhoneCode(()=>e.target.textContent)} className={style.options} key={i}>
+              {el.countryCodes[0]}
+            </Text>
+          ))}
+        </Box>
+      )}
+      </Flex>
+      {
+         isShowMobileError&&<Text
+        w="80%"
+        m="auto"
+        textAlign={"left"}
+        color="red"
+        fontSize={"0.75rem"}
+      >
+        Incorret Mobile Number
+      </Text>
+      }
+      <Text
+        visibility={flag ? "visible" : "hidden"}
+        w="80%"
+        m="auto"
+        textAlign={"left"}
+        color="red"
+        fontSize={"0.75rem"}
+      >
+        Enter Email ID OR Mobile Number
+      </Text>
+      
       <Box>
-        <button className={style.button}>Login</button>
+        <button disabled="disabled" className={style.button}>
+          Login
+        </button>
       </Box>
+
       <Text>
         New to ZEE5 ? <span>Register</span>
       </Text>

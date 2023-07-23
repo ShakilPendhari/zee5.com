@@ -9,13 +9,15 @@
 .login{
     font-family: var(--login-font-fmly);
     background: var(--bg-color);
-    height: 33rem;
+    color: var(--login-header-color);
+    height: 35rem;
     width: 25rem;
     margin: 2rem auto;
     border-radius: 16px;
-    padding:1.4rem 0rem;
-    padding: 1.25rem auto;
+    padding: 1.25rem 0rem;
     font-size: 1rem;
+    overflow:auto;
+    box-sizing: border-box;
 }
 
 .mainHead{
@@ -70,6 +72,16 @@
     margin: 2rem auto;
     background-color: var(--login-btn-color);
     color:white;
+}
+.options{
+    padding:0.3rem 0.5rem 0.3rem 0.7rem;
+    margin:auto;
+    text-align:left
+}
+.options:hover{
+    background-color:rgba(156, 148, 148, 0.2);
+    border-radius:4px;
+    color: var(--login-btn-color);
 }
 
 

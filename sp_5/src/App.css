@@ -52,10 +52,6 @@
   overflow-y: scroll;
 }
 
-::-webkit-scrollbar { 
-  width: 1px;
-  
-} 
 ::-webkit-scrollbar {
   width: 10px;
   
@@ -76,6 +72,20 @@
   color:green;
   background:linear-gradient(to bottom, rgb(249, 9, 9),white, rgb(0, 255, 140), rgb(252, 6, 252) )
   
+}
+
+/*  */
+.phoneNumber::-webkit-scrollbar-thumb{
+  height:1.1rem;
+  background:grey;
+  border-radius: 10px;
+}
+.phoneNumber::-webkit-scrollbar {
+  width: 5px;
+}
+.phoneNumber::-webkit-scrollbar-track {
+  box-shadow: border-box;
+  -webkit-box-shadow:inset 0px 0px 6px rgb(72, 66, 66);
 }
 
 #buttons{
@@ -142,6 +152,11 @@ height: auto;
   height: 300px;
 }
 
+/* Login contry code selector login page*/
+.chakra-select.css-1gpsbw3{
+  padding: 0px!important;
+  text-align: center;
+}
 
 @media  screen and (min-width: 300px) and (max-width:1000px){
   .mainCont{
