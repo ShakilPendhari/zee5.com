@@ -9,8 +9,8 @@ import RightSideLogo from "./RightSideLogo";
 import Error from "./Error";
 import Searching from "./Searching";
 import Home from "./Home.jsx";
+import Signup from "../Components/Signup.jsx";
 import Login from "../Components/Login.jsx";
-import Signup from "../Components/Signup/Signup.jsx";
 
 const AllRoutes = () => {
   return (

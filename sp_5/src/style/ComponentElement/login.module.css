@@ -11,11 +11,11 @@
     font-family: var(--login-font-fmly);
     background: var(--bg-color);
     color: var(--login-header-color);
-    height: 35rem;
+    /* height: 35rem; */
     width: 25rem;
     margin: 2rem auto;
     border-radius: 16px;
-    padding: 1.25rem 0rem;
+    padding: 1.25rem 0rem 1.5rem;
     font-size: 1rem;
     overflow:auto;
     box-sizing: border-box;
@@ -31,11 +31,11 @@
     letter-spacing: 0.05rem;
     margin:1rem auto 1.3rem;
     font-size: 1rem;
-    width: 80%;
+    width: 85%;
 }
 
 .icons{
-    width:70%;
+    width:75%;
     margin: 3rem auto 2rem;
 }
 
@@ -64,12 +64,12 @@
     background-color: #cdcdcd;
 }
 .input{
-    width: 80%;
+    width: 81%;
     margin: 1.1rem auto 1rem;
     height: 3.2rem;
 }
 .button{
-    width: 80%;
+    width: 81%;
     padding:0.5rem;
     border-radius: 5px;
     margin: 1.4rem auto;

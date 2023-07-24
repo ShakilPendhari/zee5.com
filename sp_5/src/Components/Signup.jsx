@@ -8,7 +8,7 @@ import Inputsection from "./auth/Inputsection";
 
 let obj = { data: "" };
 
-const Login = () => {
+const Signup = () => {
   const [Intvalue, setIntvalue] = useState(obj);
   const [flag, setFlag] = useState(false);
   const [phoneCode, setPhoneCode] = useState(91);
@@ -91,7 +91,7 @@ const Login = () => {
     <Box className={style.login} onMouseLeave={handleMouseLeave}>
 
       {/* Heading and Text */}
-      <TopSection heading="Login to ZEE5" text=" Login to continue enjoying uninterrupted video and personalised experience." />
+      <TopSection heading="Create a new account" text="Create an account to continue enjoying uninterrupted video and personalised experience." />
 
       {/* Icon section */}
       <Icons />
@@ -110,10 +110,10 @@ const Login = () => {
         isShowMobileError={isShowMobileError}
       />
 
-      <Bottom isbtndisabled={isbtndisabled} handleSubmit={handleSubmit} auth="Login" toggle="Register" info="New to ZEE5 ?" />
+      <Bottom isbtndisabled={isbtndisabled} handleSubmit={handleSubmit} auth="Create Account" toggle="Login" info="Already registered?" />
 
     </Box>
   );
 };
 
-export default Login;
+export default Signup;
