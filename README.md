@@ -20,12 +20,14 @@ A search functionality allowing users to easily find their favorite content with
 
 # Signup Page: 
 An intuitive signup page for users to create their accounts and access personalized features. <br/>
-![Zee5_SignupPage](https://github.com/ShakilPendhari/zee5.com/assets/107555598/5706e98e-967a-480f-ba16-1e027b05488f)
+![Zee5-SignUp](https://github.com/ShakilPendhari/zee5.com/assets/107555598/e10d0826-724e-449a-b841-7b7cf1332de1)
+
 
 
 # Login Page:
 A secure login page for existing users to sign in and access their profiles.<br/>
-![Zee5_LoginPage](https://github.com/ShakilPendhari/zee5.com/assets/107555598/09f6627e-50fa-49e5-8983-bb5b0547d04f)
+![Zee5-Login](https://github.com/ShakilPendhari/zee5.com/assets/107555598/3df72e81-4110-4584-bbfe-f62366c97648)
+
 
 
 # Tech Stack -:<br/>
