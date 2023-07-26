@@ -20,7 +20,7 @@ A search functionality allowing users to easily find their favorite content with
 
 # Signup Page: 
 An intuitive signup page for users to create their accounts and access personalized features. <br/>
-![Zee5-SignUp](https://github.com/ShakilPendhari/zee5.com/assets/107555598/e10d0826-724e-449a-b841-7b7cf1332de1)
+![Zee5-Signup](https://github.com/ShakilPendhari/zee5.com/assets/107555598/f70201cd-86ad-4a52-9ff8-37c2defcdfdf)
 
 
 
