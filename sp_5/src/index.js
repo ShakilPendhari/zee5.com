@@ -7,7 +7,7 @@ import { store } from "./Redux/store";
 import { ChakraProvider } from "@chakra-ui/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log("root::",ReactDOM)
+
 root.render(
   <BrowserRouter>
     <ChakraProvider>

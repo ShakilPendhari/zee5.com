@@ -90,6 +90,24 @@
 #register{
     color: var(--register);
 }
+.btnColor{
+    color:var(--register)
+}
+.btnColor:hover{
+    cursor: pointer;
+}
+
+.checkbox{
+    font-size: 0.7rem;
+    font-weight: 550;
+    color:#9b9a9a;
+    /* text-align: left; */
+    letter-spacing: 0.01rem;
+}
+.checkBoxint{
+    width: 1.3rem;
+    height: 1.3rem;
+}
 
 
 /* tab view */
