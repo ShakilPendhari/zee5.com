@@ -44,6 +44,9 @@ const Signup = () => {
           {
             setisbtndisabled(() => false);
           }
+          else{
+            setisbtndisabled(() => true);
+          }
         }
       } else {
         setIsNumber(() => false);
@@ -69,6 +72,9 @@ const Signup = () => {
                 if(newInt.checkbox)
                 {
                   setisbtndisabled(() => false);
+                }
+                else{
+                  setisbtndisabled(() => true);
                 }
               }
             } else {
