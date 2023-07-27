@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import style from "./../style/ComponentElement/login.module.css";
-import { Box } from "@chakra-ui/react";
+import { Box, Checkbox, Flex } from "@chakra-ui/react";
 import Icons from "./auth/Icons";
 import TopSection from "./auth/TopSection";
 import Bottom from "./auth/Bottom";
 import Inputsection from "./auth/Inputsection";
 
-let obj = { data: "" };
+let obj = { data: "", checkbox:false };
 
 const Signup = () => {
   const [Intvalue, setIntvalue] = useState(obj);
@@ -18,37 +18,43 @@ const Signup = () => {
   const [isbtndisabled, setisbtndisabled] = useState(true);
 
   const handleonChange = (e) => {
-    const { name, value } = e.target;
+    
+    const { name, value, type, checked  } = e.target;
 
-    setIntvalue((val) => {
-      let newVal = val.data + value;
-
+    let currentValue = type==="checkbox"?checked:value;
+    setIntvalue((newInt)=>{
+      newInt = {...newInt,[name]:currentValue}
+      console.log("newInt::",newInt)
       // check isNumber or not
-      if (+value >= 0) {
+      if (+newInt.data >= 0) {
         setIsNumber(() => true);
       } else {
         setIsNumber(() => false);
       }
 
-      if (value && +value >= 0) {
+      if (newInt.data && +newInt.data >= 0) {
         setFlag(() => false);
-        if (value.length < 10 || value.length > 10) {
+        if (newInt.data.length < 10 || newInt.data.length > 10) {
           setIsShowMobileError(() => true);
           setisbtndisabled(() => true);
         } else {
           setIsShowMobileError(() => false);
           setIsNumber(() => true);
-          setisbtndisabled(() => false);
+          if(newInt.checkbox)
+          {
+            setisbtndisabled(() => false);
+          }
         }
       } else {
         setIsNumber(() => false);
         setIsShowMobileError(() => false);
-        if (newVal.length === 1 && Intvalue.data.length === 1) {
+      
+        if (newInt.data.length === 0) {
           setFlag(() => true);
           setisbtndisabled(() => true);
         } else {
           setFlag(() => false);
-          let checkAtTheRateSign = value.trim().split("@");
+          let checkAtTheRateSign = newInt.data.trim().split("@");
           if (checkAtTheRateSign.length === 2) {
             let g = checkAtTheRateSign[1];
             g = g.trim().split(".");
@@ -59,8 +65,11 @@ const Signup = () => {
               g[1].length >= 2 &&
               g[1].length <= 4
             ) {
-              if (value.length > 1) {
-                setisbtndisabled(() => false);
+              if (newInt.data.length > 0) {
+                if(newInt.checkbox)
+                {
+                  setisbtndisabled(() => false);
+                }
               }
             } else {
               setisbtndisabled(() => true);
@@ -70,9 +79,10 @@ const Signup = () => {
           }
         }
       }
-
-      return { ...val, [name]: value };
+     
+      return newInt
     });
+  
   };
 
   const handleDropdown = () => {
@@ -109,7 +119,9 @@ const Signup = () => {
         setDropDown={setDropDown}
         isShowMobileError={isShowMobileError}
       />
-
+      <Flex gap="0.2rem" alignItems="flex-start" justifyContent="space-between" width="80%" m="2rem auto 0rem">
+        <input onChange={handleonChange} name="checkbox" value={Intvalue.checkbox} className={style.checkBoxint} type="checkbox"/> <span className={style.checkbox}>By proceeding you agree to our <span className={style.btnColor}>Terms of Services</span> & <span className={style.btnColor}>Privacy Policy.</span></span>
+      </Flex>
       <Bottom isbtndisabled={isbtndisabled} handleSubmit={handleSubmit} auth="Create Account" toggle="Login" info="Already registered?" />
 
     </Box>

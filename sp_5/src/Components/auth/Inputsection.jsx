@@ -14,6 +14,9 @@ const Inputsection = ({flag,handleDropdown,isNumber,phoneCode,dropDown,Intvalue,
     alignItems="center"
     className={style.input}
   >
+
+   {/* Country code section */}
+
     <Flex
       pos="relative"
       onClick={handleDropdown}
@@ -29,6 +32,8 @@ const Inputsection = ({flag,handleDropdown,isNumber,phoneCode,dropDown,Intvalue,
         transform={dropDown ? "rotate(0deg)" : "rotate(180deg)"}
       />
     </Flex>
+
+   {/* Main input section */}
     <Input
       value={Intvalue.data}
       onChange={handleonChange}
