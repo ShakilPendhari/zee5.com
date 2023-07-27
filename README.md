@@ -6,7 +6,8 @@ This is a clone of the popular streaming platform, ZEE5. The clone includes the 
 
 # Landing Page:
 A visually appealing landing page with smooth scrolling and captivating design. <br/>
-![Zee5_LandingPage](https://github.com/ShakilPendhari/zee5.com/assets/107555598/f774081b-4e85-4f17-bad3-2c983b4f1ef8)
+![zee5-homeImg](https://github.com/ShakilPendhari/zee5.com/assets/107555598/0145c042-cf6f-4a34-8f12-5587f5f912cd)
+
 
 
 # Video Page:
@@ -20,12 +21,14 @@ A search functionality allowing users to easily find their favorite content with
 
 # Signup Page: 
 An intuitive signup page for users to create their accounts and access personalized features. <br/>
-![Zee5_SignupPage](https://github.com/ShakilPendhari/zee5.com/assets/107555598/5706e98e-967a-480f-ba16-1e027b05488f)
+![Zee5-Signup](https://github.com/ShakilPendhari/zee5.com/assets/107555598/f70201cd-86ad-4a52-9ff8-37c2defcdfdf)
+
 
 
 # Login Page:
 A secure login page for existing users to sign in and access their profiles.<br/>
-![Zee5_LoginPage](https://github.com/ShakilPendhari/zee5.com/assets/107555598/09f6627e-50fa-49e5-8983-bb5b0547d04f)
+![Zee5-Login](https://github.com/ShakilPendhari/zee5.com/assets/107555598/3df72e81-4110-4584-bbfe-f62366c97648)
+
 
 
 # Tech Stack -:<br/>
