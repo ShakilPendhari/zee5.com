@@ -1,9 +1,9 @@
 import { legacy_createStore as CreateStore,combineReducers,compose,applyMiddleware} from "redux";
-import { reducer } from "./reducer";
 import thunk from "redux-thunk";
+import { VideoReducer } from "./Video/VideoReducer";
 
 const rootReducer = combineReducers({
-    data:reducer
+    data:VideoReducer,
 });
 
 const composeEnhancer = compose;

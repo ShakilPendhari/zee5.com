@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const userEmailSchema = mongoose.Schema({
     email:{type:String,required:true},
-    otp:Number
+    otp:{type:String,required:true}
 },{
     versionKey:false
 });

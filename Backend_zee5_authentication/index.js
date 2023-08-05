@@ -1,12 +1,17 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 const {connection} = require("./db");
 const { UserRouter } = require("./routes/user.routes");
 const authenticate = require("./Middleware/auth.middleware");
+app.use(express.urlencoded({extended:false}));
 
+app.use(cors());
 app.use(express.json())
+
+
 
 
 app.get("/",(req,res)=>{

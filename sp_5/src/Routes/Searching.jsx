@@ -1,15 +1,14 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { GetData, InfiniteScrolling } from '../Redux/action';
 import { Box, Grid, Image } from '@chakra-ui/react';
 import SearchingElements from '../Components/Skeleton/SearchElement/SearchingElements';
+import { InfiniteScrolling } from '../Redux/Video/action';
 
 
 const Searching = () => {
    const {data,page,query,loading,error} = useSelector((store)=>store.data);
    const dispatch = useDispatch();
    const id = useRef(null);
-   const newQuery = useRef(null);
 
 //   useEffect(()=>{
 //    dispatch(GetData({page}))

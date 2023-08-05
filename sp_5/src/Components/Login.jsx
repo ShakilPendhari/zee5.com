@@ -5,6 +5,7 @@ import Icons from "./auth/Icons";
 import TopSection from "./auth/TopSection";
 import Bottom from "./auth/Bottom";
 import Inputsection from "./auth/Inputsection";
+import { login } from "../Redux/Auth/auth.api";
 
 let obj = { data: "" };
 
@@ -84,6 +85,15 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
+    let cred = +Intvalue.data;
+    let number = Number(cred);
+     if(number%1===0)
+     {
+       login({mobileNo:`+${phoneCode}${Intvalue.data}`})
+     }
+     else{
+       login({email:Intvalue.data})
+     }
     console.log("hello this is input value", Intvalue);
   };
 

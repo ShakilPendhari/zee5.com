@@ -10,7 +10,8 @@ import "./Navbar.css";
 import { Button } from "@chakra-ui/react";
 import RightSideLogo from "../../Routes/RightSideLogo";
 import { useDispatch, useSelector } from "react-redux";
-import { GetData, UpdateData } from "../../Redux/action";
+import { UpdateData } from "../../Redux/Video/action";
+
 
 const links = [
   {

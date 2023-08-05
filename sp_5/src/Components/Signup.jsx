@@ -5,6 +5,7 @@ import Icons from "./auth/Icons";
 import TopSection from "./auth/TopSection";
 import Bottom from "./auth/Bottom";
 import Inputsection from "./auth/Inputsection";
+import { register } from "../Redux/Auth/auth.api";
 
 let obj = { data: "", checkbox:false };
 
@@ -24,7 +25,7 @@ const Signup = () => {
     let currentValue = type==="checkbox"?checked:value;
     setIntvalue((newInt)=>{
       newInt = {...newInt,[name]:currentValue}
-      console.log("newInt::",newInt)
+      // console.log("newInt::",newInt)
       // check isNumber or not
       if (+newInt.data >= 0) {
         setIsNumber(() => true);
@@ -100,6 +101,15 @@ const Signup = () => {
   };
 
   const handleSubmit = () => {
+    let cred = +Intvalue.data;
+    let number = Number(cred);
+     if(number%1===0)
+     {
+       register({mobileNo:`+${phoneCode}${Intvalue.data}`})
+     }
+     else{
+       register({email:Intvalue.data})
+     }
     console.log("hello this is input value", Intvalue);
   };
 
