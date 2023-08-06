@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 
 const userEmailSchema = mongoose.Schema({
     email:{type:String,required:true},
-    otp:{type:String,required:true}
+    otp:String,
+    createAt:Number,
+    expireAt:Number
 },{
     versionKey:false
 });
