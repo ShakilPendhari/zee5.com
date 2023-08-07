@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useToast } from '@chakra-ui/react'
 
 import {
   Box,
@@ -37,6 +38,7 @@ const Otp = () => {
   const navigate = useNavigate();
   const emailLS = takeEmailFromLS();
   const [ time, setTime ] = useState(60);
+  const toast = useToast();
   let id;
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const Otp = () => {
   }
 
   const handleSubmit = () => {
-      CheckEmail({email:emailLS,otp:isData.int1+isData.int2+isData.int3+isData.int4})
+      CheckEmail({email:emailLS,otp:isData.int1+isData.int2+isData.int3+isData.int4},navigate,toast)
   };
 
   const handleChange = (e) => {
