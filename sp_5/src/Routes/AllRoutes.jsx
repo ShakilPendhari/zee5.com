@@ -11,6 +11,7 @@ import Searching from "./Searching";
 import Home from "./Home.jsx";
 import Signup from "../Components/Signup.jsx";
 import Login from "../Components/Login.jsx";
+import Otp from "./Otp.jsx";
 
 const AllRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const AllRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/Searching" element={<Searching />} />
+      <Route path="/verify-email" element={<Otp />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

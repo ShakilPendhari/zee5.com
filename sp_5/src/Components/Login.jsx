@@ -6,6 +6,7 @@ import TopSection from "./auth/TopSection";
 import Bottom from "./auth/Bottom";
 import Inputsection from "./auth/Inputsection";
 import { login } from "../Redux/Auth/auth.api";
+import { useNavigate } from "react-router-dom";
 
 let obj = { data: "" };
 
@@ -17,6 +18,7 @@ const Login = () => {
   const [dropDown, setDropDown] = useState(false);
   const [isShowMobileError, setIsShowMobileError] = useState(false);
   const [isbtndisabled, setisbtndisabled] = useState(true);
+  const navigate = useNavigate();
 
   const handleonChange = (e) => {
     const { name, value } = e.target;
@@ -89,10 +91,12 @@ const Login = () => {
     let number = Number(cred);
      if(number%1===0)
      {
-       login({mobileNo:`+${phoneCode}${Intvalue.data}`})
+       login({mobileNo:`+${phoneCode}${Intvalue.data}`});
      }
      else{
-       login({email:Intvalue.data})
+       login({email:Intvalue.data});
+       localStorage.setItem("sp5-Email",JSON.stringify(Intvalue.data));
+       navigate("/verify-email")
      }
     console.log("hello this is input value", Intvalue);
   };
@@ -101,7 +105,7 @@ const Login = () => {
     <Box className={style.login} onMouseLeave={handleMouseLeave}>
 
       {/* Heading and Text */}
-      <TopSection heading="Login to ZEE5" text=" Login to continue enjoying uninterrupted video and personalised experience." />
+      <TopSection heading="Login to ZEE5" text="Login to continue enjoying uninterrupted video and personalised experience." />
 
       {/* Icon section */}
       <Icons />

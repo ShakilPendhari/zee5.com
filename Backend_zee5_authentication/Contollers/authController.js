@@ -40,9 +40,7 @@ let registerContoller = async (req, res) => {
 
       let user = new UserEmailModel({ email:email });
       await user.save();
-
       res.send("Your Account has been Registered.")
-     
     } 
     else if (mobileNo) {
 
@@ -91,7 +89,6 @@ let loginController = async (req, res) => {
   
       if (isUserExist.length > 0) {
 
-
         let otp = generateOTP() + "";
         
         let saltRound = Number(process.env.SALTROUND);
@@ -102,12 +99,11 @@ let loginController = async (req, res) => {
 
         if(hash)
         {
-
          await UserEmailModel.findOneAndUpdate({email:isUserExist[0].email},{
             email:email,
             otp:hash,
             createAt:Number(Date.now()),
-            expireAt:Number(Date.now())+(1000*60*45)
+            expireAt:Number(Date.now())+(1000*60*30)
           });
     
 
@@ -134,7 +130,7 @@ let loginController = async (req, res) => {
             body: {
               intro: `<br><br>To verify your email address, please use the following One Time Password(OTP) <b style="font-size:'2rem'">${otp} </b> please do not share your OTP with anybody.<br><br>`,
               outro:
-                "This email address will be used to share periodic updates regarding new TV Shows, Movies, Originals that are available on ZEE5.<br><br><h1>Thank You</h1><h1>Team SP5</h1>",
+                "This email address will be used to share periodic updates regarding new TV Shows, Movies, Originals that are available on SP5.<br><br><h1>Thank You</h1><h1>Team SP5</h1>",
               signature: false,
               greeting: false,
             },
@@ -161,28 +157,11 @@ let loginController = async (req, res) => {
         .catch((error) => {
           return res.status(500).json({ error });
         });
-
-
-
-
-
-
-
-            // Create token //
-       
-            //  token = jwt.sign({email:user.email}, process.env.SECRETEKEY,{ expiresIn: 60*45 });
-            //  // console.log(token)
-            //  res.status(201).send({"token":token,"hash":hash,"msg":"Congrats user has been registered","Token Expires In":"30 minutes"});
-
         }
         else{
           res.send({"Error:":"Something went Wrong"});
         }
-      
-           
       });
-
-
 
       } else {
         res.send("You are not registed!");
@@ -226,6 +205,7 @@ let loginController = async (req, res) => {
 
 
 ////    Check login    ////
+
 const checkOTPController = async (req,res)=>{
 
   let {otp,email} = req.body;
@@ -236,29 +216,30 @@ const checkOTPController = async (req,res)=>{
 
   // check validity of otp
 
-  let time = user.expireAt >= Date.now();
+  let time = user.expireAt < Date.now();
+
+  // console.log("time:",time,"expireAt:",user.expireAt,"createAt:",user.createAt);
 
   if(time){
     res.send("OTP has been expired, Please Login Again !");
+    return;
   }
-
-
   
   bcrypt.compare(otp,user.otp,(err,result)=>{
    
     if(result){
-      res.send("successfull")
+         // Create token //
+       
+             token = jwt.sign({email:user.email}, process.env.SECRETEKEY,{ expiresIn: 60*60*5 });
+            //  // console.log(token)
+             res.status(201).send({"token":token,"msg":"Congrats user has been registered","Token Expires In":"5 hours"});
     }
     else if(err){
       res.send("error")
     }
   })
-  
     // res.send({user:user})
-
-
 }
-
 
 
 module.exports = {
