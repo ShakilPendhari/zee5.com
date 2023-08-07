@@ -9,7 +9,7 @@ const initState = {
     query:""
 }
 
-export const reducer = (state=initState,{type,payload})=>{
+export const VideoReducer = (state=initState,{type,payload})=>{
     const {data,prevData} = state;
     // console.log("type:",type,"payload:",payload,"state::",state)
     switch(type){

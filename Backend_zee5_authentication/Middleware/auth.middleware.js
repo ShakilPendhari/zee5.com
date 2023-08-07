@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const authenticate = (req,res,next)=>{
     const token = req.headers.authorization
     if(token){
-        jwt.verify(token, 'zee5sp', function(err, decoded) {
+        jwt.verify(token, process.env.SECRETEKEY, function(err, decoded) {
             if (decoded) {
                 req.body.user = decoded.userID;
                next();
