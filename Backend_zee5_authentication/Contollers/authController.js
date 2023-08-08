@@ -235,7 +235,7 @@ const checkOTPController = async (req,res)=>{
              res.status(201).send({"token":token,"msg":"Congrats user has been registered","Token Expires In":"5 hours"});
     }
     else if(err){
-      res.send("error")
+      res.send({"error":err})
     }
   })
     // res.send({user:user})
