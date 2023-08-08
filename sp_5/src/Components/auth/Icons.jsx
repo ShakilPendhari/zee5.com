@@ -11,10 +11,10 @@ const Icons = () => {
         alignItems={"center"}
         className={style.icons}
       >
-        <Image src="./SocialMediaIcon/zee5GoogleIcon.svg" alt="Google Icon" />
-        <Image src="./SocialMediaIcon/zee5FaceBookIcon.svg" alt="Apple Icon" />
-        <Image src="./SocialMediaIcon/zee5Twittericon.svg" alt="Apple Icon" />
-        <Image src="./SocialMediaIcon/zee5AppleIcon.svg" alt="Apple Icon" />
+        <Image cursor="pointer" src="./SocialMediaIcon/zee5GoogleIcon.svg" alt="Google Icon" />
+        <Image cursor="not-allowed" src="./SocialMediaIcon/zee5FaceBookIcon.svg" alt="FaceBook Icon" />
+        <Image cursor="not-allowed" src="./SocialMediaIcon/zee5Twittericon.svg" alt="Twitter Icon" />
+        <Image cursor="not-allowed" src="./SocialMediaIcon/zee5AppleIcon.svg" alt="Apple Icon" />
       </Flex>
 
         <Flex className={style.optionOr}>
