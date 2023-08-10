@@ -26,7 +26,7 @@ passport.use(
         if (hash) {
 
           let isUserExist = await UserEmailModel.find({email});
-          console.log(isUserExist)
+          // console.log(isUserExist)
 
           if(isUserExist.length)
           {
