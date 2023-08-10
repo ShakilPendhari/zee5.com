@@ -14,6 +14,7 @@ import Login from "../Components/Login.jsx";
 import Otp from "./Otp.jsx";
 
 const AllRoutes = () => {
+  
   return (
     <Routes>
       <Route path="/" element={<Home />} />
