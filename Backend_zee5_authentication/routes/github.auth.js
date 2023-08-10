@@ -11,7 +11,7 @@ GitHub_passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: process.env.BACKENDCALLBACKURL,
+      callbackURL: process.env.BACKEND_CALLBACK_URL_GITHUB,
       scope: ['user:email'],
     },
     function (accessToken, refreshToken, profile, done) {
