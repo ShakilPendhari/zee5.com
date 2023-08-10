@@ -1,10 +1,10 @@
 import axios from "axios";
 
 // cyclic url
-let URL = "https://blue-elated-hare.cyclic.app"
+// let URL = "https://blue-elated-hare.cyclic.app"
 
 // local URL
-// let URL = http://localhost:4505
+let URL = "http://localhost:5000"
 
 
 export const register = async (Credential)=>{
