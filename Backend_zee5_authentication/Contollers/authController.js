@@ -3,8 +3,7 @@ const { UserEmailModel } = require("../Model/user.model.email");
 // const crypto = require("crypto");
 const { UserMobileModel } = require("../Model/user.model.mobile");
 const nodemailer = require("nodemailer");
-require("dotenv").config();
-const client = require("twilio")(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
+const client = require("twilio")(process.env.ACCOUNTSID, process.env.AUTHTOKEN)
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
@@ -150,7 +149,9 @@ let loginController = async (req, res) => {
       } else {
         res.send("You are not registed!");
       }
-    } else if (mobileNo) {
+    } 
+    else if (mobileNo) {
+
       ////    Login With Mobile Number    ////
 
       let OTP = generateOTP();
@@ -158,22 +159,35 @@ let loginController = async (req, res) => {
       let isUserExist = await UserMobileModel.find({ mobileNo });
       console.log("lets check isUserExist:", isUserExist);
       if (isUserExist.length > 0) {
-        console.log("MobileNoPlus:", "+" + isUserExist[0].mobileNo);
+        let No = + isUserExist[0].mobileNo
+        console.log("MobileNoPlus:", "+" + isUserExist[0].mobileNo,No);
 
-        client.messages
+        
+          await client.messages
           .create({
             body: `Your OTP is : ${OTP}.@SP5.vercel ${OTP} - SP5`,
-            to: `+${isUserExist[0].mobileNo}`,
-            from: process.env.PHONENUMBER,
+            messagingServiceSid :process.env.MSGSID,
+            to:"+919921317929"
           })
-          .then((message) => {
-            console.log(message);
-            return res.status(201).json({ msg: message });
-          })
-          .catch((error) => {
-            // You can implement your fallback code here
-            return res.status(500).json({ err: error });
-          });
+          .then(()=> res.status(200).json({msg:"Message Sent"}))
+          .done();
+
+
+     
+
+      //     console.log("no:",mobileNo)
+      //    await client.messages 
+      // .create({ 
+      //   body: `Your OTP is : ${OTP}.@SP5.vercel ${OTP} - SP5`,  
+      //    from : process.env.PHONENUMBER,
+      //    messagingServiceSid: process.env.MSGSID,      
+      //    to: `+${No}`
+      //  }) 
+      // .then(message => res.status(200).json({"msg":message}))
+      // .catch((error)=>res.status(500).json({ "error":error }));
+
+
+
       } else {
         res.status(500).json({ err: "User need to register" });
       }
