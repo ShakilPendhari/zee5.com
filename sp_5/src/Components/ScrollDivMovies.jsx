@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import style from './../style/ComponentElement/scrolldivmovies.module.css'
+import style from "./../style/ComponentElement/scrolldivmovies.module.css";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { Box, Button, Heading } from "@chakra-ui/react";
@@ -15,8 +15,21 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
   const [leftArrow, setLeftArrow] = useState(false);
   const [rightArrow, setRightArrow] = useState(true);
   const but = useRef();
+  const [width, setWidth] = useState(window.innerWidth);
 
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [width]);
   useEffect(() => {}, [divScroll, leftArrow, but, rightArrow]);
+
+  const updateWidth = () => {
+    setWidth(() => {
+      console.log("width:", window.innerWidth);
+      return window.innerWidth;
+    });
+  };
 
   if (!imgCount) {
     imgCount = 10;
@@ -25,6 +38,15 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
   }
 
   const handleScroll = (scrollAmount = 0) => {
+    //  media query
+    if (width >= 100 && width <= 480) {
+      scrollAmount = 280 * scrollAmount;
+    } else if (width >= 481 && width <= 768) {
+      scrollAmount = 550 * scrollAmount;
+    } else if (width >= 769 && width <= 2000) {
+      scrollAmount = 750 * scrollAmount;
+    }
+    console.log("scrollAmount:", width, scrollAmount);
     // scrolling using arrows hide/visible
     setScrollAmountSum((scrollAmountValue) => {
       // get column-gap and margin-left to add into occupiedWidth
@@ -66,15 +88,15 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
       } else {
         setLeftArrow(false);
       }
-      console.log("sv:",scrollAmountValue,scrollAmount)
+      console.log("sv:", scrollAmountValue, scrollAmount);
 
       divScroll.current.scrollLeft = scrollAmountValue + scrollAmount;
 
       return scrollAmountValue + scrollAmount;
     });
   };
-  function responsiveness(b,s,m){
-    return {base:b+"rem",sm:s+"rem",md:m+"rem"}
+  function responsiveness(b, s, m) {
+    return { base: b + "rem", sm: s + "rem", md: m + "rem" };
   }
 
   return (
@@ -86,7 +108,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
       <div id={style.mainTopDivMovies}>
         {leftArrow && (
           <IoIosArrowBack
-            onClick={() => handleScroll(-750, imgCount)}
+            onClick={() => handleScroll(-1, imgCount)}
             size="2rem"
             className={`${style.arrowIconsMovies} ${style.backMovies}`}
           />
@@ -95,8 +117,14 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
           {Array(imgCount)
             .fill(1)
             .map((item, i, arr) => (
-              <Box key={i + 1} className={`${style.boxMovies} ${style.BoxHoverMovies}`} width={{base:"8rem",sm:"13rem",md:"16rem"}}>
-                {" "}
+              <Box
+                key={i + 1}
+                className={`${style.boxMovies} ${style.BoxHoverMovies}`}
+                 width={{ base: "30vw", sm: "30vw", md: "16rem" }}
+                minWidth={{ base: "28vw", sm: "25vw", md: "16rem" }}
+               
+                height={{ base: "9rem", sm: "16rem", md: "25rem" }}
+              >
                 <RiVipCrownFill className={style.KingCrownMovies} />
                 {/* <SkeletonImage src={`${url}${i + 1}.png`}/> */}
                 <img
@@ -112,7 +140,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
                     effect="blur"
                     // background="red"
                     alt={`${url}${i + 1}.png`}
-                    className={style.}"trendImgMovies"
+                    className={style.trendImgMovies}
                     src={`${url}${i + 1}.png`}
                     // style={{
                     //   width: "100%",
@@ -122,7 +150,8 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
                   /> */}
                 <Box ref={but} className={style.butMovies}>
                   <Button
-                    leftIcon={<MdPlayArrow size="1.2rem" />}
+                    className={style.watch}
+                    leftIcon={<MdPlayArrow className={style.playbut} />}
                     border="2px solid"
                     padding="0px 9px 0px 0px"
                     color="black"
@@ -138,7 +167,8 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
                     Watch
                   </Button>
                   <Button
-                    leftIcon={<FaShare />}
+                    className={style.share}
+                    leftIcon={<FaShare className={style.sharebut} />}
                     cursor="no-drop"
                     border="0px solid"
                     backgroundColor="white"
@@ -155,8 +185,7 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
 
         {rightArrow && (
           <IoIosArrowForward
-            onClick={() => handleScroll(750, imgCount)}
-            size="2rem"
+            onClick={() => handleScroll(1, imgCount)}
             className={`${style.arrowIconsMovies} ${style.forwardMovies}`}
           />
         )}

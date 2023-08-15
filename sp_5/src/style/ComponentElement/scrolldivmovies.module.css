@@ -1,155 +1,282 @@
-.KingCrownMovies{
-    position:absolute;
-    left:6px;
-    top:6px;
+.KingCrownMovies {
+    position: absolute;
+    left: 6px;
+    top: 6px;
     z-index: 100000;
     background-color: rgb(253, 251, 251);
-    color:rgb(220, 54, 198);
+    color: rgb(220, 54, 198);
     border-radius: 20px;
-    height: 28px;
-    width: 28px;
-    padding:4px;
-   
+    height: 1.7rem;
+    width: 1.7rem;
+    padding: 4px;
+    display: none;
 }
-@media all and (min-width:481px) and (max-width:768px)
-{
-    .KingCrownMovies{
-        height: 18px;
-        width:18px;
-    }
-};
-@media all and (min-width:150px) and (max-width:480px)
-{
-    .KingCrownMovies{
-        height: 18px;
-        width:18px;
-    }
-}
-.BoxHoverMovies{
-    /* transform: scale(1); */
+
+.BoxHoverMovies {
     border-radius: 10px;
-    position:relative;
+    position: relative;
     z-index: 100;
-    /* transition: transform 0.5s ease-in-out 0.5s; */
     box-sizing: border-box;
     overflow: hidden;
-    /* transition: transform .5s ease-in-out .1s; */
+
+    .butMovies {
+        position: absolute;
+        bottom: 0rem;
+        left: 0rem;
+        background-color: rgba(255, 255, 255);
+        width: 100%;
+        padding: 1.2rem;
+        /* visibility: hidden; */
+        opacity: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-around;
+        transition: all 0.5s ease-in 0.1s;
+    }
+
+    &>img {
+        border-radius: 10px;
+        position: relative;
+        z-index: 101;
+    }
+
+    &:hover {
+        transform: scale(1.2, 1.1);
+        transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+        /* border: 5px solid rgba(255, 255, 255); */
+        position: relative;
+        z-index: 101;
+        border-radius: 10px;
+        box-sizing: border-box;
+        /* transition: all 0.5s ease-out 0.5s; */
+        cursor: pointer;
+        box-shadow: 0px 0px 6px grey;
+
+
+        &>.butMovies {
+            opacity: 1;
+            z-index: 102;
+        }
+
+        &>img {
+            border: 5px solid rgba(255, 255, 255);
+        }
+
+    }
 }
-.BoxHoverMovies>img{
-    border-radius: 5px;
-}
-.BoxHoverMovies:hover{
-    transform: scale(1.2,1.1);
-    transition:transform 0.5s cubic-bezier(.4,0,.2,1);
-    border:5px solid rgba(255, 255, 255);
-    position: relative;
-    z-index: 2000;
-    border-radius: 10px;
-    box-sizing: border-box;
-    /* transition: all 0.5s ease-out 0.5s; */
-    cursor: pointer;
-}
-.trendBoxDivMovies{
-    width: 97.5vw;
+
+
+.trendBoxDivMovies {
+    width: 100vw;
     height: auto;
-    position: relative;
-    /* transition: all 2s ease-in; */
-    /* margin:3rem auto; */
-    /* margin-top: 4rem; */
+    /* position: relative; */
 }
-.trendBoxDivsMovies{
+
+.trendBoxDivsMovies {
     display: flex;
 }
-.trendBoxMovies{
+
+.trendBoxMovies {
     width: 25vw;
     height: auto;
     box-sizing: border-box;
 }
-.trendDivMovies{
+
+.trendDivMovies {
     display: grid;
     position: relative;
     z-index: 10;
     grid-template-rows: 100%;
-    grid-template-columns: repeat(15,1fr);
+    grid-template-columns: repeat(15, 1fr);
     width: auto;
-    gap:1rem;
-    /* overflow:visible; */
+    gap: 1rem;
     scroll-behavior: smooth;
-    /* overflow: hidden; */
     overflow: hidden;
     padding: 1.2rem 0rem 1.2rem 1.5rem;
-    /* padding: 5rem 0rem 5rem 2.2rem; */
-    /* transition: all 0.5s ease-in-out 0.5s; */
     box-sizing: border-box;
-    /* transition: all 1s ease-in-out; */
-    /* border:2px solid red; */
-    border-radius:10px;
+    border-radius: 10px;
 }
-.backMovies{
+
+.backMovies {
     position: absolute;
     left: 1rem;
-    top:44%;
+    top: 44%;
     z-index: 100;
     box-shadow: 0 0 5px #fff;
 }
-.forwardMovies{
+
+.forwardMovies {
     position: absolute;
-    right:1rem;
-    top:44%;
+    right: 1rem;
+    top: 44%;
     z-index: 100;
     box-shadow: 0px 0px 10px #fff;
 }
-.arrowIconsMovies{
+
+.arrowIconsMovies {
     visibility: hidden;
     cursor: pointer;
+    width: 2rem;
+    height: 2rem;
     /* transition: all 1s ease-in; */
 }
-#mainTopDivMovies:hover .arrowIconsMovies{
+
+#mainTopDivMovies:hover .arrowIconsMovies {
     visibility: visible;
     z-index: 20;
 }
 
-.trendImgMovies{
+.trendImgMovies {
     width: 100%;
     height: 100%;
 }
-.BoxHoverMovies:last-child{
+
+.BoxHoverMovies:last-child {
     margin-right: 2rem;
 }
-#mainTopDivMovies{
+
+#mainTopDivMovies {
     margin: 0px;
     position: relative;
     z-index: 10;
-    /* border:1px solid red; */
 }
-.butMovies{
-    position: absolute;
-    bottom: 0rem;
-    left:0rem;
-    background-color: rgba(255, 255, 255);
-    width: 100%;
-    padding: 1.2rem;
-    visibility: hidden;
-    z-index: 10000;
-    display: flex;
-    justify-content: space-around;
-    /* transition: all 0.3s ease-out 0.3s; */
+
+.playbut {
+    width: 1.5rem;
+    height: 1.5rem;
 }
-.butMovies>button>span{
+
+.sharebut {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.butMovies>button>span {
     margin: 0px 2px;
 }
-.butMovies>button:nth-child(2){
+
+.butMovies>button:nth-child(2) {
     background-color: white;
 }
-.boxMovies:hover .butMovies{
-    visibility: visible;
-}
-.butMovies>button{
-    /* padding: 4px 7px 4px 2px; */
-    /* padding-right: 5px; */
+
+.butMovies>button {
     font-size: 15px;
     border-radius: 8px;
 }
-#headMovies{
+
+#headMovies {
     margin-left: 1rem;
+    font-size: 1.5rem !important;
+}
+
+
+
+@media all and (min-width:481px) and (max-width:768px) {
+    .KingCrownMovies {
+        height: 1.4rem;
+        width: 1.4rem;
+    }
+
+    .BoxHoverMovies {
+        .butMovies {
+            display: none;
+        }
+
+        &:hover {
+            transform: scale(1);
+
+            &>img {
+                border: 0px solid rgb(0, 0, 0);
+            }
+        }
+    }
+
+    .trendDivMovies {
+        overflow-x:scroll;
+    }
+    .trendDivMovies::-webkit-scrollbar{
+        display: none;
+    }
+
+    .arrowIconsMovies {
+        cursor: pointer;
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    #headMovies {
+        margin-left: 1rem;
+        font-size: 1.3rem !important;
+    }
+
+    .forwardMovies {
+        right: 0.7rem;
+    }
+
+    .playbut {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .sharebut {
+        width: 0.9rem;
+        height: 0.9rem;
+    }
+}
+
+@media all and (min-width:100px) and (max-width:480px) {
+    .KingCrownMovies {
+        height: 1.2rem;
+        width: 1.2rem;
+    }
+    .BoxHoverMovies {
+        .butMovies {
+            display: none;
+        }
+
+        &:hover {
+            transform: scale(1);
+
+            &>img {
+                border: 0px solid rgb(0, 0, 0);
+            }
+        }
+    }
+
+    .arrowIconsMovies {
+        cursor: pointer;
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+
+    #headMovies {
+        margin-left: 1rem;
+        font-size: 0.9rem !important;
+    }
+
+    .forwardMovies {
+        right: 0.5rem;
+    }
+
+    .butMovies {
+        display: none;
+    }
+
+    .playbut {
+        width: 0.7rem;
+        height: 0.7rem;
+    }
+
+    .sharebut {
+        width: 0.6rem;
+        height: 0.6rem;
+    }
+
+    .watch {
+        font-size: 0.3rem;
+    }
+
+    .share {
+        font-size: 0.3rem;
+    }
 }
