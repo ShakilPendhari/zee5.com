@@ -92,6 +92,8 @@ const Login = () => {
      if(number%1===0)
      {
        login({mobileNo:`+${phoneCode}${Intvalue.data}`});
+       localStorage.setItem("sp5-Mobile",JSON.stringify(`+${phoneCode}${Intvalue.data}`));
+       navigate("/verify-email")
      }
      else{
        login({email:Intvalue.data});

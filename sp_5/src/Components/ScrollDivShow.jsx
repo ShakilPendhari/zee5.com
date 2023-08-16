@@ -16,8 +16,23 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
   const [leftArrow, setLeftArrow] = useState(false);
   const [rightArrow, setRightArrow] = useState(true);
   const but = useRef();
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [width]);
 
   useEffect(() => {}, [divScroll, leftArrow, but]);
+
+  const updateWidth = () => {
+    setWidth(() => {
+      console.log("width:", window.innerWidth);
+      return window.innerWidth;
+    });
+  };
+
 
   if (!imgCount) {
     imgCount = 10;
@@ -26,6 +41,16 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
   }
 
   const handleScroll = (value=0) => {
+
+    if (width >= 100 && width <= 480) {
+      value = 280 * value;
+    } else if (width >= 481 && width <= 768) {
+      value = 550 * value;
+    } else {
+      value = 750 * value;
+    }
+    console.log("value:", value, width);
+
     setScrollAmountSum((scrollAmountValue)=>{
       const occupiedElements = divScroll.current.childNodes;
       let occupiedWidth = 0;
@@ -69,7 +94,7 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
         {leftArrow && (
           <IoIosArrowBack
             
-            onClick={() => handleScroll(-750,)}
+            onClick={() => handleScroll(-1,)}
             size="2rem"
             className={`${style.arrowIconsShows} ${style.backShows}`}
           />
@@ -122,7 +147,7 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
         </div>
         {rightArrow && (
           <IoIosArrowForward
-            onClick={() => handleScroll(750)}
+            onClick={() => handleScroll(1)}
             size="2rem"
             className={`${style.arrowIconsShows} ${style.forwardShows}`}
           />

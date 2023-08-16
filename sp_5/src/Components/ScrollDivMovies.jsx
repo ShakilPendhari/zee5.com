@@ -43,10 +43,10 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
       scrollAmount = 280 * scrollAmount;
     } else if (width >= 481 && width <= 768) {
       scrollAmount = 550 * scrollAmount;
-    } else if (width >= 769 && width <= 2000) {
+    } else {
       scrollAmount = 750 * scrollAmount;
     }
-    console.log("scrollAmount:", width, scrollAmount);
+    console.log("scrollAmount:",  scrollAmount, width);
     // scrolling using arrows hide/visible
     setScrollAmountSum((scrollAmountValue) => {
       // get column-gap and margin-left to add into occupiedWidth

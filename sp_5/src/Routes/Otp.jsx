@@ -31,12 +31,19 @@ const takeEmailFromLS = () => {
   }
 };
 
+const takeMobilesLS = () => {
+  try {
+    return JSON.parse(localStorage.getItem("sp5-Mobile")) || "";
+  } catch (err) {
+    console.log("Error:", err);
+  }
+};
 const Otp = () => {
   const ref = useRef();
   const [isData, setIsData] = useState(obj);
   const [isbtndisabled, setIsbtndisabled] = useState(true);
   const navigate = useNavigate();
-  const emailLS = takeEmailFromLS();
+  const emailLS = takeEmailFromLS() || takeMobilesLS()
   const [ time, setTime ] = useState(60);
   const toast = useToast();
   let id;

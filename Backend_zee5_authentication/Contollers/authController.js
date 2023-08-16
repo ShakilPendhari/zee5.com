@@ -154,39 +154,44 @@ let loginController = async (req, res) => {
 
       ////    Login With Mobile Number    ////
 
-      let OTP = generateOTP();
+      // let OTP = generateOTP();
 
       let isUserExist = await UserMobileModel.find({ mobileNo });
+
+      
       console.log("lets check isUserExist:", isUserExist);
       if (isUserExist.length > 0) {
         let No = + isUserExist[0].mobileNo
         console.log("MobileNoPlus:", "+" + isUserExist[0].mobileNo,No);
+        let OTP = generateOTP() + "";
 
-        
-          await client.messages
-          .create({
-            body: `Your OTP is : ${OTP}.@SP5.vercel ${OTP} - SP5`,
-            messagingServiceSid :process.env.MSGSID,
-            to:"+919921317929"
-          })
-          .then(()=> res.status(200).json({msg:"Message Sent"}))
-          .done();
-
-
-     
-
-      //     console.log("no:",mobileNo)
-      //    await client.messages 
-      // .create({ 
-      //   body: `Your OTP is : ${OTP}.@SP5.vercel ${OTP} - SP5`,  
-      //    from : process.env.PHONENUMBER,
-      //    messagingServiceSid: process.env.MSGSID,      
-      //    to: `+${No}`
-      //  }) 
-      // .then(message => res.status(200).json({"msg":message}))
-      // .catch((error)=>res.status(500).json({ "error":error }));
+        let saltRound = Number(process.env.SALTROUND);
+  
+        bcrypt.hash(OTP, saltRound, async function (err, hash) {
+          // UpdateElement in DB
+  
+          if (hash) {
+            await UserMobileModel.findOneAndUpdate(
+              { mobileNo: isUserExist[0].mobileNo },
+              {
+                otp: hash,
+                createAt: Number(Date.now()),
+                expireAt: Number(Date.now()) + 1000 * 60 * 30,
+              }
+            );
 
 
+            await client.messages.create({
+              from:process.env.PHONENUMBER,
+              to:`${mobileNo}`,
+              body: `Your OTP is : ${OTP}.@SP5.vercel ${OTP} - SP5`,
+              messagingServiceSid :process.env.MSGSID
+            })
+            .then(()=> res.status(200).json({msg:"Message Sent"}))
+            .catch((e)=>{console.log(e)})
+          
+          }
+            })
 
       } else {
         res.status(500).json({ err: "User need to register" });
