@@ -28,6 +28,7 @@ const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/Searching" element={<Searching />} />
       <Route path="/verify-email" element={<Otp />} />
+      <Route path="/verify-mobileNo" element={<Otp />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

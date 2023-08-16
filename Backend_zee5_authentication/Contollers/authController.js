@@ -137,6 +137,7 @@ let loginController = async (req, res) => {
               .then(() => {
                 return res.status(201).json({
                   msg: "You should receive an email",
+                  method:"email"
                 });
               })
               .catch((error) => {
@@ -180,21 +181,20 @@ let loginController = async (req, res) => {
               }
             );
 
-
             await client.messages.create({
               from:process.env.PHONENUMBER,
               to:`${mobileNo}`,
               body: `Your OTP is : ${OTP}.@SP5.vercel ${OTP} - SP5`,
               messagingServiceSid :process.env.MSGSID
             })
-            .then(()=> res.status(200).json({msg:"Message Sent"}))
+            .then(()=> res.status(200).json({msg:"Message Sent To Your Mobile Number",method:"mobile"}))
             .catch((e)=>{console.log(e)})
           
           }
             })
 
       } else {
-        res.status(500).json({ err: "User need to register" });
+        res.status(500).json({ msg: "User need to register" });
       }
     }
   } catch (err) {
@@ -202,13 +202,18 @@ let loginController = async (req, res) => {
   }
 };
 
-////    Check login    ////
+
+
+
+////    verify otp    ////
 
 const checkOTPController = async (req, res) => {
-  let { otp, email } = req.body;
+  let { otp, email,mobileNo } = req.body;
 
   otp = otp + "";
-
+  if(email)
+  {
+      
   let user = await UserEmailModel.findOne({ email });
 
   // check validity of otp
@@ -241,6 +246,42 @@ const checkOTPController = async (req, res) => {
       res.send({ error: err });
     }
   });
+  }
+  else{
+    
+  let user = await UserMobileModel.findOne({ mobileNo });
+
+  // check validity of otp
+
+  let time = user.expireAt < Date.now();
+
+  // console.log("time:",time,"expireAt:",user.expireAt,"createAt:",user.createAt);
+
+  if (time) {
+    res.send("OTP has been expired, Please Login Again !");
+    return;
+  }
+
+  bcrypt.compare(otp, user.otp, (err, result) => {
+    if (result) {
+      // Create token //
+
+      token = jwt.sign({ email: user.mobileNo }, process.env.SECRETEKEY, {
+        expiresIn: 60 * 60 * 5,
+      });
+      //  // console.log(token)
+      res
+        .status(201)
+        .send({
+          token: token,
+          msg: "Congrats user has been registered",
+          "Token Expires In": "5 hours",
+        });
+    } else if (err) {
+      res.send({ error: err });
+    }
+  });
+  }
   // res.send({user:user})
 };
 

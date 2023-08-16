@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./../style/ComponentElement/login.module.css";
-import { Box } from "@chakra-ui/react";
+import { Box, useToast } from "@chakra-ui/react";
 import Icons from "./auth/Icons";
 import TopSection from "./auth/TopSection";
 import Bottom from "./auth/Bottom";
@@ -19,6 +19,7 @@ const Login = () => {
   const [isShowMobileError, setIsShowMobileError] = useState(false);
   const [isbtndisabled, setisbtndisabled] = useState(true);
   const navigate = useNavigate();
+  const toast = useToast();
 
   const handleonChange = (e) => {
     const { name, value } = e.target;
@@ -91,14 +92,14 @@ const Login = () => {
     let number = Number(cred);
      if(number%1===0)
      {
-       login({mobileNo:`+${phoneCode}${Intvalue.data}`});
+       login({mobileNo:`+${phoneCode}${Intvalue.data}`},navigate,toast);
        localStorage.setItem("sp5-Mobile",JSON.stringify(`+${phoneCode}${Intvalue.data}`));
-       navigate("/verify-email")
+      //  navigate("/verify-mobileNo")
      }
      else{
-       login({email:Intvalue.data});
+       login({email:Intvalue.data},navigate,toast);
        localStorage.setItem("sp5-Email",JSON.stringify(Intvalue.data));
-       navigate("/verify-email")
+      //  navigate("/verify-email")
      }
     console.log("hello this is input value", Intvalue);
   };

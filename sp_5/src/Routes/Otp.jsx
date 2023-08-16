@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useToast } from '@chakra-ui/react'
+import { useToast } from "@chakra-ui/react";
 
 import {
   Box,
@@ -14,7 +14,7 @@ import {
 import Bottom from "../Components/auth/Bottom";
 import { FaPen } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { CheckEmail, login } from "../Redux/Auth/auth.api";
+import { CheckEmailorMob, login } from "../Redux/Auth/auth.api";
 
 let obj = {
   int1: "",
@@ -43,8 +43,8 @@ const Otp = () => {
   const [isData, setIsData] = useState(obj);
   const [isbtndisabled, setIsbtndisabled] = useState(true);
   const navigate = useNavigate();
-  const emailLS = takeEmailFromLS() || takeMobilesLS()
-  const [ time, setTime ] = useState(60);
+  const emailormobileLS = takeEmailFromLS() || takeMobilesLS();
+  const [time, setTime] = useState(5);
   const toast = useToast();
   let id;
 
@@ -52,25 +52,44 @@ const Otp = () => {
     ref.current.focus();
     countTime();
 
-    return ()=>clearInterval(id);
+    return () => clearInterval(id);
   }, []);
 
-  function countTime(){
-    id = setInterval(()=>{
-      console.log("time:",time)
-      
-       setTime((t)=>{
-        if(t<=1)
-        {
-           clearInterval(id);
+  function countTime() {
+    id = setInterval(() => {
+      console.log("time:", time);
+
+      setTime((t) => {
+        if (t <= 1) {
+          clearInterval(id);
         }
         return t - 1;
-       })
-    },1000)
+      });
+    }, 1000);
   }
 
   const handleSubmit = () => {
-      CheckEmail({email:emailLS,otp:isData.int1+isData.int2+isData.int3+isData.int4},navigate,toast)
+    if(emailormobileLS[0]==="+")
+    {
+      CheckEmailorMob(
+        {
+          mobileNo: emailormobileLS,
+          otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
+        },
+        navigate,
+        toast
+      );
+    }
+    else{
+      CheckEmailorMob(
+        {
+          email: emailormobileLS,
+          otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
+        },
+        navigate,
+        toast
+      );
+    }
   };
 
   const handleChange = (e) => {
@@ -113,7 +132,13 @@ const Otp = () => {
         <Text fontWeight="500" m="0.7rem 0rem" textAlign="center">
           Enter the 4-digit code sent to:
         </Text>
-        <Flex w="89%" justifyContent="center" gap="0.1rem" alignItems="center" m="auto">
+        <Flex
+          w="89%"
+          justifyContent="center"
+          gap="0.1rem"
+          alignItems="center"
+          m="auto"
+        >
           <Text
             fontWeight="600"
             w="80%"
@@ -121,7 +146,7 @@ const Otp = () => {
             textAlign="center"
             m="1rem auto"
           >
-            {emailLS}
+            {emailormobileLS}
           </Text>
           <Box
             _hover={{ cursor: "pointer" }}
@@ -160,9 +185,27 @@ const Otp = () => {
           handleSubmit={handleSubmit}
           auth="Verify OTP"
         />
-       {
-        time<=0?<Text w="30%" m="auto" cursor="pointer" borderBottom="1px dashed"  onClick={()=>{ login({email:emailLS}); setTime(60); countTime()}}>Resend OTP</Text>: <Text>Fetching OTP in {time} seconds</Text>
-       }
+        {time <= 0 ? (
+          <Text
+            w="30%"
+            m="auto"
+            cursor="pointer"
+            borderBottom="1px dashed"
+            onClick={() => {
+              if (
+                emailormobileLS[0] === "+"
+                  ? login({ mobileNo: emailormobileLS },"",toast)
+                  : login({ email: emailormobileLS },"",toast)
+              );
+              setTime(60);
+              countTime();
+            }}
+          >
+            Resend OTP
+          </Text>
+        ) : (
+          <Text>Fetching OTP in {time} seconds</Text>
+        )}
       </Box>
     </Flex>
   );

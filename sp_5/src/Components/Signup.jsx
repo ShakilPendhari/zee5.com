@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import style from "./../style/ComponentElement/login.module.css";
-import { Box, Checkbox, Flex } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, useToast } from "@chakra-ui/react";
 import Icons from "./auth/Icons";
 import TopSection from "./auth/TopSection";
 import Bottom from "./auth/Bottom";
 import Inputsection from "./auth/Inputsection";
 import { register } from "../Redux/Auth/auth.api";
+import { useNavigate } from "react-router-dom";
 
 let obj = { data: "", checkbox:false };
 
@@ -17,6 +18,8 @@ const Signup = () => {
   const [dropDown, setDropDown] = useState(false);
   const [isShowMobileError, setIsShowMobileError] = useState(false);
   const [isbtndisabled, setisbtndisabled] = useState(true);
+  const toast = useToast();
+  const navigate = useNavigate();
 
   const handleonChange = (e) => {
     
@@ -105,10 +108,10 @@ const Signup = () => {
     let number = Number(cred);
      if(number%1===0)
      {
-       register({mobileNo:`+${phoneCode}${Intvalue.data}`})
+       register({mobileNo:`+${phoneCode}${Intvalue.data}`},navigate,toast)
      }
      else{
-       register({email:Intvalue.data})
+       register({email:Intvalue.data},navigate,toast)
      }
     console.log("hello this is input value", Intvalue);
   };
