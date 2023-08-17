@@ -281,7 +281,7 @@ export const Top_ten_web_series_in_india = [
     },
     {
       id: 5,
-      title: "Telugu movie",
+      title: "Tamil movie Nayantara",
     },
     {
       id: 6,
