@@ -108,119 +108,103 @@ export const Top_ten_web_series_in_india = [
   export const top_10_movies = [
     {
       id: 1,
-      title: "Taj",
+      title: "Ek Banda Kafi hai",
     },
     {
       id: 2,
-      title: "Ek Bandaa Kahi Hai",
+      title: "Mrs Undercover",
     },
     {
       id: 3,
-      title: "Undercover",
+      title: "ViduThalai",
     },
     {
       id: 4,
-      title: "India Lockdown",
+      title: "U-Turn",
     },
     {
       id: 5,
-      title: "U-turn",
+      title: "Dial100",
     },
     {
       id: 6,
-      title: "The Balkan line",
-    },
-    {
-      id: 7,
       title: "Kanjoos Makhichoos",
     },
     {
+      id: 7,
+      title: "Uunchai",
+    },
+    {
       id: 8,
-      title: "Ghar Banduk Biryani",
+      title: "Acharya",
     },
     {
       id: 9,
-      title: "United Kachche",
+      title: "The Greate Indian Kitchen",
     },
     {
       id: 10,
-      title: "Tarla",
-    },
-    {
-      id: 11,
-      title: "The Pope's Exorcist",
-    },
-    {
-      id: 12,
-      title: "My Secret Terrius",
-    },
-    {
-      id: 13,
-      title: "65",
-    },
-    {
-      id: 14,
-      title: "Beauty and the Beast",
-    },
+      title: "Channai vs China",
+    }
   ];
   
 
   export const Unmissable_Movies_Shows = [
     {
       id: 1,
-      title: "Taj",
+      title: "The Kashmir Files",
     },
     {
       id: 2,
-      title: "Ek Bandaa Kahi Hai",
+      title: "Uunchai",
     },
     {
       id: 3,
-      title: "Undercover",
+      title: "Lost",
     },
     {
       id: 4,
-      title: "India Lockdown",
+      title: "Raksha Bandhan",
     },
     {
       id: 5,
-      title: "U-turn",
+      title: "Jaanbaaz hindustan ke",
     },
     {
       id: 6,
-      title: "The Balkan line",
+      title: "RangBaaz",
     },
     {
       id: 7,
-      title: "Kanjoos Makhichoos",
+      title: "Chhatriwali",
     },
     {
       id: 8,
-      title: "Ghar Banduk Biryani",
+      title: "Tadka",
     },
     {
       id: 9,
-      title: "United Kachche",
+      title: "Pitchers",
     },
     {
       id: 10,
-      title: "Tarla",
+      title: "Tripling",
     },
     {
       id: 11,
-      title: "The Pope's Exorcist",
+      title: "Salam venky",
     },
     {
       id: 12,
-      title: "My Secret Terrius",
+      title: "Am I next",
     },
     {
       id: 13,
-      title: "65",
+      title: "Dharmveer",
     },
     {
       id: 14,
-      title: "Beauty and the Beast",
+      title: "RRR",
     },
   ];
 
@@ -228,119 +212,115 @@ export const Top_ten_web_series_in_india = [
   export const Latest_hindi_episodes_free = [
     {
       id: 1,
-      title: "Taj",
+      title: "Kundali Bhagya",
     },
     {
       id: 2,
-      title: "Ek Bandaa Kahi Hai",
+      title: "Radha Mohan",
     },
     {
       id: 3,
-      title: "Undercover",
+      title: "Bhagya Lakshami",
     },
     {
       id: 4,
-      title: "India Lockdown",
+      title: "Kumkum bhagya",
     },
     {
       id: 5,
-      title: "U-turn",
+      title: "Mit",
     },
     {
       id: 6,
-      title: "The Balkan line",
+      title: "Mai hu aparajit",
     },
     {
       id: 7,
-      title: "Kanjoos Makhichoos",
+      title: "Bhabhiji Ghar par hai",
     },
     {
       id: 8,
-      title: "Ghar Banduk Biryani",
+      title: "Maitri",
     },
     {
       id: 9,
-      title: "United Kachche",
+      title: "Rab se hai dua",
     },
     {
       id: 10,
-      title: "Tarla",
+      title: "Ek mahanayak",
     },
     {
       id: 11,
-      title: "The Pope's Exorcist",
+      title: "Happu ki ultan paltan",
     },
     {
       id: 12,
-      title: "My Secret Terrius",
+      title: "Dusri ma",
     },
     {
       id: 13,
-      title: "65",
-    },
-    {
-      id: 14,
-      title: "Beauty and the Beast",
-    },
+      title: "Kundali Bhagya",
+    }
   ];
 
 
   export const BlockbusterFilms = [
     {
       id: 1,
-      title: "Taj",
+      title: "Uunchai",
     },
     {
       id: 2,
-      title: "Ek Bandaa Kahi Hai",
+      title: "Simmba",
     },
     {
       id: 3,
-      title: "Undercover",
+      title: "Dream girl",
     },
     {
       id: 4,
-      title: "India Lockdown",
+      title: "The kashmir files",
     },
     {
       id: 5,
-      title: "U-turn",
+      title: "Telugu movie",
     },
     {
       id: 6,
-      title: "The Balkan line",
+      title: "Attack part1",
     },
     {
       id: 7,
-      title: "Kanjoos Makhichoos",
+      title: "Kedarnath",
     },
     {
       id: 8,
-      title: "Ghar Banduk Biryani",
+      title: "Chup",
     },
     {
       id: 9,
-      title: "United Kachche",
+      title: "Karthikeya",
     },
     {
       id: 10,
-      title: "Tarla",
+      title: "Uri",
     },
     {
       id: 11,
-      title: "The Pope's Exorcist",
+      title: "Antim",
     },
     {
       id: 12,
-      title: "My Secret Terrius",
+      title: "Bob biswas",
     },
     {
       id: 13,
-      title: "65",
+      title: "Khuda haafiz",
     },
     {
       id: 14,
-      title: "Beauty and the Beast",
+      title: "Uunchai",
     },
   ];
 
@@ -348,119 +328,115 @@ export const Top_ten_web_series_in_india = [
   export const PremiumTvShows = [
     {
       id: 1,
-      title: "Taj",
+      title: "Dusri ma",
     },
     {
       id: 2,
-      title: "Ek Bandaa Kahi Hai",
+      title: "Bhagya Lakshmi",
     },
     {
       id: 3,
-      title: "Undercover",
+      title: "Radha Mohan",
     },
     {
       id: 4,
-      title: "India Lockdown",
+      title: "Rab se he dua",
     },
     {
       id: 5,
-      title: "U-turn",
+      title: "Mai hu aparajit",
     },
     {
       id: 6,
-      title: "The Balkan line",
+      title: "Mit",
     },
     {
       id: 7,
-      title: "Kanjoos Makhichoos",
+      title: "Bhagya lakshmi",
     },
     {
       id: 8,
-      title: "Ghar Banduk Biryani",
+      title: "Kundli bhagya",
     },
     {
       id: 9,
-      title: "United Kachche",
+      title: "Kumkum Bhagya",
     },
     {
       id: 10,
-      title: "Tarla",
+      title: "Bhagya Lakshmi",
     },
     {
       id: 11,
-      title: "The Pope's Exorcist",
+      title: "Mit",
     },
     {
       id: 12,
-      title: "My Secret Terrius",
+      title: "Rada Mohan",
     },
     {
       id: 13,
-      title: "65",
-    },
-    {
-      id: 14,
-      title: "Beauty and the Beast",
-    },
+      title: "Dusri ma",
+    }
   ];
 
 
   export const PopularMovies = [
     {
       id: 1,
-      title: "Taj",
+      title: "Khuda haafiz",
     },
     {
       id: 2,
-      title: "Ek Bandaa Kahi Hai",
+      title: "Chatriwali",
     },
     {
       id: 3,
-      title: "Undercover",
+      title: "Dharmveer",
     },
     {
       id: 4,
-      title: "India Lockdown",
+      title: "Tadka",
     },
     {
       id: 5,
-      title: "U-turn",
+      title: "Attack part-1",
     },
     {
       id: 6,
-      title: "The Balkan line",
+      title: "Har har mahadev",
     },
     {
       id: 7,
-      title: "Kanjoos Makhichoos",
+      title: "Uri",
     },
     {
       id: 8,
-      title: "Ghar Banduk Biryani",
+      title: "Shaadi mein zaroor aana",
     },
     {
       id: 9,
-      title: "United Kachche",
+      title: "Master",
     },
     {
       id: 10,
-      title: "Tarla",
+      title: "Vikram",
     },
     {
       id: 11,
-      title: "The Pope's Exorcist",
+      title: "Footfairy",
     },
     {
       id: 12,
-      title: "My Secret Terrius",
+      title: "Valimai",
     },
     {
       id: 13,
-      title: "65",
+      title: "Jhund",
     },
     {
       id: 14,
-      title: "Beauty and the Beast",
+      title: "Khuda Haafiz",
     },
   ];
   
@@ -468,59 +444,59 @@ export const Top_ten_web_series_in_india = [
   export const Free_dubbed_movies = [
     {
       id: 1,
-      title: "Taj",
+      title: "Har har mahadev",
     },
     {
       id: 2,
-      title: "Ek Bandaa Kahi Hai",
+      title: "The Arutal 1960's",
     },
     {
       id: 3,
-      title: "Undercover",
+      title: "Radhe shyam",
     },
     {
       id: 4,
-      title: "India Lockdown",
+      title: "Bimbisara",
     },
     {
       id: 5,
-      title: "U-turn",
+      title: "Khiladi",
     },
     {
       id: 6,
-      title: "The Balkan line",
+      title: "Master",
     },
     {
       id: 7,
-      title: "Kanjoos Makhichoos",
+      title: "Bangarraju",
     },
     {
       id: 8,
-      title: "Ghar Banduk Biryani",
+      title: "Topless",
     },
     {
       id: 9,
-      title: "United Kachche",
+      title: "Rudramadevi",
     },
     {
       id: 10,
-      title: "Tarla",
+      title: "Vikram",
     },
     {
       id: 11,
-      title: "The Pope's Exorcist",
+      title: "codename : gondya",
     },
     {
       id: 12,
-      title: "My Secret Terrius",
+      title: "Ka/pai.ranasigam",
     },
     {
       id: 13,
-      title: "65",
+      title: "Valimai",
     },
     {
       id: 14,
-      title: "Beauty and the Beast",
+      title: "Shiva the super hero 3",
     },
   ];
   

@@ -210,6 +210,9 @@ const MainSlider = () => {
                         justifyContent="space-between"
                         alignItems="center"
                         onClick={()=>handlePlayVideo(SliderHead[i])}
+                        _hover={{
+                          cursor:"pointer"
+                        }}
                       >
                         <MdPlayArrow />
                         <Text fontSize="0.9rem" fontWeight="500">
