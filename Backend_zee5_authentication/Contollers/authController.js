@@ -26,7 +26,7 @@ let AuthDataController = async (req, res) => {
 let registerContoller = async (req, res) => {
   try {
     const { email, mobileNo } = req.body;
-    console.log(req.body, email);
+    // console.log(req.body, email);
 
     if (email) {
       let isUserExist = await UserEmailModel.findOne({ email: email });
@@ -41,9 +41,12 @@ let registerContoller = async (req, res) => {
       let user = new UserEmailModel({ email: email });
       await user.save();
       res.send("Your Account has been Registered.");
-    } else if (mobileNo) {
+
+    } 
+    else if (mobileNo) {
+
       let isUserExist = await UserMobileModel.findOne({ mobileNo });
-      console.log(isUserExist, "hello");
+      // console.log(isUserExist, "hello");
 
       if (isUserExist && isUserExist.mobileNo) {
         return res.status(409).json({
@@ -62,10 +65,15 @@ let registerContoller = async (req, res) => {
   }
 };
 
+
+
+
+
 ////    Login controller    ////
 
 let loginController = async (req, res) => {
   let { email, mobileNo } = req.body;
+  console.log("req.body:",req.body);
   
   try {
     if (email) {
@@ -149,21 +157,20 @@ let loginController = async (req, res) => {
         });
       } else {
         res.send("You are not registed!");
+        return;
       }
     } 
     else if (mobileNo) {
 
       ////    Login With Mobile Number    ////
 
-      // let OTP = generateOTP();
-
+      // console.log("mobile::",mobileNo)
       let isUserExist = await UserMobileModel.find({ mobileNo });
-
       
       console.log("lets check isUserExist:", isUserExist);
       if (isUserExist.length > 0) {
-        let No = + isUserExist[0].mobileNo
-        console.log("MobileNoPlus:", "+" + isUserExist[0].mobileNo,No);
+
+        // console.log("MobileNoPlus:", "+" + isUserExist[0].mobileNo);
         let OTP = generateOTP() + "";
 
         let saltRound = Number(process.env.SALTROUND);
@@ -209,7 +216,7 @@ let loginController = async (req, res) => {
 
 const checkOTPController = async (req, res) => {
   let { otp, email,mobileNo } = req.body;
-
+  
   otp = otp + "";
   if(email)
   {
@@ -249,11 +256,14 @@ const checkOTPController = async (req, res) => {
   }
   else{
     
-  let user = await UserMobileModel.findOne({ mobileNo });
+  let user = await UserMobileModel.find({ mobileNo });
+ console.log("user:",user,"otp:",otp,"MobileNo:",mobileNo);
+
 
   // check validity of otp
 
-  let time = user.expireAt < Date.now();
+  let time = user[0].expireAt < Date.now();
+  // console.log("Time:",time)
 
   // console.log("time:",time,"expireAt:",user.expireAt,"createAt:",user.createAt);
 
@@ -262,11 +272,11 @@ const checkOTPController = async (req, res) => {
     return;
   }
 
-  bcrypt.compare(otp, user.otp, (err, result) => {
+  bcrypt.compare(otp, user[0].otp, (err, result) => {
     if (result) {
       // Create token //
 
-      token = jwt.sign({ email: user.mobileNo }, process.env.SECRETEKEY, {
+      token = jwt.sign({ email: user[0].mobileNo }, process.env.SECRETEKEY, {
         expiresIn: 60 * 60 * 5,
       });
       //  // console.log(token)

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const userMobileSchema = mongoose.Schema({
-    mobileNo:{type:Number,required:true},
+    mobileNo:{type:String,required:true},
     otp:String,
     createAt:Number,
     expireAt:Number
