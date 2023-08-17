@@ -20,6 +20,7 @@ import Slider from "react-slick";
 import { MdPlayArrow } from "react-icons/md";
 import { RiVipCrownFill } from "react-icons/ri";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { SliderHead } from "../../utils/Slider";
 
 const MainSlider = () => {
   const [count, setCount] = useState(1);
@@ -186,7 +187,7 @@ const MainSlider = () => {
                       fontSize="1.8rem"
                       as="h2"
                     >
-                      Title
+                      {SliderHead[i]}
                     </Heading>
                     <Flex gap="1rem" direction="row">
                       <Flex
