@@ -9,7 +9,7 @@ export const Trending_Near_You = [
   },
   {
     id: 3,
-    title: "Undercover",
+    title: "Mrs Undercover",
   },
   {
     id: 4,
