@@ -9,6 +9,7 @@
     height: 28px;
     width: 28px;
     padding:4px;
+    display: none;
 }
 .BoxHoverShows{
     /* transform: scale(1); */

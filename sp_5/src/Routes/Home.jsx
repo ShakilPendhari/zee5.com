@@ -15,7 +15,7 @@ const Home = () => {
   let id = useRef(null);
 
   useEffect(() => {
-    id.current = setTimeout(() => setFlag(() => true), 3000);
+    id.current = setTimeout(() => setFlag(() => true), 1300);
     return () => clearTimeout(id.current);
   }, []);
 
@@ -95,7 +95,7 @@ const Home = () => {
       {flag ? (
         <ScrollDivShow
           imgCount="13"
-          head="Latest Hindi Episodes Free"
+          head="Premium Before TV Ep | ZEE TV"
           url="/PremiumShow/zee5PremiumShow"
         />
       ) : (
@@ -126,8 +126,8 @@ const Home = () => {
         <SkeletonMovies />
       )}
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer
+      <Footer /> */}
     </div>
   );
 };

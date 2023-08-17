@@ -3,6 +3,7 @@ import {
   GETDATAINFINITESCROLLING,
   GETQUERY,
   LOADING,
+  PLAYVIDEO,
 } from "./action.type";
 import { getData } from "./api";
 
@@ -33,3 +34,9 @@ export const InfiniteScrolling = (obj) => async (dispatch) => {
   dispatch({ type: GETDATAINFINITESCROLLING, payload: obj.page });
   dispatch(GetData(obj));
 };
+
+
+export const PlayVideo = (index)=> async (dispatch)=>{
+  console.log("hello:",index)
+  // dispatch({type:PLAYVIDEO,payload:index});
+}

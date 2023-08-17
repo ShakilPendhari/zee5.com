@@ -34,11 +34,11 @@ const links = [
     title: "WebSeries",
     cn: "link2",
   },
-  {
-    to: "/News",
-    title: "News",
-    cn: "link2",
-  },
+  // {
+  //   to: "/News",
+  //   title: "News",
+  //   cn: "link2",
+  // },
 ];
 
 let activeStyle = {
@@ -120,7 +120,7 @@ const Navbar = () => {
           gap="2"
           justifyContent="space-between"
         >
-          <Box display="flex" gap="30px" alignItems="center">
+          <Box display="flex" gap="2.5rem" alignItems="center">
             <NavLink className="LogoBox" to="/">
               <img className="Logo" alt="logo" src="logoo.png" />
             </NavLink>
@@ -137,7 +137,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <NavLink className="link2" to="/RightSideLogo">
-              <RightSideLogo />
+              {/* <RightSideLogo /> */}
             </NavLink>
           </Box>
         </Flex>
@@ -150,7 +150,7 @@ const Navbar = () => {
                   type="text"
                   //  onClick={()=>{setState(true);
                   //  /*navigate("/Searching")*/}}
-                  placeholder="Serach for Movies, and TvShows"
+                  placeholder="Search for Movies, and TvShows"
                   onChange={handlequery}
                 />
                 {state && <BiMicrophone />}
@@ -159,7 +159,7 @@ const Navbar = () => {
           )}
 
           <Box className="link2">
-            <MdLanguage style={{ width: "27px", height: "27px" }} />
+            {/* <MdLanguage style={{ width: "27px", height: "27px" }} /> */}
           </Box>
           <Stack direction="row">
             <Link to="/login">

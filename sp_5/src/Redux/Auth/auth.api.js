@@ -1,10 +1,10 @@
 import axios from "axios";
 
 // cyclic url
-// let URL = process.env.REACT_APP_BACKEND_URL
+let URL = process.env.REACT_APP_BACKEND_URL
 
 // local URL
-let URL = "http://localhost:5000"
+// let URL = "http://localhost:5000"
 
 
 export const register = async (Credential,route,Alert)=>{

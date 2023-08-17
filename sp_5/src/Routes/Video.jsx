@@ -6,7 +6,7 @@ import { Box } from '@chakra-ui/react';
 
 
 const Video = () => {
-  const { data } = useSelector((store)=>store.data);
+  const { data,videoId } = useSelector((store)=>store.data);
   const [videoIndex, setVideoIndex] = useState(0);
   // const {videoId} = data[0].id
   // const {title} = data[0].snippet
