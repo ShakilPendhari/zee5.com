@@ -136,8 +136,8 @@ const Navbar = () => {
                 {el.title}
               </NavLink>
             ))}
-            <NavLink className="link2" to="/RightSideLogo">
-              {/* <RightSideLogo /> */}
+            <NavLink className="link2" display={{base:"block",sm:"block",md:"none"}}  to="/RightSideLogo">
+              <RightSideLogo  />
             </NavLink>
           </Box>
         </Flex>

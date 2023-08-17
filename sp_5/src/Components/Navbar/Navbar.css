@@ -55,8 +55,16 @@ body{
 a{
     text-decoration: none;
 }
+.link2{
+    display: block;
+}
 
-@media screen and (min-width:400px) and (max-width:900px){
+@media screen and (min-width:481px) and (max-width:768px){
+    .link2{
+        display: none;
+    }
+}
+@media screen and (min-width:200px) and (max-width:480px){
     .link2{
         display: none;
     }

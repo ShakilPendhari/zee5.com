@@ -8,7 +8,8 @@ import SkeletonShow from "../Components/Skeleton/Skeleton_shows";
 import SkeletonMovies from "../Components/Skeleton/Skeleton_movies";
 // import Slider from "../../Components/Slider/Slider";
 import MainSlider from "../Components/MainSlider/MainSlider";
-import style from "./../style/MainPages/Home.module.css"
+import style from "./../style/MainPages/Home.module.css";
+import { BlockbusterFilms, Free_dubbed_movies, PopularMovies, Top_ten_web_series_in_india, Trending_Near_You, Unmissable_Movies_Shows, top_10_movies } from "../utils/DataForMoviesAndShows";
 
 const Home = () => {
   const [flag, setFlag] = useState(false);
@@ -28,6 +29,7 @@ const Home = () => {
       {/* Trending Near You */}
       {flag ? (
         <ScrollDivMovies
+          title = {Trending_Near_You}
           imgCount="14"
           head="Trending Near You"
           url="/TrendingNearYou/zee5Trending"
@@ -39,6 +41,7 @@ const Home = () => {
       {/* top 10 web series */}
       {flag ? (
         <ScrollDivMovies
+         title = {Top_ten_web_series_in_india}
           imgCount="10"
           head="Top 10 Web Series in India"
           url="/top10webSeries/zee5_top10_web_searies"
@@ -50,6 +53,7 @@ const Home = () => {
       {/* top 10 movies */}
       {flag ? (
         <ScrollDivMovies
+         title = {top_10_movies}
           imgCount="10"
           head="Top 10 Movies in India"
           url="/top10movies/zee5top10Movies"
@@ -61,6 +65,7 @@ const Home = () => {
       {/* Unmissable Movies & Shows */}
       {flag ? (
         <ScrollDivMovies
+         title = {Unmissable_Movies_Shows}
           imgCount="14"
           head="Unmissable Movies & Shows"
           url="/unmissedMovies/zee5unmissedmovies"
@@ -83,6 +88,7 @@ const Home = () => {
       {/* Blockbuster Films */}
       {flag ? (
         <ScrollDivMovies
+         title = {BlockbusterFilms}
           imgCount="14"
           head="Blockbuster Films"
           url="/blockbusterMovie/zee5_blockbuster_movie"
@@ -106,6 +112,7 @@ const Home = () => {
 
       {flag ? (
         <ScrollDivMovies
+          title = {PopularMovies}
           imgCount="14"
           head="Popular Movies"
           url="/popularMovies/zee5_popularMovies"
@@ -118,6 +125,7 @@ const Home = () => {
 
       {flag ? (
         <ScrollDivMovies
+         title = {Free_dubbed_movies}
           imgCount="14"
           head="Free Dubbed Movies"
           url="/dubbedMovies/zee5_dubbedMovies"

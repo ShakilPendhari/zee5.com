@@ -15,6 +15,7 @@ GitHub_passport.use(
       scope: ['user:email'],
     },
     function (accessToken, refreshToken, profile, done) {
+      console.log("profile:",profile)
       let otp = generateOTP() + "";
 
     //   let email = profile["_json"].email;   // check here also

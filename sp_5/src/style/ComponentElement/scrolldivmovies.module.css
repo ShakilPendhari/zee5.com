@@ -25,7 +25,9 @@
         left: 0rem;
         background-color: rgba(255, 255, 255);
         width: 100%;
-        padding: 1.2rem;
+        /* padding: 1.2rem; */
+        padding: 0.8rem;
+        padding-top: 0.5rem;
         /* visibility: hidden; */
         opacity: 0;
         z-index: 100;

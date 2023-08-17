@@ -3,13 +3,14 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import style from "./../style/ComponentElement/scrolldivmovies.module.css";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { Box, Button, Heading } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const ScrollDivMovies = ({ url, head, imgCount }) => {
+const ScrollDivMovies = (prop) => {
+  let { url, head, imgCount,title } = prop
   const [scrollAmountSum, setScrollAmountSum] = useState(0);
   const divScroll = useRef(null);
   const [leftArrow, setLeftArrow] = useState(false);
@@ -148,7 +149,14 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
                     //   height: "100%",
                     // }}
                   /> */}
-                <Box ref={but} className={style.butMovies}>
+                <Flex flexDir="column" gap="0.5rem" justifyContent="center" alignItems="flex-start" ref={but} className={style.butMovies}>
+                {
+                  console.log("Prop:",prop.title[0])
+                }
+                  <ul style={{color:"black",paddingLeft:"1.6rem"}}>
+                    <li >{prop.title[i].title}</li>
+                  </ul>
+                  <Flex m="auto" justifyContent="space-between" width="95%">
                   <Button
                     className={style.watch}
                     leftIcon={<MdPlayArrow className={style.playbut} />}
@@ -178,7 +186,8 @@ const ScrollDivMovies = ({ url, head, imgCount }) => {
                     {" "}
                     Share
                   </Button>
-                </Box>
+                  </Flex>
+                </Flex>
               </Box>
             ))}
         </div>

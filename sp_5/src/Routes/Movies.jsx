@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ScrollDivMovies from '../Components/ScrollDivMovies'
 import SkeletonMovies from '../Components/Skeleton/Skeleton_movies';
+import { Top_ten_web_series_in_india, top_10_movies } from '../utils/DataForMoviesAndShows';
 
 const Movies = () => {
   const [flag, setFlag] = useState(false);
@@ -14,6 +15,7 @@ const Movies = () => {
     <>
         {flag ? (
         <ScrollDivMovies
+          title = {Top_ten_web_series_in_india}
           imgCount="10"
           head="Famous Movies"
           url="/top10webSeries/zee5_top10_web_searies"
@@ -25,8 +27,9 @@ const Movies = () => {
       {/* top 10 movies */}
       {flag ? (
         <ScrollDivMovies
+         title = {top_10_movies}
           imgCount="10"
-          head="Movies"
+          head="Latest Movies"
           url="/top10movies/zee5top10Movies"
         />
       ) : (
