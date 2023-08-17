@@ -44,7 +44,7 @@ const Otp = () => {
   const [isbtndisabled, setIsbtndisabled] = useState(true);
   const navigate = useNavigate();
   let emailormobileLS = useRef(null);
-  const [time, setTime] = useState(5);
+  const [time, setTime] = useState(60);
   const toast = useToast();
   let id;
 
