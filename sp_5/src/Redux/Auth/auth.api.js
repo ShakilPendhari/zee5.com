@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // cyclic url
-// let URL = "https://blue-elated-hare.cyclic.app"
+// let URL = process.env.REACT_APP_BACKEND_URL
 
 // local URL
 let URL = "http://localhost:5000"
@@ -69,6 +69,7 @@ export const login = async (Credential,route,Alert)=>{
 }
 
 export const CheckEmailorMob = async (obj,route,Alert)=>{
+  console.log("Obj:",obj)
   try{
      let val = await axios.post(`${URL}/auth/verify/otp`,obj);
      console.log("val:",val);

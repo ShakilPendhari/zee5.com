@@ -43,17 +43,31 @@ const Otp = () => {
   const [isData, setIsData] = useState(obj);
   const [isbtndisabled, setIsbtndisabled] = useState(true);
   const navigate = useNavigate();
-  const emailormobileLS = takeEmailFromLS() || takeMobilesLS();
+  let emailormobileLS = useRef(null);
   const [time, setTime] = useState(5);
   const toast = useToast();
   let id;
 
   useEffect(() => {
     ref.current.focus();
-    countTime();
+    updateEmailOrMobile();
+  }, []);
 
+  useEffect(() => {
+    countTime();
     return () => clearInterval(id);
   }, []);
+
+  function updateEmailOrMobile() {
+      let val1 = takeEmailFromLS();
+      let val2 = takeMobilesLS();
+      console.log(val1,val2)
+      if (val1.time > val2.time) {
+        emailormobileLS.current = val1.email;
+      } else {
+        emailormobileLS.current = val2.mobileNo;
+      }
+  }
 
   function countTime() {
     id = setInterval(() => {
@@ -69,21 +83,19 @@ const Otp = () => {
   }
 
   const handleSubmit = () => {
-    if(emailormobileLS[0]==="+")
-    {
+    if (emailormobileLS.current[0] === "+") {
       CheckEmailorMob(
         {
-          mobileNo: emailormobileLS,
+          mobileNo: emailormobileLS.current,
           otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
         },
         navigate,
         toast
       );
-    }
-    else{
+    } else {
       CheckEmailorMob(
         {
-          email: emailormobileLS,
+          email: emailormobileLS.current,
           otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
         },
         navigate,
@@ -116,6 +128,9 @@ const Otp = () => {
       justifyContent="center"
       alignItems="center"
     >
+    {
+      console.log(emailormobileLS)
+    }
       <Box
         m={{ base: "2rem", sm: "5rem", md: "8rem" }}
         backgroundColor="white"
@@ -146,7 +161,7 @@ const Otp = () => {
             textAlign="center"
             m="1rem auto"
           >
-            {emailormobileLS}
+            {emailormobileLS.current}
           </Text>
           <Box
             _hover={{ cursor: "pointer" }}
@@ -193,9 +208,9 @@ const Otp = () => {
             borderBottom="1px dashed"
             onClick={() => {
               if (
-                emailormobileLS[0] === "+"
-                  ? login({ mobileNo: emailormobileLS },"",toast)
-                  : login({ email: emailormobileLS },"",toast)
+                emailormobileLS.current[0] === "+"
+                  ? login({ mobileNo: emailormobileLS.current }, "", toast)
+                  : login({ email: emailormobileLS.current }, "", toast)
               );
               setTime(60);
               countTime();

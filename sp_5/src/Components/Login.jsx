@@ -93,12 +93,12 @@ const Login = () => {
      if(number%1===0)
      {
        login({mobileNo:`+${phoneCode}${Intvalue.data}`},navigate,toast);
-       localStorage.setItem("sp5-Mobile",JSON.stringify(`+${phoneCode}${Intvalue.data}`));
+       localStorage.setItem("sp5-Mobile",JSON.stringify({mobileNo:`+${phoneCode}${Intvalue.data}`,time:new Date().getTime()}));
       //  navigate("/verify-mobileNo")
      }
      else{
        login({email:Intvalue.data},navigate,toast);
-       localStorage.setItem("sp5-Email",JSON.stringify(Intvalue.data));
+       localStorage.setItem("sp5-Email",JSON.stringify({email:Intvalue.data,time:new Date().getTime()}));
       //  navigate("/verify-email")
      }
     console.log("hello this is input value", Intvalue);
