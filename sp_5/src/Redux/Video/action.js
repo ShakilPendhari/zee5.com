@@ -9,6 +9,7 @@ import { getData } from "./api";
 
 export const GetData = (obj) => async (dispatch) => {
   // console.log("query:",obj)
+
   dispatch({ type: LOADING });
 
   try {

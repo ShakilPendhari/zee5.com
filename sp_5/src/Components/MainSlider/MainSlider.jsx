@@ -21,10 +21,15 @@ import { MdPlayArrow } from "react-icons/md";
 import { RiVipCrownFill } from "react-icons/ri";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { SliderHead } from "../../utils/Slider";
+import { useDispatch } from "react-redux";
+import { GetData } from "../../Redux/Video/action";
+import { useNavigate } from "react-router-dom";
 
 const MainSlider = () => {
   const [count, setCount] = useState(1);
   let clouser = useRef();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     clouser.current = setInterval(() => {
@@ -79,6 +84,11 @@ const MainSlider = () => {
       500
     );
   };
+
+  const handlePlayVideo = (query)=>{
+       dispatch(GetData({query,page:""}));
+       navigate("/Video")
+  }
 
   const settings = {
     className: "center",
@@ -199,6 +209,7 @@ const MainSlider = () => {
                         border="1px solid white"
                         justifyContent="space-between"
                         alignItems="center"
+                        onClick={()=>handlePlayVideo(SliderHead[i])}
                       >
                         <MdPlayArrow />
                         <Text fontSize="0.9rem" fontWeight="500">

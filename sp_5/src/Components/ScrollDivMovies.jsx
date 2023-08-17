@@ -8,6 +8,9 @@ import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { GetData } from "../Redux/Video/action";
 
 const ScrollDivMovies = (prop) => {
   let { url, head, imgCount,title } = prop
@@ -17,6 +20,8 @@ const ScrollDivMovies = (prop) => {
   const [rightArrow, setRightArrow] = useState(true);
   const but = useRef();
   const [width, setWidth] = useState(window.innerWidth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener("resize", updateWidth);
@@ -31,6 +36,10 @@ const ScrollDivMovies = (prop) => {
       return window.innerWidth;
     });
   };
+  const handlePlayVideo = (query)=>{
+    dispatch(GetData({query,page:""}));
+    navigate("/Video")
+}
 
   if (!imgCount) {
     imgCount = 10;
@@ -150,9 +159,6 @@ const ScrollDivMovies = (prop) => {
                     // }}
                   /> */}
                 <Flex flexDir="column" gap="0.5rem" justifyContent="center" alignItems="flex-start" ref={but} className={style.butMovies}>
-                {
-                  console.log("Prop:",prop.title[0])
-                }
                   <ul style={{color:"black",paddingLeft:"1.6rem"}}>
                     <li >{prop.title[i].title}</li>
                   </ul>
@@ -165,6 +171,7 @@ const ScrollDivMovies = (prop) => {
                     color="black"
                     variant="outline"
                     colorScheme="green"
+                    onClick={()=>handlePlayVideo(prop.title[i].title)}
                     _hover={{
                       backgroundColor: "rgb(211, 14, 211)",
                       transition: "background-color .5s ease",
