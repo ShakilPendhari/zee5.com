@@ -7,16 +7,22 @@ import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
 import style from "./../style/ComponentElement/scrolldivshow.module.css"
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { GetData } from "../Redux/Video/action";
 
 
 
-const ScrollDivShow = ({ url, head, imgCount }) => {
+const ScrollDivShow = (prop) => {
+  let { url, head, imgCount,title } = prop
   const [ scrollAmountSum, setScrollAmountSum ] = useState(0)
   const divScroll = useRef(null);
   const [leftArrow, setLeftArrow] = useState(false);
   const [rightArrow, setRightArrow] = useState(true);
   const but = useRef();
   const [width, setWidth] = useState(window.innerWidth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.addEventListener("resize", updateWidth);
@@ -33,6 +39,10 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
     });
   };
 
+  const handlePlayVideo = (query)=>{
+    dispatch(GetData({query,page:""}));
+    navigate("/Video")
+}
 
   if (!imgCount) {
     imgCount = 10;
@@ -122,6 +132,7 @@ const ScrollDivShow = ({ url, head, imgCount }) => {
                     color="black"
                     variant="outline"
                     colorScheme="green"
+                    onClick={()=>handlePlayVideo(title[i].title)}
                     _hover={{
                       backgroundColor: "rgb(211, 14, 211)",
                       transition: "background-color .5s ease",

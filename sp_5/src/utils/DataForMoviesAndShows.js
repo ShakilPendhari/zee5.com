@@ -102,9 +102,6 @@ export const Top_ten_web_series_in_india = [
 
 
 
-
-//   Hello
-
   export const top_10_movies = [
     {
       id: 1,

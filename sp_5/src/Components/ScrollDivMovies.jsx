@@ -171,7 +171,7 @@ const ScrollDivMovies = (prop) => {
                     color="black"
                     variant="outline"
                     colorScheme="green"
-                    onClick={()=>handlePlayVideo(prop.title[i].title)}
+                    onClick={()=>handlePlayVideo(title[i].title)}
                     _hover={{
                       backgroundColor: "rgb(211, 14, 211)",
                       transition: "background-color .5s ease",
