@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "./../style/ComponentElement/login.module.css";
-import { Box, Checkbox, Flex, useToast } from "@chakra-ui/react";
+import { Box, Flex, useToast } from "@chakra-ui/react";
 import Icons from "./auth/Icons";
 import TopSection from "./auth/TopSection";
 import Bottom from "./auth/Bottom";
 import Inputsection from "./auth/Inputsection";
-import { register } from "../Redux/Auth/auth.api";
 import { useNavigate } from "react-router-dom";
+import { Register } from "../Redux/Auth/auth.action";
+import { useDispatch, useSelector } from "react-redux";
 
 let obj = { data: "", checkbox:false };
 
@@ -20,6 +21,8 @@ const Signup = () => {
   const [isbtndisabled, setisbtndisabled] = useState(true);
   const toast = useToast();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loading_register } = useSelector((store)=>store.auth)
 
 
   const handleonChange = (e) => {
@@ -105,16 +108,21 @@ const Signup = () => {
   };
 
   const handleSubmit = () => {
+    if(loading_register)
+    {
+      return
+    }
     let cred = +Intvalue.data;
     let number = Number(cred);
      if(number%1===0)
      {
-       register({mobileNo:`+${phoneCode}${Intvalue.data}`},navigate,toast)
+       dispatch(Register({mobileNo:`+${phoneCode}${Intvalue.data}`},navigate,toast));
      }
      else{
-       register({email:Intvalue.data},navigate,toast)
+       dispatch(Register({email:Intvalue.data},navigate,toast));
      }
-    console.log("hello this is input value", Intvalue);
+    // console.log("hello this is input value", Intvalue);
+    setIntvalue(obj)
   };
 
   return (
@@ -142,7 +150,7 @@ const Signup = () => {
       <Flex gap="0.2rem" alignItems="flex-start" justifyContent="space-between" width="80%" m="2rem auto 0rem">
         <input onChange={handleonChange} name="checkbox" value={Intvalue.checkbox} className={style.checkBoxint} type="checkbox"/> <span className={style.checkbox}>By proceeding you agree to our <span className={style.btnColor}>Terms of Services</span> & <span className={style.btnColor}>Privacy Policy.</span></span>
       </Flex>
-      <Bottom isbtndisabled={isbtndisabled} handleSubmit={handleSubmit} auth="Create Account" toggle="Login" info="Already registered?" />
+      <Bottom loading={loading_register} isbtndisabled={isbtndisabled} handleSubmit={handleSubmit} auth="Create Account" toggle="Login" info="Already registered?" />
 
     </Box>
   );

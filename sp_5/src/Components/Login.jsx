@@ -5,8 +5,9 @@ import Icons from "./auth/Icons";
 import TopSection from "./auth/TopSection";
 import Bottom from "./auth/Bottom";
 import Inputsection from "./auth/Inputsection";
-import { login } from "../Redux/Auth/auth.api";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Loginn } from "../Redux/Auth/auth.action";
 
 let obj = { data: "" };
 
@@ -20,6 +21,8 @@ const Login = () => {
   const [isbtndisabled, setisbtndisabled] = useState(true);
   const navigate = useNavigate();
   const toast = useToast();
+  const dispatch = useDispatch();
+  const { loading_login } = useSelector((store)=>store.auth)
 
   const handleonChange = (e) => {
     const { name, value } = e.target;
@@ -88,20 +91,26 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
+    if(loading_login)
+    {
+      return
+    }
     let cred = +Intvalue.data;
     let number = Number(cred);
      if(number%1===0)
      {
-       login({mobileNo:`+${phoneCode}${Intvalue.data}`},navigate,toast);
+       dispatch(Loginn({mobileNo:`+${phoneCode}${Intvalue.data}`},navigate,toast));
        localStorage.setItem("sp5-Mobile",JSON.stringify({mobileNo:`+${phoneCode}${Intvalue.data}`,time:new Date().getTime()}));
       //  navigate("/verify-mobileNo")
      }
      else{
-       login({email:Intvalue.data},navigate,toast);
+       dispatch(Loginn({email:Intvalue.data},navigate,toast));
        localStorage.setItem("sp5-Email",JSON.stringify({email:Intvalue.data,time:new Date().getTime()}));
       //  navigate("/verify-email")
      }
-    console.log("hello this is input value", Intvalue);
+    // console.log("hello this is input value", Intvalue);
+    setIntvalue(obj)
+    
   };
 
   return (
@@ -127,7 +136,7 @@ const Login = () => {
         isShowMobileError={isShowMobileError}
       />
 
-      <Bottom isbtndisabled={isbtndisabled} handleSubmit={handleSubmit} auth="Login" toggle="Register" info="New to ZEE5 ?" />
+      <Bottom loading={loading_login} isbtndisabled={isbtndisabled} handleSubmit={handleSubmit} auth="Login" toggle="Register" info="New to ZEE5 ?" />
 
     </Box>
   );
