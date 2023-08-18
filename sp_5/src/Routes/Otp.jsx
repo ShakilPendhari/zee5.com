@@ -14,7 +14,8 @@ import {
 import Bottom from "../Components/auth/Bottom";
 import { FaPen } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { CheckEmailorMob, login } from "../Redux/Auth/auth.api";
+import { CheckEmailorMob, Login, Loginn } from "../Redux/Auth/auth.action";
+import { useDispatch, useSelector } from "react-redux";
 
 let obj = {
   int1: "",
@@ -38,6 +39,11 @@ const takeMobilesLS = () => {
     console.log("Error:", err);
   }
 };
+
+
+
+
+
 const Otp = () => {
   const ref = useRef();
   const [isData, setIsData] = useState(obj);
@@ -47,6 +53,8 @@ const Otp = () => {
   const [time, setTime] = useState(60);
   const toast = useToast();
   let id;
+  const dispatch = useDispatch();
+  const { loading_otp } = useSelector((store)=>store.auth)
 
   useEffect(() => {
     ref.current.focus();
@@ -61,7 +69,7 @@ const Otp = () => {
   function updateEmailOrMobile() {
       let val1 = takeEmailFromLS();
       let val2 = takeMobilesLS();
-      console.log(val1,val2)
+      // console.log(val1,val2)
       if (val1.time > val2.time) {
         emailormobileLS.current = val1.email;
       } else {
@@ -71,7 +79,7 @@ const Otp = () => {
 
   function countTime() {
     id = setInterval(() => {
-      console.log("time:", time);
+      // console.log("time:", time);
 
       setTime((t) => {
         if (t <= 1) {
@@ -83,25 +91,32 @@ const Otp = () => {
   }
 
   const handleSubmit = () => {
+    if(loading_otp)
+    {
+      setIsData(obj)
+      return
+    }
     if (emailormobileLS.current[0] === "+") {
-      CheckEmailorMob(
+      dispatch(CheckEmailorMob(
         {
           mobileNo: emailormobileLS.current,
           otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
         },
         navigate,
         toast
-      );
+      ));
     } else {
-      CheckEmailorMob(
+      dispatch(CheckEmailorMob(
         {
           email: emailormobileLS.current,
           otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
         },
         navigate,
         toast
-      );
+      ));
     }
+    setIsData(obj)
+
   };
 
   const handleChange = (e) => {
@@ -116,7 +131,7 @@ const Otp = () => {
         setIsbtndisabled(() => true);
       }
 
-      console.log("val:", val);
+      // console.log("val:", val);
       return val;
     });
   };
@@ -128,9 +143,6 @@ const Otp = () => {
       justifyContent="center"
       alignItems="center"
     >
-    {
-      console.log(emailormobileLS)
-    }
       <Box
         m={{ base: "2rem", sm: "5rem", md: "8rem" }}
         backgroundColor="white"
@@ -196,6 +208,7 @@ const Otp = () => {
           </PinInput>
         </HStack>
         <Bottom
+          loading = {loading_otp}
           isbtndisabled={isbtndisabled}
           handleSubmit={handleSubmit}
           auth="Verify OTP"
@@ -209,8 +222,8 @@ const Otp = () => {
             onClick={() => {
               if (
                 emailormobileLS.current[0] === "+"
-                  ? login({ mobileNo: emailormobileLS.current }, "", toast)
-                  : login({ email: emailormobileLS.current }, "", toast)
+                  ? dispatch(Loginn({ mobileNo: emailormobileLS.current }, "", toast))
+                  : dispatch(Loginn({ email: emailormobileLS.current }, "", toast))
               );
               setTime(60);
               countTime();

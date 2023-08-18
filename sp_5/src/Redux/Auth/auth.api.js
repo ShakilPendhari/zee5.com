@@ -1,98 +1,69 @@
 import axios from "axios";
+import { AUTHREGISTER_INIT } from "./auth.action.type";
 
 // cyclic url
-let URL = process.env.REACT_APP_BACKEND_URL
+let URL = process.env.REACT_APP_BACKEND_URL;
 
 // local URL
 // let URL = "http://localhost:5000"
 
 
-export const register = async (Credential,route,Alert)=>{
-    console.log("cred:",Credential)
-      try{
 
-          let val = await axios.post(`${URL}/auth/register`,Credential);
-          console.log(val)
-
-          Alert({
-            title: `${val.data}`,
-            status: "success",
-            isClosable: true,
-            duration:4000,
-            position:"top"
-          })
-            route("/login")
-      }
-      catch(err){
-        Alert({
-          title: `${err.response.data.msg}`,
-          status: "error",
-          isClosable: true,
-          duration:2000,
-          position:"top"
-        })
-        console.log("Error:",err.response.data);
-      }
-}
-
-export const login = async (Credential,route,Alert)=>{
-    try{
-
-        let val = await axios.post(`${URL}/auth/login`,Credential);
-        console.log("Val:",val.data.msg);
-        Alert({
-          title: `${val.data.msg}`,
-          status: "success",
-          isClosable: true,
-          duration:4000,
-          position:"top"
-        });
-
-        if(route && val.data.method === "mobile")
-        {
-           route("/verify-mobileNo");
-        }
-        if(route && val.data.method === "email"){
-          route("/verify-email");
-        }
-    }
-    catch(err){
+export const register_api = async (Credential,Alert,dispatch,route) => {
+  // console.log("cred:", Credential);
+  try {
+    let val = await axios.post(`${URL}/auth/register`, Credential);
+    return val;
+  } catch (err) {
+    console.log(err.response.data.msg === "Email already exists")
+    if(err.response.data.msg === "Email already exists")
+    {
+      console.log("hello")
       Alert({
         title: `${err.response.data.msg}`,
-        status: "warning",
+        status: "info",
         isClosable: true,
-        duration:2000,
-        position:"top"
-      })
-      console.log("Error:",err.response.data);
+        duration: 2000,
+        position: "top",
+      });
+      route("/login");
+      dispatch({type:AUTHREGISTER_INIT})
     }
-}
-
-export const CheckEmailorMob = async (obj,route,Alert)=>{
-  console.log("Obj:",obj)
-  try{
-     let val = await axios.post(`${URL}/auth/verify/otp`,obj);
-     console.log("val:",val);
-     if(val.data.token)
-     {
+    else{
       Alert({
-        title: "Verification Succssful, You are being redirected to Home Page",
-        status: "success",
+        title: `${err.response.data.msg}`,
+        status: "error",
         isClosable: true,
-        duration:4000,
-        position:"top"
-      })
-        route("/")
-     }
+        duration: 2000,
+        position: "top",
+      });
+      console.log("Error:", err.response.data);
+      dispatch({type:AUTHREGISTER_INIT});
+    }
   }
-  catch(err){
-    Alert({
-      title: "OTP doesn't match, Please Provide valide OTP",
-      status: "error",
-      isClosable: true,
-      duration:4000,
-      position:"top"
-    })
-    console.log("Error:",err)
+};
+
+
+
+export const login_api = async (Credential) => {
+  try {
+    let val = await axios.post(`${URL}/auth/login`, Credential);
+    console.log("Val.data.msg:", val.data.msg,"val:::",val);
+    return val;
+  } catch (err) {
+    console.log("Error:", err.response.data);
   }
-}
+};
+
+
+
+export const CheckEmailorMob_api = async (cred) => {
+  // console.log("cred:", cred);
+  try {
+    let val = await axios.post(`${URL}/auth/verify/otp`, cred);
+    // console.log("val:", val);
+    return val
+  } catch (err) {
+    console.log("Error:", err);
+  }
+};

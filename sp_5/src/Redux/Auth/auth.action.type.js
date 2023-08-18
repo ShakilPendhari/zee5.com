@@ -1,5 +1,13 @@
+export const AUTHLOADING_REGISTER = "AUTHLOADING_REGISTER"
+export const AUTHERROR_REGISTER = "AUTHERROR_REGISTER"
+export const AUTHREGISTER_INIT = "AUTHREGISTER_INIT"
 
-export const AUTHERROR = "auth/error/user";
-export const AUTHLOADING = "auth/loading/user";
-export const AUTHSIGNUP = "auth/signup/user";
-export const AUTHLOGIN = "auth/login/user"; 
+export const AUTHLOADING_LOGIN = "AUTHLOADING_LOGIN"
+export const AUTHERROR_LOGIN = "AUTHERROR_LOGIN"
+export const AUTHLOGIN_INIT = "AUTHLOGIN_INIT"
+
+export const AUTHLOADING_OTP = "AUTHLOADING_OTP"
+export const AUTHERROR_OTP = "AUTHERROR_OTP"
+export const AUTHOTP_INIT = "AUTHOTP_INIT"
+export const AUTHTAKETOKEN = "AUTHTAKETOKEN"
+

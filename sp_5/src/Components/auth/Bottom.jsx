@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Spinner, Text } from '@chakra-ui/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import style from "./../../style/ComponentElement/login.module.css"
@@ -19,20 +19,25 @@ let loginButtonStyleAllow = {
   };
   
 
-const Bottom = ({isbtndisabled,handleSubmit,toggle,info,auth}) => {
+
+
+
+const Bottom = ({isbtndisabled,handleSubmit,toggle,info,auth,loading}) => {
     const navigate = useNavigate();
   return (
     <>
         <Box>
         <button
           style={
-            isbtndisabled ? loginButtonStyleDontAllow : loginButtonStyleAllow
+            isbtndisabled || loading ? loginButtonStyleDontAllow : loginButtonStyleAllow
           }
           onClick={handleSubmit}
           disabled={isbtndisabled}
           className={style.button}
         >
-          {auth}
+        {
+          loading? <Spinner/> : auth
+        }
         </button>
       </Box>
 
