@@ -146,3 +146,23 @@ height: auto;
   }
 }
 
+
+
+
+
+@media all and (min-width:481px) and (max-width:768px) {
+   ::-webkit-scrollbar {
+  width: 0px;
+  
+}
+
+}
+
+@media all and (min-width:100px) and (max-width:480px) {
+   ::-webkit-scrollbar {
+  width: 0px;
+  
+}
+}
+
+

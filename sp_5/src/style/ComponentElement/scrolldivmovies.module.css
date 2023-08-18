@@ -194,9 +194,10 @@
     }
 
     .trendDivMovies {
-        overflow-x:scroll;
+        overflow-x: scroll;
     }
-    .trendDivMovies::-webkit-scrollbar{
+
+    .trendDivMovies::-webkit-scrollbar {
         display: none;
     }
 
@@ -231,6 +232,7 @@
         height: 1.2rem;
         width: 1.2rem;
     }
+
     .BoxHoverMovies {
         .butMovies {
             display: none;
@@ -243,6 +245,14 @@
                 border: 0px solid rgb(0, 0, 0);
             }
         }
+    }
+
+    .trendDivMovies {
+        overflow-x: scroll;
+    }
+
+    .trendDivMovies::-webkit-scrollbar {
+        display: none;
     }
 
     .arrowIconsMovies {
@@ -258,10 +268,6 @@
 
     .forwardMovies {
         right: 0.5rem;
-    }
-
-    .butMovies {
-        display: none;
     }
 
     .playbut {

@@ -96,7 +96,7 @@ const ScrollDivShow = (prop) => {
 
   return (
     <div className={style.trendBoxDivShows}>
-      <Heading id="headShows" as="h2" m="2.7rem 0rem 0.2rem 0rem">
+      <Heading id={style.headShows} as="h2" m="2.7rem 0rem 0.2rem 0rem">
         {head}
       </Heading>
 
@@ -124,7 +124,7 @@ const ScrollDivShow = (prop) => {
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}
                 />
-                 <Box ref={but} className={style.but1Shows}>
+                 <Box ref={but} className={style.butShows}>
                   <Button
                     leftIcon={<MdPlayArrow size="1.2rem" />}
                     border="2px solid"

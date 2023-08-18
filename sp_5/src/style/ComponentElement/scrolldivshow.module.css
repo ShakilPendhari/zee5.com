@@ -12,36 +12,63 @@
     display: none;
 }
 .BoxHoverShows{
-    /* transform: scale(1); */
     border-radius: 10px;
     position:relative;
     z-index: 100;
-    /* transition: transform 0.5s ease-in-out 0.5s; */
     box-sizing: border-box;
     overflow: hidden;
-    /* transition: transform .5s ease-in-out .1s; */
+
+    .butShows{
+        position: absolute;
+        bottom: 0rem;
+        left:0rem;
+        background-color: rgba(255, 255, 255);
+        width: 100%;
+        padding: 0.5rem;
+        /* visibility: hidden; */
+        opacity: 0;
+        z-index: 100;
+        z-index: 10000;
+        display: flex;
+        justify-content: space-around;
+        transition: all 0.5s ease-in 0.1s;
+    }
+
+    &>img{
+        border-radius: 10px;
+        position: relative;
+        z-index: 101;
+    }
+
+    &:hover{
+        transform: scale(1.2,1.1);
+        transition:transform 0.5s cubic-bezier(.4,0,.2,1);
+        /* border:5px solid rgba(255, 255, 255); */
+        position: relative;
+        z-index: 101;
+        border-radius: 10px;
+        box-sizing: border-box;
+        /* transition: all 0.5s ease-out 0.5s; */
+        cursor: pointer;
+        box-shadow: 0px 0px 6px grey;
+
+        
+        &>.butShows {
+            opacity: 1;
+            z-index: 102;
+        }
+
+        &>img {
+            border: 5px solid rgba(255, 255, 255);
+        }
+    }
 }
-.BoxHoverShows>img{
-    border-radius: 5px;
-}
-.BoxHoverShows:hover{
-    transform: scale(1.2,1.1);
-    transition:transform 0.5s cubic-bezier(.4,0,.2,1);
-    border:5px solid rgba(255, 255, 255);
-    position: relative;
-    z-index: 2000;
-    border-radius: 10px;
-    box-sizing: border-box;
-    /* transition: all 0.5s ease-out 0.5s; */
-    cursor: pointer;
-}
+
+
 .trendBoxDivShows{
     width: 97.5vw;
     height: auto;
     position: relative;
-    /* transition: all 2s ease-in; */
-    /* margin:3rem auto; */
-    /* margin-top: 4rem; */
 }
 .trendBoxDivsShows{
     display: flex;
@@ -110,6 +137,7 @@
 }
 #headShows{
     margin-left: 1rem;
+    font-size: 1.5rem !important;
 }
 
 .showBoxShows{
@@ -117,32 +145,128 @@
     width: 17rem;
 }
 
-.but1Shows{
-    position: absolute;
-    bottom: 0rem;
-    left:0rem;
-    background-color: rgba(255, 255, 255);
-    width: 100%;
-    padding: 0.5rem;
-    visibility: hidden;
-    z-index: 10000;
-    display: flex;
-    justify-content: space-around;
-    /* transition: all 0.3s ease-out 0.3s; */
+
+
+@media all and (min-width:481px) and (max-width:768px) {
+    .KingCrownShows {
+        height: 1.4rem;
+        width: 1.4rem;
+    }
+
+    .BoxHoverShows {
+        .butShows {
+            display: none;
+        }
+
+        &:hover {
+            transform: scale(1);
+
+            &>img {
+                border: 0px solid rgb(0, 0, 0);
+            }
+        }
+    }
+
+    .trendDivShows {
+        overflow-x: scroll;
+    }
+
+    .trendDivShows::-webkit-scrollbar {
+        display: none;
+    }
+
+    .arrowIconsShows {
+        cursor: pointer;
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    #headShows {
+        margin-left: 1rem;
+        font-size: 1.3rem !important;
+    }
+
+    .forwardShows {
+        right: 0.7rem;
+    }
+
+    .playbut {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .sharebut {
+        width: 0.9rem;
+        height: 0.9rem;
+    }
+    .showBoxShows{
+        height: 8rem;
+        width: 13rem;
+    }
 }
-.but1Shows>button>span{
-    margin: 1px;
-}
-.BoxHoverShows:hover .but1Shows{
-    visibility: visible;
-}
-.but1Shows>button{
-    /* padding: 4px 7px 4px 2px; */
-    /* padding-right: 3px; */
-    font-size: 12px;
-    border-radius: 10px;
-}
-.but1Shows>button:nth-child(2)
-{
-    background-color: white;
+
+@media all and (min-width:100px) and (max-width:480px) {
+    .KingCrownShows {
+        height: 1.2rem;
+        width: 1.2rem;
+    }
+
+    .BoxHoverShows {
+        .butShows {
+            display: none;
+        }
+
+        &:hover {
+            transform: scale(1);
+
+            &>img {
+                border: 0px solid rgb(0, 0, 0);
+            }
+        }
+    }
+
+    .trendDivShows {
+        overflow-x: scroll;
+    }
+
+    .trendDivShows::-webkit-scrollbar {
+        display: none;
+    }
+
+    .arrowIconsShows {
+        cursor: pointer;
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+
+    #headShows {
+        margin-left: 1rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    .forwardShows {
+        right: 0.5rem;
+    }
+
+    .playbut {
+        width: 0.7rem;
+        height: 0.7rem;
+    }
+
+    .sharebut {
+        width: 0.6rem;
+        height: 0.6rem;
+    }
+
+    .watch {
+        font-size: 0.3rem;
+    }
+
+    .share {
+        font-size: 0.3rem;
+    }
+    .showBoxShows{
+        height: 5rem;
+        width: 9rem;
+    }
 }

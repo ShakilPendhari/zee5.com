@@ -3,11 +3,11 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import style from "./../style/ComponentElement/scrolldivmovies.module.css";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading  } from "@chakra-ui/react";
 import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { GetData } from "../Redux/Video/action";
@@ -106,7 +106,7 @@ const ScrollDivMovies = (prop) => {
     });
   };
   function responsiveness(b, s, m) {
-    return { base: b + "rem", sm: s + "rem", md: m + "rem" };
+    return { base: b, sm: s, md: m};
   }
 
   return (
