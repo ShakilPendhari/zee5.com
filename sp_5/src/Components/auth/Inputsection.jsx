@@ -4,7 +4,7 @@ import React from 'react'
 import style from "./../../style/ComponentElement/login.module.css"
 import codes from "country-calling-code";
 
-const Inputsection = ({flag,handleDropdown,isNumber,phoneCode,dropDown,Intvalue,handleonChange,setPhoneCode,setDropDown,isShowMobileError}) => {
+const Inputsection = ({flag,handleDropdown,isNumber,phoneCode,dropDown,Intvalue,handleonChange,setPhoneCode,setDropDown,isShowMobileError,obj,handleSubmit}) => {
   return (
     <Flex
     pos="relative"
@@ -43,6 +43,14 @@ const Inputsection = ({flag,handleDropdown,isNumber,phoneCode,dropDown,Intvalue,
       placeholder="Enter email or mobile number"
       border="none"
       focusBorderColor="tranparent"
+      onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  console.log("hwllo",obj)
+                  if (Intvalue.data) {
+                    handleSubmit();
+                  }
+                }
+              }}
     />
     {dropDown && (
       <Box

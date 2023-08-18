@@ -134,6 +134,8 @@ const Login = () => {
         setPhoneCode={setPhoneCode}
         setDropDown={setDropDown}
         isShowMobileError={isShowMobileError}
+        handleSubmit={handleSubmit} 
+        obj = {obj}
       />
 
       <Bottom loading={loading_login} isbtndisabled={isbtndisabled} handleSubmit={handleSubmit} auth="Login" toggle="Register" info="New to ZEE5 ?" />

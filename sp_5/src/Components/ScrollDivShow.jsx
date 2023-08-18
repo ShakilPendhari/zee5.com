@@ -34,7 +34,7 @@ const ScrollDivShow = (prop) => {
 
   const updateWidth = () => {
     setWidth(() => {
-      console.log("width:", window.innerWidth);
+      // console.log("width:", window.innerWidth);
       return window.innerWidth;
     });
   };

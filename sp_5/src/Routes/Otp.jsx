@@ -40,10 +40,6 @@ const takeMobilesLS = () => {
   }
 };
 
-
-
-
-
 const Otp = () => {
   const ref = useRef();
   const [isData, setIsData] = useState(obj);
@@ -54,7 +50,8 @@ const Otp = () => {
   const toast = useToast();
   let id;
   const dispatch = useDispatch();
-  const { loading_otp } = useSelector((store)=>store.auth)
+  const auth = useSelector((store) => store.auth);
+  const { loading_otp } = auth;
 
   useEffect(() => {
     ref.current.focus();
@@ -67,14 +64,14 @@ const Otp = () => {
   }, []);
 
   function updateEmailOrMobile() {
-      let val1 = takeEmailFromLS();
-      let val2 = takeMobilesLS();
-      // console.log(val1,val2)
-      if (val1.time > val2.time) {
-        emailormobileLS.current = val1.email;
-      } else {
-        emailormobileLS.current = val2.mobileNo;
-      }
+    let val1 = takeEmailFromLS();
+    let val2 = takeMobilesLS();
+    // console.log(val1,val2)
+    if (val1.time > val2.time) {
+      emailormobileLS.current = val1.email;
+    } else {
+      emailormobileLS.current = val2.mobileNo;
+    }
   }
 
   function countTime() {
@@ -91,32 +88,34 @@ const Otp = () => {
   }
 
   const handleSubmit = () => {
-    if(loading_otp)
-    {
-      setIsData(obj)
-      return
+    if (loading_otp) {
+      // setIsData(()=>obj)
+      return;
     }
     if (emailormobileLS.current[0] === "+") {
-      dispatch(CheckEmailorMob(
-        {
-          mobileNo: emailormobileLS.current,
-          otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
-        },
-        navigate,
-        toast
-      ));
+      dispatch(
+        CheckEmailorMob(
+          {
+            mobileNo: emailormobileLS.current,
+            otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
+          },
+          navigate,
+          toast
+        )
+      );
     } else {
-      dispatch(CheckEmailorMob(
-        {
-          email: emailormobileLS.current,
-          otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
-        },
-        navigate,
-        toast
-      ));
+      dispatch(
+        CheckEmailorMob(
+          {
+            email: emailormobileLS.current,
+            otp: isData.int1 + isData.int2 + isData.int3 + isData.int4,
+          },
+          navigate,
+          toast
+        )
+      );
     }
-    setIsData(obj)
-
+    // setIsData(()=>obj)
   };
 
   const handleChange = (e) => {
@@ -143,6 +142,9 @@ const Otp = () => {
       justifyContent="center"
       alignItems="center"
     >
+      {/* {
+        console.log("auth:",auth,"isData:",isData)
+    } */}
       <Box
         m={{ base: "2rem", sm: "5rem", md: "8rem" }}
         backgroundColor="white"
@@ -185,22 +187,70 @@ const Otp = () => {
         <HStack w="65%" m="auto">
           <PinInput defaultValue="">
             <PinInputField
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  if (
+                    isData.int1 &&
+                    isData.int2 &&
+                    isData.int3 &&
+                    isData.int4
+                  ) {
+                    handleSubmit();
+                  }
+                }
+              }}
               value={isData.int1}
               onChange={handleChange}
               name="int1"
               ref={ref}
             />
             <PinInputField
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  if (
+                    isData.int1 &&
+                    isData.int2 &&
+                    isData.int3 &&
+                    isData.int4
+                  ) {
+                    handleSubmit();
+                  }
+                }
+              }}
               value={isData.int2}
               onChange={handleChange}
               name="int2"
             />
             <PinInputField
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  if (
+                    isData.int1 &&
+                    isData.int2 &&
+                    isData.int3 &&
+                    isData.int4
+                  ) {
+                    handleSubmit();
+                  }
+                }
+              }}
               value={isData.int3}
               onChange={handleChange}
               name="int3"
             />
             <PinInputField
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  if (
+                    isData.int1 &&
+                    isData.int2 &&
+                    isData.int3 &&
+                    isData.int4
+                  ) {
+                    handleSubmit();
+                  }
+                }
+              }}
               value={isData.int4}
               onChange={handleChange}
               name="int4"
@@ -208,7 +258,7 @@ const Otp = () => {
           </PinInput>
         </HStack>
         <Bottom
-          loading = {loading_otp}
+          loading={loading_otp}
           isbtndisabled={isbtndisabled}
           handleSubmit={handleSubmit}
           auth="Verify OTP"
@@ -222,8 +272,12 @@ const Otp = () => {
             onClick={() => {
               if (
                 emailormobileLS.current[0] === "+"
-                  ? dispatch(Loginn({ mobileNo: emailormobileLS.current }, "", toast))
-                  : dispatch(Loginn({ email: emailormobileLS.current }, "", toast))
+                  ? dispatch(
+                      Loginn({ mobileNo: emailormobileLS.current }, "", toast)
+                    )
+                  : dispatch(
+                      Loginn({ email: emailormobileLS.current }, "", toast)
+                    )
               );
               setTime(60);
               countTime();

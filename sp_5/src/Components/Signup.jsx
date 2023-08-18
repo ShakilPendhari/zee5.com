@@ -146,6 +146,8 @@ const Signup = () => {
         setPhoneCode={setPhoneCode}
         setDropDown={setDropDown}
         isShowMobileError={isShowMobileError}
+        handleSubmit={handleSubmit} 
+        obj = {obj}
       />
       <Flex gap="0.2rem" alignItems="flex-start" justifyContent="space-between" width="80%" m="2rem auto 0rem">
         <input onChange={handleonChange} name="checkbox" value={Intvalue.checkbox} className={style.checkBoxint} type="checkbox"/> <span className={style.checkbox}>By proceeding you agree to our <span className={style.btnColor}>Terms of Services</span> & <span className={style.btnColor}>Privacy Policy.</span></span>

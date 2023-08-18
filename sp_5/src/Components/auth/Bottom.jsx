@@ -24,6 +24,7 @@ let loginButtonStyleAllow = {
 
 const Bottom = ({isbtndisabled,handleSubmit,toggle,info,auth,loading}) => {
     const navigate = useNavigate();
+    // console.log(loading)
   return (
     <>
         <Box>

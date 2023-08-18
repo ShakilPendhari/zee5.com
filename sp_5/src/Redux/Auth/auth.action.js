@@ -34,7 +34,7 @@ export const Loginn = (Credential, route, Alert) => async (dispatch) => {
   dispatch({type:AUTHLOADING_LOGIN})
   try {
     let val = await login_api(Credential);
-    // console.log("Val:", val.data);
+    console.log("Val:", val.data);
     if(val.data === 'You are not registed!')
     {
       Alert({
