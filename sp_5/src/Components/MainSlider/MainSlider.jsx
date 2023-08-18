@@ -1,8 +1,8 @@
 import {
   Box,
-  Button,
+  // Button,
   Flex,
-  Grid,
+  // Grid,
   Heading,
   Image,
   Text,
@@ -14,12 +14,12 @@ import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import data from "../../RawMaterial/Home";
-import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
+// import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 import "./Main.css";
 import Slider from "react-slick";
 import { MdPlayArrow } from "react-icons/md";
 import { RiVipCrownFill } from "react-icons/ri";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
 import { SliderHead } from "../../utils/Slider";
 import { useDispatch } from "react-redux";
 import { GetData } from "../../Redux/Video/action";
@@ -45,45 +45,46 @@ const MainSlider = () => {
     return () => clearInterval(clouser.current);
   }, [count]);
 
-  const handleClick = (val) => {
-    setCount(val);
-  };
+  // const handleClick = (val) => {
+  //   setCount(val);
+  // };
 
-  const handleSliderLeft = () => {
-    if (count === 1) {
-      setCount((value) => (value = data.length));
-    } else {
-      setCount((value) => value - 1);
-    }
-    handleHover();
-  };
-  const handleSliderRight = () => {
-    if (count === data.length) {
-      setCount((value) => (value = 1));
-    } else {
-      setCount((value) => value + 1);
-    }
-    handleHover();
-  };
+  // const handleSliderLeft = () => {
+  //   if (count === 1) {
+  //     setCount((value) => (value = data.length));
+  //   } else {
+  //     setCount((value) => value - 1);
+  //   }
+  //   handleHover();
+  // };
 
-  const handleHover = (e) => {
-    e.target.style.cursor = "pointer";
-    clearInterval(clouser.current);
-  };
+  // const handleSliderRight = () => {
+  //   if (count === data.length) {
+  //     setCount((value) => (value = 1));
+  //   } else {
+  //     setCount((value) => value + 1);
+  //   }
+  //   handleHover();
+  // };
 
-  const handleDehover = () => {
-    setTimeout(
-      () =>
-        setCount((count) => {
-          if (count >= 8) {
-            return (count = 1);
-          } else {
-            return (count = count + 1);
-          }
-        }),
-      500
-    );
-  };
+  // const handleHover = (e) => {
+  //   e.target.style.cursor = "pointer";
+  //   clearInterval(clouser.current);
+  // };
+
+  // const handleDehover = () => {
+  //   setTimeout(
+  //     () =>
+  //       setCount((count) => {
+  //         if (count >= 8) {
+  //           return (count = 1);
+  //         } else {
+  //           return (count = count + 1);
+  //         }
+  //       }),
+  //     500
+  //   );
+  // };
 
   const handlePlayVideo = (query)=>{
        dispatch(GetData({query,page:""}));
@@ -194,8 +195,9 @@ const MainSlider = () => {
                       m="0px"
                       p="0px"
                       textAlign="left"
-                      fontSize="1.8rem"
-                      as="h2"
+                      fontWeight="400"
+                      fontSize={{base:"1.05rem",sm:"1.2rem",md:"1.5rem"}}
+                      as="h1"
                     >
                       {SliderHead[i]}
                     </Heading>
