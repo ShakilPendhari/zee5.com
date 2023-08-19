@@ -3,7 +3,7 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import style from "./../style/ComponentElement/scrolldivmovies.module.css";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { Box, Button, Flex, Heading  } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text  } from "@chakra-ui/react";
 import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
@@ -128,12 +128,23 @@ const ScrollDivMovies = (prop) => {
             .fill(1)
             .map((item, i, arr) => (
               <Box
+                onClick={()=>{
+                   if(width>=200 && width<=768)
+                   {
+                    handlePlayVideo(title[i].title)
+                   }
+                }}
+                position="relative"
                 key={i + 1}
                 className={`${style.boxMovies} ${style.BoxHoverMovies}`}
                  width={{ base: "30vw", sm: "30vw", md: "16rem" }}
                 minWidth={{ base: "7.5rem", sm: "11.5rem", md: "16rem" }}
                 height={{ base: "9rem", sm: "16rem", md: "25rem" }}
               >
+                <Text  className={style.toolTip} backgroundColor="rgb(100,100,100)"
+                 fontSize={{base:"0.8rem",sm:"1rem"}}
+                 p="0.3rem"
+                 position="absolute" zIndex="1000" top="45%" left="35%">Play video</Text>
                 <RiVipCrownFill className={style.KingCrownMovies} />
                 {/* <SkeletonImage src={`${url}${i + 1}.png`}/> */}
                 <img
