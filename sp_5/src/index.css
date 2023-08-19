@@ -1,7 +1,4 @@
-/* /* html{ */
-  /* font-size: calc(10%-3rem); */
-  /* font-size: calc(16px + 10%) */
-/* }  */
+
 *,body,html{
   padding: 0px;
   margin: 0px;
@@ -10,9 +7,7 @@
 h2{
   font-size: 1.5rem!Important;
 }
-/* button{
-  color: rgb(0, 0, 0)!Important;
-} */
+
 html{
   user-select: none;
   -webkit-user-select: none;

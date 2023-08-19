@@ -131,8 +131,7 @@ const ScrollDivMovies = (prop) => {
                 key={i + 1}
                 className={`${style.boxMovies} ${style.BoxHoverMovies}`}
                  width={{ base: "30vw", sm: "30vw", md: "16rem" }}
-                minWidth={{ base: "28vw", sm: "25vw", md: "16rem" }}
-               
+                minWidth={{ base: "7.5rem", sm: "11.5rem", md: "16rem" }}
                 height={{ base: "9rem", sm: "16rem", md: "25rem" }}
               >
                 <RiVipCrownFill className={style.KingCrownMovies} />

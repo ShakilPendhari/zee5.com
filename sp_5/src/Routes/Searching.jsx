@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Grid, Image } from "@chakra-ui/react";
+import { Box, Grid, Image, Tooltip } from "@chakra-ui/react";
 import SearchingElements from "../Components/Skeleton/SearchElement/SearchingElements";
-import { InfiniteScrolling } from "../Redux/Video/action";
+import { InfiniteScrolling, PlayVideoByUsingID } from "../Redux/Video/action";
 import { useNavigate } from "react-router-dom";
-import { GETDATA, PLAYVIDEO } from "../Redux/Video/action.type";
+import { GETDATA, PLAYVIDEO, TAKEVIDEOID } from "../Redux/Video/action.type";
 
 const Searching = () => {
   const { data, page, query, loading, error } = useSelector(
@@ -27,10 +27,11 @@ const Searching = () => {
     };
   }, [dispatch, page]);
 
-  const handleClick = (index)=>{
-      // dispatch(PLAYVIDEO(index));
-      navigate("/Video")
-  }
+  const handleClick = (el) => {
+    // dispatch(PLAYVIDEO(index));
+    dispatch(PlayVideoByUsingID(el.id.videoId));
+    navigate("/Video");
+  };
   function handleScroll() {
     let { clientHeight, scrollTop, scrollHeight } = document.documentElement;
     // console.log(clientHeight,scrollHeight,scrollTop)
@@ -69,24 +70,32 @@ const Searching = () => {
       {data &&
         data.length !== 0 &&
         data.map((el, i) => (
-          <Box
-            key={i}
-            width="100%"
-            height="100%"
-            boxShadow="0px 0px 10px 2px white"
-            borderRadius="6px"
-            overflow="hidden"
-            onClick={()=>handleClick(i)}
+          <Tooltip
+            position="absolute"
+            label="Play Video"
+            placement="top"
+            openDelay={300}
           >
-            {console.log(el)}
-            <Image
-              loading="lazy"
+            <Box
+              key={i}
               width="100%"
               height="100%"
-              src={el.snippet.thumbnails.medium.url}
-              alt={el.snippet.title}
-            />
-          </Box>
+              boxShadow="0px 0px 10px 2px white"
+              borderRadius="6px"
+              overflow="hidden"
+              onClick={() => handleClick(el)}
+              cursor="pointer"
+            >
+              {console.log(el)}
+              <Image
+                loading="lazy"
+                width="100%"
+                height="100%"
+                src={el.snippet.thumbnails.medium.url}
+                alt={el.snippet.title}
+              />
+            </Box>
+          </Tooltip>
         ))}
     </Grid>
   );

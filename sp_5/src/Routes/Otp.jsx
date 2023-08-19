@@ -146,19 +146,19 @@ const Otp = () => {
         console.log("auth:",auth,"isData:",isData)
     } */}
       <Box
-        m={{ base: "2rem", sm: "5rem", md: "8rem" }}
+        m={{ base: "1rem", sm: "5rem", md: "8rem" }}
         backgroundColor="white"
         color="black"
         border="1px solid"
         padding="1rem"
         borderRadius="0.5rem"
-        width="20rem"
-        height="23rem"
+        width={{base:"16rem",sm:"17rem",md:"19rem"}}
+        height={{base:"18rem",sm:"19rem",md:"21.5rem"}}
       >
-        <Heading textAlign="center" as="h1">
+        <Heading fontSize={{base:"1.3rem",sm:"1.5rem",md:"1.8rem"}} textAlign="center" as="h1">
           Verify With OTP
         </Heading>
-        <Text fontWeight="500" m="0.7rem 0rem" textAlign="center">
+        <Text fontWeight="500" fontSize={{base:"0.8rem",sm:"0.9rem",md:"1.05rem"}} m={{base:"0.7rem 0rem", sm:"0.3rem 0rem" ,md:"0.1rem 0rem" }} textAlign="center">
           Enter the 4-digit code sent to:
         </Text>
         <Flex
@@ -173,7 +173,8 @@ const Otp = () => {
             w="80%"
             borderBottom="1px dashed"
             textAlign="center"
-            m="1rem auto"
+            m={{base:"0.6rem auto",sm:"0.8rem auto",md:"1rem auto"}}
+            fontSize={{base:"0.65rem",sm:"0.80rem",md:"0.9rem"}}
           >
             {emailormobileLS.current}
           </Text>
@@ -265,8 +266,9 @@ const Otp = () => {
         />
         {time <= 0 ? (
           <Text
-            w="30%"
+            w={{base:"45%",sm:"45%",md:"40%"}}
             m="auto"
+            fontSize={{base:"0.9rem",sm:"1rem",md:"1.1rem"}}
             cursor="pointer"
             borderBottom="1px dashed"
             onClick={() => {
@@ -286,7 +288,7 @@ const Otp = () => {
             Resend OTP
           </Text>
         ) : (
-          <Text>Fetching OTP in {time} seconds</Text>
+          <Text m="auto" fontSize={{base:"0.8rem",sm:"0.9rem",md:"1.1rem"}}  w={{base:"90%",sm:"90%",md:"90%"}} >Fetching OTP in {time} seconds</Text>
         )}
       </Box>
     </Flex>

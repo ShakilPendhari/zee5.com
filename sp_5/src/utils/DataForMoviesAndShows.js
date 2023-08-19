@@ -445,7 +445,7 @@ export const Top_ten_web_series_in_india = [
     },
     {
       id: 2,
-      title: "The Arutal 1960's",
+      title: "Vedh Kannada",
     },
     {
       id: 3,

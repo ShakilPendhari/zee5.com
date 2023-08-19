@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, Link, Navigate, useNavigate } from "react-router-dom";
-import { Box, Flex, Input, HStack, Stack, Avatar } from "@chakra-ui/react";
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import { Box, Flex, HStack, Stack, Avatar } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { BiMicrophone } from "react-icons/bi";
-import { MdLanguage } from "react-icons/md";
 import { RiVipCrownFill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./Navbar.css";
@@ -136,18 +135,19 @@ const Navbar = () => {
                 {el.title}
               </NavLink>
             ))}
-            <NavLink className="link2" display={{base:"block",sm:"block",md:"none"}}  to="/RightSideLogo">
+            {/* <NavLink className="link2" display={{base:"block",sm:"block",md:"none"}}  to="/RightSideLogo">
               <RightSideLogo  />
-            </NavLink>
+            </NavLink> */}
           </Box>
         </Flex>
-        <Flex alignItems="center" gap="30px">
+        <Flex alignItems="center" gap={{base:"5px",sm:"10px",md:"30px"}}>
           {search && (
             <Box>
               <HStack className="inputBox">
-                <SearchIcon />
+                <SearchIcon className="searchIcon" />
                 <input
                   type="text"
+                  className="navbarInput"
                   //  onClick={()=>{setState(true);
                   //  /*navigate("/Searching")*/}}
                   placeholder="Search for Movies, and TvShows"
@@ -182,21 +182,21 @@ const Navbar = () => {
               style={{
                 color: "white",
                 backgroundColor: "green",
-                padding: "7px",
-                borderRadius: "10px",
-                fontWeight: "500",
                 display: "flex",
+                borderRadius:"10px"
               }}
+              className="buyPlane"
             >
               <RiVipCrownFill
                 style={{
                   color: "white",
-                  margin: "0px 3px 0px 3px",
-                  width: "35px",
-                  height: "20px",
+                  margin: "4px 3px 0px 3px",
                 }}
+                // className="Kingcrown"
               />
-              BUY PLAN
+              <span className="buyplaneBut">
+                   BUY PLAN
+              </span>
             </NavLink>
           </Box>
           <Box>

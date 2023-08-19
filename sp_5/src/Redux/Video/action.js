@@ -4,6 +4,7 @@ import {
   GETQUERY,
   LOADING,
   PLAYVIDEO,
+  TAKEVIDEOID,
 } from "./action.type";
 import { getData } from "./api";
 
@@ -40,4 +41,8 @@ export const InfiniteScrolling = (obj) => async (dispatch) => {
 export const PlayVideo = (index)=> async (dispatch)=>{
   console.log("hello:",index)
   // dispatch({type:PLAYVIDEO,payload:index});
+}
+
+export const PlayVideoByUsingID = (id)=>(dispatch)=>{
+   dispatch({type:TAKEVIDEOID,payload:id})
 }

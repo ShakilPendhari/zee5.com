@@ -45,7 +45,6 @@ const Inputsection = ({flag,handleDropdown,isNumber,phoneCode,dropDown,Intvalue,
       focusBorderColor="tranparent"
       onKeyPress={(e) => {
                 if (e.key === "Enter") {
-                  console.log("hwllo",obj)
                   if (Intvalue.data) {
                     handleSubmit();
                   }
