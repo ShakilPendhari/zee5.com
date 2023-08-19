@@ -5,6 +5,7 @@ import {
   GETQUERY,
   LOADING,
   PLAYVIDEO,
+  TAKEVIDEOID,
 } from "./action.type";
 
 const initState = {
@@ -66,6 +67,12 @@ export const VideoReducer = (state = initState, { type, payload }) => {
         videoId: data[payload].id.videoId,
         data: data.filter((el, i) => i !== payload),
       };
+    case TAKEVIDEOID :return{
+      ...state,
+      loading : false,
+      error : false,
+      videoId : payload
+    }
     default:
       return state;
   }

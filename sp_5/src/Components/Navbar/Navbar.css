@@ -8,6 +8,8 @@ body{
     justify-content: space-between;
     align-items: center;
     padding:10px 30px;
+    gap:1rem;
+    /* width: ; */
 }
 
 .Logo{
@@ -20,8 +22,10 @@ body{
 .inputBox{
     border:2px solid rgb(106, 36, 160);
     padding:5px;
-    border-radius: 6px;
+    border-radius: 10px;
     background-color: rgb(15,6,23);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .inputBox>input[type=text]{
@@ -34,17 +38,18 @@ body{
 }
 
 .inputBox>input[type=text]:focus{
-    width:250px;
+    width:300px;
 }
 .butt{
     text-decoration: none;
-    padding:7px 12px;
+    /* padding:7px 12px; */
     border-radius: 10px;
     color: #fff;
     background-color:rgb(10, 9, 10); ;
     font-weight: 500;
     font-size: 1rem;
-    border:1px solid #fff;;
+    border:1px solid #fff;
+    height: 2rem;
 }
 .butt:hover{
     transition: background-color .5s ease-in;
@@ -58,14 +63,103 @@ a{
 .link2{
     display: block;
 }
+.buyPlane{
+    font-size: 0.9rem;
+    padding:0.68rem;
+}
+.searchIcon{
+    width: 1rem !important;
+    height: 1rem !important;
+}
+
+
+
 
 @media screen and (min-width:481px) and (max-width:768px){
     .link2{
         display: none;
     }
+    .Logo{
+    width:35px;
+    height:35px;
+    border-radius: 35px;
+    box-sizing: border-box;
 }
+.inputBox>input[type=text]{
+    font-size: 0.85rem;
+    width: 100px;
+}
+
+.inputBox>input[type=text]:focus{
+    width:150px;
+}
+.buyPlane{
+    font-size: 0.7rem;
+    padding:0.4rem
+}
+.butt{
+    height: 1.5rem !important;
+    font-size: 0.7rem !important;
+}
+.buyplaneBut{
+    display: none;
+}
+.searchIcon{
+    width: 0.85rem !important;
+    height: 0.85rem !important;
+}
+}
+
+
 @media screen and (min-width:200px) and (max-width:480px){
     .link2{
         display: none;
     }
+    .Logo{
+    width:28px;
+    height:28px;
+    border-radius: 28px;
+    box-sizing: border-box;
+}
+.navbarInput{
+    height: 0.7rem;
+    width: 1rem;
+}
+.inputBox>input[type=text]{
+    font-size: 0.7rem;
+    width: 45px;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+}
+
+.inputBox>input[type=text]:focus{
+    width:45px;
+}
+.buyPlane{
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    font-weight: 300;
+    /* min-width: 3.9rem; */
+    display: none;
+}
+
+.butt{
+    height: 1.3rem !important;
+    font-size: 0.6rem !important;
+    padding: 0.3rem 0.6rem !important;
+    border-radius: 3px !important;
+    font-weight: 300;
+    min-width: 1rem ;
+}
+.Navbar{
+    padding:10px 10px;
+}
+.buyplaneBut{
+    display: none;
+}
+.searchIcon{
+    width: 0.6rem !important;
+    height: 0.6rem !important;
+}
 }

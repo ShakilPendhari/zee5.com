@@ -14,8 +14,8 @@ const Icons = () => {
       >
         <Link href={process.env.REACT_APP_GOOGLE_AUTH}>
           <Image
-            width="3.4rem"
-            height="3.4rem"
+            width={{base:"2.1rem",sm:"2.8rem",md:"3.4rem"}}
+            height={{base:"2.1rem",sm:"2.8rem",md:"3.4rem"}}
             cursor="pointer"
             src="./SocialMediaIcon/zee5GoogleIcon.svg"
             alt="Google Icon"
@@ -25,8 +25,8 @@ const Icons = () => {
           <Image
             boxShadow="0px 4px 3px grey"
             borderRadius="50%" 
-            width="3rem"
-            height="3rem"
+            width={{base:"1.7rem",sm:"2.5rem",md:"3rem"}}
+            height={{base:"1.7rem",sm:"2.5rem",md:"3rem"}}
             cursor="pointer"
             src="./SocialMediaIcon/zee5GitHubIcon.png"
             alt="GitHub Icon"

@@ -25,5 +25,22 @@
 .recommenedideo{
     width:25vw;
     height: 35vh;
+    
+  }
+
+   
+  @media all and (min-width:481px) and (max-width:768px) {
+    .box{
+        padding-top: 0rem;
+    }
+    .mainVideo{
+        width:70vw;
+        height: 65vh;
+      }
   }
  
+  @media all and (min-width:270px) and (max-width:480px) {
+    .box{
+        padding-top: 2rem;
+    }
+  }

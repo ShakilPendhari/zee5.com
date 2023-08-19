@@ -43,7 +43,7 @@ const Bottom = ({isbtndisabled,handleSubmit,toggle,info,auth,loading}) => {
       </Box>
 
       <Text onClick={()=>{!(auth==="Login")?navigate("/login"):navigate("/signup"); console.log(auth==="Login")}} cursor="pointer">
-        <span style={{ color: "#000000" }}>{info}</span>{" "}
+        <span className={style.bottom_text} style={{ color: "#000000" }}>{info}</span>{" "}
         <span id={style.register}>{toggle}</span>
       </Text>
     </>

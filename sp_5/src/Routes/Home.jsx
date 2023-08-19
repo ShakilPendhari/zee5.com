@@ -14,6 +14,7 @@ import { BlockbusterFilms, Free_dubbed_movies, Latest_hindi_episodes_free, Popul
 const Home = () => {
   const [flag, setFlag] = useState(false);
   let id = useRef(null);
+  const [ f, setF ] = useState(false)
 
   useEffect(() => {
     id.current = setTimeout(() => setFlag(() => true), 1300);
@@ -27,6 +28,8 @@ const Home = () => {
       <MainSlider />
 
       {/* Trending Near You */}
+    
+      {/* <button onClick={()=>setF(!f)}>Click</button> */}
       {flag ? (
         <ScrollDivMovies
           title = {Trending_Near_You}
@@ -63,6 +66,7 @@ const Home = () => {
       )}
 
       {/* Unmissable Movies & Shows */}
+      
       {flag ? (
         <ScrollDivMovies
          title = {Unmissable_Movies_Shows}
