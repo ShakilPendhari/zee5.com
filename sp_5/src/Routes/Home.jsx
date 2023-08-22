@@ -25,7 +25,7 @@ const Home = () => {
     <div className={style.MainBox}>
       {/* Slider */}
       {/* <Slider /> */}
-      <MainSlider />
+      <MainSlider title="Sliding/zee5_" />
 
       {/* Trending Near You */}
     

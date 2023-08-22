@@ -62,11 +62,131 @@ a{
 }
 .link2{
     display: block;
+    position: relative;
 }
-.buyPlane{
+.link2::after{
+    content: "";
+    background: #fff;
+    height: 2px;
+    left:0px;
+    bottom: -5px;
+    position: absolute;
+    right: 0;
+    transform: scale(0,1);
+    transition: transform 0.3s ease-in alternate;
+}
+.link2:hover::after{
+    transform: scale(1,1);
+    height: 2px;
+}
+.login {
+    position: relative;
+    color: white !important;
+    z-index: 1;
+    background-color: transparent !important;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 0px 6px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500;
+    height: 2rem !important;
+    margin: 0.3rem 0rem 0rem;
+    border-radius: 3px !important;
+
+     &>span{
+        padding: 0px !important;
+        gap:0px !important;
+        margin: 0px !important;
+        
+        &>svg{
+            padding:0px !important;
+            height: 0.9rem !important;
+            width: 1.3rem !important;
+            margin-bottom: 0rem;
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgb(27, 212, 79);
+        width: 100%;
+        /* height: 0%; */
+        height: 100%;
+        transform: scale(0,0);
+        z-index: -1;
+        transition: all 0.1s ease;
+    }
+
+    &:hover {
+        z-index: 1;
+        color: white;
+       
+        &::before {
+            z-index: -1;
+            /* height: 100%; */
+            transform: scale(1,1);
+        }
+    }
+}
+.buyplane {
+    position: relative;
+    color: white !important;
+    z-index: 1;
+    background-color: rgb(197, 6, 197) !important;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 0px 4px 0px 0px !important;
+    font-size: 1rem !important;
+    font-weight: 500;
+    height: 2rem !important;
+    margin: 0.3rem 0rem 0rem;
+    border-radius: 3px !important;
+
+     &>span{
+        padding: 0px !important;
+        gap:0px !important;
+        margin: 0px !important;
+        
+        &>svg{
+            padding:0px !important;
+            height: 0.9rem !important;
+            width: 1.3rem !important;
+            margin-bottom: 0rem;
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgb(27, 212, 79);
+        width: 100%;
+        /* height: 0%; */
+        height: 100%;
+        transform: scale(0,0);
+        z-index: -1;
+        transition: all 0.1s ease;
+    }
+
+    &:hover {
+        z-index: 1;
+        color: white;
+       
+        &::before {
+            z-index: -1;
+            /* height: 100%; */
+            transform: scale(1,1);
+        }
+    }
+}
+
+
+/* .buyPlane{
     font-size: 0.9rem;
     padding:0.68rem;
-}
+} */
 .searchIcon{
     width: 1rem !important;
     height: 1rem !important;

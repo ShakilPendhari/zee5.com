@@ -5,8 +5,12 @@
     height: 90vh;
     justify-content: space-around;
     /* align-items: flex-start; */
-    overflow: scroll;
+    overflow-y: scroll;
+    /* overflow: hidden; */
     position: relative;
+}
+.box::-webkit-scrollbar{
+  display: none;
 }
 .mainVideoBox{
     margin-top: 3rem;

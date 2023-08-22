@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import ScrollDivMovies from '../Components/ScrollDivMovies';
 import SkeletonMovies from '../Components/Skeleton/Skeleton_movies';
 import { PopularMovies, Trending_Near_You } from '../utils/DataForMoviesAndShows';
+import MainSlider from '../Components/MainSlider/MainSlider';
 
 const WebSeries = () => {
   // const { data } = useSelector((store)=>store.data);
@@ -17,6 +18,7 @@ const WebSeries = () => {
   }, []);
 
   return  <div className='tvShows'>
+  <MainSlider title="Sliding/zee5_" />
     {flag ? (
         <ScrollDivMovies
           title = {PopularMovies}

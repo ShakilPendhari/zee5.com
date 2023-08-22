@@ -5,7 +5,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { BiMicrophone } from "react-icons/bi";
 import { RiVipCrownFill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
-import "./Navbar.css";
+import style from "./Navbar.module.css";
 import { Button } from "@chakra-ui/react";
 import RightSideLogo from "../../Routes/RightSideLogo";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,8 +41,11 @@ const links = [
 ];
 
 let activeStyle = {
-  textDecoration: "none",
+  textDecoration: "underline",
   color: "red",
+  textUnderlineOffset:"9px",
+  textDecorationColor:"white",
+  textDecorationThickness:"2px"
 };
 
 let normal = {
@@ -109,7 +112,7 @@ const Navbar = () => {
 
   if (true) {
     return (
-      <div className="Navbar">
+      <div className={style.Navbar}>
         {/* {
         data && console.log(data)
       } */}
@@ -120,13 +123,13 @@ const Navbar = () => {
           justifyContent="space-between"
         >
           <Box display="flex" gap="2.5rem" alignItems="center">
-            <NavLink className="LogoBox" to="/">
-              <img className="Logo" alt="logo" src="logoo.png" />
+            <NavLink className={style.LogoBox} to="/">
+              <img className={style.Logo} alt="logo" src="logoo.png" />
             </NavLink>
 
             {links.map((el) => (
               <NavLink
-                className={el.cn}
+                className={style.link2}
                 key={el.to}
                 style={({ isActive }) => (isActive ? activeStyle : normal)}
                 to={el.to}
@@ -143,11 +146,11 @@ const Navbar = () => {
         <Flex alignItems="center" gap={{base:"5px",sm:"10px",md:"30px"}}>
           {search && (
             <Box>
-              <HStack className="inputBox">
-                <SearchIcon className="searchIcon" />
+              <HStack className={style.inputBox}>
+                <SearchIcon className={style.searchIcon} />
                 <input
                   type="text"
-                  className="navbarInput"
+                  className={style.navbarInput}
                   //  onClick={()=>{setState(true);
                   //  /*navigate("/Searching")*/}}
                   placeholder="Search for Movies, and TvShows"
@@ -158,12 +161,12 @@ const Navbar = () => {
             </Box>
           )}
 
-          <Box className="link2">
+          <Box className={style.link2}>
             {/* <MdLanguage style={{ width: "27px", height: "27px" }} /> */}
           </Box>
           <Stack direction="row">
             <Link to="/login">
-              {authState.isAuth && (
+              {/* {authState.isAuth && (
                 <Avatar
                   bg="teal.500"
                   w={"35px"}
@@ -171,13 +174,18 @@ const Navbar = () => {
                 />
               )}
               {!authState.isAuth && (
-                <Button colorScheme="white" variant="outline" className="butt" >
+                <Button colorScheme="white" variant="outline" className={style.butt} >
                   Login
                 </Button>
-              )}
+              )} */}
+              <Button
+                    className={style.login}
+                  >
+                    LOGIN
+                  </Button>
             </Link>
           </Stack>
-          <Box>
+          {/* <Box>
             <NavLink
               style={{
                 color: "white",
@@ -185,20 +193,27 @@ const Navbar = () => {
                 display: "flex",
                 borderRadius:"10px"
               }}
-              className="buyPlane"
+              className={style.buyPlane}
             >
               <RiVipCrownFill
                 style={{
                   color: "white",
                   margin: "4px 3px 0px 3px",
                 }}
-                // className="Kingcrown"
+                // className={style.Kingcrown}
               />
-              <span className="buyplaneBut">
+              <span className={style.buyplaneBut}>
                    BUY PLAN
               </span>
             </NavLink>
-          </Box>
+          </Box> */}
+          <Button
+                    className={style.buyplane}
+                    leftIcon={ <RiVipCrownFill/>}
+                    cursor="not-allowed"
+                  >
+                    BUY PLAN
+                  </Button>
           <Box>
             <GiHamburgerMenu />
           </Box>
