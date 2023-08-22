@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   // Button,
   Flex,
   // Grid,
@@ -15,7 +16,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import data from "../../RawMaterial/Home";
 // import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
-import "./Main.css";
+// import style from "./Main.module.css";
+import "./Main.css"
 import Slider from "react-slick";
 import { MdPlayArrow } from "react-icons/md";
 import { RiVipCrownFill } from "react-icons/ri";
@@ -25,7 +27,7 @@ import { useDispatch } from "react-redux";
 import { GetData } from "../../Redux/Video/action";
 import { useNavigate } from "react-router-dom";
 
-const MainSlider = () => {
+const MainSlider = ({title}) => {
   const [count, setCount] = useState(1);
   let clouser = useRef();
   const dispatch = useDispatch();
@@ -165,7 +167,7 @@ const MainSlider = () => {
                       transition: "all 2s ease-in",
                       height: "100%",
                     }}
-                    src={`Sliding/zee5_${i + 1}.png`}
+                    src={`${title}${ i + 1}.png`}
                     className="slidingImg"
                     alt="movie"
                   />
@@ -183,7 +185,7 @@ const MainSlider = () => {
                     }}
                   /> */}
                   <Flex
-                    gap="1rem"
+                    gap={{base:"0.1rem",sm:"0.3rem",md:"0.5rem"}}
                     flexDirection="column"
                     justifyContent="flex-start"
                     alignItems="flex-start"
@@ -196,32 +198,29 @@ const MainSlider = () => {
                       p="0px"
                       textAlign="left"
                       fontWeight="400"
-                      fontSize={{base:"1.05rem",sm:"1.2rem",md:"1.5rem"}}
+                      fontSize={{base:"1.05rem",sm:"1.2rem",md:"1.2rem"}}
                       as="h1"
                     >
                       {SliderHead[i]}
                     </Heading>
                     <Flex gap="1rem" direction="row">
-                      <Flex
-                        p="0.5rem 0.6rem"
-                        background="rgba(0,0,0,.4)"
-                        w="5rem"
-                        borderRadius="5px"
-                        fontFamily="NotoSansMedium,sans-serif"
-                        border="1px solid white"
-                        justifyContent="space-between"
-                        alignItems="center"
-                        onClick={()=>handlePlayVideo(SliderHead[i])}
-                        _hover={{
-                          cursor:"pointer"
-                        }}
-                      >
-                        <MdPlayArrow />
-                        <Text fontSize="0.9rem" fontWeight="500">
-                          Watch
-                        </Text>
-                      </Flex>
-                      <Flex
+                    <Button
+                    className="watch"
+                    leftIcon={<MdPlayArrow />}
+                    // variant="outline"
+                    onClick={()=>handlePlayVideo(SliderHead[i].title)}
+                  >
+                    Watch
+                  </Button>
+                  <Button
+                    className="buyplane"
+                    leftIcon={<RiVipCrownFill/>}
+                    // variant="outline"
+                    onClick={()=>handlePlayVideo(SliderHead[i].title)}
+                  >
+                   BUY PLAN
+                  </Button>
+                      {/* <Flex
                         p="0.5rem 0.3rem"
                         background="#8230c6"
                         w="7.2rem"
@@ -234,7 +233,7 @@ const MainSlider = () => {
                         <Text fontSize="0.9rem" fontWeight="600">
                           BUY PLAN
                         </Text>
-                      </Flex>
+                      </Flex> */}
                     </Flex>
                   </Flex>
                 </Box>

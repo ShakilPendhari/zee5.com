@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { useRef } from "react";
 import { useEffect } from "react";
-import { Box, Button, Heading } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading } from "@chakra-ui/react";
 import { RiVipCrownFill } from "react-icons/ri";
 import { FaShare } from "react-icons/fa";
 import { MdPlayArrow } from "react-icons/md";
@@ -124,35 +124,33 @@ const ScrollDivShow = (prop) => {
                   src={`${url}${i + 1}.png`}
                   alt={`${url}${i + 1}.png`}
                 />
-                 <Box ref={but} className={style.butShows}>
-                  <Button
-                    leftIcon={<MdPlayArrow size="1.2rem" />}
-                    border="2px solid"
-                    padding="0px 7px 0px 0px"
-                    color="black"
-                    variant="outline"
-                    colorScheme="green"
+                 <Flex flexDir="column" gap="0rem" justifyContent="center" alignItems="flex-start" ref={but} className={style.butShows}
+                >
+                 <ul style={{color:"black",paddingLeft:"18.5%"}}>
+                    <li style={{fontSize:"0.9rem"}} >{title[i].title}</li>
+                  </ul>
+                 <Flex m="auto" justifyContent="space-between" width="75%">
+                 <Button
+                    className={style.watch}
+                    leftIcon={<MdPlayArrow/>}
                     onClick={()=>handlePlayVideo(title[i].title)}
-                    _hover={{
-                      backgroundColor: "rgb(211, 14, 211)",
-                      transition: "background-color .5s ease",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
                   >
                     Watch
                   </Button>
                   <Button
+                    className={style.share}
                     leftIcon={<FaShare />}
                     cursor="no-drop"
                     border="0px solid"
                     backgroundColor="white"
                     variant="ghost"
                     color="grey"
+                    disabled
                   >
                     Share
                   </Button>
-                </Box>
+                 </Flex>
+                </Flex>
               </Box>
             ))}
         </div>

@@ -25,21 +25,24 @@
         left: 0rem;
         background-color: rgba(255, 255, 255);
         width: 100%;
-        /* padding: 1.2rem; */
         padding: 0.8rem;
         padding-top: 0.5rem;
-        /* visibility: hidden; */
         opacity: 0;
         z-index: 100;
+        /* opacity: 1;
+        z-index: 150; */
         display: flex;
         justify-content: space-around;
-        transition: all 0.5s ease-in 0.1s;
+        transform: scale(0,0);
+        /* transition: transform 0.5s ease-in-out, opacity 0.1s ease-in; */
+        transition: all 0.4s ease-in, opacity 0.1s ease-in;
     }
 
     &>img {
         border-radius: 10px;
         position: relative;
         z-index: 101;
+        transition: border 0.4s ease-in;
     }
 
     &:hover {
@@ -57,6 +60,7 @@
         &>.butMovies {
             opacity: 1;
             z-index: 102;
+            transform: scale(1,1);
         }
 
         &>img {
@@ -145,7 +149,80 @@
 .playbut {
     width: 1.5rem;
     height: 1.5rem;
+    /* position: relative; */
 }
+
+.watch {
+    position: relative;
+    color: black;
+    z-index: 1;
+    border: 2px solid rgb(211, 14, 211);
+    padding: 0px 4px 0px 0px !important;
+    font-size: 0.9rem !important;
+    font-weight: 200;
+    height: 1.8rem !important;
+    margin: 0.3rem 0rem 0rem;
+    border-radius: 4px !important;
+
+     &>span{
+        padding: 0px !important;
+        gap:0px !important;
+        margin: 0px !important;
+        
+        &>svg{
+            padding:0px !important;
+            height: 1.1rem !important;
+            width: 1.1rem !important;
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgb(211, 14, 211);
+        width: 0%;
+        height: 100%;
+        transition: width 0.4s ease-in;
+    }
+
+    &:hover {
+        z-index: 1;
+        color: white;
+
+        &::before {
+            z-index: -1;
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
+.share {
+    padding: 0px 4px 0px 0px !important;
+    font-size: 0.9rem !important;
+    font-weight: 200;
+    height: 1.5rem !important;
+    margin: 0.3rem 0rem 0rem;
+
+    &>span {
+        padding: 0px !important;
+        gap: 0px !important;
+        margin: 0px !important;
+
+        &>svg {
+            padding: 0px !important;
+            height: 0.8rem !important;
+            width: 1rem !important;
+        }
+    }
+
+    &:hover {
+        background-color: #fff !important;
+    }
+}
+
 
 .sharebut {
     width: 1.1rem;
@@ -169,9 +246,11 @@
     margin-left: 1rem;
     font-size: 1.5rem !important;
 }
-.toolTip{
-    opacity:0
+
+.toolTip {
+    opacity: 0
 }
+
 
 
 
@@ -193,7 +272,8 @@
             &>img {
                 border: 0px solid rgb(0, 0, 0);
             }
-            &>.toolTip{
+
+            &>.toolTip {
                 opacity: 1;
             }
         }
@@ -251,7 +331,8 @@
             &>img {
                 border: 0px solid rgb(0, 0, 0);
             }
-            &>.toolTip{
+
+            &>.toolTip {
                 opacity: 1;
             }
         }

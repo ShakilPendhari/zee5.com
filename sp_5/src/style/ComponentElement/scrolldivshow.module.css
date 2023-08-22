@@ -25,19 +25,23 @@
         background-color: rgba(255, 255, 255);
         width: 100%;
         padding: 0.5rem;
-        /* visibility: hidden; */
         opacity: 0;
         z-index: 100;
+        /* opacity: 1;
+        z-index: 105; */
         z-index: 10000;
         display: flex;
+        transform: scale(0,0);
         justify-content: space-around;
-        transition: all 0.5s ease-in 0.1s;
+        /* transition: all 0.5s ease-in 0.1s; */
+        transition: all 0.4s ease-in, opacity 0.1s ease-in;
     }
 
     &>img{
         border-radius: 10px;
         position: relative;
         z-index: 101;
+        transition: border 0.4s ease-in;
     }
 
     &:hover{
@@ -56,6 +60,7 @@
         &>.butShows {
             opacity: 1;
             z-index: 102;
+            transform: scale(1,1);
         }
 
         &>img {
@@ -144,7 +149,72 @@
     height: 10rem;
     width: 17rem;
 }
+.watch{
+    position: relative;
+    color:black;
+    z-index: 1;
+    border:2px solid rgb(211, 14, 211);
+    padding:0px 2px 0px 0px !important;
+    font-size: 0.8rem !important;
+    font-weight: 200;
+    height: 1.6rem !important;
+    margin: 0.3rem 0rem 0rem;
+    border-radius: 4px !important;
 
+    &>span{
+        padding: 0px !important;
+        gap:0px !important;
+        margin: 0px !important;
+        
+        &>svg{
+            padding:0px !important;
+            height: 1rem !important;
+            width: 1rem !important;
+        }
+    }
+
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color : rgb(211, 14, 211);
+        width: 0% ;
+        height: 100%;
+        z-index: -1;
+        transition: all 0.4s ease-in;
+    }
+    &:hover{
+        color:white;
+        cursor: pointer;
+        &::before{
+            width: 100%;
+        }
+    }
+
+}
+.share{
+    padding:0px 4px 0px 0px !important;
+    font-size: 0.8rem !important;
+    font-weight: 200;
+    height: 1.5rem !important;
+    margin: 0.3rem 0rem 0rem;
+
+    &>span{
+        padding: 0px !important;
+        gap:0px !important;
+        margin: 0px !important;
+        
+        &>svg{
+            padding:0px !important;
+            height: 0.8rem !important;
+            width: 1rem !important;
+        }
+    }
+    &:hover{
+        background-color: #fff !important;
+    }
+}
 
 
 @media all and (min-width:481px) and (max-width:768px) {

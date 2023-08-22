@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import ScrollDivMovies from '../Components/ScrollDivMovies'
 import SkeletonMovies from '../Components/Skeleton/Skeleton_movies';
 import { Top_ten_web_series_in_india, top_10_movies } from '../utils/DataForMoviesAndShows';
+import MainSlider from '../Components/MainSlider/MainSlider';
 
 const Movies = () => {
   const [flag, setFlag] = useState(false);
@@ -13,6 +14,7 @@ const Movies = () => {
   }, []);
   return (
     <>
+        <MainSlider title="Sliding/zee5_" />
         {flag ? (
         <ScrollDivMovies
           title = {Top_ten_web_series_in_india}

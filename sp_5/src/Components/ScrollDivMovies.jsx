@@ -169,25 +169,19 @@ const ScrollDivMovies = (prop) => {
                     // }}
                   /> */}
                 <Flex flexDir="column" gap="0.5rem" justifyContent="center" alignItems="flex-start" ref={but} className={style.butMovies}>
-                  <ul style={{color:"black",paddingLeft:"1.6rem"}}>
-                    <li >{prop.title[i].title}</li>
+                  <ul style={{color:"black",paddingLeft:"15%"}}>
+                    <li style={{fontSize:"1rem"}} >{prop.title[i].title}</li>
                   </ul>
-                  <Flex m="auto" justifyContent="space-between" width="95%">
+                  <Flex m="auto" justifyContent="space-between" width="85%">
                   <Button
                     className={style.watch}
                     leftIcon={<MdPlayArrow className={style.playbut} />}
-                    border="2px solid"
+                    border="2px solid rgb(211, 14, 211)"
                     padding="0px 9px 0px 0px"
                     color="black"
                     variant="outline"
                     colorScheme="green"
                     onClick={()=>handlePlayVideo(title[i].title)}
-                    _hover={{
-                      backgroundColor: "rgb(211, 14, 211)",
-                      transition: "background-color .5s ease",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
                   >
                     Watch
                   </Button>
@@ -199,8 +193,8 @@ const ScrollDivMovies = (prop) => {
                     backgroundColor="white"
                     variant="ghost"
                     color="grey"
+                    disabled
                   >
-                    {" "}
                     Share
                   </Button>
                   </Flex>
