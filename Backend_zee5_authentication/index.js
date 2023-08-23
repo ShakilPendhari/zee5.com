@@ -4,6 +4,8 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 
+const jwt = require("jsonwebtoken");
+
 const { connection } = require("./db");
 const { UserRouter } = require("./routes/user.routes");
 // const authenticate = require("./Middleware/auth.middleware");
@@ -16,7 +18,8 @@ app.use(express.json());
 app.use(cors());
 
 
-let callBackUrlFrontSide = process.env.FRONTENDURL || "http://localhost:3000"
+// let callBackUrlFrontSide = process.env.FRONTENDURL
+let callBackUrlFrontSide = "http://localhost:3000"
 
 // Google Auth
 app.get(
@@ -33,9 +36,13 @@ app.get(
   function (req, res) {
     // Successful authentication, redirect home.
     // let token = jwt_decode(req.user);
-    // let token = req.user;
+    let user = req.user;
+    let token = jwt.sign({ email:user.email }, process.env.SECRETEKEY, {
+      expiresIn: 60 * 60 * 5,
+    });
     // console.log("userInfo:::", token);
-    res.redirect(`${callBackUrlFrontSide}`);
+   
+    res.redirect(`${callBackUrlFrontSide}?token=${token}`);
   }
 );
 
@@ -54,9 +61,13 @@ app.get(
     session: false,
   }),
   function (req, res) {
-    let userData = req.user;
-    // console.log("userInfo:::", userData);
-    res.redirect(`${callBackUrlFrontSide}`);
+    let user = req.user;
+    let token = jwt.sign({ email:user.email }, process.env.SECRETEKEY, {
+      expiresIn: 60 * 60 * 5,
+    });
+    // console.log("userInfo:::", token);
+   
+    res.redirect(`${callBackUrlFrontSide}?token=${token}`);
   }
 );
 
