@@ -28,7 +28,7 @@ const Video = () => {
 
   return (
     <div>
-      <Box className={style.box}>
+      <Flex className={style.box} flexDir={{base:"column",md:"row"}}>
         <Box className={style.mainVideoBox}>
           {data && data.length > 0 && (
             <iframe
@@ -39,7 +39,7 @@ const Video = () => {
             ></iframe>
           )}
         </Box>
-        <Flex flexDir="column" gap="1rem" className={style.recommendationBox}>
+        <Flex  gap="1rem" className={style.recommendationBox}>
           {data &&
             data.length > 0 &&
             data.map((el, i) => (
@@ -72,7 +72,7 @@ const Video = () => {
               </Box>
             ))}
         </Flex>
-      </Box>
+      </Flex>
     </div>
   );
 };

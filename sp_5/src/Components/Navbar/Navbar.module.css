@@ -79,6 +79,7 @@ a{
     transform: scale(1,1);
     height: 2px;
 }
+
 .login {
     position: relative;
     color: white !important;
@@ -207,11 +208,11 @@ a{
 }
 .inputBox>input[type=text]{
     font-size: 0.85rem;
-    width: 20vw;
+    width: 50vw;
 }
 
 .inputBox>input[type=text]:focus{
-    width:30vw;
+    width:55vw;
 }
 .buyPlane{
     font-size: 0.7rem;
@@ -261,6 +262,9 @@ a{
         }
     }
 }
+.link3{
+    font-size: 0.9rem;
+ }
 
 }
 
@@ -282,10 +286,10 @@ a{
 
 .inputBox>input[type=text]{
     font-size: 0.75rem;
-    width: 20vw;
+    width: 40vw;
 }
 .inputBox>input[type=text]:focus{
-    width:20vw;
+    width:45vw;
 }
 .buyPlane{
     font-size: 0.6rem;
@@ -347,5 +351,8 @@ a{
         }
     }
 }
+.link3{
+    font-size: 0.75rem;
+ }
 
 }

@@ -1,10 +1,10 @@
 .box{
-    padding-top: 2rem;
-    display: flex;
+    /* padding-top: 2rem; */
     width: 100vw;
-    height: 90vh;
+    height: 70vh;
     justify-content: space-around;
     /* align-items: flex-start; */
+    align-items: center;
     overflow-y: scroll;
     /* overflow: hidden; */
     position: relative;
@@ -13,7 +13,7 @@
   display: none;
 }
 .mainVideoBox{
-    margin-top: 3rem;
+    margin-top: 0rem;
     position: sticky;
     top:0rem;
     transition: all 1.5s ease-in;
@@ -21,7 +21,7 @@
 }
 .mainVideo{
   width:70vw;
-  height: 65vh;
+  height: 70vh;
 }
 .recommendationBox{
     margin-top: 3rem;
@@ -29,7 +29,6 @@
 .recommenedideo{
     width:25vw;
     height: 35vh;
-    
   }
 
    
@@ -38,13 +37,19 @@
         padding-top: 0rem;
     }
     .mainVideo{
-        width:70vw;
-        height: 65vh;
+        width:90vw;
+        height: 75vh;
+        z-index: 10;
       }
   }
  
   @media all and (min-width:270px) and (max-width:480px) {
     .box{
         padding-top: 2rem;
+    }
+    .mainVideo{
+      width:90vw;
+      height: 65vh;
+      z-index: 10;
     }
   }

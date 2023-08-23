@@ -80,6 +80,7 @@ const Searching = () => {
             label="Play Video"
             placement="top"
             openDelay={300}
+            key={i}
           >
             <Box
               key={i}

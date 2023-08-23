@@ -32,7 +32,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { UpdateData } from "../../Redux/Video/action";
 import { IoMdLogOut } from "react-icons/io";
 import { Logout } from "../../Redux/Auth/auth.api";
-import { LOGOUTUSER } from "../../Redux/Auth/auth.action.type";
 
 const links = [
   {
@@ -131,9 +130,10 @@ const Navbar = () => {
     //     navigate("/Searching")
     //  },600)
     return () => clearTimeout(id);
-  }, [authState, query]);
+  }, [authState]);
 
   const handlequery = (e) => {
+    setQuery(e.target.value)
     // if(e.target.value)
     //     {
     //       dispatch(UpdateData({query:e.target.value,page}));
@@ -151,11 +151,13 @@ const Navbar = () => {
     //    },600)
     //    return e.target.value
     // });
+  
     if (id) {
       clearTimeout(id);
     }
 
     id = setTimeout(function () {
+     
       clearTimeout(id);
       dispatch(UpdateData({ query: e.target.value, page }));
       navigate("/Searching");
@@ -183,7 +185,8 @@ const Navbar = () => {
 
   if (true) {
     return (
-      <div className={style.Navbar}>
+     <Box height={{base:"6.5rem",sm:"6.5rem",md:"4.5rem"}}>
+         <Box className={style.Navbar}>
         {/* {
         data && console.log(data)
       } */}
@@ -221,12 +224,14 @@ const Navbar = () => {
                 <SearchIcon className={style.searchIcon} />
                 <input
                   type="text"
+                  value={query}
                   className={style.navbarInput}
                   //  onClick={()=>{setState(true);
                   //  /*navigate("/Searching")*/}}
                   placeholder="Search for Movies, and TvShows"
                   onChange={handlequery}
                 />
+                {query && <CloseIcon onClick={()=>setQuery("")} _hover={{cursor:"pointer"}} width="0.6rem" height="0.6rem" color="white"/>}
                 {state && <BiMicrophone />}
               </HStack>
             </Box>
@@ -357,7 +362,21 @@ const Navbar = () => {
             </MenuList>
           </Menu>
         </Flex>
-      </div>
+      </Box>
+      <Flex display={{base:"flex",sm:"flex",md:"none"}} height="1rem" mt="0.2rem" width="100%" justifyContent="space-around">
+      {links.map((el) => (
+              <NavLink
+                className={style.link3}
+                key={el.to}
+                style={({ isActive }) => (isActive ? activeStyle : normal)}
+                to={el.to}
+                end
+              >
+                {el.title}
+              </NavLink>
+            ))}
+      </Flex>
+     </Box>
     );
   }
 };
