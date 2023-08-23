@@ -1,22 +1,11 @@
-import {useContext} from 'react'
-import { AuthContext } from '../Context/CreateAuthContext'
 import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const PrivateRoute = ({children}) => {
-  const {isAuth, handleLogin, handleLogOut} = useContext(AuthContext);
-  if(!isAuth){ return <Navigate to="/login"/>};
+  const { token } = useSelector((store)=>store.auth)
+  if(!token){ return <Navigate to="/Login"/>};
   return children;
 
 }
 
-const Video = (id) => {
-  return (
-    <div>
-        <img src={id} alt="id"/>
-    </div>
-  )
-}
-
-export { Video }
-
-// export default PrivateRoute
+export default PrivateRoute

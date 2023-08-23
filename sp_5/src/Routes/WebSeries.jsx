@@ -13,6 +13,7 @@ const WebSeries = () => {
   let id = useRef(null);
 
   useEffect(() => {
+    document.title = "SP5 | WebSeries"
     id.current = setTimeout(() => setFlag(() => true), 1200);
     return () => clearTimeout(id.current);
   }, []);

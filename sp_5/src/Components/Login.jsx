@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./../style/ComponentElement/login.module.css";
 import { Box, useToast } from "@chakra-ui/react";
 import Icons from "./auth/Icons";
@@ -22,7 +22,14 @@ const Login = () => {
   const navigate = useNavigate();
   const toast = useToast();
   const dispatch = useDispatch();
-  const { loading_login } = useSelector((store)=>store.auth)
+  const { loading_login } = useSelector((store)=>store.auth);
+
+  
+  useEffect(()=>{
+    document.title = "SP5 | Login"
+    // alert("Please Login to go forward")
+  },[])
+
 
   const handleonChange = (e) => {
     const { name, value } = e.target;

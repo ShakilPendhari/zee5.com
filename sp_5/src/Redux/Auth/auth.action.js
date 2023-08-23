@@ -83,7 +83,7 @@ export const CheckEmailorMob = (obj, route, Alert) => async (dispatch) => {
   try {
     let val = await CheckEmailorMob_api(obj);
     // console.log("val:", val);
-    dispatch({ type: AUTHTAKETOKEN, payload: val.data.token });
+     dispatch(AddToken(val.data.token))
     if (val.data.token) {
       Alert({
         title: "Verification Succssful, You are being redirected to Home Page",
@@ -106,3 +106,8 @@ export const CheckEmailorMob = (obj, route, Alert) => async (dispatch) => {
     console.log("Error:", err);
   }
 };
+
+
+export const AddToken = (token)=>(dispatch)=>{
+  dispatch({ type: AUTHTAKETOKEN, payload: token });
+}

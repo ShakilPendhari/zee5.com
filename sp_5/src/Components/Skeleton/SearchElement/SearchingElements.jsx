@@ -3,7 +3,7 @@ import React from 'react'
 import style from "./searchElement.module.css"
 
 const SearchingElements = () => {
-  let arr = Array(15).fill(1);
+  let arr = Array(20).fill(1);
   return <>
     {
       <Grid p="0.5rem" gridTemplateColumns={{base:"repeat(2,1fr)",sm:"repeat(3,1fr)",md:"repeat(5,1fr)"}} gap="2rem">

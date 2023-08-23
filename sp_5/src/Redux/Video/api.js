@@ -9,10 +9,10 @@ export const getData = async (dispatch, { query, page }) => {
   query += " official trailer";
   try {
     let data = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=15&pageToken=${page}&q=${query}`
+      `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=20&pageToken=${page}&q=${query}`
     );
 
-    //   console.log("data:::",data);
+      console.log("data:::",data);
     return data.data;
   } catch (err) {
     console.log("Error:", err);

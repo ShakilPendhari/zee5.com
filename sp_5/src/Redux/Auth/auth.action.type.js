@@ -11,3 +11,5 @@ export const AUTHERROR_OTP = "AUTHERROR_OTP"
 export const AUTHOTP_INIT = "AUTHOTP_INIT"
 export const AUTHTAKETOKEN = "AUTHTAKETOKEN"
 
+export const LOGOUTUSER = "LOGOUTUSER"
+

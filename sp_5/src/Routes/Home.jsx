@@ -10,16 +10,28 @@ import SkeletonMovies from "../Components/Skeleton/Skeleton_movies";
 import MainSlider from "../Components/MainSlider/MainSlider";
 import style from "./../style/MainPages/Home.module.css";
 import { BlockbusterFilms, Free_dubbed_movies, Latest_hindi_episodes_free, PopularMovies, PremiumTvShows, Top_ten_web_series_in_india, Trending_Near_You, Unmissable_Movies_Shows, top_10_movies } from "../utils/DataForMoviesAndShows";
+import { useDispatch } from "react-redux";
+import { AddToken } from "../Redux/Auth/auth.action";
 
 const Home = () => {
   const [flag, setFlag] = useState(false);
   let id = useRef(null);
-  const [ f, setF ] = useState(false)
+  const [ f, setF ] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    document.title = "SP5"
     id.current = setTimeout(() => setFlag(() => true), 1300);
     return () => clearTimeout(id.current);
   }, []);
+
+  useEffect(()=>{
+    let token = window.location.search.split("?").join("").split("token=").join("")
+    if(token)
+    {
+      dispatch(AddToken(token))
+    }
+  },[dispatch])
 
   return (
     <div className={style.MainBox}>

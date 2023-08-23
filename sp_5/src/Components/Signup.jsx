@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./../style/ComponentElement/login.module.css";
 import { Box, Flex, useToast } from "@chakra-ui/react";
 import Icons from "./auth/Icons";
@@ -22,7 +22,13 @@ const Signup = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading_register } = useSelector((store)=>store.auth)
+  const { loading_register } = useSelector((store)=>store.auth);
+
+  
+  useEffect(()=>{
+    document.title = "SP5 | Signup"
+  },[])
+
 
 
   const handleonChange = (e) => {

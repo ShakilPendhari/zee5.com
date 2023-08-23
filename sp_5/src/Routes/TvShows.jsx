@@ -10,6 +10,7 @@ const TvShows = () => {
   let id = useRef(null);
 
   useEffect(() => {
+    document.title = "SP5 | TvShows"
     id.current = setTimeout(() => setFlag(() => true), 1200);
     return () => clearTimeout(id.current);
   }, []);

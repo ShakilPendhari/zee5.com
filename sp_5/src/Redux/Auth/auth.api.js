@@ -1,11 +1,11 @@
 import axios from "axios";
-import { AUTHREGISTER_INIT } from "./auth.action.type";
+import { AUTHREGISTER_INIT, LOGOUTUSER } from "./auth.action.type";
 
 // cyclic url
-let URL = process.env.REACT_APP_BACKEND_URL;
+// let URL = process.env.REACT_APP_BACKEND_URL;
 
 // local URL
-// let URL = "http://localhost:5000"
+let URL = "http://localhost:5000"
 
 
 
@@ -67,3 +67,7 @@ export const CheckEmailorMob_api = async (cred) => {
     console.log("Error:", err);
   }
 };
+
+export const Logout = ()=>(dispatch)=>{
+   dispatch({type:LOGOUTUSER})
+}

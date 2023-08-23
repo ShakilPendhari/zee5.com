@@ -54,6 +54,7 @@ const Otp = () => {
   const { loading_otp } = auth;
 
   useEffect(() => {
+    document.title = "SP5 | verify-email"
     ref.current.focus();
     updateEmailOrMobile();
   }, []);

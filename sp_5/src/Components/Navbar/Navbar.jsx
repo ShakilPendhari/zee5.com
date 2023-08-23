@@ -1,16 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import { Box, Flex, HStack, Stack, Avatar } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Flex,
+  HStack,
+  Stack,
+  Avatar,
+  Menu,
+  MenuButton,
+  IconButton,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
+import {
+  AddIcon,
+  CloseIcon,
+  EditIcon,
+  ExternalLinkIcon,
+  HamburgerIcon,
+  RepeatIcon,
+  SearchIcon,
+  SmallCloseIcon,
+} from "@chakra-ui/icons";
 import { BiMicrophone } from "react-icons/bi";
 import { RiVipCrownFill } from "react-icons/ri";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiCrossShield, GiHamburgerMenu } from "react-icons/gi";
 import style from "./Navbar.module.css";
 import { Button } from "@chakra-ui/react";
 import RightSideLogo from "../../Routes/RightSideLogo";
 import { useDispatch, useSelector } from "react-redux";
 import { UpdateData } from "../../Redux/Video/action";
-
+import { IoMdLogOut } from "react-icons/io";
+import { Logout } from "../../Redux/Auth/auth.api";
+import { LOGOUTUSER } from "../../Redux/Auth/auth.action.type";
 
 const links = [
   {
@@ -40,12 +62,40 @@ const links = [
   // },
 ];
 
+const navbarHam = [
+  {
+    login: {
+      text: "LOGIN",
+      icon: <Avatar bg="rgb(197, 6, 197)" height="0.9rem" width="0.9rem" />,
+      link: "/Login",
+    },
+    logout: {
+      text: "LOGOUT",
+      icon: (
+        <RiVipCrownFill
+          color="rgb(197, 6, 197)"
+          height="1.5rem"
+          width="1.5rem"
+        />
+      ),
+      link: "/",
+    },
+  },
+  {
+    text: "BUY PLAN",
+    icon: (
+      <IoMdLogOut color="rgb(197, 6, 197)" height="1.5rem" width="1.5rem" />
+    ),
+    link: "/",
+  },
+];
+
 let activeStyle = {
   textDecoration: "underline",
   color: "red",
-  textUnderlineOffset:"9px",
-  textDecorationColor:"white",
-  textDecorationThickness:"2px"
+  textUnderlineOffset: "9px",
+  textDecorationColor: "white",
+  textDecorationThickness: "2px",
 };
 
 let normal = {
@@ -62,7 +112,14 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {page} = useSelector((store)=>store.data);
+  const { page } = useSelector((store) => store.data);
+  const [ham, setHam] = useState(true);
+  const { token } = useSelector((store) => store.auth);
+  // const [isLogin, setIsLogin] = useState(token);
+
+  // useEffect(()=>{
+  //    setIsLogin(token)
+  // },[dispatch])
 
   useEffect(() => {
     //// debouncing
@@ -73,7 +130,7 @@ const Navbar = () => {
     //   }
     //     navigate("/Searching")
     //  },600)
-     return ()=>clearTimeout(id)
+    return () => clearTimeout(id);
   }, [authState, query]);
 
   const handlequery = (e) => {
@@ -82,7 +139,6 @@ const Navbar = () => {
     //       dispatch(UpdateData({query:e.target.value,page}));
     //     }
     //       navigate("/Searching")
-
 
     // setQuery((q)=>{
     //   console.log("hello")
@@ -101,11 +157,26 @@ const Navbar = () => {
 
     id = setTimeout(function () {
       clearTimeout(id);
-      dispatch(UpdateData({query:e.target.value,page}));
+      dispatch(UpdateData({ query: e.target.value, page }));
       navigate("/Searching");
     }, 1000);
   };
 
+  const handeClick = (el) => {
+    if (el.text === "LOGOUT") {
+      dispatch(Logout());
+      return;
+    }
+    setHam(true);
+    navigate(`${el.link}`);
+  };
+
+  const handleLogin = (e)=>{
+     if(e.target.innerText === "LOGOUT")
+     {
+        dispatch(Logout());
+     }
+  }
   // if(loading){
   //   return <Loading/>
   // }
@@ -122,7 +193,7 @@ const Navbar = () => {
           gap="2"
           justifyContent="space-between"
         >
-          <Box display="flex" gap="2.5rem" alignItems="center">
+          <Box display="flex" gap="2vw" alignItems="center">
             <NavLink className={style.LogoBox} to="/">
               <img className={style.Logo} alt="logo" src="logoo.png" />
             </NavLink>
@@ -143,7 +214,7 @@ const Navbar = () => {
             </NavLink> */}
           </Box>
         </Flex>
-        <Flex alignItems="center" gap={{base:"5px",sm:"10px",md:"30px"}}>
+        <Flex alignItems="center" gap={{ base: "5px", sm: "10px", md: "2vw" }}>
           {search && (
             <Box>
               <HStack className={style.inputBox}>
@@ -178,11 +249,9 @@ const Navbar = () => {
                   Login
                 </Button>
               )} */}
-              <Button
-                    className={style.login}
-                  >
-                    LOGIN
-                  </Button>
+              <Button onClick={handleLogin} className={style.login}>
+                { !token ? "LOGIN" : "LOGOUT"}
+              </Button>
             </Link>
           </Stack>
           {/* <Box>
@@ -208,15 +277,85 @@ const Navbar = () => {
             </NavLink>
           </Box> */}
           <Button
-                    className={style.buyplane}
-                    leftIcon={ <RiVipCrownFill/>}
-                    cursor="not-allowed"
-                  >
-                    BUY PLAN
-                  </Button>
-          <Box>
-            <GiHamburgerMenu />
-          </Box>
+            className={style.buyplane}
+            leftIcon={<RiVipCrownFill />}
+            cursor="not-allowed"
+          >
+            BUY PLAN
+          </Button>
+          <Menu>
+            <MenuButton
+              // className={style.hambergerMenu}
+              display={{ base: "block", md: "none" }}
+              as={IconButton}
+              color="white"
+              aria-label="Options"
+              icon={ham ? <HamburgerIcon /> : <CloseIcon width="0.7rem" />}
+              onClick={() => setHam(!ham)}
+              background="transparent"
+              _hover={{
+                backgroundColor: "transparent",
+              }}
+              // variant="outline"
+            />
+            <MenuList display={{ base: "block", md: "none" }}>
+              {navbarHam &&
+                navbarHam?.map((el, i) => {
+                  if (el?.login?.text === "LOGIN" && !token) {
+                    return (
+                      <MenuItem
+                        key={i}
+                        onClick={() => handeClick(el.login)}
+                        icon={el.logout.icon}
+                        className={style.hamOpt}
+                        fontSize={{ base: "0.6rem", sm: "0.8rem" }}
+                        color="black"
+                        _hover={{
+                          backgroundColor: "cyan !important",
+                          color: "blue !important",
+                        }}
+                      >
+                        {el?.login?.text}
+                      </MenuItem>
+                    );
+                  } else if (el?.logout?.text === "LOGOUT" && token) {
+                    return (
+                      <MenuItem
+                        key={i}
+                        onClick={() => handeClick(el.logout)}
+                        icon={el.logout.icon}
+                        className={style.hamOpt}
+                        fontSize={{ base: "0.6rem", sm: "0.8rem" }}
+                        color="black"
+                        _hover={{
+                          backgroundColor: "cyan !important",
+                          color: "blue !important",
+                        }}
+                      >
+                        {el.logout.text}
+                      </MenuItem>
+                    );
+                  } else {
+                    return (
+                      <MenuItem
+                        key={i}
+                        onClick={() => handeClick(el)}
+                        icon={el.icon}
+                        className={style.hamOpt}
+                        fontSize={{ base: "0.6rem", sm: "0.8rem" }}
+                        color="black"
+                        _hover={{
+                          backgroundColor: "cyan !important",
+                          color: "blue !important",
+                        }}
+                      >
+                        {el.text}
+                      </MenuItem>
+                    );
+                  }
+                })}
+            </MenuList>
+          </Menu>
         </Flex>
       </div>
     );

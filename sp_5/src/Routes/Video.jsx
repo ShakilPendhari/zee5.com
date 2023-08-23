@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { AuthContext } from '../Context/CreateAuthContext'
 import { useDispatch, useSelector } from "react-redux";
 import style from "./../style/MainPages/Video.module.css";
@@ -14,6 +14,11 @@ const Video = () => {
   // const {title} = data[0].snippet
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
+  useEffect(()=>{
+    document.title = "SP5 | Video"
+  },[])
 
   const handleClick = (el) => {
     // dispatch(PLAYVIDEO(index));

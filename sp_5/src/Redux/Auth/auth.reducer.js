@@ -1,4 +1,4 @@
-import { AUTHERROR_LOGIN, AUTHERROR_OTP, AUTHERROR_REGISTER, AUTHLOADING_LOGIN, AUTHLOADING_OTP, AUTHLOADING_REGISTER, AUTHLOGIN_INIT, AUTHOTP_INIT, AUTHREGISTER_INIT, AUTHTAKETOKEN } from "./auth.action.type";
+import { AUTHERROR_LOGIN, AUTHERROR_OTP, AUTHERROR_REGISTER, AUTHLOADING_LOGIN, AUTHLOADING_OTP, AUTHLOADING_REGISTER, AUTHLOGIN_INIT, AUTHOTP_INIT, AUTHREGISTER_INIT, AUTHTAKETOKEN, LOGOUTUSER } from "./auth.action.type";
 
 const initState = {
     loading_register : false,
@@ -65,6 +65,9 @@ export const authReducer = (state=initState,action)=>{
             error_otp : false,
             token : payload
         }
+        // Logout
+        case LOGOUTUSER : return initState
+        
         default : return state
     }
 } 

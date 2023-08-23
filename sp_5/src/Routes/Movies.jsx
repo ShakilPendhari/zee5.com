@@ -9,6 +9,7 @@ const Movies = () => {
   let id = useRef(null);
 
   useEffect(() => {
+    document.title = "SP5 | Movies"
     id.current = setTimeout(() => setFlag(() => true), 1200);
     return () => clearTimeout(id.current);
   }, []);

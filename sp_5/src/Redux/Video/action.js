@@ -16,6 +16,7 @@ export const GetData = (obj) => async (dispatch) => {
   try {
     if (obj.query) {
       let data = await getData(dispatch, obj);
+      dispatch(PlayVideoByUsingID(data.items[0].id.videoId))
       console.log("data:", data);
       dispatch({ type: GETDATA, payload: data.items });
       return data;

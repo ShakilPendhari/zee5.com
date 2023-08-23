@@ -32,13 +32,13 @@ body{
     background-color:rgb(15,6,23);
     border:none;
     outline: none;
-    width:200px;
+    width:14vw;
     color:white;
     transition: width 1.2s ease-out;
 }
 
 .inputBox>input[type=text]:focus{
-    width:300px;
+    width:19vw;
 }
 .butt{
     text-decoration: none;
@@ -67,13 +67,13 @@ a{
 .link2::after{
     content: "";
     background: #fff;
-    height: 2px;
+    /* height: 2px; */
     left:0px;
     bottom: -5px;
     position: absolute;
     right: 0;
     transform: scale(0,1);
-    transition: transform 0.3s ease-in alternate;
+    transition: all 0.3s ease-in;
 }
 .link2:hover::after{
     transform: scale(1,1);
@@ -142,16 +142,15 @@ a{
     height: 2rem !important;
     margin: 0.3rem 0rem 0rem;
     border-radius: 3px !important;
-
-     &>span{
+    &>span{
         padding: 0px !important;
         gap:0px !important;
         margin: 0px !important;
         
         &>svg{
             padding:0px !important;
-            height: 0.9rem !important;
-            width: 1.3rem !important;
+            height: 1rem !important;
+            width: 1.5rem !important;
             margin-bottom: 0rem;
         }
     }
@@ -191,8 +190,9 @@ a{
     width: 1rem !important;
     height: 1rem !important;
 }
-
-
+/* .hamOpt{
+    
+} */
 
 
 @media screen and (min-width:481px) and (max-width:768px){
@@ -207,11 +207,11 @@ a{
 }
 .inputBox>input[type=text]{
     font-size: 0.85rem;
-    width: 100px;
+    width: 20vw;
 }
 
 .inputBox>input[type=text]:focus{
-    width:150px;
+    width:30vw;
 }
 .buyPlane{
     font-size: 0.7rem;
@@ -228,6 +228,40 @@ a{
     width: 0.85rem !important;
     height: 0.85rem !important;
 }
+.login {
+    border: 1.5px solid rgb(255, 255, 255);
+    padding: 0px 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 400;
+    height: 1.8rem !important;
+    margin: 0.2rem 0rem 0rem;
+    border-radius: 3px !important;
+    display: none !important;
+}
+.buyplane {
+    border: 1.5px solid rgb(255, 255, 255);
+    padding: 0px 4px 0px 0px !important;
+    font-size: 0.75rem !important;
+    font-weight: 400;
+    height: 1.8rem !important;
+    margin: 0.2rem 0rem 0rem;
+    border-radius: 3px !important;
+    display: none !important;
+
+     &>span{
+        padding: 0px !important;
+        gap:0px !important;
+        margin: 0px !important;
+        
+        &>svg{
+            padding:0px !important;
+            height: 0.8rem !important;
+            width: 1.3rem !important;
+            margin-bottom: 0rem;
+        }
+    }
+}
+
 }
 
 
@@ -245,15 +279,13 @@ a{
     height: 0.7rem;
     width: 1rem;
 }
-.inputBox>input[type=text]{
-    font-size: 0.7rem;
-    width: 45px;
-    border-top-right-radius: 0rem;
-    border-bottom-right-radius: 0rem;
-}
 
+.inputBox>input[type=text]{
+    font-size: 0.75rem;
+    width: 20vw;
+}
 .inputBox>input[type=text]:focus{
-    width:45px;
+    width:20vw;
 }
 .buyPlane{
     font-size: 0.6rem;
@@ -282,4 +314,38 @@ a{
     width: 0.6rem !important;
     height: 0.6rem !important;
 }
+.login {
+    border: 1.5px solid rgb(255, 255, 255);
+    padding: 0px 4px !important;
+    font-size: 0.65rem !important;
+    font-weight: 400;
+    height: 1.6rem !important;
+    margin: 0.15rem 0rem 0rem;
+    border-radius: 3px !important;
+    display: none !important;
+}
+.buyplane {
+    border: 1.5px solid rgb(255, 255, 255);
+    padding: 0px 4px 0px 0px !important;
+    font-size: 0.7rem !important;
+    font-weight: 400;
+    height: 1.6rem !important;
+    margin: 0.15rem 0rem 0rem;
+    border-radius: 3px !important;
+    display: none !important;
+
+     &>span{
+        padding: 0px !important;
+        gap:0px !important;
+        margin: 0px !important;
+        
+        &>svg{
+            padding:0px !important;
+            height: 0.7rem !important;
+            width: 1.2rem !important;
+            margin-bottom: 0rem;
+        }
+    }
+}
+
 }

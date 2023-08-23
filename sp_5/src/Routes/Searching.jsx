@@ -18,6 +18,11 @@ const Searching = () => {
   //    dispatch(GetData({page}))
   //   },[]);
 
+  
+  useEffect(()=>{
+    document.title = "SP5 | Searching"
+  },[])
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
