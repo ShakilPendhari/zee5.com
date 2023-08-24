@@ -149,9 +149,9 @@ const ScrollDivMovies = (prop) => {
                  p="0.3rem"
                  position="absolute" zIndex="1000" top="45%" left="35%">Play video</Text>
                 {
-                  prop.title[i].premium && <RiVipCrownFill className={style.KingCrownMovies} />
+                  prop.title[i].isPremium && <RiVipCrownFill className={style.KingCrownMovies} />
                 }
-                {/* <SkeletonImage src={`${url}${i + 1}.png`}/> */}
+               
                 <img
                   // onLoad={()=>{
                   //   console.log("Image is loading")

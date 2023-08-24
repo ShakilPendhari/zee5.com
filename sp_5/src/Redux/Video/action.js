@@ -1,11 +1,9 @@
 import {
-  ADDEMAIL,
   GETDATA,
   GETDATAINFINITESCROLLING,
   GETQUERY,
   IsPREMIUM,
   LOADING,
-  PLAYVIDEO,
   TAKEVIDEOID,
 } from "./action.type";
 import { getData } from "./api";

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const PrivateRouteLogin = ({children}) => {
   const { token } = useSelector((store)=>store.auth);
 
-  console.log("Token:::",token);
+  // console.log("Token:::",token);
 
   if(!token)
   {

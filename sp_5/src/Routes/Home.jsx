@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import Footer from "../Components/Footer/Footer";
 import ScrollDivShow from "../Components/ScrollDivShow";
 import ScrollDivMovies from "../Components/ScrollDivMovies";
 import SkeletonShow from "../Components/Skeleton/Skeleton_shows";

@@ -2,9 +2,8 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Grid, Image, Tooltip } from "@chakra-ui/react";
 import SearchingElements from "../Components/Skeleton/SearchElement/SearchingElements";
-import { InfiniteScrolling, PlayVideoByUsingID } from "../Redux/Video/action";
+import { InfiniteScrolling, IsPremium, PlayVideoByUsingID } from "../Redux/Video/action";
 import { useNavigate } from "react-router-dom";
-import { GETDATA, PLAYVIDEO, TAKEVIDEOID } from "../Redux/Video/action.type";
 
 const Searching = () => {
   const { data, page, query, loading, error } = useSelector(
@@ -33,8 +32,8 @@ const Searching = () => {
   }, [dispatch, page]);
 
   const handleClick = (el) => {
-    // dispatch(PLAYVIDEO(index));
-    dispatch(PlayVideoByUsingID(el.id.videoId));
+    dispatch(IsPremium(false))
+    dispatch(PlayVideoByUsingID(el.id.videoId,false));
     navigate("/Video");
   };
   function handleScroll() {

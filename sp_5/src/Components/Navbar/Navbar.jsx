@@ -12,22 +12,10 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-import {
-  AddIcon,
-  CloseIcon,
-  EditIcon,
-  ExternalLinkIcon,
-  HamburgerIcon,
-  RepeatIcon,
-  SearchIcon,
-  SmallCloseIcon,
-} from "@chakra-ui/icons";
-import { BiMicrophone } from "react-icons/bi";
+import { CloseIcon, HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import { RiVipCrownFill } from "react-icons/ri";
-import { GiCrossShield, GiHamburgerMenu } from "react-icons/gi";
 import style from "./Navbar.module.css";
 import { Button } from "@chakra-ui/react";
-import RightSideLogo from "../../Routes/RightSideLogo";
 import { useDispatch, useSelector } from "react-redux";
 import { UpdateData } from "../../Redux/Video/action";
 import { IoMdLogOut } from "react-icons/io";
@@ -54,11 +42,6 @@ const links = [
     title: "WebSeries",
     cn: "link2",
   },
-  // {
-  //   to: "/News",
-  //   title: "News",
-  //   cn: "link2",
-  // },
 ];
 
 const navbarHam = [
@@ -102,64 +85,30 @@ let normal = {
   color: "White",
 };
 
-const search = true;
-const authState = true;
 let id;
 
 const Navbar = () => {
-  const [state, setState] = useState(false);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { page, isPremium } = useSelector((store) => store.data);
   const [ham, setHam] = useState(true);
   const { token } = useSelector((store) => store.auth);
-  // const [isLogin, setIsLogin] = useState(token);
-
-  // useEffect(()=>{
-  //    setIsLogin(token)
-  // },[dispatch])
 
   useEffect(() => {
-    //// debouncing
-    // id = setTimeout(()=>{
-    //   if(query)
-    //   {
-    //     dispatch(UpdateData({query,page}));
-    //   }
-    //     navigate("/Searching")
-    //  },600)
     return () => clearTimeout(id);
-  }, [authState]);
+  }, []);
 
   const handlequery = (e) => {
-    setQuery(e.target.value)
-    // if(e.target.value)
-    //     {
-    //       dispatch(UpdateData({query:e.target.value,page}));
-    //     }
-    //       navigate("/Searching")
+    setQuery(e.target.value);
 
-    // setQuery((q)=>{
-    //   console.log("hello")
-    //   id = setTimeout(()=>{
-    //     if(e.target.value)
-    //     {
-    //       dispatch(UpdateData({query:e.target.value,page}));
-    //     }
-    //       navigate("/Searching")
-    //    },600)
-    //    return e.target.value
-    // });
-  
     if (id) {
       clearTimeout(id);
     }
 
     id = setTimeout(function () {
-     
       clearTimeout(id);
-      dispatch(UpdateData({title:e.target.value,page,isPremium}));
+      dispatch(UpdateData({ title: e.target.value, page, isPremium }));
       navigate("/Searching");
     }, 1000);
   };
@@ -173,52 +122,44 @@ const Navbar = () => {
     navigate(`${el.link}`);
   };
 
-  const handleLogin = (e)=>{
-     if(e.target.innerText === "LOGOUT")
-     {
-        dispatch(Logout());
-     }
-  }
-  // if(loading){
-  //   return <Loading/>
-  // }
+  const handleLogin = (e) => {
+    if (e.target.innerText === "LOGOUT") {
+      dispatch(Logout());
+    }
+  };
 
   if (true) {
     return (
-     <Box height={{base:"6.5rem",sm:"6.5rem",md:"4.5rem"}}>
-         <Box className={style.Navbar}>
-        {/* {
-        data && console.log(data)
-      } */}
-        <Flex
-          minWidth="max-content"
-          alignItems="center"
-          gap="2"
-          justifyContent="space-between"
-        >
-          <Box display="flex" gap="2vw" alignItems="center">
-            <NavLink className={style.LogoBox} to="/">
-              <img className={style.Logo} alt="logo" src="logoo.png" />
-            </NavLink>
-
-            {links.map((el) => (
-              <NavLink
-                className={style.link2}
-                key={el.to}
-                style={({ isActive }) => (isActive ? activeStyle : normal)}
-                to={el.to}
-                end
-              >
-                {el.title}
+      <Box height={{ base: "6.5rem", sm: "6.5rem", md: "4.5rem" }}>
+        <Box className={style.Navbar}>
+          <Flex
+            minWidth="max-content"
+            alignItems="center"
+            gap="2"
+            justifyContent="space-between"
+          >
+            <Box display="flex" gap="2vw" alignItems="center">
+              <NavLink className={style.LogoBox} to="/">
+                <img className={style.Logo} alt="logo" src="logoo.png" />
               </NavLink>
-            ))}
-            {/* <NavLink className="link2" display={{base:"block",sm:"block",md:"none"}}  to="/RightSideLogo">
-              <RightSideLogo  />
-            </NavLink> */}
-          </Box>
-        </Flex>
-        <Flex alignItems="center" gap={{ base: "5px", sm: "10px", md: "2vw" }}>
-          {search && (
+
+              {links.map((el) => (
+                <NavLink
+                  className={style.link2}
+                  key={el.to}
+                  style={({ isActive }) => (isActive ? activeStyle : normal)}
+                  to={el.to}
+                  end
+                >
+                  {el.title}
+                </NavLink>
+              ))}
+            </Box>
+          </Flex>
+          <Flex
+            alignItems="center"
+            gap={{ base: "5px", sm: "10px", md: "2vw" }}
+          >
             <Box>
               <HStack className={style.inputBox}>
                 <SearchIcon className={style.searchIcon} />
@@ -226,157 +167,129 @@ const Navbar = () => {
                   type="text"
                   value={query}
                   className={style.navbarInput}
-                  //  onClick={()=>{setState(true);
-                  //  /*navigate("/Searching")*/}}
                   placeholder="Search for Movies, and TvShows"
                   onChange={handlequery}
                 />
-                {query && <CloseIcon onClick={()=>setQuery("")} _hover={{cursor:"pointer"}} width="0.6rem" height="0.6rem" color="white"/>}
-                {state && <BiMicrophone />}
+                {query && (
+                  <CloseIcon
+                    onClick={() => setQuery("")}
+                    _hover={{ cursor: "pointer" }}
+                    width="0.6rem"
+                    height="0.6rem"
+                    color="white"
+                  />
+                )}
               </HStack>
             </Box>
-          )}
-
-          <Box className={style.link2}>
-            {/* <MdLanguage style={{ width: "27px", height: "27px" }} /> */}
-          </Box>
-          <Stack direction="row">
-            <Link to="/login">
-              {/* {authState.isAuth && (
-                <Avatar
-                  bg="teal.500"
-                  w={"35px"}
-                  src="https://bit.ly/broken-link"
-                />
-              )}
-              {!authState.isAuth && (
-                <Button colorScheme="white" variant="outline" className={style.butt} >
-                  Login
+            <Stack direction="row">
+              <Link to="/login">
+                <Button onClick={handleLogin} className={style.login}>
+                  {!token ? "LOGIN" : "LOGOUT"}
                 </Button>
-              )} */}
-              <Button onClick={handleLogin} className={style.login}>
-                { !token ? "LOGIN" : "LOGOUT"}
-              </Button>
-            </Link>
-          </Stack>
-          {/* <Box>
-            <NavLink
-              style={{
-                color: "white",
-                backgroundColor: "green",
-                display: "flex",
-                borderRadius:"10px"
-              }}
-              className={style.buyPlane}
+              </Link>
+            </Stack>
+            <Button
+              className={style.buyplane}
+              leftIcon={<RiVipCrownFill />}
+              cursor="not-allowed"
             >
-              <RiVipCrownFill
-                style={{
-                  color: "white",
-                  margin: "4px 3px 0px 3px",
+              BUY PLAN
+            </Button>
+            <Menu>
+              <MenuButton
+                className={style.hamberger}
+                as={IconButton}
+                color="white"
+                aria-label="Options"
+                icon={ham ? <HamburgerIcon /> : <CloseIcon width="0.7rem" />}
+                onClick={() => setHam(!ham)}
+                background="transparent"
+                _hover={{
+                  backgroundColor: "transparent",
                 }}
-                // className={style.Kingcrown}
               />
-              <span className={style.buyplaneBut}>
-                   BUY PLAN
-              </span>
+              <MenuList
+                className={style.hamberger}
+              >
+                {navbarHam &&
+                  navbarHam?.map((el, i) => {
+                    if (el?.login?.text === "LOGIN" && !token) {
+                      return (
+                        <MenuItem
+                          key={i}
+                          onClick={() => handeClick(el.login)}
+                          icon={el.logout.icon}
+                          className={style.hamOpt}
+                          fontSize={{ base: "0.6rem", sm: "0.8rem" }}
+                          color="black"
+                          _hover={{
+                            backgroundColor: "cyan !important",
+                            color: "blue !important",
+                          }}
+                        >
+                          {el?.login?.text}
+                        </MenuItem>
+                      );
+                    } else if (el?.logout?.text === "LOGOUT" && token) {
+                      return (
+                        <MenuItem
+                          key={i}
+                          onClick={() => handeClick(el.logout)}
+                          icon={el.logout.icon}
+                          className={style.hamOpt}
+                          fontSize={{ base: "0.6rem", sm: "0.8rem" }}
+                          color="black"
+                          _hover={{
+                            backgroundColor: "cyan !important",
+                            color: "blue !important",
+                          }}
+                        >
+                          {el.logout.text}
+                        </MenuItem>
+                      );
+                    } else {
+                      return (
+                        <MenuItem
+                          key={i}
+                          onClick={() => handeClick(el)}
+                          icon={el.icon}
+                          className={style.hamOpt}
+                          fontSize={{ base: "0.6rem", sm: "0.8rem" }}
+                          color="black"
+                          _hover={{
+                            backgroundColor: "cyan !important",
+                            color: "blue !important",
+                          }}
+                        >
+                          {el.text}
+                        </MenuItem>
+                      );
+                    }
+                  })}
+              </MenuList>
+            </Menu>
+          </Flex>
+        </Box>
+        <Flex
+          display={{ base: "flex", sm: "flex", md: "none" }}
+          height="1rem"
+          mt="0.2rem"
+          width="100%"
+          justifyContent="space-around"
+        >
+          {links.map((el) => (
+            <NavLink
+              className={style.link3}
+              key={el.to}
+              style={({ isActive }) => (isActive ? activeStyle : normal)}
+              to={el.to}
+              end
+            >
+              {el.title}
             </NavLink>
-          </Box> */}
-          <Button
-            className={style.buyplane}
-            leftIcon={<RiVipCrownFill />}
-            cursor="not-allowed"
-          >
-            BUY PLAN
-          </Button>
-          <Menu>
-            <MenuButton
-              // className={style.hambergerMenu}
-              display={{ base: "block", md: "none" }}
-              as={IconButton}
-              color="white"
-              aria-label="Options"
-              icon={ham ? <HamburgerIcon /> : <CloseIcon width="0.7rem" />}
-              onClick={() => setHam(!ham)}
-              background="transparent"
-              _hover={{
-                backgroundColor: "transparent",
-              }}
-              // variant="outline"
-            />
-            <MenuList display={{ base: "block", md: "none" }}>
-              {navbarHam &&
-                navbarHam?.map((el, i) => {
-                  if (el?.login?.text === "LOGIN" && !token) {
-                    return (
-                      <MenuItem
-                        key={i}
-                        onClick={() => handeClick(el.login)}
-                        icon={el.logout.icon}
-                        className={style.hamOpt}
-                        fontSize={{ base: "0.6rem", sm: "0.8rem" }}
-                        color="black"
-                        _hover={{
-                          backgroundColor: "cyan !important",
-                          color: "blue !important",
-                        }}
-                      >
-                        {el?.login?.text}
-                      </MenuItem>
-                    );
-                  } else if (el?.logout?.text === "LOGOUT" && token) {
-                    return (
-                      <MenuItem
-                        key={i}
-                        onClick={() => handeClick(el.logout)}
-                        icon={el.logout.icon}
-                        className={style.hamOpt}
-                        fontSize={{ base: "0.6rem", sm: "0.8rem" }}
-                        color="black"
-                        _hover={{
-                          backgroundColor: "cyan !important",
-                          color: "blue !important",
-                        }}
-                      >
-                        {el.logout.text}
-                      </MenuItem>
-                    );
-                  } else {
-                    return (
-                      <MenuItem
-                        key={i}
-                        onClick={() => handeClick(el)}
-                        icon={el.icon}
-                        className={style.hamOpt}
-                        fontSize={{ base: "0.6rem", sm: "0.8rem" }}
-                        color="black"
-                        _hover={{
-                          backgroundColor: "cyan !important",
-                          color: "blue !important",
-                        }}
-                      >
-                        {el.text}
-                      </MenuItem>
-                    );
-                  }
-                })}
-            </MenuList>
-          </Menu>
+          ))}
         </Flex>
       </Box>
-      <Flex display={{base:"flex",sm:"flex",md:"none"}} height="1rem" mt="0.2rem" width="100%" justifyContent="space-around">
-      {links.map((el) => (
-              <NavLink
-                className={style.link3}
-                key={el.to}
-                style={({ isActive }) => (isActive ? activeStyle : normal)}
-                to={el.to}
-                end
-              >
-                {el.title}
-              </NavLink>
-            ))}
-      </Flex>
-     </Box>
     );
   }
 };
