@@ -56,7 +56,7 @@ const Home = () => {
       {/* top 10 web series */}
       {flag ? (
         <ScrollDivMovies
-         title = {Top_ten_web_series_in_india}
+          title = {Top_ten_web_series_in_india}
           imgCount="10"
           head="Top 10 Web Series in India"
           url="/top10webSeries/zee5_top10_web_searies"

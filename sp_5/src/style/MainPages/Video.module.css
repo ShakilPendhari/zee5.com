@@ -3,11 +3,11 @@
     width: 100vw;
     height: 70vh;
     justify-content: space-around;
-    /* align-items: flex-start; */
-    align-items: center;
+    align-items: flex-start;
+    /* align-items: center; */
     overflow-y: scroll;
     /* overflow: hidden; */
-    position: relative;
+    /* position: relative; */
 }
 .box::-webkit-scrollbar{
   display: none;
@@ -15,6 +15,7 @@
 .mainVideoBox{
     margin-top: 0rem;
     position: sticky;
+    /* position: static; */
     top:0rem;
     transition: all 1.5s ease-in;
     scroll-behavior: smooth;
@@ -25,6 +26,7 @@
 }
 .recommendationBox{
     margin-top: 3rem;
+    grid-template-columns: repeat(20rem,1fr);
 }
 .recommenedideo{
     width:25vw;
@@ -41,15 +43,29 @@
         height: 75vh;
         z-index: 10;
       }
+      .mainVideoBox{
+        position: static;
+        /* top:0rem; */
+        margin: 25rem auto 2rem;
+        transition: all 1.5s ease-in;
+        scroll-behavior: smooth;
+    }
   }
  
   @media all and (min-width:270px) and (max-width:480px) {
     .box{
-        padding-top: 2rem;
-    }
-    .mainVideo{
+      padding-top: 0rem;
+  }
+  .mainVideo{
       width:90vw;
-      height: 65vh;
+      height: 75vh;
       z-index: 10;
     }
+    .mainVideoBox{
+      position: static;
+      /* top:0rem; */
+      margin: 25rem auto 2rem;
+      transition: all 1.5s ease-in;
+      scroll-behavior: smooth;
+  }
   }

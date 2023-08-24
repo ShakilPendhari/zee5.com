@@ -89,7 +89,8 @@ const MainSlider = ({title}) => {
   // };
 
   const handlePlayVideo = (query)=>{
-       dispatch(GetData({query,page:""}));
+      let { title, isPremium } = query;
+       dispatch(GetData({title,page:"",isPremium}));
        navigate("/Video")
   }
 
@@ -201,14 +202,14 @@ const MainSlider = ({title}) => {
                       fontSize={{base:"1.05rem",sm:"1.2rem",md:"1.2rem"}}
                       as="h1"
                     >
-                      {SliderHead[i]}
+                      {SliderHead[i].title}
                     </Heading>
                     <Flex gap="1rem" direction="row">
                     <Button
                     className="watch"
                     leftIcon={<MdPlayArrow />}
                     // variant="outline"
-                    onClick={()=>handlePlayVideo(SliderHead[i].title)}
+                    onClick={()=>handlePlayVideo(SliderHead[i])}
                   >
                     Watch
                   </Button>
@@ -216,7 +217,7 @@ const MainSlider = ({title}) => {
                     className="buyplane"
                     leftIcon={<RiVipCrownFill/>}
                     // variant="outline"
-                    onClick={()=>handlePlayVideo(SliderHead[i].title)}
+                    onClick={()=>handlePlayVideo(SliderHead[i])}
                   >
                    BUY PLAN
                   </Button>

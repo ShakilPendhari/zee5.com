@@ -3,6 +3,7 @@ import {
   GETDATA,
   GETDATAINFINITESCROLLING,
   GETQUERY,
+  IsPREMIUM,
   LOADING,
   PLAYVIDEO,
   TAKEVIDEOID,
@@ -16,6 +17,7 @@ const initState = {
   page: "",
   query: "",
   videoId: "",
+  isPremium:false
 };
 
 export const VideoReducer = (state = initState, { type, payload }) => {
@@ -72,6 +74,10 @@ export const VideoReducer = (state = initState, { type, payload }) => {
       loading : false,
       error : false,
       videoId : payload
+    }
+    case IsPREMIUM : return {
+      ...state,
+      isPremium : payload
     }
     default:
       return state;

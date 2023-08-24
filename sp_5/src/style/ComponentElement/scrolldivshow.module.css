@@ -9,7 +9,7 @@
     height: 28px;
     width: 28px;
     padding:4px;
-    display: none;
+    /* display: none; */
 }
 .BoxHoverShows{
     border-radius: 10px;
@@ -177,18 +177,22 @@
         content: "";
         position: absolute;
         top: 0;
+        left: 0;
         right: 0;
+        bottom: 0;
         background-color : rgb(211, 14, 211);
-        width: 0% ;
-        height: 100%;
+        transform: scale(0,1);
+        transform-origin: top left;
+        transition: transform 0.4s ease-in;
         z-index: -1;
-        transition: all 0.4s ease-in;
     }
     &:hover{
         color:white;
         cursor: pointer;
         &::before{
-            width: 100%;
+            transform: scale(1,1);
+            transform-origin: top right;
+            overflow: hidden;
         }
     }
 

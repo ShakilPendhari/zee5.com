@@ -39,12 +39,15 @@ const Video = () => {
             ></iframe>
           )}
         </Box>
-        <Flex  gap="1rem" className={style.recommendationBox}>
+        <Box display={{base:"grid",md:"block"}} gridTemplateColumns={`repeat(${data.length},1fr)`} gridTemplateRows="10rem" gap="1rem"  className={style.recommendationBox}>
           {data &&
             data.length > 0 &&
             data.map((el, i) => (
               <Box
-                position="relative"
+                // position="relative"
+                width={{base:"10rem",sm:"10rem",md:"95%"}}
+                margin=" 1rem auto 0rem"
+                height="100%"
                 key={i}
                 onClick={() => {
                   if (i > 0 && i < data.length - 1) {
@@ -71,7 +74,7 @@ const Video = () => {
                 </Tooltip>
               </Box>
             ))}
-        </Flex>
+        </Box>
       </Flex>
     </div>
   );

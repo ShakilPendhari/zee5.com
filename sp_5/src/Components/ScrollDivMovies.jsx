@@ -10,7 +10,7 @@ import { MdPlayArrow } from "react-icons/md";
 // import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { GetData } from "../Redux/Video/action";
+import { GetData, IsPremium } from "../Redux/Video/action";
 
 const ScrollDivMovies = (prop) => {
   let { url, head, imgCount,title } = prop
@@ -28,7 +28,7 @@ const ScrollDivMovies = (prop) => {
 
     return () => window.removeEventListener("resize", updateWidth);
   }, [width]);
-  useEffect(() => {}, [divScroll, leftArrow, but, rightArrow]);
+  useEffect(() => {}, [divScroll, leftArrow, but, rightArrow,dispatch]);
 
   const updateWidth = () => {
     setWidth(() => {
@@ -37,7 +37,10 @@ const ScrollDivMovies = (prop) => {
     });
   };
   const handlePlayVideo = (query)=>{
-    dispatch(GetData({query,page:""}));
+    const {title, isPremium} = query;
+    // console.log("IsPremium::",isPremium);
+    dispatch(IsPremium(isPremium))
+    dispatch(GetData({title,page:""}));
     navigate("/Video")
 }
 
@@ -131,7 +134,7 @@ const ScrollDivMovies = (prop) => {
                 onClick={()=>{
                    if(width>=200 && width<=768)
                    {
-                    handlePlayVideo(title[i].title)
+                    handlePlayVideo(title[i])
                    }
                 }}
                 position="relative"
@@ -145,7 +148,9 @@ const ScrollDivMovies = (prop) => {
                  fontSize={{base:"0.8rem",sm:"1rem"}}
                  p="0.3rem"
                  position="absolute" zIndex="1000" top="45%" left="35%">Play video</Text>
-                <RiVipCrownFill className={style.KingCrownMovies} />
+                {
+                  prop.title[i].premium && <RiVipCrownFill className={style.KingCrownMovies} />
+                }
                 {/* <SkeletonImage src={`${url}${i + 1}.png`}/> */}
                 <img
                   // onLoad={()=>{
@@ -181,7 +186,7 @@ const ScrollDivMovies = (prop) => {
                     color="black"
                     variant="outline"
                     colorScheme="green"
-                    onClick={()=>handlePlayVideo(title[i].title)}
+                    onClick={()=>handlePlayVideo(title[i])}
                   >
                     Watch
                   </Button>

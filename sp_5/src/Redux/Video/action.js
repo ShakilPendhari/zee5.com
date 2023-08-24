@@ -2,6 +2,7 @@ import {
   GETDATA,
   GETDATAINFINITESCROLLING,
   GETQUERY,
+  IsPREMIUM,
   LOADING,
   PLAYVIDEO,
   TAKEVIDEOID,
@@ -9,15 +10,16 @@ import {
 import { getData } from "./api";
 
 export const GetData = (obj) => async (dispatch) => {
-  // console.log("query:",obj)
+  let { title } = obj;
+  // console.log("OBJ::",obj);
 
   dispatch({ type: LOADING });
 
   try {
-    if (obj.query) {
+    if (title) {
       let data = await getData(dispatch, obj);
       dispatch(PlayVideoByUsingID(data.items[0].id.videoId))
-      console.log("data:", data);
+      // console.log("data:", data);
       dispatch({ type: GETDATA, payload: data.items });
       return data;
     }
@@ -45,5 +47,10 @@ export const PlayVideo = (index)=> async (dispatch)=>{
 }
 
 export const PlayVideoByUsingID = (id)=>(dispatch)=>{
+  // console.log("isPremuim::::::::",isPremium)
    dispatch({type:TAKEVIDEOID,payload:id})
+}
+
+export const IsPremium = (flag)=>(dispatch)=>{
+  dispatch({type:IsPREMIUM,payload:flag});
 }

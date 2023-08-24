@@ -111,7 +111,7 @@ const Navbar = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { page } = useSelector((store) => store.data);
+  const { page, isPremium } = useSelector((store) => store.data);
   const [ham, setHam] = useState(true);
   const { token } = useSelector((store) => store.auth);
   // const [isLogin, setIsLogin] = useState(token);
@@ -159,7 +159,7 @@ const Navbar = () => {
     id = setTimeout(function () {
      
       clearTimeout(id);
-      dispatch(UpdateData({ query: e.target.value, page }));
+      dispatch(UpdateData({title:e.target.value,page,isPremium}));
       navigate("/Searching");
     }, 1000);
   };

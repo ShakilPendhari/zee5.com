@@ -9,7 +9,7 @@
     height: 1.7rem;
     width: 1.7rem;
     padding: 4px;
-    display: none;
+    /* display: none; */
 }
 
 .BoxHoverMovies {
@@ -34,6 +34,7 @@
         display: flex;
         justify-content: space-around;
         transform: scale(0,0);
+        /* transform: scale(1,1); */
         /* transition: transform 0.5s ease-in-out, opacity 0.1s ease-in; */
         transition: all 0.4s ease-in, opacity 0.1s ease-in;
     }
@@ -181,19 +182,25 @@
         position: absolute;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         background: rgb(211, 14, 211);
-        width: 0%;
-        height: 100%;
-        transition: width 0.4s ease-in;
+        /* width: 100%;
+        height: 100%; */
+        transform: scale(0,1);
+        transform-origin: top right;
+        transition: transform 0.4s ease-in;
+        z-index: -1;
     }
 
     &:hover {
-        z-index: 1;
         color: white;
+        cursor: pointer;
+        transition: color 0.5s ease-in;
 
         &::before {
-            z-index: -1;
-            width: 100%;
+            transform: scale(1,1);
+            transform-origin: top left;
             overflow: hidden;
         }
     }

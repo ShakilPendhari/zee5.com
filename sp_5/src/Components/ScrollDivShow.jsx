@@ -117,7 +117,9 @@ const ScrollDivShow = (prop) => {
                 key={i + 1}
                 className={`${style.BoxHoverShows} ${style.showBoxShows}`}
               >
-                <RiVipCrownFill className={style.KingCrownShows} />
+                {
+                  prop.title[i].premium && <RiVipCrownFill className={style.KingCrownShows} />
+                }
                 <img
                   loading="lazy"
                   className={style.trendImgShows}
