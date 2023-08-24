@@ -1,4 +1,6 @@
-import { AUTHERROR_LOGIN, AUTHERROR_OTP, AUTHERROR_REGISTER, AUTHLOADING_LOGIN, AUTHLOADING_OTP, AUTHLOADING_REGISTER, AUTHLOGIN_INIT, AUTHREGISTER_INIT, AUTHTAKETOKEN } from "./auth.action.type";
+
+import jwtDecode from "jwt-decode";
+import { ADDEMAIL, AUTHERROR_LOGIN, AUTHERROR_OTP, AUTHERROR_REGISTER, AUTHLOADING_LOGIN, AUTHLOADING_OTP, AUTHLOADING_REGISTER, AUTHLOGIN_INIT, AUTHREGISTER_INIT, AUTHTAKETOKEN } from "./auth.action.type";
 import { CheckEmailorMob_api, login_api, register_api } from "./auth.api";
 
 export const Register =  (Credential, route, Alert) => async (dispatch) => {
@@ -82,7 +84,8 @@ export const CheckEmailorMob = (obj, route, Alert) => async (dispatch) => {
   dispatch({ type: AUTHLOADING_OTP });
   try {
     let val = await CheckEmailorMob_api(obj);
-    // console.log("val:", val);
+    // console.log("val:", val,"obj::",jwtDecode(val.data.token));
+     dispatch(AddEmail(jwtDecode(val.data.token).email))
      dispatch(AddToken(val.data.token))
     if (val.data.token) {
       Alert({
@@ -110,4 +113,8 @@ export const CheckEmailorMob = (obj, route, Alert) => async (dispatch) => {
 
 export const AddToken = (token)=>(dispatch)=>{
   dispatch({ type: AUTHTAKETOKEN, payload: token });
+}
+
+export const AddEmail = (email)=> (dispatch) =>{
+  dispatch({type:ADDEMAIL,payload:email})
 }

@@ -1,4 +1,5 @@
 import {
+  ADDEMAIL,
   GETDATA,
   GETDATAINFINITESCROLLING,
   GETQUERY,
@@ -54,3 +55,4 @@ export const PlayVideoByUsingID = (id)=>(dispatch)=>{
 export const IsPremium = (flag)=>(dispatch)=>{
   dispatch({type:IsPREMIUM,payload:flag});
 }
+

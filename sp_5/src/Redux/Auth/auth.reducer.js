@@ -1,4 +1,4 @@
-import { AUTHERROR_LOGIN, AUTHERROR_OTP, AUTHERROR_REGISTER, AUTHLOADING_LOGIN, AUTHLOADING_OTP, AUTHLOADING_REGISTER, AUTHLOGIN_INIT, AUTHOTP_INIT, AUTHREGISTER_INIT, AUTHTAKETOKEN, LOGOUTUSER } from "./auth.action.type";
+import { ADDEMAIL, AUTHERROR_LOGIN, AUTHERROR_OTP, AUTHERROR_REGISTER, AUTHLOADING_LOGIN, AUTHLOADING_OTP, AUTHLOADING_REGISTER, AUTHLOGIN_INIT, AUTHREGISTER_INIT, AUTHTAKETOKEN, LOGOUTUSER } from "./auth.action.type";
 
 const initState = {
     loading_register : false,
@@ -7,7 +7,8 @@ const initState = {
     error_login : false,
     loading_otp : false,
     error_otp : false,
-    token : ""
+    token : "",
+    email:""
 }
 
 export const authReducer = (state=initState,action)=>{
@@ -64,6 +65,11 @@ export const authReducer = (state=initState,action)=>{
             loading_otp : false,
             error_otp : false,
             token : payload
+        }
+        // Add email
+        case ADDEMAIL : return {
+            ...state,
+            email : payload
         }
         // Logout
         case LOGOUTUSER : return initState
