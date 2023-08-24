@@ -197,13 +197,13 @@ a {
     height: 1rem !important;
 }
 .hamberger{
-    display: none;
+    display: none !important;
 }
 
 
 @media screen and (min-width:481px) and (max-width:768px) {
     .hamberger{
-        display: block;
+        display: block !important;
     }
     .link2 {
         display: none;
@@ -288,7 +288,7 @@ a {
 
 @media screen and (min-width:200px) and (max-width:480px) {
     .hamberger{
-        display: block;
+        display: block !important;
     }
     .link2 {
         display: none;

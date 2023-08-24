@@ -130,7 +130,7 @@ const Navbar = () => {
 
   if (true) {
     return (
-      <Box height={{ base: "6.5rem", sm: "6.5rem", md: "4.5rem" }}>
+      <Box zIndex="10000" height={{ base: "6.5rem", sm: "6.5rem", md: "4.5rem" }}>
         <Box className={style.Navbar}>
           <Flex
             minWidth="max-content"

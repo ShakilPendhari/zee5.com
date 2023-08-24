@@ -17,7 +17,8 @@ const Video = () => {
 
 
   useEffect(()=>{
-    document.title = "SP5 | Video"
+    document.title = "SP5 | Video";
+    window.innerHeight = 0;
   },[])
 
   const handleClick = (el) => {
@@ -28,7 +29,7 @@ const Video = () => {
 
   return (
     <div>
-      <Flex className={style.box} flexDir={{base:"column",md:"row"}}>
+      <Box display={{base:"block",md:"flex"}} className={style.box} flexDir={{base:"column",md:"row"}}>
         <Box className={style.mainVideoBox}>
           {data && data.length > 0 && (
             <iframe
@@ -44,10 +45,11 @@ const Video = () => {
             data.length > 0 &&
             data.map((el, i) => (
               <Box
-                // position="relative"
-                width={{base:"10rem",sm:"10rem",md:"95%"}}
-                margin=" 1rem auto 0rem"
-                height="100%"
+                // position="absolute"
+                className={style.recommend}
+                width={{base:"6rem",sm:"10rem",md:"95%"}}
+                margin="0rem auto 0rem"
+                height={{base:"6rem",sm:"10rem",md:"100%"}}
                 key={i}
                 onClick={() => {
                   if (i > 0 && i < data.length - 1) {
@@ -56,7 +58,7 @@ const Video = () => {
                   }
                 }}
               >
-                <Tooltip position="absolute"  label="Play Video" placement="left" openDelay={300}>
+                <Tooltip zIndex="100!important" position="absolute"  label="Play Video" placement="left" openDelay={300}>
                   <Image
                     loading="lazy"
                     onClick={() => handleClick(el)}
@@ -75,7 +77,7 @@ const Video = () => {
               </Box>
             ))}
         </Box>
-      </Flex>
+      </Box>
     </div>
   );
 };

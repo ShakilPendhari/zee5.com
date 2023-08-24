@@ -1,71 +1,118 @@
-.box{
-    /* padding-top: 2rem; */
-    width: 100vw;
-    height: 70vh;
-    justify-content: space-around;
-    align-items: flex-start;
-    /* align-items: center; */
-    overflow-y: scroll;
-    /* overflow: hidden; */
-    /* position: relative; */
+.box {
+  width: 100vw;
+  height: 72vh;
+  margin-bottom: 1rem;
+  justify-content: space-around;
+  align-items: flex-start;
+  overflow-y: scroll;
+  margin-top: 3rem;
+  position: relative;
 }
-.box::-webkit-scrollbar{
+
+.box::-webkit-scrollbar {
   display: none;
 }
-.mainVideoBox{
-    margin-top: 0rem;
-    position: sticky;
-    /* position: static; */
-    top:0rem;
-    transition: all 1.5s ease-in;
-    scroll-behavior: smooth;
+
+.mainVideoBox {
+  margin-top: 0rem;
+  position: sticky;
+  top: 0rem;
+  transition: all 1.5s ease-in;
+  width:90%;
+  margin: auto;
+  scroll-behavior: smooth;
 }
-.mainVideo{
-  width:70vw;
+
+.mainVideo {
+  width: 70vw;
   height: 70vh;
+  margin: auto;
 }
-.recommendationBox{
-    margin-top: 3rem;
-    grid-template-columns: repeat(20rem,1fr);
+
+.recommendationBox {
+  /* border: 1px solid red; */
+  margin: auto;
+  margin-top: 1rem;
+  grid-template-columns: repeat(20rem, 1fr);
+  width: 90%;
+
 }
-.recommenedideo{
-    width:25vw;
-    height: 35vh;
+
+.recommenedideo {
+  width: 25vw;
+  height: 35vh;
+}
+
+
+@media all and (min-width:481px) and (max-width:768px) {
+  .box {
+    padding-top: 0rem;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+    overflow: visible;
+    height: 100vh;
   }
 
-   
-  @media all and (min-width:481px) and (max-width:768px) {
-    .box{
-        padding-top: 0rem;
-    }
-    .mainVideo{
-        width:90vw;
-        height: 75vh;
-        z-index: 10;
-      }
-      .mainVideoBox{
-        position: static;
-        /* top:0rem; */
-        margin: 25rem auto 2rem;
-        transition: all 1.5s ease-in;
-        scroll-behavior: smooth;
-    }
+  .mainVideo {
+    width: 90vw;
+    height: 75vh;
+    z-index: 10;
+
   }
- 
-  @media all and (min-width:270px) and (max-width:480px) {
-    .box{
-      padding-top: 0rem;
+
+  .mainVideoBox {
+    position: static;
+    /* top:0rem; */
+    margin: 0rem auto 2rem;
+    transition: all 1.5s ease-in;
+    width: 99%;
+    scroll-behavior: smooth;
   }
-  .mainVideo{
-      width:90vw;
-      height: 75vh;
-      z-index: 10;
-    }
-    .mainVideoBox{
-      position: static;
-      /* top:0rem; */
-      margin: 25rem auto 2rem;
-      transition: all 1.5s ease-in;
-      scroll-behavior: smooth;
+
+  .recommendationBox {
+    margin-top: 0rem;
+    overflow-x: scroll;
+    position: relative;
   }
+  .recommend {
+    margin-top: 0rem;
   }
+}
+
+@media all and (min-width:270px) and (max-width:480px) {
+  .box {
+    padding-top: 0rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    overflow: visible;
+    height: 100vh;
+  }
+
+  .mainVideo {
+    width: 90vw;
+    height: 75vh;
+    z-index: 10;
+  }
+
+  .mainVideoBox {
+    position: static;
+    margin: 1rem auto 2rem;
+    transition: all 1.5s ease-in;
+    scroll-behavior: smooth;
+  }
+
+  .recommendationBox {
+    margin-top: 0rem;
+    overflow-x: scroll;
+    position: relative;
+  }
+
+  .recommendationBox::-webkit-scrollbar {
+    display: none;
+  }
+
+  .recommend {
+    margin-bottom: 2rem;
+    margin-top: 0rem;
+  }
+}
