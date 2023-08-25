@@ -9,7 +9,7 @@ import { MdPlayArrow } from "react-icons/md";
 import style from "./../style/ComponentElement/scrolldivshow.module.css"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { GetData } from "../Redux/Video/action";
+import { GetData, IsPremium } from "../Redux/Video/action";
 
 
 
@@ -40,7 +40,10 @@ const ScrollDivShow = (prop) => {
   };
 
   const handlePlayVideo = (query)=>{
-    dispatch(GetData({query,page:""}));
+    const {title, isPremium} = query;
+    // console.log("IsPremium::",isPremium);
+    dispatch(IsPremium(isPremium))
+    dispatch(GetData({title,page:""}));
     navigate("/Video")
 }
 
@@ -116,6 +119,12 @@ const ScrollDivShow = (prop) => {
               <Box
                 key={i + 1}
                 className={`${style.BoxHoverShows} ${style.showBoxShows}`}
+                onClick={()=>{
+                   if(width>=200 && width<=768)
+                   {
+                    handlePlayVideo(title[i])
+                   }
+                }}
               >
                 {
                   prop.title[i].isPremium && <RiVipCrownFill className={style.KingCrownShows} />
@@ -135,7 +144,7 @@ const ScrollDivShow = (prop) => {
                  <Button
                     className={style.watch}
                     leftIcon={<MdPlayArrow/>}
-                    onClick={()=>handlePlayVideo(title[i].title)}
+                    onClick={()=>handlePlayVideo(title[i])}
                   >
                     Watch
                   </Button>

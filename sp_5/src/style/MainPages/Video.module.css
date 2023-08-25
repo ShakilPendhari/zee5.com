@@ -42,7 +42,9 @@
   width: 25vw;
   height: 35vh;
 }
-
+.recommendationBox::-webkit-scrollbar {
+  display: none;
+}
 
 @media all and (min-width:481px) and (max-width:768px) {
   .box {
@@ -107,9 +109,7 @@
     position: relative;
   }
 
-  .recommendationBox::-webkit-scrollbar {
-    display: none;
-  }
+  
 
   .recommend {
     margin-bottom: 2rem;
