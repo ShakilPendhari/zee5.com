@@ -9,7 +9,9 @@ A visually appealing landing page with smooth scrolling and captivating design. 
 ![Home_page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/1fda4cbc-62ee-428c-9e7f-ee8aecc8ca0a)
 <br/>Video<br/>
 
-https://github.com/ShakilPendhari/zee5.com/assets/107555598/e4d044f6-34e4-4946-b82a-741cdeb0d288
+
+https://github.com/ShakilPendhari/zee5.com/assets/107555598/d506740a-d94b-4d68-8b59-b1074af255ab
+
 
 <br/><br/>
 
