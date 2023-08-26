@@ -108,9 +108,9 @@ body::-webkit-scrollbar-thumb {
   color:white;
   font-weight: 700;
 }
-body{
+/* body{
   height:1200px;
-}
+} */
 #scroller {
   overflow-y: scroll;
   height: 150px;

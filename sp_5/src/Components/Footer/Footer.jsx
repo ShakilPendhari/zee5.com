@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Heading,
@@ -14,9 +14,15 @@ import { BsFacebook } from "react-icons/bs";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
+import { useLocation } from "react-router-dom";
 // import "../Navbar/CSS/Footer.css"
 
 const Footer = () => {
+  // const location = useLocation();
+
+  // useEffect(()=>{
+  //   console.log(location)
+  // })
   return (
     <div style={{ margin: "1rem", marginBottom: "2rem", textAlign: "left" }}>
       <hr style={{ margin: "150px 5px 30px" }} />
