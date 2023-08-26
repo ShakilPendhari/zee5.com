@@ -15,7 +15,7 @@ const Movies = () => {
   }, []);
   return (
     <>
-        <MainSlider title="Sliding/zee5_" />
+        <MainSlider index={3} title="Sliding/zee5_" />
         {flag ? (
         <ScrollDivMovies
           title = {Top_ten_web_series_in_india}
