@@ -39,7 +39,7 @@ const Home = () => {
     <div className={style.MainBox}>
       {/* Slider */}
       {/* <Slider /> */}
-      <MainSlider title="Sliding/zee5_" />
+      <MainSlider index={0} title="Sliding/zee5_" />
 
       {/* Trending Near You */}
     

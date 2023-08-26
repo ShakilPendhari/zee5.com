@@ -17,7 +17,7 @@ const TvShows = () => {
 
   return (
     <div className='tvShows'>
-      <MainSlider title="Sliding/zee5_" />
+      <MainSlider index={5} title="Sliding/zee5_" />
 
        {flag ? (
         <ScrollDivShow

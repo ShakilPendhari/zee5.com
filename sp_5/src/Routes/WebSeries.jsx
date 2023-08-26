@@ -19,7 +19,7 @@ const WebSeries = () => {
   }, []);
 
   return  <div className='tvShows'>
-  <MainSlider title="Sliding/zee5_" />
+  <MainSlider index={7} title="Sliding/zee5_" />
     {flag ? (
         <ScrollDivMovies
           title = {PopularMovies}

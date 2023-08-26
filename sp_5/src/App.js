@@ -5,6 +5,7 @@ import AllRoutes from "./Routes/AllRoutes";
 import Footer from "./Components/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import PaymentFooter from "./Components/PaymentFooter/PaymentFooter";
+import { Box } from "@chakra-ui/react";
 
 
 
@@ -14,7 +15,9 @@ function App() {
     <div className="App" >
       <div className="cont">
         <Navbar />      
-       <AllRoutes/>
+        <Box mt={{ base: "6.5rem", sm: "6.5rem", md: "5rem" }}>
+           <AllRoutes/>
+        </Box>
        {
         location.pathname === "/payment"?<PaymentFooter/>: <Footer/>
        }

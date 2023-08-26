@@ -27,7 +27,7 @@ import { useDispatch } from "react-redux";
 import { GetData } from "../../Redux/Video/action";
 import { useNavigate } from "react-router-dom";
 
-const MainSlider = ({title}) => {
+const MainSlider = ({title,index}) => {
   const [count, setCount] = useState(1);
   let clouser = useRef();
   const dispatch = useDispatch();
@@ -168,7 +168,7 @@ const MainSlider = ({title}) => {
                       transition: "all 2s ease-in",
                       height: "100%",
                     }}
-                    src={`${title}${ i + 1}.png`}
+                    src={`${title}${ (i + index)%8+1}.png`}
                     className="slidingImg"
                     alt="movie"
                   />

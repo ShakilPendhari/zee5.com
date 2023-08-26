@@ -160,7 +160,7 @@ const Navbar = () => {
   if (true) {
     return (
       <Box
-        pos="sticky"
+        pos="fixed"
         background="#0f0617"
         top="0"
         left="0"
