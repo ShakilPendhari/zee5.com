@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
 import {
   Box,
   Flex,
@@ -94,6 +94,7 @@ const Navbar = () => {
   const { page, isPremium } = useSelector((store) => store.data);
   const [ham, setHam] = useState(true);
   const { token } = useSelector((store) => store.auth);
+  const location = useLocation();
 
   useEffect(() => {
     return () => clearTimeout(id);
@@ -128,9 +129,45 @@ const Navbar = () => {
     }
   };
 
+  if (location.pathname === "/payment") {
+    return (
+      <Box
+        zIndex="10000"
+        height={{ base: "6.5rem", sm: "6.5rem", md: "4.5rem" }}
+      >
+        <Box className={style.Navbar}>
+          <Flex
+            minWidth="max-content"
+            alignItems="center"
+            gap="2"
+            justifyContent="space-between"
+          >
+            <Box display="flex" gap="2vw" alignItems="center">
+              <NavLink className={style.LogoBox} to="/">
+                <img className={style.Logo} alt="logo" src="logoo.png" />
+              </NavLink>
+            </Box>
+          </Flex>
+          <Flex
+            alignItems="center"
+            gap={{ base: "5px", sm: "10px", md: "2vw" }}
+          ></Flex>
+        </Box>
+      </Box>
+    );
+  }
+
   if (true) {
     return (
-      <Box zIndex="10000" height={{ base: "6.5rem", sm: "6.5rem", md: "4.5rem" }}>
+      <Box
+        pos="sticky"
+        background="#0f0617"
+        top="0"
+        left="0"
+        right="0"
+        zIndex="10000"
+        height={{ base: "6.5rem", sm: "6.5rem", md: "5rem" }}
+      >
         <Box className={style.Navbar}>
           <Flex
             minWidth="max-content"
@@ -208,9 +245,7 @@ const Navbar = () => {
                   backgroundColor: "transparent",
                 }}
               />
-              <MenuList
-                className={style.hamberger}
-              >
+              <MenuList className={style.hamberger}>
                 {navbarHam &&
                   navbarHam?.map((el, i) => {
                     if (el?.login?.text === "LOGIN" && !token) {
