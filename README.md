@@ -18,6 +18,8 @@ A dedicated page to watch and enjoy a vast collection of movies, TV shows, and o
 
 # Searching Page: 
 A search functionality allowing users to easily find their favorite content with infinite scrolling. <br/>
+![Searching_page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/636ee170-85c0-43d3-b1eb-b61ff56dea9b)
+
 
 
 # Signup Page: 
