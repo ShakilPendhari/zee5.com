@@ -7,6 +7,11 @@ This is a clone of the popular streaming platform, ZEE5. The clone includes the 
 # Landing Page:
 A visually appealing landing page with smooth scrolling and captivating design. <br/>
 ![Home_page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/1fda4cbc-62ee-428c-9e7f-ee8aecc8ca0a)
+<br/>Video<br/>
+
+https://github.com/ShakilPendhari/zee5.com/assets/107555598/e4d044f6-34e4-4946-b82a-741cdeb0d288
+
+<br/><br/>
 
 
 
