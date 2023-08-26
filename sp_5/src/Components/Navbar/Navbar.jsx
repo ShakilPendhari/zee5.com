@@ -132,8 +132,13 @@ const Navbar = () => {
   if (location.pathname === "/payment") {
     return (
       <Box
+        pos="fixed"
+        background="#0f0617"
+        top="0"
+        left="0"
+        right="0"
         zIndex="10000"
-        height={{ base: "6.5rem", sm: "6.5rem", md: "4.5rem" }}
+        height={{ base: "3rem", sm: "3rem", md: "4.5rem" }}
       >
         <Box className={style.Navbar}>
           <Flex
