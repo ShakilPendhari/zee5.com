@@ -34,6 +34,13 @@ A secure login page for existing users to sign in and access their profiles.<br/
 
 
 
+# OTP Page:
+User need to verify their Email via this page.<br/>
+![OTP_page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/2abba5ad-327e-489b-8d2f-3c30a400cd68)
+
+
+
+
 # Tech Stack -:<br/>
 The project is built using the following technologies:
 <p >
