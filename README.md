@@ -35,8 +35,9 @@ A secure login page for existing users to sign in and access their profiles.<br/
 
 
 # OTP Page:
-User need to verify their Email via this page.<br/>
-![OTP_page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/2abba5ad-327e-489b-8d2f-3c30a400cd68)
+User need to verify their Email via this page, User Should recieve an email with OTP.<br/>
+![image](https://github.com/ShakilPendhari/zee5.com/assets/107555598/663de391-1c3b-423f-8a46-9f421c0ff09e)
+
 
 
 
