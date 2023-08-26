@@ -13,7 +13,8 @@ A visually appealing landing page with smooth scrolling and captivating design. 
 
 # Video Page:
 A dedicated page to watch and enjoy a vast collection of movies, TV shows, and original series trailer. <br/>
-![Zee5_VideoPage](https://github.com/ShakilPendhari/zee5.com/assets/107555598/fa505833-b9eb-4262-9096-1490ed037095)
+![Video_page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/147f93d9-9d80-4453-bcc4-c0675ebd951e)
+
 
 
 # Searching Page: 
