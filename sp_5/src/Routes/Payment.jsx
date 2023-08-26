@@ -19,9 +19,9 @@ const Payment = () => {
         height={{ base: "15rem", sm: "80%", md: "90%" }}
         border="2px solid green"
         borderRadius="15px"
-        position="relative"
+       
       >
-      <Box position="absolute" bottom="0" left="0" right="0" backgroundColor="pink" height="16%">Hello</Box>
+      <Box position="relative" backgroundColor="#0F0617" height="16%">Hello</Box>
       </Box>
     </Flex>
   );
