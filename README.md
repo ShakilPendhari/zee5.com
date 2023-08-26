@@ -1,5 +1,5 @@
 # ZEE5 Clone
-This is a clone of the popular streaming platform, ZEE5. The clone includes the landing page with beautiful scrolling, a video page, searching page, signup page, login page and OTP page. <br/>Most Important All are the FullyResponsive for desktop, tab and mobile view. <br/><br/>
+This is a clone of the popular streaming platform, ZEE5. The clone includes the landing page with beautiful scrolling, a video page, searching page, signup page, login page and OTP page. <br/><br/>Most Important All are the FullyResponsive for desktop, tab and mobile view. <br/><br/>
 <h2>Vercel Link</h2>  https://zee5-clone-theta.vercel.app/  <br/>
 
 # Features -:
