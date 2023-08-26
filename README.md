@@ -32,19 +32,21 @@ A search functionality allowing users to easily find their favorite content with
 
 # Signup Page: 
 An intuitive signup page for users to create their accounts and access personalized features. <br/>
-![Zee5-Signup](https://github.com/ShakilPendhari/zee5.com/assets/107555598/f70201cd-86ad-4a52-9ff8-37c2defcdfdf)
+![Signup_page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/abb4a777-957f-41a0-bd76-2da026dfd444)
+
 
 
 
 # Login Page:
 A secure login page for existing users to sign in and access their profiles.<br/>
-![Zee5-Login](https://github.com/ShakilPendhari/zee5.com/assets/107555598/3df72e81-4110-4584-bbfe-f62366c97648)
+![Login-page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/24d4ccb1-41dd-49a7-98f9-c45755d80a6a)
+
 
 
 
 # OTP Page:
 User need to verify their Email via this page, User Should recieve an email with OTP.<br/>
-![image](https://github.com/ShakilPendhari/zee5.com/assets/107555598/663de391-1c3b-423f-8a46-9f421c0ff09e)
+![OTP_page](https://github.com/ShakilPendhari/zee5.com/assets/107555598/663de391-1c3b-423f-8a46-9f421c0ff09e)
 
 
 
