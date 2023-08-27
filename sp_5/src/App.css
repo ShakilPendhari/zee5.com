@@ -48,6 +48,7 @@
 }
 
 
+
 .divMain{
   overflow-y: scroll;
 }
@@ -139,6 +140,13 @@ height: auto;
   padding: 0px!important;
   text-align: center;
 }
+
+
+/* Navbar Hamberger button */
+.css-od5pat{
+  background-color: transparent !important;
+}
+
 
 /* 
 .ytp-overflow-icon {

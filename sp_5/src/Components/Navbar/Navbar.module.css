@@ -3,6 +3,19 @@ body {
     margin: 0px;
     box-sizing: border-box;
 }
+.showHide{
+    position:fixed;
+    background:#0f0617;
+    /* background:#270f3c; */
+    top:0;
+    left:0;
+    right:0;
+    z-index:10000;
+    transition: all 0.3s ease-in-out;
+}
+.hidden{
+    top:-5rem;
+}
 
 .Navbar {
     display: flex;
@@ -10,7 +23,6 @@ body {
     align-items: center;
     padding: 10px 30px;
     gap: 1rem;
-    /* width: ; */
 }
 
 .Logo {
@@ -198,12 +210,14 @@ a {
 }
 .hamberger{
     display: none !important;
+    visibility: hidden;
 }
 
 
 @media screen and (min-width:481px) and (max-width:768px) {
     .hamberger{
         display: block !important;
+        visibility: visible !important;
     }
     .link2 {
         display: none;
@@ -282,6 +296,12 @@ a {
     .link3 {
         font-size: 0.9rem;
     }
+    .showHide{
+        transition: top 0.5s ease-in-out;
+    }
+    .hidden{
+        top:-8rem;
+    }
 
 }
 
@@ -289,6 +309,7 @@ a {
 @media screen and (min-width:200px) and (max-width:480px) {
     .hamberger{
         display: block !important;
+        visibility: visible !important;
     }
     .link2 {
         display: none;
@@ -383,6 +404,10 @@ a {
 
     .link3 {
         font-size: 0.75rem;
+    }
+
+    .hidden{
+        top:-7rem;
     }
 
 }
