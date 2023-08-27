@@ -8,7 +8,7 @@ const initState = {
     loading_otp : false,
     error_otp : false,
     token : "",
-    email:""
+    email:"",
 }
 
 export const authReducer = (state=initState,action)=>{
@@ -69,10 +69,13 @@ export const authReducer = (state=initState,action)=>{
         // Add email
         case ADDEMAIL : return {
             ...state,
-            email : payload
+            email : payload,
         }
         // Logout
-        case LOGOUTUSER : return initState
+        case LOGOUTUSER : return (function(){
+            localStorage.removeItem("sp5Token");
+           return initState
+        })()
         
         default : return state
     }

@@ -1,18 +1,38 @@
-import { Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import jwtDecode from "jwt-decode";
 
-const PrivateRouteLogin = ({children}) => {
-  const { token } = useSelector((store)=>store.auth);
+function takeToken() {
+  try {
+    let val = JSON.parse(localStorage.getItem("sp5Token")) || "";
 
-  // console.log("Token:::",token);
-
-  if(!token)
-  {
-     return <Navigate to="/Login"/>
+    return val;
+  } catch (e) {
+    console.log("Error:", e);
   }
- 
-  return children;
-
 }
 
-export default PrivateRouteLogin
+function isValid(token) {
+  const { exp } = jwtDecode(token);
+  console.log("Exp::", exp);
+  if (exp && exp > Date.now()) {
+    return true;
+  }
+  return false;
+}
+
+
+
+
+const PrivateRouteLogin = ({ children }) => {
+  const { token } = useSelector((store) => store.auth);
+  let tokenVal = token || takeToken();
+
+  if (tokenVal === "" || !isValid(tokenVal)) {
+    return <Navigate to="/Login" />
+  }
+
+  return children;
+};
+
+export default PrivateRouteLogin;

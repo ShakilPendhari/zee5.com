@@ -12,12 +12,14 @@ import { BlockbusterFilms, Free_dubbed_movies, Latest_hindi_episodes_free, Popul
 import { useDispatch } from "react-redux";
 import { AddEmail, AddToken } from "../Redux/Auth/auth.action";
 import jwtDecode from "jwt-decode";
+import { useLocation } from "react-router";
 
 const Home = () => {
   const [flag, setFlag] = useState(false);
   let id = useRef(null);
   const [ f, setF ] = useState(false);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     document.title = "SP5"
@@ -26,14 +28,25 @@ const Home = () => {
   }, []);
 
   useEffect(()=>{
-    let token = window.location.search.split("?").join("").split("token=").join("")
+    // let token = window.location.search.split("?").join("").split("token=").join("")
+    let token = location.search.split("?token=").join("") || takeToken();
     if(token)
     {
-      // console.log("jwtToken:",jwtDecode(token));
-      dispatch(AddEmail(jwtDecode(token).email))
-      dispatch(AddToken(token))
+      let ParseData = jwtDecode(token);
+      dispatch(AddEmail(ParseData.email));
+      localStorage.setItem("sp5Token",JSON.stringify(token));
+      dispatch(AddToken(token));
     }
-  },[dispatch])
+  },[dispatch]);
+
+  function takeToken(){
+    try{
+       return JSON.parse(localStorage.getItem("sp5Token")) || "";
+    }
+    catch(e){
+        console.log("Error:",e)
+      }
+  }
 
   return (
     <div className={style.MainBox}>
