@@ -30,9 +30,11 @@ const Home = () => {
   useEffect(()=>{
     // let token = window.location.search.split("?").join("").split("token=").join("")
     let token = location.search.split("?token=").join("") || takeToken();
+    // console.log("Token::",token)
     if(token)
     {
       let ParseData = jwtDecode(token);
+      console.log(ParseData)
       dispatch(AddEmail(ParseData.email));
       localStorage.setItem("sp5Token",JSON.stringify(token));
       dispatch(AddToken(token));

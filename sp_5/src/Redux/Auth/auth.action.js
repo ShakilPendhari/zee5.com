@@ -84,7 +84,9 @@ export const CheckEmailorMob = (obj, route, Alert) => async (dispatch) => {
   dispatch({ type: AUTHLOADING_OTP });
   try {
     let val = await CheckEmailorMob_api(obj);
-    console.log("val:", val,"obj::",jwtDecode(val.data.token));
+    console.log("Valll:::",val.data,"Value::",jwtDecode(val.data.token))
+    // console.log("val:", val,"obj::",jwtDecode(val.data.token),"Date.now()::",Date.now());
+     localStorage.setItem("sp5Token",JSON.stringify(val.data.token))
      dispatch(AddEmail(jwtDecode(val.data.token).email))
      dispatch(AddToken(val.data.token))
     if (val.data.token) {

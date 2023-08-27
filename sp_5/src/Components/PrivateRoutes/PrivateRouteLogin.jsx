@@ -13,9 +13,9 @@ function takeToken() {
 }
 
 function isValid(token) {
-  const { exp } = jwtDecode(token);
-  console.log("Exp::", exp);
-  if (exp && exp > Date.now()) {
+  const { expireSession } = jwtDecode(token);
+  console.log("expireSession::", expireSession > Date.now());
+  if (expireSession && expireSession > Date.now()) {
     return true;
   }
   return false;
