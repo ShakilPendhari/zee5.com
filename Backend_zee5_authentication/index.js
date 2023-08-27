@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(cors());
 
 
-// let callBackUrlFrontSide = process.env.FRONTENDURL
-let callBackUrlFrontSide = "http://localhost:3000"
+let callBackUrlFrontSide = process.env.FRONTENDURL
+// let callBackUrlFrontSide = "http://localhost:3000"
 
 // Google Auth
 app.get(
