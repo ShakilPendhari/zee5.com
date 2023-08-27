@@ -54,7 +54,6 @@ GitHub_passport.use(
               email: email,
               otp: hash,
               createAt: Number(Date.now()),
-              expireAtLogin: Number(Date.now()) + 1000 * 60 * 60 * 48,
               expireAt: Number(Date.now()) + 1000 * 60 * 30,
             });
   
