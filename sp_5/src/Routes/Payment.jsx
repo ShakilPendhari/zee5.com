@@ -7,7 +7,7 @@ const Payment = () => {
      
       justifyContent="flex-start"
       alignItems={{ base: "center", sm: "center", md: "center" }}
-      height={{ base: "80vh", sm: "85vh", md: "90vh" }}
+      height={{ base: "80vh", sm: "85vh", md: "220vh" }}
       width="100vw"
       flexDir="column"
       gap="1.5rem"

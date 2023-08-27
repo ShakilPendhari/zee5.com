@@ -95,10 +95,33 @@ const Navbar = () => {
   const [ham, setHam] = useState(true);
   const { token } = useSelector((store) => store.auth);
   const location = useLocation();
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showOptions, setShowOptions] = useState(false);
 
   useEffect(() => {
     return () => clearTimeout(id);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  const handleScroll = () => {
+    let CurrentScrollY = window.scrollY;
+    setHam(true);
+    // setShowOptions(false)
+
+    if (CurrentScrollY > lastScrollY) {
+      setShowNavbar(false);
+      setShowOptions(false);
+    } else {
+      setShowNavbar(true);
+      setShowOptions(true);
+    }
+    setLastScrollY(CurrentScrollY);
+  };
 
   const handlequery = (e) => {
     setQuery(e.target.value);
@@ -132,12 +155,7 @@ const Navbar = () => {
   if (location.pathname === "/payment") {
     return (
       <Box
-        pos="fixed"
-        background="#0f0617"
-        top="0"
-        left="0"
-        right="0"
-        zIndex="10000"
+        className={`${style.showHide} ${showNavbar ? "" : style.hidden}`}
         height={{ base: "3rem", sm: "3rem", md: "4.5rem" }}
       >
         <Box className={style.Navbar}>
@@ -160,17 +178,10 @@ const Navbar = () => {
         </Box>
       </Box>
     );
-  }
-
-  if (true) {
+  } else {
     return (
       <Box
-        pos="fixed"
-        background="#0f0617"
-        top="0"
-        left="0"
-        right="0"
-        zIndex="10000"
+        className={`${style.showHide} ${showNavbar ? "" : style.hidden}`}
         height={{ base: "6.5rem", sm: "6.5rem", md: "5rem" }}
       >
         <Box className={style.Navbar}>
@@ -244,69 +255,76 @@ const Navbar = () => {
                 color="white"
                 aria-label="Options"
                 icon={ham ? <HamburgerIcon /> : <CloseIcon width="0.7rem" />}
-                onClick={() => setHam(!ham)}
+                onClick={() => {
+                  setHam(!ham);
+                  setShowOptions(true);
+                }}
                 background="transparent"
                 _hover={{
                   backgroundColor: "transparent",
                 }}
               />
-              <MenuList className={style.hamberger}>
-                {navbarHam &&
-                  navbarHam?.map((el, i) => {
-                    if (el?.login?.text === "LOGIN" && !token) {
-                      return (
-                        <MenuItem
-                          key={i}
-                          onClick={() => handeClick(el.login)}
-                          icon={el.logout.icon}
-                          className={style.hamOpt}
-                          fontSize={{ base: "0.6rem", sm: "0.8rem" }}
-                          color="black"
-                          _hover={{
-                            backgroundColor: "cyan !important",
-                            color: "blue !important",
-                          }}
-                        >
-                          {el?.login?.text}
-                        </MenuItem>
-                      );
-                    } else if (el?.logout?.text === "LOGOUT" && token) {
-                      return (
-                        <MenuItem
-                          key={i}
-                          onClick={() => handeClick(el.logout)}
-                          icon={el.logout.icon}
-                          className={style.hamOpt}
-                          fontSize={{ base: "0.6rem", sm: "0.8rem" }}
-                          color="black"
-                          _hover={{
-                            backgroundColor: "cyan !important",
-                            color: "blue !important",
-                          }}
-                        >
-                          {el.logout.text}
-                        </MenuItem>
-                      );
-                    } else {
-                      return (
-                        <MenuItem
-                          key={i}
-                          onClick={() => handeClick(el)}
-                          icon={el.icon}
-                          className={style.hamOpt}
-                          fontSize={{ base: "0.6rem", sm: "0.8rem" }}
-                          color="black"
-                          _hover={{
-                            backgroundColor: "cyan !important",
-                            color: "blue !important",
-                          }}
-                        >
-                          {el.text}
-                        </MenuItem>
-                      );
-                    }
-                  })}
-              </MenuList>
+              {
+                <MenuList
+                  className={style.hamberger}
+                  transform="scale(0.95) !important"
+                  opacity={ham ? "0 !important" : "1 !important"}
+                  visibility={ham ? "visible !important" : "visible !important"}
+                >
+                  {navbarHam &&
+                    navbarHam?.map((el, i) => {
+                      if (el?.login?.text === "LOGIN" && !token) {
+                        return (
+                          <MenuItem
+                            key={i}
+                            onClick={() => handeClick(el.login)}
+                            icon={el.logout.icon}
+                            className={style.hamOpt}
+                            fontSize={{ base: "0.77rem", sm: "0.85rem" }}
+                            color="black"
+                            background="white !important"
+                          >
+                            {el?.login?.text}
+                          </MenuItem>
+                        );
+                      } else if (el?.logout?.text === "LOGOUT" && token) {
+                        return (
+                          <MenuItem
+                            key={i}
+                            onClick={() => handeClick(el.logout)}
+                            icon={el.logout.icon}
+                            className={style.hamOpt}
+                            fontSize={{ base: "0.77rem", sm: "0.85rem" }}
+                            color="black"
+                            _hover={{
+                              backgroundColor: "cyan !important",
+                              color: "blue !important",
+                            }}
+                          >
+                            {el.logout.text}
+                          </MenuItem>
+                        );
+                      } else {
+                        return (
+                          <MenuItem
+                            key={i}
+                            onClick={() => handeClick(el)}
+                            icon={el.icon}
+                            className={style.hamOpt}
+                            fontSize={{ base: "0.77rem", sm: "0.85rem" }}
+                            color="black"
+                            _hover={{
+                              backgroundColor: "cyan !important",
+                              color: "blue !important",
+                            }}
+                          >
+                            {el.text}
+                          </MenuItem>
+                        );
+                      }
+                    })}
+                </MenuList>
+              }
             </Menu>
           </Flex>
         </Box>
