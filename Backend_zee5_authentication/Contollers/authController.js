@@ -184,7 +184,8 @@ let loginController = async (req, res) => {
               {
                 otp: hash,
                 createAt: Number(Date.now()),
-                expireAt: Number(Date.now()) + 1000 * 60 * 30,
+                expireAtLogin: Number(Date.now()) + 1000 * 60 * 60 * 48,
+                expireAt: Number(Date.now()) + 1000 * 60 * 30
               }
             );
 
