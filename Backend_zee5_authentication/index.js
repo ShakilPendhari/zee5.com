@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(cors());
 
 
-let callBackUrlFrontSide = process.env.FRONTENDURL
-// let callBackUrlFrontSide = "http://localhost:3000"
+// let callBackUrlFrontSide = process.env.FRONTENDURL
+let callBackUrlFrontSide = "http://localhost:3000"
 
 // Google Auth
 app.get(
@@ -37,7 +37,8 @@ app.get(
     // Successful authentication, redirect home.
     // let token = jwt_decode(req.user);
     let user = req.user;
-    let token = jwt.sign({ email:user.email }, process.env.SECRETEKEY, {
+    let expireSession = Date.now()+1000*60*60*2
+    let token = jwt.sign({ expireSession:expireSession,email: user.email, }, process.env.SECRETEKEY, {
       expiresIn: 60 * 60 * 5,
     });
     // console.log("userInfo:::", token);
@@ -62,7 +63,9 @@ app.get(
   }),
   function (req, res) {
     let user = req.user;
-    let token = jwt.sign({ email:user.email }, process.env.SECRETEKEY, {
+
+    let expireSession = Date.now()+1000*60*60*2
+    let token = jwt.sign({ expireSession:expireSession,email: user.email, }, process.env.SECRETEKEY, {
       expiresIn: 60 * 60 * 5,
     });
     // console.log("userInfo:::", token);
