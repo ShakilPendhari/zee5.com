@@ -14,11 +14,8 @@ function App() {
     const navigate = useNavigate();
   
     useEffect(()=>{
-      // let href = window.location.pathname
-      // location = {...location,state:href}
-      // console.log("Location::",location);
-      console.log(":: PreviousRouter :::",JSON.parse(localStorage.getItem("previousRouter")));
-      navigate(JSON.parse(localStorage.getItem("previousRouter")));
+      // console.log(":: PreviousRouter :::",JSON.parse(localStorage.getItem("previousRouter")));
+      // navigate(JSON.parse(localStorage.getItem("previousRouter")));
     },[])
   return (
     <div className="App">
