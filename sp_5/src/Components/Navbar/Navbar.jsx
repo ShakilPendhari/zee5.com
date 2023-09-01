@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { UpdateData } from "../../Redux/Video/action";
 import { IoMdLogOut } from "react-icons/io";
 import { Logout } from "../../Redux/Auth/auth.api";
+import { PreviousRoute } from "../../Redux/Auth/auth.action";
 
 const links = [
   {
@@ -133,11 +134,16 @@ const Navbar = () => {
     id = setTimeout(function () {
       clearTimeout(id);
       dispatch(UpdateData({ title: e.target.value, page, isPremium }));
+      localStorage.setItem("videoTitle",JSON.stringify(e.target.value));
       navigate("/Searching");
     }, 1000);
   };
 
   const handeClick = (el) => {
+    if(window.location.pathname !== "/login" && window.location.pathname !== "/Login")
+    {
+      localStorage.setItem("previousRouter",JSON.stringify(window.location.pathname))
+    }
     if (el.text === "LOGOUT") {
       dispatch(Logout());
       return;
@@ -147,8 +153,13 @@ const Navbar = () => {
   };
 
   const handleLogin = (e) => {
+    if(window.location.pathname !== "/login" && window.location.pathname !== "/Login")
+    {
+      localStorage.setItem("previousRouter",JSON.stringify(window.location.pathname))
+    }
     if (e.target.innerText === "LOGOUT") {
       dispatch(Logout());
+      return;
     }
   };
 
@@ -270,6 +281,7 @@ const Navbar = () => {
                   transform="scale(0.95) !important"
                   opacity={ham ? "0 !important" : "1 !important"}
                   visibility={ham ? "visible !important" : "visible !important"}
+                  display={ham ? "none !important" : "block !important"}
                 >
                   {navbarHam &&
                     navbarHam?.map((el, i) => {
@@ -296,10 +308,6 @@ const Navbar = () => {
                             className={style.hamOpt}
                             fontSize={{ base: "0.77rem", sm: "0.85rem" }}
                             color="black"
-                            _hover={{
-                              backgroundColor: "cyan !important",
-                              color: "blue !important",
-                            }}
                           >
                             {el.logout.text}
                           </MenuItem>
@@ -313,10 +321,6 @@ const Navbar = () => {
                             className={style.hamOpt}
                             fontSize={{ base: "0.77rem", sm: "0.85rem" }}
                             color="black"
-                            _hover={{
-                              backgroundColor: "cyan !important",
-                              color: "blue !important",
-                            }}
                           >
                             {el.text}
                           </MenuItem>

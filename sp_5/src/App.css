@@ -145,6 +145,12 @@ height: auto;
 /* Navbar Hamberger button */
 .css-od5pat{
   background-color: transparent !important;
+  /* color:rgb(176, 175, 175); */
+}
+
+/* Payment */
+.paymentScroll::-webkit-scrollbar{
+  display: none;
 }
 
 

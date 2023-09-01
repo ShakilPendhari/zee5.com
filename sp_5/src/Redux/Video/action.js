@@ -9,7 +9,8 @@ import {
 import { getData } from "./api";
 
 export const GetData = (obj) => async (dispatch) => {
-  let { title } = obj;
+  let dataVal = obj;
+  let title = dataVal?.title || JSON.parse(localStorage.getItem("videoTitle"));
   // console.log("OBJ::",obj);
 
   dispatch({ type: LOADING });

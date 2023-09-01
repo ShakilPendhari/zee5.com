@@ -13,6 +13,8 @@ export const AUTHTAKETOKEN = "AUTHTAKETOKEN"
 
 export const ADDEMAIL = "add/email"
 
+export const PREVIOUS_ROUTE = "previous/route"
+
 export const LOGOUTUSER = "LOGOUTUSER"
 
 

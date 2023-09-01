@@ -28,6 +28,8 @@ const PrivateRouteLogin = ({ children }) => {
   const { token } = useSelector((store) => store.auth);
   let tokenVal = token || takeToken();
 
+  localStorage.setItem("previousRouter",JSON.stringify("/Video"))
+
   if (tokenVal === "" || !isValid(tokenVal)) {
     return <Navigate to="/Login" />
   }

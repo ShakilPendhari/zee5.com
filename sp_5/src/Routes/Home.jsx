@@ -9,7 +9,7 @@ import SkeletonMovies from "../Components/Skeleton/Skeleton_movies";
 import MainSlider from "../Components/MainSlider/MainSlider";
 import style from "./../style/MainPages/Home.module.css";
 import { BlockbusterFilms, Free_dubbed_movies, Latest_hindi_episodes_free, PopularMovies, PremiumTvShows, Top_ten_web_series_in_india, Trending_Near_You, Unmissable_Movies_Shows, top_10_movies } from "../utils/DataForMoviesAndShows";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AddEmail, AddToken } from "../Redux/Auth/auth.action";
 import jwtDecode from "jwt-decode";
 import { useLocation } from "react-router";
@@ -17,7 +17,7 @@ import { useLocation } from "react-router";
 const Home = () => {
   const [flag, setFlag] = useState(false);
   let id = useRef(null);
-  const [ f, setF ] = useState(false);
+  // const [ f, setF ] = useState(false);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -40,6 +40,13 @@ const Home = () => {
       dispatch(AddToken(token));
     }
   },[dispatch]);
+
+  // useEffect(()=>{
+  //     console.log(":: PreviousRouter :::",JSON.parse(localStorage.getItem("previousRouter")));
+  // })
+
+ 
+  
 
   function takeToken(){
     try{

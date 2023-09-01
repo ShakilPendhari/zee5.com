@@ -3,23 +3,24 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./../style/MainPages/Video.module.css";
 import { Box, Flex, Image } from "@chakra-ui/react";
-import { PlayVideoByUsingID } from "../Redux/Video/action";
+import { GetData, PlayVideoByUsingID } from "../Redux/Video/action";
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "@chakra-ui/react";
 
 const Video = () => {
+  const dispatch = useDispatch();
   const { data, videoId } = useSelector((store) => store.data);
   const [videoIndex, setVideoIndex] = useState(0);
   // const {videoId} = data[0].id
   // const {title} = data[0].snippet
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
 
   useEffect(()=>{
     document.title = "SP5 | Video";
     window.innerHeight = 0;
-  },[])
+    dispatch(GetData({title:""}))
+  },[dispatch])
 
   const handleClick = (el) => {
     // dispatch(PLAYVIDEO(index));

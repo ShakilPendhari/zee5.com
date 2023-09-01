@@ -1,6 +1,6 @@
 
 import jwtDecode from "jwt-decode";
-import { ADDEMAIL, AUTHERROR_LOGIN, AUTHERROR_OTP, AUTHERROR_REGISTER, AUTHLOADING_LOGIN, AUTHLOADING_OTP, AUTHLOADING_REGISTER, AUTHLOGIN_INIT, AUTHREGISTER_INIT, AUTHTAKETOKEN } from "./auth.action.type";
+import { ADDEMAIL, AUTHERROR_LOGIN, AUTHERROR_OTP, AUTHERROR_REGISTER, AUTHLOADING_LOGIN, AUTHLOADING_OTP, AUTHLOADING_REGISTER, AUTHLOGIN_INIT, AUTHREGISTER_INIT, AUTHTAKETOKEN, PREVIOUS_ROUTE } from "./auth.action.type";
 import { CheckEmailorMob_api, login_api, register_api } from "./auth.api";
 
 export const Register =  (Credential, route, Alert) => async (dispatch) => {
@@ -115,6 +115,10 @@ export const CheckEmailorMob = (obj, route, Alert) => async (dispatch) => {
 
 export const AddToken = (token)=>(dispatch)=>{
   dispatch({ type: AUTHTAKETOKEN, payload: token });
+}
+
+export const PreviousRoute = (payload)=>(dispatch)=>{
+  dispatch({type:PREVIOUS_ROUTE,payload:payload})
 }
 
 export const AddEmail = (email)=> (dispatch) =>{

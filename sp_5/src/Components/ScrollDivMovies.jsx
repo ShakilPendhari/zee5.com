@@ -39,6 +39,7 @@ const ScrollDivMovies = (prop) => {
   const handlePlayVideo = (query)=>{
     const {title, isPremium} = query;
     // console.log("IsPremium::",isPremium);
+    localStorage.setItem("videoTitle",JSON.stringify(title));
     dispatch(IsPremium(isPremium))
     dispatch(GetData({title,page:""}));
     navigate("/Video")
