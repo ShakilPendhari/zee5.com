@@ -255,7 +255,9 @@ const Navbar = () => {
             <Button
               className={style.buyplane}
               leftIcon={<RiVipCrownFill />}
-              cursor="not-allowed"
+              // cursor="not-allowed"
+              cursor="pointer"
+              onClick={()=>navigate("/payment")}
             >
               BUY PLAN
             </Button>

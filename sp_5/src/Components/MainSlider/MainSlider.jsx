@@ -17,7 +17,7 @@ import { useState } from "react";
 import data from "../../RawMaterial/Home";
 // import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
 // import style from "./Main.module.css";
-import "./Main.css"
+import "./Main.css";
 import Slider from "react-slick";
 import { MdPlayArrow } from "react-icons/md";
 import { RiVipCrownFill } from "react-icons/ri";
@@ -27,7 +27,7 @@ import { useDispatch } from "react-redux";
 import { GetData } from "../../Redux/Video/action";
 import { useNavigate } from "react-router-dom";
 
-const MainSlider = ({title,index}) => {
+const MainSlider = ({ title, index }) => {
   const [count, setCount] = useState(1);
   let clouser = useRef();
   const dispatch = useDispatch();
@@ -88,11 +88,11 @@ const MainSlider = ({title,index}) => {
   //   );
   // };
 
-  const handlePlayVideo = (query)=>{
-      let { title, isPremium } = query;
-       dispatch(GetData({title,page:"",isPremium}));
-       navigate("/Video")
-  }
+  const handlePlayVideo = (query) => {
+    let { title, isPremium } = query;
+    dispatch(GetData({ title, page: "", isPremium }));
+    navigate("/Video");
+  };
 
   const settings = {
     className: "center",
@@ -168,7 +168,7 @@ const MainSlider = ({title,index}) => {
                       transition: "all 2s ease-in",
                       height: "100%",
                     }}
-                    src={`${title}${ (i + index)%8+1}.png`}
+                    src={`${title}${((i + index) % 8) + 1}.png`}
                     className="slidingImg"
                     alt="movie"
                   />
@@ -186,7 +186,7 @@ const MainSlider = ({title,index}) => {
                     }}
                   /> */}
                   <Flex
-                    gap={{base:"0.1rem",sm:"0.3rem",md:"0.5rem"}}
+                    gap={{ base: "0.1rem", sm: "0.3rem", md: "0.5rem" }}
                     flexDirection="column"
                     justifyContent="flex-start"
                     alignItems="flex-start"
@@ -199,28 +199,29 @@ const MainSlider = ({title,index}) => {
                       p="0px"
                       textAlign="left"
                       fontWeight="400"
-                      fontSize={{base:"1.05rem",sm:"1.2rem",md:"1.2rem"}}
+                      fontSize={{ base: "1.05rem", sm: "1.2rem", md: "1.2rem" }}
                       as="h1"
                     >
                       {SliderHead[i].title}
                     </Heading>
                     <Flex gap="1rem" direction="row">
-                    <Button
-                    className="watch"
-                    leftIcon={<MdPlayArrow />}
-                    // variant="outline"
-                    onClick={()=>handlePlayVideo(SliderHead[i])}
-                  >
-                    Watch
-                  </Button>
-                  <Button
-                    className="buyplane"
-                    leftIcon={<RiVipCrownFill/>}
-                    // variant="outline"
-                    onClick={()=>handlePlayVideo(SliderHead[i])}
-                  >
-                   BUY PLAN
-                  </Button>
+                      <Button
+                        className="watch"
+                        leftIcon={<MdPlayArrow />}
+                        // variant="outline"
+                        onClick={() => handlePlayVideo(SliderHead[i])}
+                      >
+                        Watch
+                      </Button>
+                      <Button
+                        className="buyplane"
+                        leftIcon={<RiVipCrownFill />}
+                        // variant="outline"
+                        cursor="pointer"
+                        onClick={() => navigate("/payment")}
+                      >
+                        BUY PLAN
+                      </Button>
                       {/* <Flex
                         p="0.5rem 0.3rem"
                         background="#8230c6"
