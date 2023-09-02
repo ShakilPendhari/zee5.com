@@ -149,10 +149,12 @@ height: auto;
 }
 
 /* Payment */
+.paymentScroll{
+  mask-image: linear-gradient( 180deg, #000 90%, transparent );
+}
 .paymentScroll::-webkit-scrollbar{
   display: none;
 }
-
 
 
 /* 
