@@ -174,7 +174,7 @@ const Payment = () => {
     <Flex
       justifyContent="flex-start"
       alignItems={{ base: "center", sm: "center", md: "center" }}
-      height={{ base: "100%", sm: "100%", md: "74rem" }}
+      // height={{ base: "100%", sm: "100%", md: "64rem" }}
       // height="max-content"
       width="100vw"
       flexDir="column"
@@ -185,7 +185,7 @@ const Payment = () => {
       </Heading>
       <Box
         width={{ base: "15rem", sm: "90%", md: "60%" }}
-        height={{ base: "15rem", sm: "80%", md: "60%" }}
+        height={{ base: "15rem", sm: "80%", md: "45rem" }}
         backgroundColor="rgba(50,50,50,0.1)"
         borderRadius="20px"
         // pt="1rem"
@@ -478,8 +478,13 @@ const Payment = () => {
           backgroundColor="#1D1425"
           borderRadius="5px"
           m="1rem 0rem"
+          cursor="not-allowed"
         >
-          <Flex gap="0.6rem" justifyContent="center" alignItems="center">
+          <Flex
+            gap="0.6rem"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Image
               src="https://www.zee5.com/webapp-assets/images/applyCode.svg"
               alt="percentage"
@@ -499,11 +504,12 @@ const Payment = () => {
           backgroundColor="#1D1425"
           borderRadius="5px"
           height="6.5rem"
-          position={{base:"fixed",sm:"fixed",md:"absolute"}}
+          position={{ base: "fixed", sm: "fixed", md: "absolute" }}
           bottom="0"
           left="0"
           right="0"
           zIndex="1000"
+          cursor="not-allowed"
         >
           <Flex flex="1" justifyContent="center" alignItems="center">
             <Text fontWeight="600" fontSize="1.1rem">
