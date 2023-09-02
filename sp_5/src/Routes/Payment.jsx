@@ -1,5 +1,10 @@
-import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  CloseIcon,
+  CheckIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+} from "@chakra-ui/icons";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 const object = [
@@ -169,7 +174,8 @@ const Payment = () => {
     <Flex
       justifyContent="flex-start"
       alignItems={{ base: "center", sm: "center", md: "center" }}
-      height={{ base: "30rem", sm: "35rem", md: "80rem" }}
+      height={{ base: "100%", sm: "100%", md: "74rem" }}
+      // height="max-content"
       width="100vw"
       flexDir="column"
       gap="1.5rem"
@@ -179,16 +185,23 @@ const Payment = () => {
       </Heading>
       <Box
         width={{ base: "15rem", sm: "90%", md: "60%" }}
-        height={{ base: "15rem", sm: "80%", md: "45%" }}
+        height={{ base: "15rem", sm: "80%", md: "60%" }}
+        backgroundColor="rgba(50,50,50,0.1)"
+        borderRadius="20px"
+        // pt="1rem"
+        position="relative"
+        p="1rem 2%"
+        overflow="hidden"
+        // zIndex="-1"
       >
         <Box
           overflowY="scroll"
           className="paymentScroll"
           width="100%"
-          height={{ base: "50%", sm: "60%", md: "65.5%" }}
+          height={{ base: "50%", sm: "40%", md: "45%" }}
           // border="2px solid green"
           borderRadius="15px"
-          p="1rem 3%"
+          // p="0rem 3%"
           position="relative"
           scrollBehavior="smooth"
         >
@@ -383,6 +396,7 @@ const Payment = () => {
                 position="relative"
                 key={el.id}
                 transition="all 0.2s ease-in-out"
+                zIndex="12"
               >
                 <Flex
                   flexDir="column"
@@ -416,6 +430,7 @@ const Payment = () => {
                       fontSize="0.7rem"
                       width="34%"
                       zIndex="10"
+                      borderTopStartRadius="6.3px"
                     >
                       {el.discount} save
                     </Text>
@@ -423,20 +438,22 @@ const Payment = () => {
                   <Text
                     display={el.sug ? "block" : "none"}
                     position="absolute"
-                    top="-1.35rem"
+                    top="-1.6rem"
                     left="28%"
                     background="linear-gradient(270deg,#5730c7,#5c2ade 48.11%,#2928D4 94.83%)"
                     zIndex="10"
                     fontSize="0.8rem"
-                    p="0.3rem 0.6rem"
-                    borderRadius="7px"
+                    p="0.15rem 0.55rem"
+                    borderRadius="5px"
+                    borderBottomLeftRadius="2px"
+                    borderBottomRightRadius="2px"
                   >
                     {el.sug}
                   </Text>
                 </Flex>
                 <Box
                   zIndex="8"
-                  display={obj[el.quality]?"block":"none"}
+                  display={obj[el.quality] ? "block" : "none"}
                   background="linear-gradient(270deg, rgba(87, 48, 199, 0.4), rgba(92, 42, 222, 0.4) 48.11%, rgba(41, 40, 212, 0.4) 94.83%)"
                   height="85%"
                   borderRadius="15px 0px 48px 160px"
@@ -454,8 +471,61 @@ const Payment = () => {
               </Box>
             ))}
         </Flex>
+        <Flex
+          alignItems="center"
+          p="0.5rem 3%"
+          justifyContent="space-between"
+          backgroundColor="#1D1425"
+          borderRadius="5px"
+          m="1rem 0rem"
+        >
+          <Flex gap="0.6rem" justifyContent="center" alignItems="center">
+            <Image
+              src="https://www.zee5.com/webapp-assets/images/applyCode.svg"
+              alt="percentage"
+            />
+            <Text>Apply code</Text>
+          </Flex>
+          <ChevronRightIcon width="1.3rem" height="1.3rem" />
+        </Flex>
+        <Text fontSize="0.85rem" mt="1rem" textAlign="left" color="grey">
+          4K plan is supported on 4K TVs and Connected devices only. See our
+          Terms of Use for more details.
+        </Text>
+        <Flex
+          alignItems="center"
+          p="0.5rem 3%"
+          justifyContent="space-between"
+          backgroundColor="#1D1425"
+          borderRadius="5px"
+          height="6.5rem"
+          position={{base:"fixed",sm:"fixed",md:"absolute"}}
+          bottom="0"
+          left="0"
+          right="0"
+          zIndex="1000"
+        >
+          <Flex flex="1" justifyContent="center" alignItems="center">
+            <Text fontWeight="600" fontSize="1.1rem">
+              Pay using UPI
+            </Text>
+            <ChevronUpIcon width="1.7rem" height="1.7rem" />
+          </Flex>
+          <Flex
+            borderRadius="5px"
+            justifyContent="center"
+            alignItems="center"
+            flex="2.5"
+            height="60%"
+            color="white"
+            bgColor="#8330C6"
+            fontWeight="600"
+            fontSize="1rem"
+          >
+            Buy Premium
+          </Flex>
+        </Flex>
       </Box>
-      <Box></Box>
     </Flex>
   );
 };
