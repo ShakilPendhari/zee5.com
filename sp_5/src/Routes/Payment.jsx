@@ -185,7 +185,7 @@ const Payment = () => {
       </Heading>
       <Box
         width={{ base: "15rem", sm: "90%", md: "60%" }}
-        height={{ base: "15rem", sm: "80%", md: "45rem" }}
+        height={{ base: "15rem", sm: "28rem", md: "45rem" }}
         backgroundColor="rgba(50,50,50,0.1)"
         borderRadius="20px"
         // pt="1rem"
