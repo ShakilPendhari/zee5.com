@@ -1,0 +1,6 @@
+@media all and (min-width:769px) and (max-width:1000px)
+{
+    .plan{
+        width: 80vw !important;
+    }
+}

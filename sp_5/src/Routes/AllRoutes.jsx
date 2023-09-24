@@ -29,9 +29,9 @@ const AllRoutes = () => {
         path="/Video"
         element={
           <PrivateRouteLogin>
-            <PrivateRoutePremium>
+            {/* <PrivateRoutePremium> */}
               <Video />
-            </PrivateRoutePremium>
+            {/* </PrivateRoutePremium> */}
           </PrivateRouteLogin>
         }
       />
