@@ -23,6 +23,7 @@ const ScrollDivMovies = (prop) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     window.addEventListener("resize", updateWidth);
 
@@ -30,6 +31,7 @@ const ScrollDivMovies = (prop) => {
   }, [width]);
   useEffect(() => {}, [divScroll, leftArrow, but, rightArrow,dispatch]);
 
+  
   const updateWidth = () => {
     setWidth(() => {
       // console.log("width:", window.innerWidth);

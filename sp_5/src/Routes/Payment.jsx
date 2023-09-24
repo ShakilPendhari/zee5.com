@@ -4,8 +4,19 @@ import {
   ChevronRightIcon,
   ChevronUpIcon,
 } from "@chakra-ui/icons";
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  Box,
+  Flex,
+  Heading,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import { useState } from "react";
+import style from "./../style/MainPages/Payment.module.css"
 
 const object = [
   {
@@ -162,6 +173,7 @@ let boxShadowDefault = {
 const Payment = () => {
   const [obj, setObj] = useState(boxShadow);
   const [cardPlan, setCardPlan] = useState(plans);
+  const [ isPayment, setIsPayment ] = useState(false);
 
   const handleClick = (key) => {
     if (obj[key]) {
@@ -169,6 +181,36 @@ const Payment = () => {
     }
     setObj({ ...boxShadowDefault, [key]: !obj[key] });
   };
+
+  const handlePay = ()=>{
+    setIsPayment(true);
+  }
+  
+
+  if (isPayment) {
+    return (
+      <Alert
+        status="success"
+        variant="subtle"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        textAlign="center"
+        bgColor="green.700"
+        width={{ base: "15rem", sm: "90%", md: "60%" }}
+        margin="auto"
+        height="80vh"
+      >
+        <AlertIcon boxSize="40px" mr={0} />
+        <AlertTitle mt={4} mb={1} fontSize="lg">
+          Payment Successful!
+        </AlertTitle>
+        <AlertDescription maxWidth="sm">
+          Congratulations for have a premium plane
+        </AlertDescription>
+      </Alert>
+    );
+  }
 
   return (
     <Flex
@@ -179,13 +221,15 @@ const Payment = () => {
       width="100vw"
       flexDir="column"
       gap="1.5rem"
+      fontSize={{base:"0.6rem",sm:"0.8rem",md:"1rem"}}
     >
-      <Heading as="h1" fontWeight="700" fontSize="1.75rem">
+      <Heading as="h1" fontWeight="700" fontSize="1.75em">
         Choose your Premium plan
       </Heading>
       <Box
-        width={{ base: "15rem", sm: "90%", md: "60%" }}
-        height={{ base: "15rem", sm: "28rem", md: "45rem" }}
+        width={{ base: "100%", sm: "100%", md: "60%" }}
+        className={style.plan}
+        height={{ base: "28rem", sm: "28rem", md: "45rem" }}
         backgroundColor="rgba(50,50,50,0.1)"
         borderRadius="20px"
         // pt="1rem"
@@ -198,9 +242,9 @@ const Payment = () => {
           overflowY="scroll"
           className="paymentScroll"
           width="100%"
-          height={{ base: "50%", sm: "40%", md: "45%" }}
+          height={{ base: "50%", sm: "47%", md: "45%" }}
           // border="2px solid green"
-          borderRadius="15px"
+          borderRadius="1em"
           // p="0rem 3%"
           position="relative"
           scrollBehavior="smooth"
@@ -226,10 +270,10 @@ const Payment = () => {
                       }
                     >
                       <Flex flex="1" flexDir="column">
-                        <Text textAlign="left" fontSize="1rem" fontWeight="600">
+                        <Text textAlign="left" fontSize="1em" fontWeight="600">
                           {el.text1}
                         </Text>
-                        <Text textAlign="left" fontSize="0.85rem" color="grey">
+                        <Text textAlign="left" fontSize="0.85em" color="grey">
                           {el.text2}
                         </Text>
                       </Flex>
@@ -241,7 +285,7 @@ const Payment = () => {
             <Flex
               background={obj.Mobile ? "#2c2136" : ""}
               color={obj.Mobile ? "rgb(193, 170, 255)" : "#828282"}
-              borderRadius="15px"
+              borderRadius="0.95em"
               flex="1"
               flexDir="column"
             >
@@ -275,14 +319,14 @@ const Payment = () => {
                         alignItems="center"
                       >
                         {el.closeIcon ? (
-                          <Text fontSize="1rem">{el.text3}</Text>
+                          <Text fontSize="1em">{el.text3}</Text>
                         ) : el.checkIcon ? (
-                          <Text fontSize="1.2rem">{el.text3}</Text>
+                          <Text fontSize="1.2em">{el.text3}</Text>
                         ) : (
-                          <Text fontSize="1rem">{el.text3}</Text>
+                          <Text fontSize="1em">{el.text3}</Text>
                         )}
 
-                        <Text fontSize="0.85rem">{el.text6}</Text>
+                        <Text fontSize="0.85em">{el.text6}</Text>
                       </Flex>
                     </Flex>
                   ))}
@@ -292,7 +336,7 @@ const Payment = () => {
             <Flex
               background={obj["Premium HD"] ? "#2c2136" : ""}
               color={obj["Premium HD"] ? "rgb(193, 170, 255)" : "#828282"}
-              borderRadius="15px"
+              borderRadius="1em"
               flexDir="column"
               flex="1"
               gap="1rem"
@@ -321,11 +365,11 @@ const Payment = () => {
                       alignItems="center"
                     >
                       {el.checkIcon ? (
-                        <Text fontSize="1.2rem">{el.text4}</Text>
+                        <Text fontSize="1.2em">{el.text4}</Text>
                       ) : (
-                        <Text fontSize="1rem">{el.text4}</Text>
+                        <Text fontSize="1em">{el.text4}</Text>
                       )}
-                      <Text fontSize="0.85rem">{el.text6}</Text>
+                      <Text fontSize="0.85em">{el.text6}</Text>
                     </Flex>
                   </Flex>
                 ))}
@@ -334,7 +378,7 @@ const Payment = () => {
             <Flex
               background={obj["Premium 4k"] ? "#2c2136" : ""}
               color={obj["Premium 4k"] ? "rgb(193, 170, 255)" : "#828282"}
-              borderRadius="15px"
+              borderRadius="1em"
               justifyContent="center"
               flexDir="column"
               flex="1"
@@ -364,9 +408,9 @@ const Payment = () => {
                       alignItems="center"
                     >
                       {el.checkIcon ? (
-                        <Text fontSize="1.2rem">{el.text5}</Text>
+                        <Text fontSize="1.2em">{el.text5}</Text>
                       ) : (
-                        <Text fontSize="1rem">{el.text5}</Text>
+                        <Text fontSize="1em">{el.text5}</Text>
                       )}
                     </Flex>
                   </Flex>
@@ -386,13 +430,13 @@ const Payment = () => {
               <Box
                 onClick={() => handleClick(el.quality)}
                 borderRadius="8px"
-                height="8rem"
+                height="8em"
                 border={
                   obj[el.quality]
                     ? "2px solid rgb(167, 133, 255)"
                     : "2px solid #4F4F4F"
                 }
-                width="11.3rem"
+                width="11.3em"
                 position="relative"
                 key={el.id}
                 transition="all 0.2s ease-in-out"
@@ -402,7 +446,7 @@ const Payment = () => {
                   flexDir="column"
                   zIndex="10"
                   position="relative"
-                  pt="1rem"
+                  pt="1em"
                   justifyContent="space-evenly"
                   height="100%"
                 >
@@ -416,7 +460,7 @@ const Payment = () => {
                       {el.actualPrice}
                     </Text>
                   )}
-                  <Text zIndex="10" fontSize="1.4rem" fontWeight="600">
+                  <Text zIndex="10" fontSize="1.4em" fontWeight="600">
                     {el.price}
                   </Text>
                   <Text zIndex="10">{el.duration}</Text>
@@ -427,7 +471,7 @@ const Payment = () => {
                       left="0"
                       background="#2F80ED"
                       borderRadius="5px"
-                      fontSize="0.7rem"
+                      fontSize="0.7em"
                       width="34%"
                       zIndex="10"
                       borderTopStartRadius="6.3px"
@@ -442,7 +486,7 @@ const Payment = () => {
                     left="28%"
                     background="linear-gradient(270deg,#5730c7,#5c2ade 48.11%,#2928D4 94.83%)"
                     zIndex="10"
-                    fontSize="0.8rem"
+                    fontSize="0.8em"
                     p="0.15rem 0.55rem"
                     borderRadius="5px"
                     borderBottomLeftRadius="2px"
@@ -473,18 +517,14 @@ const Payment = () => {
         </Flex>
         <Flex
           alignItems="center"
-          p="0.5rem 3%"
+          p="0.5em 3%"
           justifyContent="space-between"
           backgroundColor="#1D1425"
-          borderRadius="5px"
-          m="1rem 0rem"
+          borderRadius="calc(1/3)em"
+          m="1em 0rem"
           cursor="not-allowed"
         >
-          <Flex
-            gap="0.6rem"
-            justifyContent="center"
-            alignItems="center"
-          >
+          <Flex gap="0.6rem" justifyContent="center" alignItems="center">
             <Image
               src="https://www.zee5.com/webapp-assets/images/applyCode.svg"
               alt="percentage"
@@ -493,7 +533,7 @@ const Payment = () => {
           </Flex>
           <ChevronRightIcon width="1.3rem" height="1.3rem" />
         </Flex>
-        <Text fontSize="0.85rem" mt="1rem" textAlign="left" color="grey">
+        <Text fontSize="0.85em" mt="1rem" textAlign="left" color="grey">
           4K plan is supported on 4K TVs and Connected devices only. See our
           Terms of Use for more details.
         </Text>
@@ -509,10 +549,10 @@ const Payment = () => {
           left="0"
           right="0"
           zIndex="1000"
-          cursor="not-allowed"
+          // cursor="not-allowed"
         >
           <Flex flex="1" justifyContent="center" alignItems="center">
-            <Text fontWeight="600" fontSize="1.1rem">
+            <Text fontWeight="600" fontSize="1.1em">
               Pay using UPI
             </Text>
             <ChevronUpIcon width="1.7rem" height="1.7rem" />
@@ -526,7 +566,9 @@ const Payment = () => {
             color="white"
             bgColor="#8330C6"
             fontWeight="600"
-            fontSize="1rem"
+            fontSize="1em"
+            cursor="pointer"
+            onClick={handlePay}
           >
             Buy Premium
           </Flex>
